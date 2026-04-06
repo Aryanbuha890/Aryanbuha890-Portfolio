@@ -3,6 +3,9 @@
 > **Full Stack Developer & AI/ML Enthusiast**  
 > *Transforming ideas into high-impact digital solutions.*
 
+> [!NOTE]
+> **Account Update:** My old GitHub account (`Aryanbuha89`) is suspended. This is my new, active account (`Aryanbuha890`).
+
 [![Portfolio](https://img.shields.io/badge/Portfolio-Live-ff004f?style=for-the-badge&logo=google-chrome&logoColor=white)](https://aryanbuha-portfolio.vercel.app/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aryan-buha-874a5434b)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Aryanbuha890)
