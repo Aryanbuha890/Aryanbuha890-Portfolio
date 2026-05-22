@@ -28,6 +28,12 @@ export default function About() {
 
   const experiences = [
     {
+      role: 'Founder & Tech Lead',
+      company: 'Triotrack Solution',
+      date: '2025 - Present',
+      desc: 'Founded and direct a technology company building modern digital solutions, custom software, AI automation architectures, SaaS systems, and high-performance web platforms. (triotracksolution.online)'
+    },
+    {
       role: 'Project Lead / Architect',
       company: 'Hackovate 2025 (LJ University)',
       date: 'Jan 2025',
@@ -99,7 +105,7 @@ export default function About() {
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-4 flex justify-center"
+            className="lg:col-span-4 flex flex-col items-center gap-6"
           >
             <div className="relative group max-w-[320px] w-full">
               {/* Outer coder frame box */}
@@ -111,15 +117,9 @@ export default function About() {
                   <img 
                     src={profileImage} 
                     alt="Aryan Buha" 
-                    className="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-500 ease-out hover:scale-105"
+                    className="w-full h-full object-cover object-center transition-all duration-500 ease-out hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                  
-                  {/* Glass coder overlay in bottom corner */}
-                  <div className="absolute bottom-3 left-3 right-3 py-2 px-3 rounded bg-black/75 backdrop-blur-md border border-white/5 flex items-center justify-between">
-                    <span className="text-[10px] font-mono text-red-400">STATUS: ACTIVE</span>
-                    <span className="text-[10px] font-mono text-neutral-400">OS: Win64</span>
-                  </div>
                 </div>
                 
                 {/* Visual signature / footer card */}
@@ -127,6 +127,47 @@ export default function About() {
                   <span>Aryan_Buha.bin</span>
                   <span>SIZE: 7.2KB</span>
                 </div>
+              </div>
+            </div>
+
+            {/* Triotrack Solution Premium Glass Banner Card */}
+            <div className="w-full max-w-[320px] bg-neutral-950/80 backdrop-blur-xl p-5 rounded-xl border border-red-500/30 hover:border-red-500/60 shadow-[0_0_30px_rgba(239,68,68,0.15)] hover:shadow-[0_0_40px_rgba(239,68,68,0.25)] transition-all duration-500 relative group/tcard overflow-hidden hover:-translate-y-1">
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/[0.03] to-transparent -translate-x-full group-hover/tcard:animate-[shimmer_1.5s_ease-out] z-10"></div>
+              
+              {/* Pulsing indicator tag */}
+              <div className="absolute top-3 right-3 flex items-center gap-1">
+                <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping"></span>
+                <span className="h-1.5 w-1.5 rounded-full bg-red-500 absolute"></span>
+                <span className="text-[7px] font-mono text-red-500/90 font-bold uppercase tracking-wider ml-1">LIVE</span>
+              </div>
+
+              <div className="flex items-center gap-3.5">
+                <div className="w-14 h-14 rounded-xl bg-black border border-red-500/30 overflow-hidden flex items-center justify-center p-1.5 shrink-0 shadow-[0_0_15px_rgba(239,68,68,0.15)] group-hover/tcard:border-red-500/60 transition-colors duration-300">
+                  <img src="/logo triotrack.png" alt="Triotrack Solution Logo" className="w-full h-full object-contain" />
+                </div>
+                <div className="text-left">
+                  <span className="text-[9px] font-mono text-red-500 uppercase tracking-widest block font-bold">// Founder & Director</span>
+                  <h4 className="text-base font-bold font-mono leading-tight tracking-wide bg-gradient-to-r from-white via-neutral-200 to-red-400 bg-clip-text text-transparent group-hover/tcard:from-red-400 group-hover/tcard:to-white transition-all duration-500">
+                    Triotrack Solution
+                  </h4>
+                  <span className="text-[9px] font-mono text-neutral-400 font-semibold tracking-wider block mt-0.5">// AUTOMATE. INNOVATE. SCALE.</span>
+                </div>
+              </div>
+              
+              <p className="text-[11px] text-neutral-300 mt-3 text-left leading-relaxed font-mono">
+                Directing smart enterprise AI automation pipelines, SaaS frameworks, and premium high-performance web systems.
+              </p>
+              
+              <div className="mt-4 flex">
+                <a 
+                  href="https://triotracksolution.online/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-full py-2 px-4 rounded-full bg-gradient-to-r from-red-600 to-red-800 hover:from-red-500 hover:to-red-700 text-xs font-mono font-bold text-white text-center transition-all duration-300 flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(239,68,68,0.3)] hover:shadow-[0_0_25px_rgba(239,68,68,0.5)] hover:scale-[1.03]"
+                >
+                  Visit triotracksolution.online
+                  <span className="text-white group-hover/tcard:translate-x-1 transition-transform">→</span>
+                </a>
               </div>
             </div>
           </motion.div>
@@ -141,7 +182,7 @@ export default function About() {
           >
             {/* Short Introduction Paragraph */}
             <p className="text-neutral-300 leading-relaxed text-base select-text">
-              I am Aryan Buha, a computer science enthusiast. I focus on building efficient, user-centric solutions with clean design, proper layout flow, and seamless functionality. I love participating in highly collaborative, high-energy hackathons, thriving under stress to create robust software.
+              I am Aryan Buha, a computer science enthusiast and the **Founder of Triotrack Solution**. I focus on building intelligent, scalable digital architectures, AI-powered automation systems, and high-performance full-stack applications. I thrive in high-stress, high-energy hackathons and client builds, transforming complex ideas into functional, premium software.
             </p>
 
             {/* Glass Tab Headers */}

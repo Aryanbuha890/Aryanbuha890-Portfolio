@@ -46,6 +46,7 @@ export default function Header({ onNavClick }) {
   ])
   const [terminalInput, setTerminalInput] = useState('')
   const terminalEndRef = useRef(null)
+  const terminalLogsRef = useRef(null)
 
   const words = [
     "Computer Science Student",
@@ -64,9 +65,24 @@ export default function Header({ onNavClick }) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Auto-scroll terminal to bottom
+  // Mouse position tracking for pointer-follow glow
+  const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 })
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    const handleMouseMove = (e) => {
+      setMousePos({ x: e.clientX, y: e.clientY })
+    }
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
+
+  // Auto-scroll terminal container directly to bottom without page jumping
+  useEffect(() => {
+    if (terminalLogsRef.current) {
+      terminalLogsRef.current.scrollTo({
+        top: terminalLogsRef.current.scrollHeight,
+        behavior: 'smooth'
+      })
+    }
   }, [terminalHistory])
 
   const executeCommand = (cmd) => {
@@ -82,7 +98,7 @@ export default function Header({ onNavClick }) {
         response = `SKILL CATALOG:\n----------------------------------------\n• Languages:   C, C++, Java, Python, JavaScript\n• Web Dev:     HTML5, CSS3, React.js, Tailwind CSS\n• Backend:     Node.js, Express, FastAPI, Flask, SQL\n• ML & AI:     Scikit-learn, Pandas, NumPy, Model Prep\n• Core:        DSA, OOP, System Debugging, Logic`
         break
       case 'about':
-        response = `ARYAN BUHA | CS ENGINEER:\n----------------------------------------\n• Academy:   B.E. Computer Science & Engineering\n• Institute: Maharaja Sayajirao University of Baroda\n• Passion:   Developing smart AI systems, high-speed full-stack webs, and agriculture tech IoT systems.\n• Mission:   Solving critical problems via clean architectures.`
+        response = `ARYAN BUHA | FOUNDER & CS ENGINEER:\n----------------------------------------\n• Founder:   Triotrack Solution (triotracksolution.online)\n• Academy:   B.E. Computer Science & Engineering\n• Institute: Maharaja Sayajirao University of Baroda\n• Passion:   Developing smart AI systems, high-speed full-stack webs, and agriculture tech IoT systems.\n• Mission:   Solving critical problems via clean architectures.`
         break
       case 'achievements':
         response = `HACKATHONS & AWARDS:\n----------------------------------------\n🏆 Finalist (Top 40 / 240+) - Hackovate 2025 (LJ University)\n💻 Climate Tech Award - HackOut 2025 (DAIICT)\n🚀 Global Challenger - NASA Space Apps\n🛰️ Space Tech Hack - ISRO Bharatiya Antariksh\n🎮 Creative Design - ITM Game Jam`
@@ -232,11 +248,51 @@ export default function Header({ onNavClick }) {
       {/* Hero / Header Section */}
       <section 
         id="home" 
-        className="relative min-height-screen pt-32 pb-24 md:py-40 flex items-center overflow-hidden code-grid-bg"
+        className="relative min-h-screen pt-32 pb-24 md:py-40 flex items-center overflow-hidden code-grid-bg"
       >
+        {/* Interactive mouse follow glow */}
+        <div 
+          className="absolute inset-0 pointer-events-none z-0 transition-opacity duration-300 opacity-60 md:opacity-100"
+          style={{
+            background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(239, 68, 68, 0.07), transparent 60%)`
+          }}
+        />
+
         {/* Glow Particles */}
-        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-red-950/20 blur-3xl animated-glow-bg z-0"></div>
-        <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[450px] h-[450px] rounded-full bg-neutral-900/40 blur-3xl animated-glow-bg z-0"></div>
+        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-red-950/15 blur-3xl animated-glow-bg z-0 pointer-events-none"></div>
+        <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[450px] h-[450px] rounded-full bg-neutral-900/30 blur-3xl animated-glow-bg z-0 pointer-events-none"></div>
+
+        {/* Floating monospaced binary/code particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          {[
+            { text: 'const user = "Aryan"', x: '10%', y: '25%', duration: 18, delay: 0 },
+            { text: '01101001', x: '85%', y: '15%', duration: 12, delay: 2 },
+            { text: '<React.StrictMode>', x: '5%', y: '75%', duration: 15, delay: 1 },
+            { text: 'model.fit(X, y)', x: '78%', y: '80%', duration: 20, delay: 3 },
+            { text: 'npm run dev', x: '45%', y: '10%', duration: 14, delay: 0.5 },
+            { text: 'await response.json()', x: '82%', y: '50%', duration: 16, delay: 2.5 }
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{
+                y: [-20, 20, -20],
+                x: [-10, 10, -10],
+                opacity: [0.1, 0.35, 0.1]
+              }}
+              transition={{
+                duration: item.duration,
+                repeat: Infinity,
+                delay: item.delay,
+                ease: "easeInOut"
+              }}
+              className="absolute font-mono text-[10px] md:text-xs text-red-500/30 select-none hidden sm:block"
+              style={{ left: item.x, top: item.y }}
+            >
+              {item.text}
+            </motion.div>
+          ))}
+        </div>
 
         <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           
@@ -267,9 +323,10 @@ export default function Header({ onNavClick }) {
               Engineering student at MSU Baroda passionate about full-stack systems, machine learning pipelines, and smart agricultural automation. Thriving in high-stress hackathons and team-focused builds.
             </p>
 
-            {/* Quote block */}
-            <div className="border-l-2 border-red-600 pl-4 bg-white/2 backdrop-blur-sm py-3 px-4 rounded-r-md max-w-lg select-text">
-              <p className="italic text-neutral-400 text-sm">
+            {/* Upgraded Quote block */}
+            <div className="border-l-2 border-red-500 pl-4 bg-white/[0.01] hover:bg-white/[0.03] backdrop-blur-md py-3.5 px-5 rounded-r-lg max-w-lg select-text border border-white/5 shadow-inner transition-all duration-500 group/quote hover:border-red-500/20">
+              <span className="text-[9px] font-mono text-red-500/70 uppercase tracking-widest block mb-1.5 transition-colors group-hover/quote:text-red-400">// compiler message directive</span>
+              <p className="italic text-neutral-300 text-sm leading-relaxed">
                 "Turning ideas into code and learning every step of the way 💻."
               </p>
             </div>
@@ -307,7 +364,10 @@ export default function Header({ onNavClick }) {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="lg:col-span-5 w-full"
           >
-            <div className="w-full rounded-lg overflow-hidden glass-panel red-glow-subtle flex flex-col h-[380px] shadow-2xl relative">
+            <div className="w-full rounded-lg overflow-hidden glass-panel red-glow-subtle flex flex-col h-[380px] shadow-2xl relative group/terminal hover:border-red-500/20 transition-all duration-500">
+              {/* Sweeping Glass Reflection Overlay */}
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/[0.03] to-transparent -translate-x-full group-hover/terminal:animate-[shimmer_1.5s_ease-out] z-20"></div>
+
               {/* Scanline overlay */}
               <div className="absolute inset-0 pointer-events-none scanline opacity-[0.03] z-10"></div>
 
@@ -318,7 +378,10 @@ export default function Header({ onNavClick }) {
                   <span className="w-3 h-3 rounded-full terminal-btn-yellow block"></span>
                   <span className="w-3 h-3 rounded-full terminal-btn-green block"></span>
                 </div>
-                <div className="flex items-center gap-2 text-[11px] font-mono text-neutral-500">
+                <div className="flex items-center gap-2 text-[10px] font-mono text-neutral-500">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                  <span className="text-emerald-400 font-semibold">[LIVE LINK]</span>
+                  <span className="text-neutral-700">|</span>
                   <Terminal size={12} className="text-red-500 animate-pulse" />
                   bash - aryan@msu-box:~
                 </div>
@@ -326,7 +389,10 @@ export default function Header({ onNavClick }) {
               </div>
 
               {/* Console logs */}
-              <div className="flex-1 p-4 overflow-y-auto font-mono text-xs text-neutral-300 text-left space-y-3 bg-black/60 scrollbar select-text">
+              <div 
+                ref={terminalLogsRef} 
+                className="flex-1 p-4 overflow-y-auto font-mono text-xs text-neutral-300 text-left space-y-3 bg-black/60 scrollbar select-text"
+              >
                 {terminalHistory.map((item, idx) => (
                   <div key={idx} className="space-y-1">
                     {item.type === 'input' ? (
@@ -351,7 +417,7 @@ export default function Header({ onNavClick }) {
                   <button
                     key={cmd}
                     onClick={() => executeCommand(cmd)}
-                    className="px-2 py-0.5 rounded border border-neutral-800 hover:border-red-500/50 bg-neutral-900 text-[10px] font-mono text-neutral-400 hover:text-white transition-all"
+                    className="px-2 py-0.5 rounded border border-white/5 hover:border-red-500/50 bg-white/[0.02] hover:bg-red-500/10 text-[10px] font-mono text-neutral-400 hover:text-white transition-all duration-300 cursor-pointer"
                   >
                     {cmd}
                   </button>
@@ -371,7 +437,6 @@ export default function Header({ onNavClick }) {
               </form>
             </div>
           </motion.div>
-
         </div>
       </section>
     </>

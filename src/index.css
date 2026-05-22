@@ -31,6 +31,7 @@
 /* Base Styles & Utility overrides */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 110px; /* Offset for floating glass navbar */
   background-color: #000000;
 }
 
@@ -113,6 +114,15 @@ body {
   50% { border-color: #ef4444; }
 }
 
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 /* Scanline Effect */
 .scanline {
   background: linear-gradient(
@@ -124,3 +134,394 @@ body {
   );
   background-size: 100% 4px;
 }
+
+/* ==========================================================================
+   CRIMSON TURBULENT GLASS CARDS & ELECTRIFYING BORDERS
+   ========================================================================== */
+
+.turbulent-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.turbulent-svg-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.turbulent-card-wrap {
+  padding: 2px;
+  border-radius: 24px;
+  position: relative;
+  background: linear-gradient(
+      -30deg,
+      oklch(0.4 0.25 20),
+      transparent,
+      oklch(0.4 0.25 20)
+    ),
+    linear-gradient(to bottom, oklch(0.185 0.05 20), oklch(0.185 0 0));
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+}
+
+.turbulent-card-wrap:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(239, 68, 68, 0.15),
+    0 0 30px rgba(239, 68, 68, 0.05);
+}
+
+.turbulent-inner-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.turbulent-border-outer {
+  border: 2px solid rgba(239, 68, 68, 0.3);
+  border-radius: 24px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.turbulent-main-card {
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  min-height: 480px;
+  border-radius: 24px;
+  border: 2px solid #ef4444;
+  margin-top: -4px;
+  margin-left: -4px;
+  filter: url(#turbulent-displace);
+  background: rgba(10, 10, 10, 0.85);
+  transition: border-color 0.3s;
+}
+
+.turbulent-card-wrap:hover .turbulent-main-card {
+  border-color: #ff2255;
+  filter: url(#turbulent-displace-active);
+}
+
+.turbulent-glow-layer-1 {
+  border: 2px solid rgba(239, 68, 68, 0.5);
+  border-radius: 24px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(2px);
+  pointer-events: none;
+  animation: neonCracklePulse 4s ease-in-out infinite alternate;
+}
+
+.turbulent-glow-layer-2 {
+  border: 2px solid oklch(0.63 0.25 20);
+  border-radius: 24px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(6px);
+  pointer-events: none;
+  animation: neonElectricGlow 6s ease-in-out infinite alternate;
+}
+
+.turbulent-overlay-1,
+.turbulent-overlay-2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 24px;
+  mix-blend-mode: overlay;
+  transform: scale(1.05);
+  filter: blur(16px);
+  pointer-events: none;
+  background: linear-gradient(
+    -30deg,
+    white,
+    transparent 30%,
+    transparent 70%,
+    white
+  );
+}
+
+.turbulent-overlay-1 {
+  opacity: 0.15;
+}
+
+.turbulent-overlay-2 {
+  opacity: 0.08;
+}
+
+.turbulent-bg-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 24px;
+  filter: blur(32px);
+  transform: scale(1.1);
+  opacity: 0.2;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    -30deg,
+    oklch(0.63 0.25 20),
+    transparent,
+    #ef4444
+  );
+  transition: opacity 0.3s;
+}
+
+.turbulent-card-wrap:hover .turbulent-bg-glow {
+  opacity: 0.45;
+}
+
+.turbulent-content-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.turbulent-content-top {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.turbulent-scrollbar-glass {
+  background: radial-gradient(
+      47.2% 50% at 50.39% 88.37%,
+      rgba(239, 68, 68, 0.15) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(255, 255, 255, 0.03);
+  position: relative;
+  transition: background 0.3s ease, border-color 0.3s;
+  border-radius: 12px;
+  width: fit-content;
+  padding: 6px 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-mono);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.turbulent-scrollbar-glass:hover {
+  background: radial-gradient(
+      47.2% 50% at 50.39% 88.37%,
+      rgba(239, 68, 68, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(255, 255, 255, 0.06);
+  border-color: rgba(239, 68, 68, 0.6);
+}
+
+.turbulent-scrollbar-glass::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1px;
+  background: linear-gradient(
+    150deg,
+    rgba(239, 68, 68, 0.5) 16.73%,
+    rgba(255, 255, 255, 0.05) 30.2%,
+    rgba(255, 255, 255, 0.05) 68.2%,
+    rgba(239, 68, 68, 0.6) 81.89%
+  );
+  border-radius: inherit;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+.turbulent-title-text {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: auto;
+  color: #fff;
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+}
+
+.turbulent-divider-line {
+  margin-top: auto;
+  border: none;
+  height: 1px;
+  background-color: #ef4444;
+  opacity: 0.2;
+  mask-image: linear-gradient(to right, transparent, black, transparent);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black,
+    transparent
+  );
+}
+
+.turbulent-content-bottom {
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
+  gap: 16px;
+}
+
+.turbulent-description-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+  min-height: 40px;
+}
+
+.turbulent-action-btn {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(239, 68, 68, 0.02) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.05);
+}
+
+.turbulent-action-btn:hover {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.35) 0%, rgba(239, 68, 68, 0.08) 100%);
+  border-color: #ff3355;
+  box-shadow: 
+    0 0 15px rgba(239, 68, 68, 0.35),
+    inset 0 0 8px rgba(239, 68, 68, 0.1);
+  transform: translateY(-2px);
+}
+
+.turbulent-action-btn:active {
+  transform: translateY(0px);
+}
+
+/* Animations for electrifying glow pulses */
+@keyframes neonCracklePulse {
+  0% {
+    opacity: 0.3;
+    filter: blur(1.5px) saturate(1);
+    border-color: rgba(239, 68, 68, 0.4);
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(2.5px) saturate(1.3);
+    border-color: rgba(239, 68, 68, 0.7);
+  }
+  100% {
+    opacity: 0.4;
+    filter: blur(2px) saturate(1.1);
+    border-color: rgba(239, 68, 68, 0.5);
+  }
+}
+
+@keyframes neonElectricGlow {
+  0% {
+    opacity: 0.35;
+    filter: blur(6px) scale(0.99);
+    border-color: oklch(0.63 0.2 20);
+  }
+  50% {
+    opacity: 0.65;
+    filter: blur(9px) scale(1.01);
+    border-color: oklch(0.68 0.3 20);
+  }
+  100% {
+    opacity: 0.45;
+    filter: blur(7px) scale(1);
+    border-color: oklch(0.63 0.25 20);
+  }
+}
+
+/* Premium Modal Glass Overlay Styles */
+.glass-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.glass-modal-container {
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  box-shadow: 
+    0 24px 64px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(239, 68, 68, 0.12);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 900px;
+  max-height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  z-index: 101;
+}
+
+.glass-modal-glow {
+  position: absolute;
+  top: -10%;
+  left: 20%;
+  width: 60%;
+  height: 30%;
+  background: radial-gradient(ellipse at center, rgba(239, 68, 68, 0.18), transparent 70%);
+  pointer-events: none;
+  filter: blur(20px);
+}
+
