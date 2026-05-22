@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, FileText, Send, Terminal, ShieldAlert } from 'lucide-react'
+import { Mail, Phone, MapPin, Github, Linkedin, FileText, Send, Terminal, ShieldAlert } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 
 export default function Contact() {
@@ -46,9 +46,8 @@ export default function Contact() {
   }
 
   const socialLinks = [
-    { name: 'GitHub', icon: Github, href: 'https://github.com/Aryanbuha89' },
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/aryan-buha-874a5434b/' },
-    { name: 'Twitter', icon: Twitter, href: '#' }
+    { name: 'GitHub', icon: Github, href: 'https://github.com/Aryanbuha890' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/aryan-buha-874a5434b/' }
   ]
 
   return (

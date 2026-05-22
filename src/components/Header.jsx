@@ -104,7 +104,7 @@ export default function Header({ onNavClick }) {
         response = `HACKATHONS & AWARDS:\n----------------------------------------\n🏆 Finalist (Top 40 / 240+) - Hackovate 2025 (LJ University)\n💻 Climate Tech Award - HackOut 2025 (DAIICT)\n🚀 Global Challenger - NASA Space Apps\n🛰️ Space Tech Hack - ISRO Bharatiya Antariksh\n🎮 Creative Design - ITM Game Jam`
         break
       case 'contact':
-        response = `CONTACT DETAILS:\n----------------------------------------\n📧 Email:    aryanbuha56@gmail.com\n📞 Phone:    +91 9313198911\n🌐 GitHub:   github.com/Aryanbuha89\n💼 LinkedIn: linkedin.com/in/aryan-buha-874a5434b/`
+        response = `CONTACT DETAILS:\n----------------------------------------\n📧 Email:    aryanbuha56@gmail.com\n📞 Phone:    +91 9313198911\n🌐 GitHub:   github.com/Aryanbuha890\n💼 LinkedIn: linkedin.com/in/aryan-buha-874a5434b/`
         break
       case 'clear':
         setTerminalHistory([])
@@ -145,8 +145,8 @@ export default function Header({ onNavClick }) {
           transition={{ duration: 0.5 }}
           className={`pointer-events-auto w-full mx-auto rounded-full border transition-all duration-500 ${
             isScrolled 
-              ? 'max-w-4xl bg-black/75 py-2.5 px-6 border-red-500/20 shadow-[0_0_30px_rgba(239,68,68,0.15)] backdrop-blur-md' 
-              : 'max-w-5xl bg-black/35 py-4 px-8 border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-md'
+              ? 'max-w-4xl bg-black/75 py-2.5 px-6 border-red-500/25 shadow-[0_4px_30px_rgba(0,0,0,0.5),_0_0_30px_rgba(239,68,68,0.2)] backdrop-blur-md' 
+              : 'max-w-5xl bg-black/40 py-4 px-8 border-red-500/15 shadow-[0_8px_32px_rgba(0,0,0,0.6),_0_0_25px_rgba(239,68,68,0.12)] backdrop-blur-md'
           }`}
         >
           <div className="w-full flex items-center justify-between">

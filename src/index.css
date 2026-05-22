@@ -542,3 +542,196 @@ body {
   filter: blur(20px);
 }
 
+/* Custom Electric Borders for Responsive Certificate Cards */
+.electric-card-wrap {
+  padding: 2px;
+  border-radius: 24px;
+  position: relative;
+  background: linear-gradient(
+      -30deg,
+      oklch(0.4 0.25 20),
+      transparent,
+      oklch(0.4 0.25 20)
+    ),
+    linear-gradient(to bottom, oklch(0.185 0.05 20), oklch(0.185 0 0));
+  overflow: visible; /* Allows the active electric wave to crackle and spill out beautifully! */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+}
+
+.electric-card-wrap:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(239, 68, 68, 0.15),
+    0 0 30px rgba(239, 68, 68, 0.06);
+}
+
+.electric-inner-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.electric-border-outer {
+  border: 1.5px solid rgba(239, 68, 68, 0.25);
+  border-radius: 24px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.electric-main-card {
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 24px;
+  border: 1.5px solid #ef4444;
+  margin-top: -2px;
+  margin-left: -2px;
+  filter: url(#electric-displace); /* Uses unique isolated filter ID to prevent conflicts */
+  background: rgba(10, 10, 10, 0.85); /* Solid glass background distorted by SVG filter */
+  transition: border-color 0.3s;
+}
+
+.electric-card-wrap:hover .electric-main-card {
+  border-color: #ff2255;
+  filter: url(#electric-displace-active);
+}
+
+.electric-glow-layer-1 {
+  border: 1.5px solid rgba(239, 68, 68, 0.38);
+  border-radius: 24px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(1.5px);
+  pointer-events: none;
+  animation: neonCracklePulse 4s ease-in-out infinite alternate;
+}
+
+.electric-glow-layer-2 {
+  border: 1.5px solid #ef4444;
+  border-radius: 24px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(4px);
+  pointer-events: none;
+  animation: neonElectricGlow 6s ease-in-out infinite alternate;
+}
+
+.electric-overlay-1,
+.electric-overlay-2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 24px;
+  mix-blend-mode: overlay;
+  transform: scale(1.03);
+  filter: blur(12px);
+  pointer-events: none;
+  background: linear-gradient(
+    -30deg,
+    white,
+    transparent 30%,
+    transparent 70%,
+    white
+  );
+  z-index: 2;
+}
+
+.electric-overlay-1 {
+  opacity: 0.12;
+}
+
+.electric-overlay-2 {
+  opacity: 0.06;
+}
+
+.electric-bg-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 24px;
+  filter: blur(28px);
+  transform: scale(1.08);
+  opacity: 0.18;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    -30deg,
+    oklch(0.63 0.25 20),
+    transparent,
+    #ef4444
+  );
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.electric-card-wrap:hover .electric-bg-glow {
+  opacity: 0.4;
+  transform: scale(1.12);
+}
+
+/* Cybernetic credential display helpers */
+.cyber-scanner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%), linear-gradient(90deg, rgba(239, 68, 68, 0.04), rgba(0, 0, 0, 0), rgba(239, 68, 68, 0.04));
+  background-size: 100% 4px, 6px 100%;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 5;
+}
+.electric-card-wrap:hover .cyber-scanner-overlay {
+  opacity: 0.45;
+}
+
+.cyber-corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid #ef4444;
+  pointer-events: none;
+  z-index: 6;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+.electric-card-wrap:hover .cyber-corner {
+  opacity: 1;
+  border-color: #ff3366;
+  width: 12px;
+  height: 12px;
+}
+.cyber-corner-tl { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+.cyber-corner-tr { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+.cyber-corner-bl { bottom: 8px; left: 8px; border-right: none; border-top: none; }
+.cyber-corner-br { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+
+/* Custom sharp image rendering utility to resolve certificate blurriness */
+.sharp-certificate {
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: crisp-edges !important;
+  image-rendering: -moz-crisp-edges !important;
+  image-rendering: -o-crisp-edges !important;
+  image-rendering: pixelated !important;
+  -ms-interpolation-mode: nearest-neighbor !important;
+  filter: contrast(1.1) brightness(1.02) saturate(1.04) !important;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+}

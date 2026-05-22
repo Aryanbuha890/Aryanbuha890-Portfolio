@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ExternalLink, X, ChevronDown, ChevronUp, Calendar, MapPin, Users, Award, ShieldAlert, Cpu, Database } from 'lucide-react'
+import { ExternalLink, X, ChevronDown, ChevronUp, Calendar, MapPin, Award } from 'lucide-react'
 
 export default function Portfolio() {
   const [showAll, setShowAll] = useState(false)
@@ -8,204 +8,217 @@ export default function Portfolio() {
 
   const achievements = [
     {
-      id: 'ingenious',
-      title: '🏆 1st Runner Up – Ingenious 7.0',
-      org: 'Ahmedabad University',
-      desc: 'Urban Intel AI: Smart City Governance Platform with Hybrid AI & Local LLM',
-      badge: 'Generative AI',
-      img: '/images/AU Certificate.jpeg',
-      date: 'February 2025',
-      location: 'Ahmedabad University Campus',
-      project: 'Urban Intel AI',
-      summary: 'Secured a 1st Runner Up (2nd Place) finish among 180+ teams at Ahmedabad University\'s Ingenious Hackathon 7.0. Developed a next-gen Smart City Governance Platform designed to solve complex urban challenges.',
-      features: [
-        'Hybrid AI architecture combining predictive risk forecasting with local generative models',
-        '6 specialized Random Forest models for accurate risk predictions across urban sectors',
-        'Private Local LLM (TinyLlama) integrated for secure offline policy directives',
-        'Interactive real-time spatial dashboard mapping risk indices',
-        'Complete end-to-end policy recommendation reporting interface'
-      ],
-      skills: ['Generative AI', 'TinyLlama Local LLM', 'Random Forest Classifier', 'Python ML', 'React.js', 'Next.js'],
-      impact: [
-        '2nd place finish out of 180+ competitive national teams',
-        '100% secure, offline AI inference for data privacy',
-        'Strategic governance metric mapping with precise outputs'
-      ],
-      team: [
-        { name: 'Aryan Buha', role: 'Full-Stack Developer & ML Lead' },
-        { name: 'Neel Prajapati', role: 'AI Pipeline Engineer' },
-        { name: 'Sumit Patel', role: 'Backend Data Lead' },
-        { name: 'Om Khatri', role: 'Presentation Architect' }
+      id: 'ibm-ai-challenge',
+      title: '🏆 2nd Rank Across Gujarat – IBM AI Challenge 2026',
+      org: 'IBM, CSRBOX & iHUB',
+      desc: 'AI agricultural platform strengthening India\'s farming ecosystem with practical tech solutions',
+      badge: 'AI Innovation',
+      img: '/images/IBM Certificate.jpeg',
+      date: 'March 2026',
+      location: 'iHUB, Ahmedabad',
+      summary: 'Secured the prestigious 2nd Position across the entire state of Gujarat at the IBM AI Innovation Challenge 2026, organized in collaboration with CSRBOX® and showcased at iHUB, Ahmedabad. Competing among shortlisted teams from across the state, we presented an AI-driven solution focused on strengthening India’s agricultural ecosystem — aiming to make technology more accessible, practical, and impactful for the farming community. Reflects months of teamwork, resilience, and problem-solving under pressure. Grateful for the mentorship, guidance, and unwavering support from Jatindra Suthar, Zeel Patel, and Nikunj Sidpara.',
+      highlights: [
+        'Ranked 2nd in the entire state of Gujarat out of numerous competitive teams',
+        'Pitched AI agricultural solution live to IBM executives and iHUB mentors',
+        'Focused on making high-end AI intelligence accessible and practical for rural farmers',
+        'Reflected months of rigorous system development and pressure-testing'
       ]
     },
     {
-      id: 'eunoia',
-      title: '🌐 Eunoia Homoeopathy',
-      org: 'Live Client Project',
-      desc: 'End-to-end full-stack website development, custom domain setup, and cloud hosting',
+      id: 'dotslash-9',
+      title: '🚀 Top 8 Finalists – DotSlash 9.0 Hackathon',
+      org: 'SVNIT Surat, ACM & ASHINE',
+      desc: 'TerraForge: Environmental Intelligence OS using local AI models and live telemetry',
+      badge: 'Hackathon Finalist',
+      img: '/images/Dotslash Certificate.png',
+      date: 'January 2026',
+      location: 'SVNIT Surat',
+      summary: 'Selected among the Top 8 Finalists at the prestigious 30-hour DotSlash 9.0: Root To Ideas Hackathon, competing against 550+ teams from across the country! Representing The Maharaja Sayajirao University of Baroda (MSUB), Vadodara, we designed and built TerraForge - Environmental Intelligence OS. TerraForge is an AI-powered platform that helps governments and farmers make proactive decisions using real-time environmental data and local AI models.',
+      highlights: [
+        'Selected for the Grand Finale Top 8 out of 550+ registered teams nationwide',
+        'Runs AI models locally to ensure zero dependency, lower costs, and complete offline privacy',
+        'Predicts regional environmental risks and agricultural impact using live weather feeds',
+        'Provides multilingual voice assistance to empower rural users with crucial safety data'
+      ]
+    },
+    {
+      id: 'ingenious-7',
+      title: '🥈 1st Runner Up – Ingenious Hackathon 7.0',
+      org: 'Ahmedabad University',
+      desc: 'Urban Intel AI: Smart City Governance Platform with 6 forecasting models and offline private LLM',
+      badge: 'Hackathon Winner',
+      img: '/images/AU Certificate.jpeg',
+      date: 'February 2025',
+      location: 'Ahmedabad University',
+      summary: 'Secured the 1st Runner Up position among 180+ participating teams at the Ingenious Hackathon 7.0 hosted by Ahmedabad University! Built Urban Intel AI, a next-gen Smart City Governance Platform designed to solve real-world urban crises before they happen. Engineered a Hybrid AI Architecture that runs entirely offline for complete data privacy and reliability.',
+      highlights: [
+        '1st Runner Up finish out of 180+ highly competitive national student teams',
+        '6 Specialized Random Forest Models: High-precision forecasting across water, traffic, and health hazards',
+        'Private Local LLM: Integrates TinyLlama locally to generate immediate governance directives',
+        '100% Data Sovereignty: Entire AI stack runs offline without external API dependencies'
+      ]
+    },
+    {
+      id: 'hackovate-finals',
+      title: '🏆 Finalist – LJ Hackovate 2025',
+      org: 'LJ University',
+      desc: 'Top 40 out of 240+ teams with Smart Cattle Health & Milk Predictions System',
+      badge: 'AI/ML Project',
+      img: '/images/LJ Certificate.jpg',
+      date: 'January 2025',
+      location: 'LJ University, Ahmedabad',
+      summary: 'Secured a spot in the TOP 40 FINALISTS out of 240+ teams at LJ University’s Hackovate 2025! Developed the Smart Cattle Health & Milk Predictions System, an AI-powered platform transforming dairy farming with predictive insights & intelligent data analysis. Presenting at Hackovate challenged us to think bigger, refine better, and validate our idea’s real-world potential to revolutionize agriculture.',
+      highlights: [
+        'Milk Yield Prediction: Regression models for highly accurate forecasting',
+        'Disease Detection: Classification models identifying over 15+ complex veterinary conditions',
+        'Farm Telemetry: Real-time health monitoring dashboards with automated PDF reports',
+        'User Centric: Supports multi-language setups (EN/Hindi/Gujarati/Marathi) with mobile-first UI'
+      ]
+    },
+    {
+      id: 'hackout-2025',
+      title: '🌊 HackOut 2025 – DAIICT',
+      org: 'DAIICT, Gandhinagar',
+      desc: 'Coastal Threat Alert System built to protect marine ecosystems and local fisherfolk',
+      badge: 'Climate Tech',
+      img: '/images/DA-IICT Certificate.jpg',
+      date: 'February 2025',
+      location: 'DAIICT Gandhinagar',
+      summary: 'Shortlisted for the offline round of HackOut 2025 at DAIICT (Gandhinagar) with only 250–300 teams out of 4000+ registrations! Developed the Coastal Threat Alert System: an AI + IoT + satellite-data powered platform designed to protect coastal ecosystems and vulnerable communities.',
+      highlights: [
+        'Shortlisted offline round out of 4000+ national registrations',
+        'Role-Based Command: 5 distinct dashboards for governments, disaster teams, NGOs, fisherfolk, and civil defence',
+        'Real-time Detection: Monitors sea-level rise, cyclone tracking, harmful algal blooms, and illegal waste dumping',
+        'Blue Carbon Advocacy: Actively protects crucial mangroves, wetlands, and seagrass ecosystems'
+      ]
+    },
+    {
+      id: 'isro-hackathon',
+      title: '🌍 Bharatiya Antariksh Hackathon 2025',
+      org: 'ISRO & Hack2skill',
+      desc: 'Certificate of Acknowledgement for submitting a space technology proposal',
+      badge: 'Space Tech',
+      img: '/images/ISRO Certificate.png',
+      date: 'January 2025',
+      location: 'Virtual National Event',
+      summary: 'Proud to share that I have received a Certificate of Acknowledgement for submitting my idea to the Bharatiya Antariksh Hackathon 2025. This milestone reflects a commitment to innovation, exploration, and continuous learning in the domain of space and technology. Grateful to Hack2skill and ISRO - Indian Space Research Organization for providing this valuable platform to contribute to India’s space innovation journey.',
+      highlights: [
+        'Recognized directly by ISRO & Hack2skill with official Certificate of Acknowledgement',
+        'Developed novel concepts focused on space exploration and satellite data mapping',
+        'Demonstrates deep dedication to advanced national technology research and development'
+      ]
+    },
+    {
+      id: 'mumbai-pulse',
+      title: '🚀 CITYFORGE – MUMBAI PULSE',
+      org: 'NASA Space Apps Challenge 2025',
+      desc: 'Real-time urban platform tracking heat islands, air quality, and water resources',
+      badge: 'Climate Tech',
+      img: '/images/NASA Certificate.jpg',
+      date: 'October 2025',
+      location: 'Space Apps Event',
+      summary: 'Launched CITYFORGE – MUMBAI PULSE for the NASA Space Apps Challenge 2025. Mumbai Pulse is a real-time, data-driven platform that empowers urban planners and citizens to better understand and act on environmental health challenges across heat, air quality, and water resources by integrating NASA Earth Observation (EO) and weather datasets.',
+      highlights: [
+        'Urban Heat Islands – Identifies heat-stressed zones and suggests cooling interventions',
+        'Water Resources – Tracks lakes, rainfall patterns, and evaluates local water quality',
+        'Air Quality – Integrates real-time AQI, pollution analytics, and health advisories',
+        'Urban Development – Visualizes growth trends and infrastructure overlays dynamically'
+      ]
+    },
+    {
+      id: 'nasa-champions',
+      title: '🏆 Champions – NASA Space Apps 2025',
+      org: 'NASA Space Apps Vallabh Vidyanagar',
+      desc: 'Champions and 1st place winners at NASA Space Apps Challenge local event',
+      badge: 'Hackathon Champion',
+      img: '/images/NASA Certificate.jpg',
+      date: 'October 2025',
+      location: 'Vallabh Vidyanagar Event',
+      summary: 'Emerged as the Champions of the NASA Space Apps Challenge 2025, Vallabh Vidyanagar Local Event! This is a huge milestone as our very first victory. We worked day and night, pushed boundaries, solved real-world challenges, and learned more than we ever imagined. Winning at a NASA-supported hackathon has truly boosted our confidence and motivation.',
+      highlights: [
+        'Secured 1st Place Champions title at local NASA-supported event',
+        'Pushed technical limits in a high-speed hackathon environment',
+        'Gained profound confidence and experience in building robust scalable platforms'
+      ]
+    },
+    {
+      id: 'eunoia-live',
+      title: '🚀 Eunoia Homoeopathy Website Live',
+      org: 'Live Client Deployment',
+      desc: 'Full-stack medical portal deployed and optimized for professional healthcare',
       badge: 'Web Development',
       img: '/images/Eunoia image.png',
       date: 'December 2024',
       location: 'Live Service Deployment',
-      project: 'Eunoia Homoeopathy Portal',
-      summary: 'Led the end-to-end design, development, and hosting workflows for a real-world clinic portal. Assembled client requirements and translated them into an elegant, responsive medical service presence.',
-      features: [
-        'Intuitive UI/UX design with custom medical scheduling details',
-        'Robust search and routing pipelines built for optimal page load speed',
-        'Custom cloud hosting, secure deployment, and hot-swapping backups',
-        'DNS domain configuration and optimization for indexing'
-      ],
-      skills: ['React.js', 'Next.js', 'UI/UX Design', 'Cloud Hosting', 'Domain Mapping', 'HTML5 & CSS3'],
-      impact: [
-        'Delivered highly performant live production platform',
-        'Established full-stack search readiness and domain security parameters',
-        '100% client satisfaction on delivery and deployment'
-      ],
-      team: [
-        { name: 'Aryan Buha', role: 'Lead Full-Stack Developer' },
-        { name: 'Neel Prajapati', role: 'UI/UX Designer' },
-        { name: 'Sumit Patel', role: 'Deployment Architect' },
-        { name: 'Om Khatri', role: 'Client Relations' }
+      summary: 'The official website for Eunoia Homoeopathy is now live! This real-world project gave the opportunity to work end-to-end — from gathering requirements to deploying a fully functional website. Gained hands-on experience in understanding client expectations, making informed UI/UX decisions, deployment, hosting workflows, domain setup, and launch readiness.',
+      highlights: [
+        'Successfully built and launched clinical healthcare website to production',
+        'Managed end-to-end client engagement and requirement mapping',
+        'Configured custom secure domain, SEO tagging, and highly responsive page layouts'
       ]
     },
     {
-      id: 'lj',
-      title: '🏆 Finalist – Hackovate 2025',
-      org: 'LJ University',
-      desc: 'Top 40 out of 240+ teams with Smart Cattle Health & Milk Prediction System',
-      badge: 'AI/ML Project',
-      img: '/images/LJ Certificate.jpg',
-      date: 'January 2025',
-      location: 'Ahmedabad, Gujarat',
-      project: 'Smart Cattle Health & Milk Prediction System',
-      summary: 'Secured a Top 40 Finalist position among 240+ teams at LJ University\'s Hackovate 2025. Built an AI-powered dairy management platform that transforms cattle health monitoring and milk production forecasting.',
-      features: [
-        'Real-time cattle health monitoring & diagnostic scoring',
-        'AI models for milk yield prediction (Linear Regression) and disease detection (15+ classes)',
-        'Multilingual support (English, Hindi, Gujarati, Marathi) for regional farmers',
-        'Automated farm production and health reports (PDF export)',
-        'Mobile-first responsive dashboard and batch processing for large herds'
-      ],
-      skills: ['Next.js 14', 'React 18', 'FastAPI', 'Python ML', 'Supabase PostgreSQL', 'Tailwind CSS', 'Shadcn/UI'],
-      impact: [
-        '90% prediction accuracy in milk yield forecasts',
-        '85% detection accuracy in cattle disease scoring',
-        'Streamlined herd telemetry tracking for dairy farm managers'
-      ],
-      team: [
-        { name: 'Aryan Buha', role: 'Project Lead & Architect' },
-        { name: 'Neel Prajapati', role: 'AI/ML Engineer' },
-        { name: 'Patel Vrund', role: 'Frontend Developer' },
-        { name: 'Sumit Patel', role: 'Backend Developer' }
-      ]
-    },
-    {
-      id: 'daiict',
-      title: '💻 HackOut 2025',
-      org: 'DAIICT',
-      desc: 'Coastal Threat Alert System using AI, IoT, and satellite telemetry',
-      badge: 'Climate Tech',
-      img: '/images/DA-IICT Certificate.jpg',
-      date: 'February 2025',
-      location: 'DAIICT Campus, Gandhinagar',
-      project: 'Coastal Threat Alert System',
-      summary: 'Developed a high-fidelity Coastal Threat Alert system that integrates satellite imaging feeds and IoT sensor streams to predict and warn coastal communities of incoming climate hazards.',
-      features: [
-        'Geospatial satellite feed processing and anomaly highlighting',
-        'Real-time sensor integrations (tide level, wind velocity, humidity)',
-        'FastAPI microservice handling alerts and high-frequency data ingestion',
-        'Interactive map display mapping risk level indices',
-        'Automated SMS warning dispatcher for coastal security agencies'
-      ],
-      skills: ['React.js', 'FastAPI', 'Python ML', 'Geospatial APIs', 'Supabase', 'Tailwind CSS', 'Twilio API'],
-      impact: [
-        'Sub-second alert propagation to emergency nodes',
-        'Accurate wave threat modeling using physical formulas',
-        'Responsive administrative dashboard mapping mock live threats'
-      ],
-      team: [
-        { name: 'Aryan Buha', role: 'Full-Stack Developer & API Lead' },
-        { name: 'Neel Prajapati', role: 'Spatial Data Engineer' },
-        { name: 'Vrund Patel', role: 'Mapping Designer' },
-        { name: 'Sumit Patel', role: 'IoT Firmware Integrator' }
-      ]
-    },
-    {
-      id: 'nasa',
-      title: '🚀 NASA Space Apps Challenge',
-      org: 'NASA & Hack2skill',
-      desc: 'Global hackathon focused on space exploration and Earth science solutions',
-      badge: 'Space Tech',
-      img: '/images/NASA Certificate.jpg',
-      date: 'October 2024',
-      location: 'Regional Center, India',
-      project: 'Orbital Telemetry and Earth Science Modeling',
-      summary: 'Participated in the world\'s largest global space-tech hackathon. Worked on modeling orbital parameters and integrating Earth Observation datasets to solve complex environmental issues.',
-      features: [
-        'Telemetry array ingestion and parsing scripts',
-        'Dynamic map rendering mapping global heat indices and temperature anomalies',
-        'Custom database mapping orbital assets and telemetry tracking logs'
-      ],
-      skills: ['React.js', 'Python Data Processing', 'GIS Mapping', 'JSON Stream Parser', 'CSS Glassmorphism'],
-      impact: [
-        'Successfully ingested and mapped NASA Earth data packets',
-        'Interactive UI showing visual atmospheric changes'
-      ],
-      team: [
-        { name: 'Aryan Buha', role: 'Project Coordinator & Frontend Architect' },
-        { name: 'Neel Prajapati', role: 'Data Parser & ML Engineer' }
-      ]
-    },
-    {
-      id: 'isro',
-      title: '🛰️ Bharatiya Antariksh Hackathon',
-      org: 'ISRO',
-      desc: 'National space technology hackathon by Indian Space Research Organisation',
-      badge: 'Space Innovation',
-      img: '/images/ISRO Certificate.png',
-      date: 'August 2024',
-      location: 'National Virtual Platform',
-      project: 'Geospatial Image Analytics Suite',
-      summary: 'Engaged in solving core national-level challenges proposed by ISRO engineers, focusing on parsing and extracting insights from raw Bhuvan spatial imagery feeds.',
-      features: [
-        'Geospatial coordinate mapping and feature overlays',
-        'Fast raw image stream pipeline and edge filtering utilities',
-        'Interactive React analytics layout mapping land cover categories'
-      ],
-      skills: ['Python OpenCV', 'GIS Mapping Tools', 'React.js', 'Flask Backend', 'Matplotlib API'],
-      impact: [
-        'Created optimized analytical pipelines processing crop indexing filters',
-        'Robust dashboard modeling satellite pixel classifications'
-      ],
-      team: [
-        { name: 'Aryan Buha', role: 'Full-Stack & System Design' },
-        { name: 'Neel Prajapati', role: 'CV Pipeline Architect' }
-      ]
-    },
-    {
-      id: 'itm',
-      title: '🎮 ITM Game Jam',
-      org: 'ITM University',
-      desc: 'High-speed game design competition showcasing creative gameplay mechanics',
+      id: 'itm-gamejam-baroda',
+      title: '🏆 Scream-to-Survive Game Jam',
+      org: 'ITM SLS Baroda University',
+      desc: 'Innovative scream-controlled game prototype developed for ITM Game Jam',
       badge: 'Game Dev',
       img: '/images/ITM-Gamejam Certificate.jpg',
       date: 'September 2024',
-      location: 'ITM University Campus',
-      project: 'Cyber-Logic Puzzle Simulator',
-      summary: 'Created a highly-interactive logical game environment within a restricted 48-hour schedule, combining physics mechanics with intuitive user interfaces.',
-      features: [
-        'Custom physics puzzle engine using core C# script modules',
-        'Dynamic level loading and responsive sound feedback boards',
-        'Sleek coder-themed UI layouts and custom sprite rendering components'
-      ],
-      skills: ['Unity Engine', 'C# Scripting', 'Physics Engines', 'UI Design Layouts', 'Audio Synthesizers'],
-      impact: [
-        'Completed polished, playable multi-level platformer within 48 hours',
-        'High ratings for UI aesthetics and mechanic originality'
-      ],
-      team: [
-        { name: 'Aryan Buha', role: 'Lead Mechanic Programmer' },
-        { name: 'Neel Prajapati', role: 'Level Designer' }
+      location: 'ITM SLS Baroda Campus',
+      summary: 'Participated in the game jam event at ITM University Baroda. Built a highly creative "scream-to-survive" game that maps direct audio pitch and volume inputs to drive character movements and actions. It was an incredible sprint testing real-time interaction designs and loop mechanics.',
+      highlights: [
+        'Developed scream-activated gameplay tracking microphones in real-time',
+        'Engineered responsive game loop physics during high-pressure game jam sprint',
+        'Grateful to ITM SLS faculty and Student Affairs Dean for organizing the event'
+      ]
+    },
+    {
+      id: 'genai-outskill',
+      title: '📜 Generative AI Mastermind Certification',
+      org: 'Outskill',
+      desc: 'Professional certification in prompt engineering, AI productivity and automation workflows',
+      badge: 'AI Certification',
+      img: '/images/Gen AI Certificate.jpeg',
+      date: 'May 2026',
+      location: 'Outskill Program',
+      summary: 'Successfully completed the Generative AI Mastermind program by Outskill. Mastered advanced Prompt Engineering, AI tools & applications, AI workflow optimization, automation workflows, and practical implementation of AI solutions in real-world environments to skyrocket development productivity.',
+      highlights: [
+        'Prompt Engineering: Highly optimized prompt crafting and control structures',
+        'Automation Pipelines: Designed workflows integrating modern AI productivity hacks',
+        'Real-world Use Cases: Practical experience building and optimizing smart AI systems'
+      ]
+    },
+    {
+      id: 'fullstack-guvi',
+      title: '📜 Full Stack Development Masterclass',
+      org: 'GUVI Geek Network',
+      desc: 'Workshop on building modern scalable web architectures projected for 2026',
+      badge: 'Web Certification',
+      img: '/images/Certificate of Full Stack Development.png',
+      date: 'May 2026',
+      location: 'GUVI Workshop',
+      summary: 'Successfully completed GUVI’s workshop on "The Future of Full Stack Development: Key Skills Needed in 2026". Explored advanced microservices, edge rendering pipelines, serverless databases, and key architectural trends required to build modern scalable solutions.',
+      highlights: [
+        'Acquired deep knowledge of advanced development trends and tools for the year 2026',
+        'Studied full stack scaling models, deployment configurations, and fast routing architectures',
+        'Committed to staying current and adapting to modern software engineering patterns'
+      ]
+    },
+    {
+      id: 'datascience-guvi',
+      title: '📜 Data Science & Machine Learning Masterclass',
+      org: 'GUVI & HCL',
+      desc: 'Professional certification in training and evaluating complex neural and intelligence models',
+      badge: 'Data Science',
+      img: '/images/Certificate of Data Science & Machine Learning.png',
+      date: 'May 2026',
+      location: 'GUVI & HCL Event',
+      summary: 'Successfully completed the intensive Data Science & Machine Learning Masterclass conducted by GUVI & HCL. Acquired a strong understanding of how modern intelligent systems and AI models work behind the scenes, training complex predictive algorithms.',
+      highlights: [
+        'Gained hands-on knowledge in preparing big datasets and structuring prediction paths',
+        'Studied mathematical architectures behind neural networks and model metrics evaluation',
+        'Equipped with capabilities to deploy and optimize intelligent ML systems'
       ]
     }
   ]
@@ -214,6 +227,37 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" className="py-24 relative overflow-hidden bg-black select-none">
+      {/* SVG Turbulence Filter Definitions for Wavy Electric Borders */}
+      <svg className="absolute w-0 h-0 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="electric-displace" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="3" result="noise1" seed="1">
+              <animate attributeName="baseFrequency" values="0.012;0.018;0.012" dur="12s" repeatCount="indefinite" />
+            </feTurbulence>
+            <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1"></feOffset>
+
+            <feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="3" result="noise2" seed="1">
+              <animate attributeName="baseFrequency" values="0.018;0.012;0.018" dur="12s" repeatCount="indefinite" />
+            </feTurbulence>
+            <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2"></feOffset>
+
+            <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1"></feComposite>
+            <feBlend in="part1" in2="SourceGraphic" mode="color-dodge" result="combinedNoise"></feBlend>
+            <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="10" xChannelSelector="R" yChannelSelector="B"></feDisplacementMap>
+          </filter>
+
+          <filter id="electric-displace-active" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" result="noise1" seed="3">
+              <animate attributeName="baseFrequency" values="0.016;0.024;0.016" dur="8s" repeatCount="indefinite" />
+            </feTurbulence>
+            <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1"></feOffset>
+
+            <feComposite in="offsetNoise1" in2="SourceGraphic" result="combinedNoise"></feComposite>
+            <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="14" xChannelSelector="R" yChannelSelector="B"></feDisplacementMap>
+          </filter>
+        </defs>
+      </svg>
+
       {/* Glow Nodes */}
       <div className="absolute top-1/3 right-0 w-80 h-80 rounded-full bg-red-950/10 blur-3xl animated-glow-bg pointer-events-none"></div>
       <div className="absolute bottom-1/3 left-0 w-[500px] h-[500px] rounded-full bg-neutral-900/30 blur-3xl animated-glow-bg pointer-events-none"></div>
@@ -245,44 +289,74 @@ export default function Portfolio() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
                 onClick={() => setSelectedAch(ach)}
-                className="group cursor-pointer rounded-lg overflow-hidden glass-panel glass-panel-hover flex flex-col h-full hover:-translate-y-2 relative"
+                className="electric-card-wrap group cursor-pointer relative"
               >
-                {/* Image Section */}
-                <div className="relative w-full aspect-video overflow-hidden bg-neutral-950 border-b border-white/5 flex items-center justify-center">
-                  <img 
-                    src={ach.img} 
-                    alt={ach.title} 
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500 ease-out"
-                  />
-                  {/* Overlay hover effect */}
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center backdrop-blur-xs">
-                    <div className="px-4 py-2 rounded bg-red-600 text-white font-mono text-xs flex items-center gap-1.5 tracking-wider uppercase shadow-[0_0_15px_rgba(239,68,68,0.4)]">
-                      View details <ExternalLink size={12} />
-                    </div>
+                {/* Wavy Electric Border Overlay */}
+                <div className="electric-inner-wrap">
+                  <div className="electric-border-outer">
+                    <div className="electric-main-card"></div>
                   </div>
-                  {/* Badge */}
-                  <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/85 backdrop-blur-md border border-white/10 font-mono text-[9px] text-red-400 uppercase tracking-widest">
-                    {ach.badge}
-                  </span>
+                  <div className="electric-glow-layer-1"></div>
+                  <div className="electric-glow-layer-2"></div>
                 </div>
 
+                {/* Cyber Blending Gradients & Backing Glows */}
+                <div className="electric-overlay-1"></div>
+                <div className="electric-overlay-2"></div>
+                <div className="electric-bg-glow"></div>
+
                 {/* Content Section */}
-                <div className="p-5 flex-1 flex flex-col justify-between text-left space-y-4">
-                  <div className="space-y-2">
-                    <h3 className="text-sm font-bold text-white group-hover:text-red-500 transition-colors line-clamp-1">
-                      {ach.title}
-                    </h3>
-                    <p className="text-[11px] font-mono text-red-500 font-medium">
-                      {ach.org}
-                    </p>
-                    <p className="text-xs text-neutral-400 leading-relaxed line-clamp-2">
-                      {ach.desc}
-                    </p>
+                <div className="relative z-10 flex flex-col h-full">
+                  
+                  {/* Image Section - Framed and Protected */}
+                  <div className="relative w-full aspect-[4/3] bg-neutral-950/90 border-b border-white/5 flex items-center justify-center p-4 overflow-hidden rounded-t-[22px]">
+                    <img 
+                      src={ach.img} 
+                      alt={ach.title} 
+                      className="w-full h-full object-contain transition duration-500 ease-out sharp-certificate"
+                    />
+                    
+                    {/* Cyber Grid & Scanline retrieval interface overlays */}
+                    <div className="cyber-scanner-overlay"></div>
+                    <div className="cyber-corner cyber-corner-tl"></div>
+                    <div className="cyber-corner cyber-corner-tr"></div>
+                    <div className="cyber-corner cyber-corner-bl"></div>
+                    <div className="cyber-corner cyber-corner-br"></div>
+
+                    {/* Overlay hover effect */}
+                    <div className="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center backdrop-blur-xs">
+                      <div className="px-4 py-2 rounded border border-red-500/30 bg-red-950/40 text-red-400 font-mono text-[10px] flex items-center gap-2 tracking-wider uppercase shadow-[0_0_15px_rgba(239,68,68,0.25)]">
+                        <Award size={13} className="text-red-500" /> SECURE_CREDENTIAL_RETR <ExternalLink size={11} />
+                      </div>
+                    </div>
+                    {/* Badge */}
+                    <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/85 backdrop-blur-md border border-white/10 font-mono text-[9px] text-red-400 uppercase tracking-widest font-semibold z-10">
+                      {ach.badge}
+                    </span>
                   </div>
 
-                  <div className="pt-2 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-neutral-500">
-                    <span>{ach.date}</span>
-                    <span className="text-red-500/80 group-hover:text-red-500 transition-colors">Details &gt;</span>
+                  {/* Content Details */}
+                  <div className="p-5 flex-1 flex flex-col justify-between text-left space-y-4">
+                    <div className="space-y-2.5">
+                      <h3 className="text-xs font-bold font-mono text-white group-hover:text-red-400 transition-colors line-clamp-1 flex items-center gap-1.5">
+                        <span className="text-red-500 select-none">&gt;</span> {ach.title}
+                      </h3>
+                      <p className="text-[10px] font-mono text-red-500/80 font-bold uppercase tracking-wider">
+                        // {ach.org}
+                      </p>
+                      <p className="text-[11px] text-neutral-400 leading-relaxed font-sans line-clamp-2">
+                        {ach.desc}
+                      </p>
+                    </div>
+
+                    <div className="pt-3.5 border-t border-white/5 flex items-center justify-between text-[9px] font-mono text-neutral-500">
+                      <span className="flex items-center gap-1">
+                        <Calendar size={10} className="text-red-500/70" /> {ach.date}
+                      </span>
+                      <span className="text-red-500/85 group-hover:text-red-400 font-bold uppercase tracking-widest flex items-center gap-1 transition-all duration-300">
+                        VERIFY_RECORD <span className="group-hover:translate-x-1.5 transition-transform duration-300 font-mono">&gt;&gt;</span>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -369,12 +443,18 @@ export default function Portfolio() {
                   
                   {/* Left Column: Image Asset */}
                   <div className="lg:col-span-5 space-y-6">
-                    <div className="relative group rounded-lg overflow-hidden border border-white/5 bg-black shadow-lg">
+                    <div className="relative group rounded-xl overflow-hidden border border-red-500/20 bg-black/80 shadow-2xl p-3 flex items-center justify-center aspect-[4/3] max-w-full">
                       <img 
                         src={selectedAch.img} 
                         alt={selectedAch.title}
-                        className="w-full h-auto object-contain max-h-[300px] block mx-auto hover:scale-102 transition-transform duration-300"
+                        className="w-full h-full object-contain block mx-auto hover:scale-[1.01] transition-transform duration-300 sharp-certificate"
                       />
+                      
+                      <div className="cyber-scanner-overlay opacity-30"></div>
+                      <div className="cyber-corner cyber-corner-tl"></div>
+                      <div className="cyber-corner cyber-corner-tr"></div>
+                      <div className="cyber-corner cyber-corner-bl"></div>
+                      <div className="cyber-corner cyber-corner-br"></div>
                     </div>
 
                     {/* Metadata boxes */}
@@ -395,72 +475,26 @@ export default function Portfolio() {
                     
                     {/* Project overview */}
                     <div className="space-y-2 select-text">
-                      <h3 className="font-mono text-xs font-bold text-red-400 uppercase tracking-wider">&gt;_ Project Summary</h3>
-                      <h4 className="text-sm font-bold text-white font-mono">{selectedAch.project}</h4>
-                      <p className="text-xs text-neutral-300 leading-relaxed font-sans mt-2 select-text">
+                      <h3 className="font-mono text-xs font-bold text-red-400 uppercase tracking-wider">&gt;_ Achievement Summary</h3>
+                      <p className="text-xs text-neutral-300 leading-relaxed font-sans mt-2 select-text text-justify text-justify-inter-character">
                         {selectedAch.summary}
                       </p>
                     </div>
 
-                    {/* Key Technical Features */}
-                    <div className="space-y-3 select-text">
-                      <h3 className="font-mono text-xs font-bold text-red-400 uppercase tracking-wider">&gt;_ Technical Features</h3>
-                      <ul className="space-y-2 select-text">
-                        {selectedAch.features.map((feat, idx) => (
-                          <li key={idx} className="text-xs text-neutral-300 flex items-start gap-2.5 leading-relaxed select-text">
-                            <span className="text-red-500 font-bold font-mono mt-0.5 flex-shrink-0">•</span>
-                            <span>{feat}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Stack tags */}
-                    <div className="space-y-3 select-text">
-                      <h3 className="font-mono text-xs font-bold text-red-400 uppercase tracking-wider">&gt;_ Stack & Integration</h3>
-                      <div className="flex flex-wrap gap-1.5 select-text">
-                        {selectedAch.skills.map((stack, idx) => (
-                          <span 
-                            key={idx} 
-                            className="px-2.5 py-1 rounded bg-neutral-900 border border-white/5 text-[10px] font-mono text-neutral-300 select-text"
-                          >
-                            {stack}
-                          </span>
-                        ))}
+                    {/* Key Highlights */}
+                    {selectedAch.highlights && selectedAch.highlights.length > 0 && (
+                      <div className="space-y-3 select-text">
+                        <h3 className="font-mono text-xs font-bold text-red-400 uppercase tracking-wider">&gt;_ Key Highlights</h3>
+                        <ul className="space-y-2 select-text">
+                          {selectedAch.highlights.map((feat, idx) => (
+                            <li key={idx} className="text-xs text-neutral-300 flex items-start gap-2.5 leading-relaxed select-text">
+                              <span className="text-red-500 font-bold font-mono mt-0.5 flex-shrink-0">•</span>
+                              <span>{feat}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                    </div>
-
-                    {/* Impact metrics */}
-                    <div className="space-y-3 select-text">
-                      <h3 className="font-mono text-xs font-bold text-red-400 uppercase tracking-wider">&gt;_ Impact & Metrics</h3>
-                      <div className="p-4 rounded-lg bg-neutral-900/60 border border-white/5 space-y-2 select-text">
-                        {selectedAch.impact.map((metric, idx) => (
-                          <div key={idx} className="text-xs text-neutral-300 flex items-center gap-2 select-text">
-                            <Award size={14} className="text-red-500 flex-shrink-0" />
-                            <span>{metric}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Team info */}
-                    <div className="space-y-3 select-text">
-                      <h3 className="font-mono text-xs font-bold text-red-400 uppercase tracking-wider">&gt;_ Team Roster</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 select-text">
-                        {selectedAch.team.map((member, idx) => (
-                          <div 
-                            key={idx} 
-                            className="px-3 py-2 rounded bg-black/40 border border-white/5 flex items-center justify-between text-xs font-mono select-text"
-                          >
-                            <span className="text-white flex items-center gap-2 select-text">
-                              <Users size={12} className="text-red-500" />
-                              {member.name}
-                            </span>
-                            <span className="text-neutral-500 text-[10px] uppercase select-text">{member.role}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                    )}
 
                   </div>
                 </div>
@@ -468,18 +502,16 @@ export default function Portfolio() {
                 {/* Footer action bar */}
                 <div className="border-t border-white/5 pt-6 flex flex-wrap items-center justify-between gap-4 select-text">
                   <div className="flex gap-3">
-                    <a 
-                      href="https://github.com/Aryanbuha89" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="px-5 py-2.5 rounded-full bg-white hover:bg-red-600 text-black hover:text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 flex items-center gap-1.5 hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:scale-105"
+                    <button 
+                      onClick={() => setSelectedAch(null)}
+                      className="px-6 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:shadow-[0_0_25px_rgba(239,68,68,0.4)] hover:scale-105"
                     >
-                      View Project <ExternalLink size={12} />
-                    </a>
+                      Close Record
+                    </button>
                     <a 
                       href="#contact" 
                       onClick={() => setSelectedAch(null)}
-                      className="px-5 py-2.5 rounded-full border border-white/10 hover:border-red-500/30 bg-white/[0.02] hover:bg-white/[0.06] text-neutral-300 hover:text-white text-xs font-mono tracking-wider uppercase transition-all duration-300 hover:scale-105"
+                      className="px-6 py-2.5 rounded-full border border-white/10 hover:border-red-500/30 bg-white/[0.02] hover:bg-white/[0.06] text-neutral-300 hover:text-white text-xs font-mono tracking-wider uppercase transition-all duration-300 hover:scale-105"
                     >
                       Connect
                     </a>
