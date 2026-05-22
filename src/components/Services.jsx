@@ -15,6 +15,8 @@ export default function Services() {
       desc: 'Building foundational programming excellence using core compiled and scripted environments. Emphasizing clean, structured data pipelines and robust problem-solving modules.',
       skills: ['C / C++ Programming', 'Java & Python Scripting', 'Data Structures & Algorithms (DSA)', 'Object-Oriented Design (OOP)', 'Git Version Control & Terminal Debugging'],
       projects: ['Console utilities & tools', 'Algorithmic optimization models', 'Academic system simulators', 'Competitive coding solutions'],
+      tag: 'ALGORITHMS',
+      bgImage: '/software dev img.jpg',
       codeMock: `// compile: g++ -O3 main.cpp -o app
 #include <iostream>
 #include <vector>
@@ -47,6 +49,8 @@ int main() {
       desc: 'Hands-on practice in assembling raw datasets, preparing features, selecting core metrics, training models, and engineering custom inference pipelines.',
       skills: ['Python Data Stack (Pandas, NumPy)', 'Model Training & Evaluation (Scikit-learn)', 'Feature Selection & Preprocessing', 'Fine-Tuning Pretrained Architectures', 'Analytical Dashboards & Visualizations'],
       projects: ['Smart Cattle Health & Milk Forecast (90% Acc)', 'Clinical Diagnostic Classifiers', 'Climate Hazard Forecasting Arrays', 'Small-scale predictive experiments'],
+      tag: 'INFERENCE',
+      bgImage: '/AI & ML img.jpg',
       codeMock: `# env: python3 -m venv ai-sandbox
 import numpy as np
 import pandas as pd
@@ -73,6 +77,8 @@ print(f"Model prediction accuracy: {score * 100:.2f}%")`
       desc: 'Creating modern, interactive user interfaces backed by performant microservice servers and database integration layers.',
       skills: ['React.js & Next.js SPAs', 'Tailwind CSS UI Systems', 'RESTful API Engineering (Node/Express, FastAPI)', 'Database Integration (Supabase, PostgreSQL, MongoDB)', 'State Management & Secure API Calls'],
       projects: ['Coastal Threat Alert Dashboard', 'Portfolio SPA with Terminal Simulator', 'Real-time telemetry displays', 'Modular CRUD Admin Utilities'],
+      tag: 'CLOUD_NATIVE',
+      bgImage: '/Full Stack dev img.jpg',
       codeMock: `// run: npm run dev --host
 import React, { useState, useEffect } from 'react'
 
@@ -112,68 +118,41 @@ export const StatusMonitor = () => {
           >
             <feTurbulence
               type="turbulence"
-              baseFrequency="0.018"
+              baseFrequency="0.015"
               numOctaves="3"
               result="noise1"
               seed="1"
             >
-              <animate attributeName="baseFrequency" values="0.015;0.022;0.015" dur="12s" repeatCount="indefinite" />
+              <animate attributeName="baseFrequency" values="0.012;0.018;0.012" dur="12s" repeatCount="indefinite" />
             </feTurbulence>
             <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1"></feOffset>
 
             <feTurbulence
               type="turbulence"
-              baseFrequency="0.018"
+              baseFrequency="0.015"
               numOctaves="3"
               result="noise2"
               seed="1"
             >
-              <animate attributeName="baseFrequency" values="0.022;0.015;0.022" dur="12s" repeatCount="indefinite" />
+              <animate attributeName="baseFrequency" values="0.018;0.012;0.018" dur="12s" repeatCount="indefinite" />
             </feTurbulence>
             <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2"></feOffset>
-
-            <feTurbulence
-              type="turbulence"
-              baseFrequency="0.018"
-              numOctaves="3"
-              result="noise1"
-              seed="2"
-            >
-              <animate attributeName="baseFrequency" values="0.012;0.026;0.012" dur="15s" repeatCount="indefinite" />
-            </feTurbulence>
-            <feOffset in="noise1" dx="0" dy="0" result="offsetNoise3"></feOffset>
-
-            <feTurbulence
-              type="turbulence"
-              baseFrequency="0.018"
-              numOctaves="3"
-              result="noise2"
-              seed="2"
-            >
-              <animate attributeName="baseFrequency" values="0.026;0.012;0.026" dur="15s" repeatCount="indefinite" />
-            </feTurbulence>
-            <feOffset in="noise2" dx="0" dy="0" result="offsetNoise4"></feOffset>
 
             <feComposite
               in="offsetNoise1"
               in2="offsetNoise2"
               result="part1"
             ></feComposite>
-            <feComposite
-              in="offsetNoise3"
-              in2="offsetNoise4"
-              result="part2"
-            ></feComposite>
             <feBlend
               in="part1"
-              in2="part2"
+              in2="SourceGraphic"
               mode="color-dodge"
               result="combinedNoise"
             ></feBlend>
             <feDisplacementMap
               in="SourceGraphic"
               in2="combinedNoise"
-              scale="20"
+              scale="10"
               xChannelSelector="R"
               yChannelSelector="B"
             ></feDisplacementMap>
@@ -181,18 +160,13 @@ export const StatusMonitor = () => {
 
           {/* Filter for hover/active state - slightly more dramatic displacement */}
           <filter id="turbulent-displace-active" x="-20%" y="-20%" width="140%" height="140%">
-            <feTurbulence type="turbulence" baseFrequency="0.024" numOctaves="4" result="noise1" seed="3">
-              <animate attributeName="baseFrequency" values="0.02;0.028;0.02" dur="8s" repeatCount="indefinite" />
+            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" result="noise1" seed="3">
+              <animate attributeName="baseFrequency" values="0.016;0.024;0.016" dur="8s" repeatCount="indefinite" />
             </feTurbulence>
             <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1"></feOffset>
 
-            <feTurbulence type="turbulence" baseFrequency="0.024" numOctaves="4" result="noise2" seed="3">
-              <animate attributeName="baseFrequency" values="0.028;0.02;0.028" dur="8s" repeatCount="indefinite" />
-            </feTurbulence>
-            <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2"></feOffset>
-
-            <feComposite in="offsetNoise1" in2="offsetNoise2" result="combinedNoise"></feComposite>
-            <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="30" xChannelSelector="R" yChannelSelector="B"></feDisplacementMap>
+            <feComposite in="offsetNoise1" in2="SourceGraphic" result="combinedNoise"></feComposite>
+            <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="14" xChannelSelector="R" yChannelSelector="B"></feDisplacementMap>
           </filter>
         </defs>
       </svg>
@@ -209,14 +183,14 @@ export const StatusMonitor = () => {
           <div className="h-1 w-12 bg-red-600 rounded"></div>
         </div>
 
-        {/* Expertise Grid - Responsive 3 Column layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Expertise Grid - Centered items and robust responsive spacing */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {services.map((svc) => {
             const Icon = svc.icon
 
             return (
-              <div key={svc.id} className="turbulent-container">
-                <div className="turbulent-card-wrap">
+              <div key={svc.id} className="turbulent-container select-none">
+                <div className="turbulent-card-wrap group">
                   <div className="turbulent-inner-wrap">
                     <div className="turbulent-border-outer">
                       <div className="turbulent-main-card"></div>
@@ -225,24 +199,35 @@ export const StatusMonitor = () => {
                     <div className="turbulent-glow-layer-2"></div>
                   </div>
 
+                  {/* Fully visible, colorful background image with matching turbulent filter to prevent overflow mismatches */}
+                  <div className="turbulent-image-bg">
+                    <img 
+                      src={svc.bgImage} 
+                      alt={svc.title} 
+                      className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
+                    />
+                    {/* Balanced dark gradient mask at the bottom to ensure ultimate text contrast */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent"></div>
+                  </div>
+
                   <div className="turbulent-overlay-1"></div>
                   <div className="turbulent-overlay-2"></div>
                   <div className="turbulent-bg-glow"></div>
 
                   <div className="turbulent-content-box">
                     <div className="turbulent-content-top">
-                      <div className="turbulent-scrollbar-glass">Interactive</div>
+                      <div className="turbulent-scrollbar-glass">{svc.tag}</div>
                       
-                      <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-500 mt-4">
+                      <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-500 mt-4 relative z-10">
                         <Icon size={26} />
                       </div>
 
-                      <h3 className="turbulent-title-text">{svc.title}</h3>
+                      <h3 className="turbulent-title-text relative z-10">{svc.title}</h3>
                     </div>
 
-                    <hr className="turbulent-divider-line" />
+                    <hr className="turbulent-divider-line relative z-10" />
 
-                    <div className="turbulent-content-bottom">
+                    <div className="turbulent-content-bottom relative z-10">
                       <p className="turbulent-description-text">{svc.tagline}</p>
                       
                       <button 
