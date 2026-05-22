@@ -122,68 +122,81 @@ export default function Header({ onNavClick }) {
   return (
     <>
       {/* Floating Translucent Header */}
-      <motion.nav 
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-black/80 backdrop-blur-md border-b border-white/5 py-4' 
-            : 'bg-transparent py-6'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <a href="#home" className="text-xl font-bold tracking-wider font-mono flex items-center gap-2 group">
-            <span className="h-2 w-2 rounded-full bg-red-600 animate-pulse"></span>
-            <span className="text-red-500 transition-colors group-hover:text-white">A</span>RYAN
-          </a>
-
-          {/* Desktop Nav links */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a 
-                key={link.name} 
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  onNavClick(link.href);
-                }}
-                className="text-sm font-medium tracking-wide text-neutral-400 hover:text-white hover:shadow-[0_2px_0_#ef4444] pb-1 transition-all duration-200"
-              >
-                {link.name}
-              </a>
-            ))}
+      <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 w-full pointer-events-none">
+        <motion.nav 
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className={`pointer-events-auto w-full mx-auto rounded-full border transition-all duration-500 ${
+            isScrolled 
+              ? 'max-w-4xl bg-black/75 py-2.5 px-6 border-red-500/20 shadow-[0_0_30px_rgba(239,68,68,0.15)] backdrop-blur-md' 
+              : 'max-w-5xl bg-black/35 py-4 px-8 border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-md'
+          }`}
+        >
+          <div className="w-full flex items-center justify-between">
             <a 
-              href="#contact"
+              href="#home" 
               onClick={(e) => {
                 e.preventDefault();
-                onNavClick('#contact');
+                onNavClick('#home');
               }}
-              className="px-4 py-2 rounded-md bg-white text-black font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:bg-red-600 hover:text-white border border-white hover:border-red-600"
+              className="text-lg md:text-xl font-mono flex items-center gap-1 group relative select-none"
             >
-              Get In Touch
+              <span className="text-red-500 font-bold group-hover:-translate-x-1 group-hover:text-white transition-all duration-300">&lt;</span>
+              <span className="font-extrabold tracking-widest bg-gradient-to-r from-white via-neutral-200 to-red-500 bg-clip-text text-transparent group-hover:from-red-500 group-hover:to-white transition-all duration-500">
+                ARYAN
+              </span>
+              <span className="text-red-500 font-bold group-hover:translate-x-1 group-hover:text-white transition-all duration-300">/&gt;</span>
+              <span className="h-1.5 w-1.5 rounded-full bg-red-600 animate-pulse ml-1.5 self-center"></span>
             </a>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden text-white focus:outline-none"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </motion.nav>
+            {/* Desktop Nav links */}
+            <div className="hidden md:flex items-center gap-6">
+              {navLinks.map((link) => (
+                <a 
+                  key={link.name} 
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavClick(link.href);
+                  }}
+                  className="text-xs font-mono tracking-wider text-neutral-400 hover:text-white transition-all duration-200 relative py-1.5 px-3 hover:bg-white/5 rounded-full"
+                >
+                  {link.name}
+                </a>
+              ))}
+              <a 
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavClick('#contact');
+                }}
+                className="px-4 py-1.5 rounded-full bg-white/5 hover:bg-red-600/10 border border-white/10 hover:border-red-500/40 text-neutral-200 hover:text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.2)]"
+              >
+                Get In Touch
+              </a>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden text-white focus:outline-none p-1 hover:bg-white/5 rounded-full transition-all"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </motion.nav>
+      </div>
 
       {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[72px] z-40 bg-black/95 backdrop-blur-lg border-b border-white/10 md:hidden py-6 px-6"
+            className="fixed inset-x-4 top-[78px] z-40 bg-black/90 backdrop-blur-lg border border-white/10 rounded-2xl md:hidden py-6 px-6 shadow-2xl"
           >
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -195,7 +208,7 @@ export default function Header({ onNavClick }) {
                     setMobileMenuOpen(false)
                     onNavClick(link.href)
                   }}
-                  className="text-lg font-medium text-neutral-300 hover:text-red-500 py-2 border-b border-white/5 transition-colors"
+                  className="text-base font-mono tracking-wide text-neutral-300 hover:text-red-500 py-2.5 border-b border-white/5 transition-colors"
                 >
                   {link.name}
                 </a>
@@ -207,7 +220,7 @@ export default function Header({ onNavClick }) {
                   setMobileMenuOpen(false)
                   onNavClick('#contact')
                 }}
-                className="mt-2 py-3 rounded-md bg-red-600 text-white font-bold text-center tracking-wider text-sm uppercase transition-colors hover:bg-red-700"
+                className="mt-2 py-2.5 rounded-full bg-white/5 hover:bg-red-600/10 border border-white/10 hover:border-red-500/40 text-white font-bold text-center tracking-wider text-xs uppercase transition-all hover:shadow-[0_0_15px_rgba(239,68,68,0.2)]"
               >
                 Get In Touch
               </a>
@@ -269,7 +282,7 @@ export default function Header({ onNavClick }) {
                   e.preventDefault();
                   onNavClick('#portfolio');
                 }}
-                className="px-6 py-3 rounded-md bg-red-600 hover:bg-red-700 text-white font-semibold text-sm flex items-center gap-2 tracking-wide transition-all shadow-[0_4px_20px_rgba(239,68,68,0.3)] hover:scale-105"
+                className="px-6 py-3 rounded-full bg-red-600/10 hover:bg-red-600/20 border border-red-500/40 hover:border-red-500 text-white font-semibold text-sm flex items-center gap-2 tracking-wide transition-all duration-300 hover:shadow-[0_0_25px_rgba(239,68,68,0.35)] hover:scale-105"
               >
                 View Achievements
                 <ArrowRight size={16} />
@@ -280,7 +293,7 @@ export default function Header({ onNavClick }) {
                   e.preventDefault();
                   onNavClick('#contact');
                 }}
-                className="px-6 py-3 rounded-md border border-neutral-800 hover:border-red-500 bg-black/50 text-neutral-300 hover:text-white font-semibold text-sm transition-all hover:scale-105"
+                className="px-6 py-3 rounded-full border border-white/10 hover:border-red-500/30 bg-white/[0.02] hover:bg-white/[0.06] text-neutral-300 hover:text-white font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
               >
                 Let's Connect👋
               </a>

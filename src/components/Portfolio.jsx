@@ -299,7 +299,7 @@ export default function Portfolio() {
                 document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })
               }
             }}
-            className="px-6 py-3 rounded border border-neutral-800 hover:border-red-500 bg-neutral-950 hover:bg-red-600/5 text-neutral-400 hover:text-white font-mono text-xs tracking-wider uppercase flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_15px_rgba(239,68,68,0.03)]"
+            className="px-6 py-3 rounded-full border border-white/10 hover:border-red-500/40 bg-white/[0.02] hover:bg-red-600/15 text-neutral-400 hover:text-white font-mono text-xs tracking-wider uppercase flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(239,68,68,0.15)]"
           >
             {showAll ? (
               <>
@@ -472,14 +472,14 @@ export default function Portfolio() {
                       href="https://github.com/Aryanbuha89" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="px-4 py-2 rounded bg-white text-black font-semibold text-xs tracking-wider uppercase hover:bg-red-600 hover:text-white transition-all flex items-center gap-1.5 shadow-md"
+                      className="px-5 py-2.5 rounded-full bg-white hover:bg-red-600 text-black hover:text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 flex items-center gap-1.5 hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:scale-105"
                     >
                       View Project <ExternalLink size={12} />
                     </a>
                     <a 
                       href="#contact" 
                       onClick={() => setSelectedAch(null)}
-                      className="px-4 py-2 rounded border border-neutral-800 hover:border-red-500 bg-neutral-950 text-neutral-300 hover:text-white text-xs font-mono tracking-wider uppercase transition-all"
+                      className="px-5 py-2.5 rounded-full border border-white/10 hover:border-red-500/30 bg-white/[0.02] hover:bg-white/[0.06] text-neutral-300 hover:text-white text-xs font-mono tracking-wider uppercase transition-all duration-300 hover:scale-105"
                     >
                       Connect
                     </a>

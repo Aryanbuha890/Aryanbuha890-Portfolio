@@ -117,7 +117,7 @@ export default function Contact() {
                       href={soc.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded border border-white/5 hover:border-red-500/50 bg-neutral-950 text-neutral-400 hover:text-white transition-all hover:scale-110 shadow-md"
+                      className="p-3 rounded-full border border-white/10 hover:border-red-500/40 bg-white/[0.02] hover:bg-red-600/10 text-neutral-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(239,68,68,0.2)]"
                     >
                       <Icon size={18} />
                     </a>
@@ -129,7 +129,7 @@ export default function Contact() {
                 href="/images/Aryan Resume.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded border border-red-500 bg-red-950/20 hover:bg-red-600 text-white font-bold text-xs tracking-wider uppercase flex items-center gap-2 w-fit transition-all shadow-[0_0_15px_rgba(239,68,68,0.1)] hover:scale-105"
+                className="px-6 py-3 rounded-full border border-red-500/40 bg-red-950/20 hover:bg-red-600/20 text-white font-bold text-xs tracking-wider uppercase flex items-center gap-2 w-fit transition-all duration-300 hover:shadow-[0_0_20px_rgba(239,68,68,0.25)] hover:scale-105"
               >
                 <FileText size={16} /> Open Resume.pdf
               </a>
@@ -229,7 +229,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={formState === 'compiling'}
-                  className="px-5 py-2.5 rounded bg-red-600 hover:bg-red-700 disabled:bg-neutral-800 text-white font-mono text-xs tracking-wider uppercase flex items-center gap-2 transition-all hover:scale-103 shadow-[0_4px_15px_rgba(239,68,68,0.2)] ml-auto"
+                  className="px-6 py-3 rounded-full bg-red-600/10 hover:bg-red-600/20 disabled:bg-neutral-800 border border-red-500/40 hover:border-red-500 text-white font-mono text-xs tracking-wider uppercase flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(239,68,68,0.35)] ml-auto cursor-pointer"
                 >
                   <Send size={12} />
                   {formState === 'compiling' ? 'Compiling...' : 'Execute Send'}
