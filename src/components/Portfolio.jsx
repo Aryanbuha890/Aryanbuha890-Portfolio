@@ -131,7 +131,7 @@ export default function Portfolio() {
       org: 'NASA Space Apps Vallabh Vidyanagar',
       desc: 'Champions and 1st place winners at NASA Space Apps Challenge local event',
       badge: 'Hackathon Champion',
-      img: '/images/NASA Certificate.jpg',
+      img: '/images/NASA WINNER.jpg',
       date: 'October 2025',
       location: 'Vallabh Vidyanagar Event',
       summary: 'Emerged as the Champions of the NASA Space Apps Challenge 2025, Vallabh Vidyanagar Local Event! This is a huge milestone as our very first victory. We worked day and night, pushed boundaries, solved real-world challenges, and learned more than we ever imagined. Winning at a NASA-supported hackathon has truly boosted our confidence and motivation.',
@@ -227,36 +227,6 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" className="py-24 relative overflow-hidden bg-black select-none">
-      {/* SVG Turbulence Filter Definitions for Wavy Electric Borders */}
-      <svg className="absolute w-0 h-0 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="electric-displace" x="-20%" y="-20%" width="140%" height="140%">
-            <feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="3" result="noise1" seed="1">
-              <animate attributeName="baseFrequency" values="0.012;0.018;0.012" dur="12s" repeatCount="indefinite" />
-            </feTurbulence>
-            <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1"></feOffset>
-
-            <feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="3" result="noise2" seed="1">
-              <animate attributeName="baseFrequency" values="0.018;0.012;0.018" dur="12s" repeatCount="indefinite" />
-            </feTurbulence>
-            <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2"></feOffset>
-
-            <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1"></feComposite>
-            <feBlend in="part1" in2="SourceGraphic" mode="color-dodge" result="combinedNoise"></feBlend>
-            <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="10" xChannelSelector="R" yChannelSelector="B"></feDisplacementMap>
-          </filter>
-
-          <filter id="electric-displace-active" x="-20%" y="-20%" width="140%" height="140%">
-            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" result="noise1" seed="3">
-              <animate attributeName="baseFrequency" values="0.016;0.024;0.016" dur="8s" repeatCount="indefinite" />
-            </feTurbulence>
-            <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1"></feOffset>
-
-            <feComposite in="offsetNoise1" in2="SourceGraphic" result="combinedNoise"></feComposite>
-            <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="14" xChannelSelector="R" yChannelSelector="B"></feDisplacementMap>
-          </filter>
-        </defs>
-      </svg>
 
       {/* Glow Nodes */}
       <div className="absolute top-1/3 right-0 w-80 h-80 rounded-full bg-red-950/10 blur-3xl animated-glow-bg pointer-events-none"></div>
@@ -280,52 +250,41 @@ export default function Portfolio() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="popLayout">
-            {visibleAchievements.map((ach) => (
+            {visibleAchievements.map((ach, index) => (
               <motion.div
                 key={ach.id}
+                id={index === 3 ? "fourth-certificate-card" : undefined}
                 layout
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
                 onClick={() => setSelectedAch(ach)}
-                className="electric-card-wrap group cursor-pointer relative"
+                className="relative bg-neutral-950/80 border border-red-500/30 rounded-2xl overflow-hidden transition-all duration-400 hover:border-red-500/60 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(239,68,68,0.25),_inset_0_0_20px_rgba(239,68,68,0.08)] flex flex-col h-full cursor-pointer group"
               >
-                {/* Wavy Electric Border Overlay */}
-                <div className="electric-inner-wrap">
-                  <div className="electric-border-outer">
-                    <div className="electric-main-card"></div>
-                  </div>
-                  <div className="electric-glow-layer-1"></div>
-                  <div className="electric-glow-layer-2"></div>
-                </div>
-
-                {/* Cyber Blending Gradients & Backing Glows */}
-                <div className="electric-overlay-1"></div>
-                <div className="electric-overlay-2"></div>
-                <div className="electric-bg-glow"></div>
-
                 {/* Content Section */}
-                <div className="relative z-10 flex flex-col h-full">
+                <div className="relative z-10 flex flex-col h-full w-full">
                   
-                  {/* Image Section - Framed and Protected */}
-                  <div className="relative w-full aspect-[4/3] bg-neutral-950/90 border-b border-white/5 flex items-center justify-center p-4 overflow-hidden rounded-t-[22px]">
-                    <img 
-                      src={ach.img} 
-                      alt={ach.title} 
-                      className="w-full h-full object-contain transition duration-500 ease-out sharp-certificate"
-                    />
+                  {/* Image Section - Framed, Crisp and Protected */}
+                  <div className="relative w-full aspect-[4/3] bg-neutral-950/95 border-b border-red-500/20 flex items-center justify-center p-4 overflow-hidden rounded-t-2xl">
+                    <div className="w-full h-full border border-red-500/20 rounded-xl p-1.5 bg-black/40 flex items-center justify-center relative z-10 group-hover:border-red-500/40 transition-all duration-300">
+                      <img 
+                        src={ach.img} 
+                        alt={ach.title} 
+                        className="w-full h-full object-contain transition duration-500 ease-out sharp-certificate"
+                      />
+                    </div>
                     
                     {/* Cyber Grid & Scanline retrieval interface overlays */}
-                    <div className="cyber-scanner-overlay"></div>
+                    <div className="cyber-scanner-overlay opacity-30"></div>
                     <div className="cyber-corner cyber-corner-tl"></div>
                     <div className="cyber-corner cyber-corner-tr"></div>
                     <div className="cyber-corner cyber-corner-bl"></div>
                     <div className="cyber-corner cyber-corner-br"></div>
 
                     {/* Overlay hover effect */}
-                    <div className="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center backdrop-blur-xs">
-                      <div className="px-4 py-2 rounded border border-red-500/30 bg-red-950/40 text-red-400 font-mono text-[10px] flex items-center gap-2 tracking-wider uppercase shadow-[0_0_15px_rgba(239,68,68,0.25)]">
+                    <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center backdrop-blur-xs">
+                      <div className="px-4 py-2 rounded-lg border border-red-500/30 bg-red-950/40 text-red-400 font-mono text-[10px] flex items-center gap-2 tracking-wider uppercase shadow-[0_0_15px_rgba(239,68,68,0.25)]">
                         <Award size={13} className="text-red-500" /> SECURE_CREDENTIAL_RETR <ExternalLink size={11} />
                       </div>
                     </div>
@@ -349,7 +308,7 @@ export default function Portfolio() {
                       </p>
                     </div>
 
-                    <div className="pt-3.5 border-t border-white/5 flex items-center justify-between text-[9px] font-mono text-neutral-500">
+                    <div className="pt-3.5 border-t border-neutral-900 flex items-center justify-between text-[10px] font-mono text-neutral-500">
                       <span className="flex items-center gap-1">
                         <Calendar size={10} className="text-red-500/70" /> {ach.date}
                       </span>
@@ -367,9 +326,31 @@ export default function Portfolio() {
         {/* View More Button */}
         <div className="mt-12 flex justify-center">
           <button
-            onClick={() => {
-              setShowAll(!showAll)
-              if (showAll) {
+            onClick={(e) => {
+              // Blur immediately to prevent browser automatic scroll-to-focus at the bottom
+              e.currentTarget.blur()
+              
+              if (!showAll) {
+                setShowAll(true)
+                setTimeout(() => {
+                  const fourthCard = document.getElementById('fourth-certificate-card')
+                  if (fourthCard) {
+                    // Calculate absolute static position relative to document top, ignoring active Framer Motion transforms
+                    let top = 0
+                    let el = fourthCard
+                    while (el) {
+                      top += el.offsetTop
+                      el = el.offsetParent
+                    }
+                    // Scroll smoothly to exact position minus the 110px floating glass navbar offset
+                    window.scrollTo({
+                      top: top - 110,
+                      behavior: 'smooth'
+                    })
+                  }
+                }, 100)
+              } else {
+                setShowAll(false)
                 document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })
               }
             }}
@@ -403,7 +384,7 @@ export default function Portfolio() {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
               transition={{ duration: 0.4, cubicBezier: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-5xl rounded-lg overflow-hidden glass-panel border-red-500/20 shadow-2xl relative flex flex-col max-h-[90vh] bg-neutral-950/95"
+              className="w-full max-w-5xl rounded-lg overflow-hidden glass-panel border border-red-500/40 shadow-[0_0_50px_rgba(239,68,68,0.25)] relative flex flex-col max-h-[90vh] bg-neutral-950/95"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Window Header */}
@@ -443,12 +424,14 @@ export default function Portfolio() {
                   
                   {/* Left Column: Image Asset */}
                   <div className="lg:col-span-5 space-y-6">
-                    <div className="relative group rounded-xl overflow-hidden border border-red-500/20 bg-black/80 shadow-2xl p-3 flex items-center justify-center aspect-[4/3] max-w-full">
-                      <img 
-                        src={selectedAch.img} 
-                        alt={selectedAch.title}
-                        className="w-full h-full object-contain block mx-auto hover:scale-[1.01] transition-transform duration-300 sharp-certificate"
-                      />
+                    <div className="relative group rounded-xl overflow-hidden border border-red-500/30 bg-black/80 shadow-2xl p-3 flex items-center justify-center aspect-[4/3] max-w-full">
+                      <div className="w-full h-full border border-red-500/20 rounded-lg p-1.5 bg-black/40 flex items-center justify-center relative z-10">
+                        <img 
+                          src={selectedAch.img} 
+                          alt={selectedAch.title}
+                          className="w-full h-full object-contain block mx-auto hover:scale-[1.01] transition-transform duration-300 sharp-certificate"
+                        />
+                      </div>
                       
                       <div className="cyber-scanner-overlay opacity-30"></div>
                       <div className="cyber-corner cyber-corner-tl"></div>

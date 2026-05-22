@@ -145,8 +145,8 @@ export default function Header({ onNavClick }) {
           transition={{ duration: 0.5 }}
           className={`pointer-events-auto w-full mx-auto rounded-full border transition-all duration-500 ${
             isScrolled 
-              ? 'max-w-4xl bg-black/75 py-2.5 px-6 border-red-500/25 shadow-[0_4px_30px_rgba(0,0,0,0.5),_0_0_30px_rgba(239,68,68,0.2)] backdrop-blur-md' 
-              : 'max-w-5xl bg-black/40 py-4 px-8 border-red-500/15 shadow-[0_8px_32px_rgba(0,0,0,0.6),_0_0_25px_rgba(239,68,68,0.12)] backdrop-blur-md'
+              ? 'max-w-4xl bg-black/75 py-2.5 px-6 backdrop-blur-md navbar-glow-scrolled' 
+              : 'max-w-5xl bg-black/40 py-4 px-8 backdrop-blur-md navbar-glow-unscrolled'
           }`}
         >
           <div className="w-full flex items-center justify-between">

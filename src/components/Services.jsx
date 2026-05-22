@@ -106,71 +106,6 @@ export const StatusMonitor = () => {
       <div className="absolute bottom-1/4 right-0 w-96 h-96 rounded-full bg-red-950/10 blur-3xl animated-glow-bg pointer-events-none"></div>
       <div className="absolute top-1/4 left-0 w-96 h-96 rounded-full bg-red-950/5 blur-3xl animated-glow-bg pointer-events-none" style={{ animationDelay: '-4s' }}></div>
 
-      {/* SVG Turbulence Filter Definitions */}
-      <svg className="turbulent-svg-defs" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter
-            id="turbulent-displace"
-            x="-20%"
-            y="-20%"
-            width="140%"
-            height="140%"
-          >
-            <feTurbulence
-              type="turbulence"
-              baseFrequency="0.015"
-              numOctaves="3"
-              result="noise1"
-              seed="1"
-            >
-              <animate attributeName="baseFrequency" values="0.012;0.018;0.012" dur="12s" repeatCount="indefinite" />
-            </feTurbulence>
-            <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1"></feOffset>
-
-            <feTurbulence
-              type="turbulence"
-              baseFrequency="0.015"
-              numOctaves="3"
-              result="noise2"
-              seed="1"
-            >
-              <animate attributeName="baseFrequency" values="0.018;0.012;0.018" dur="12s" repeatCount="indefinite" />
-            </feTurbulence>
-            <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2"></feOffset>
-
-            <feComposite
-              in="offsetNoise1"
-              in2="offsetNoise2"
-              result="part1"
-            ></feComposite>
-            <feBlend
-              in="part1"
-              in2="SourceGraphic"
-              mode="color-dodge"
-              result="combinedNoise"
-            ></feBlend>
-            <feDisplacementMap
-              in="SourceGraphic"
-              in2="combinedNoise"
-              scale="10"
-              xChannelSelector="R"
-              yChannelSelector="B"
-            ></feDisplacementMap>
-          </filter>
-
-          {/* Filter for hover/active state - slightly more dramatic displacement */}
-          <filter id="turbulent-displace-active" x="-20%" y="-20%" width="140%" height="140%">
-            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" result="noise1" seed="3">
-              <animate attributeName="baseFrequency" values="0.016;0.024;0.016" dur="8s" repeatCount="indefinite" />
-            </feTurbulence>
-            <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1"></feOffset>
-
-            <feComposite in="offsetNoise1" in2="SourceGraphic" result="combinedNoise"></feComposite>
-            <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="14" xChannelSelector="R" yChannelSelector="B"></feDisplacementMap>
-          </filter>
-        </defs>
-      </svg>
-
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Section Title */}
@@ -189,58 +124,53 @@ export const StatusMonitor = () => {
             const Icon = svc.icon
 
             return (
-              <div key={svc.id} className="turbulent-container select-none">
-                <div className="turbulent-card-wrap group">
-                  <div className="turbulent-inner-wrap">
-                    <div className="turbulent-border-outer">
-                      <div className="turbulent-main-card"></div>
+              <div 
+                key={svc.id} 
+                className="relative w-full max-w-[360px] h-[480px] rounded-2xl bg-neutral-950/70 border border-red-500/30 overflow-hidden flex flex-col justify-between transition-all duration-500 hover:border-red-500/60 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(239,68,68,0.25),_inset_0_0_20px_rgba(239,68,68,0.08)] group select-none"
+              >
+                {/* Background image - Crisp, no blur, high fidelity */}
+                <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden transition-all duration-700">
+                  <img 
+                    src={svc.bgImage} 
+                    alt={svc.title} 
+                    className="w-full h-full object-cover opacity-55 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/85 to-transparent"></div>
+                </div>
+
+                {/* Content Box */}
+                <div className="relative z-10 p-6 flex flex-col justify-between h-full w-full">
+                  <div className="flex flex-col text-left items-start">
+                    <span className="font-mono text-[10px] tracking-widest text-red-400 border border-red-500/30 rounded-full px-3 py-1 bg-red-950/20 w-fit">
+                      {svc.tag}
+                    </span>
+                    
+                    <div className="p-3 rounded-xl bg-red-600/10 border border-red-500/20 text-red-500 mt-4 transition-all duration-300 group-hover:scale-110 group-hover:bg-red-600/20 group-hover:border-red-500/50">
+                      <Icon size={24} />
                     </div>
-                    <div className="turbulent-glow-layer-1"></div>
-                    <div className="turbulent-glow-layer-2"></div>
+
+                    <h3 className="text-xl font-bold tracking-tight text-white font-mono mt-4">
+                      {svc.title}
+                    </h3>
                   </div>
 
-                  {/* Fully visible, colorful background image with matching turbulent filter to prevent overflow mismatches */}
-                  <div className="turbulent-image-bg">
-                    <img 
-                      src={svc.bgImage} 
-                      alt={svc.title} 
-                      className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
-                    />
-                    {/* Balanced dark gradient mask at the bottom to ensure ultimate text contrast */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent"></div>
-                  </div>
-
-                  <div className="turbulent-overlay-1"></div>
-                  <div className="turbulent-overlay-2"></div>
-                  <div className="turbulent-bg-glow"></div>
-
-                  <div className="turbulent-content-box">
-                    <div className="turbulent-content-top">
-                      <div className="turbulent-scrollbar-glass">{svc.tag}</div>
-                      
-                      <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-500 mt-4 relative z-10">
-                        <Icon size={26} />
-                      </div>
-
-                      <h3 className="turbulent-title-text relative z-10">{svc.title}</h3>
-                    </div>
-
-                    <hr className="turbulent-divider-line relative z-10" />
-
-                    <div className="turbulent-content-bottom relative z-10">
-                      <p className="turbulent-description-text">{svc.tagline}</p>
-                      
-                      <button 
-                        className="turbulent-action-btn"
-                        onClick={() => {
-                          setSelectedService(svc)
-                          setIsModalOpen(true)
-                        }}
-                      >
-                        <span>View Details</span>
-                        <Play size={10} className="fill-white ml-1" />
-                      </button>
-                    </div>
+                  <div className="flex flex-col text-left w-full">
+                    <hr className="border-t border-neutral-900 my-4" />
+                    
+                    <p className="text-xs text-neutral-400 leading-relaxed min-h-[40px]">
+                      {svc.tagline}
+                    </p>
+                    
+                    <button 
+                      className="mt-5 w-full py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-red-600/10 hover:border-red-500/40 text-neutral-200 hover:text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-[0_0_15px_rgba(239,68,68,0.25)] cursor-pointer"
+                      onClick={() => {
+                        setSelectedService(svc)
+                        setIsModalOpen(true)
+                      }}
+                    >
+                      <span>View Details</span>
+                      <Play size={10} className="fill-current ml-1" />
+                    </button>
                   </div>
                 </div>
               </div>

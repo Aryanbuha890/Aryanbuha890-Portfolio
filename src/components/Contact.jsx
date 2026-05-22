@@ -75,11 +75,11 @@ export default function Contact() {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-5 flex flex-col justify-between"
+            className="lg:col-span-5 flex flex-col justify-between space-y-10"
           >
             <div className="space-y-8 select-text">
-              <h3 className="text-xl font-bold tracking-tight text-white font-mono select-text">
-                &gt;_ Contact Info
+              <h3 className="text-xl font-bold tracking-tight text-white font-mono select-text flex items-center gap-2">
+                <span className="text-red-500 select-none">&gt;_</span> Contact Info
               </h3>
               
               <p className="text-sm text-neutral-400 leading-relaxed font-sans max-w-sm select-text">
@@ -87,27 +87,45 @@ export default function Contact() {
               </p>
 
               {/* Detail Items */}
-              <div className="space-y-4 font-mono text-xs select-text">
-                <div className="flex items-center gap-3 py-3 px-4 rounded border border-white/5 bg-neutral-950/60 w-fit select-text">
-                  <Mail size={16} className="text-red-500" />
-                  <span className="text-neutral-300 font-semibold select-text">aryanbuha56@gmail.com</span>
+              <div className="grid grid-cols-1 gap-4 font-mono select-text">
+                {/* Card 1: Email */}
+                <div className="group flex items-center gap-4 p-4 rounded-xl border border-red-500/20 bg-neutral-950/60 hover:border-red-500/50 hover:bg-neutral-900/40 hover:shadow-[0_0_25px_rgba(239,68,68,0.15),inset_0_0_15px_rgba(239,68,68,0.02)] transition-all duration-300 select-text">
+                  <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-500 group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-300">
+                    <Mail size={18} />
+                  </div>
+                  <div className="flex flex-col text-left select-text">
+                    <span className="text-[9px] text-neutral-500 uppercase tracking-widest font-bold font-mono">// SEND_TRANSMISSION</span>
+                    <span className="text-xs md:text-sm text-neutral-200 font-semibold select-text mt-0.5">aryanbuha56@gmail.com</span>
+                  </div>
                 </div>
                 
-                <div className="flex items-center gap-3 py-3 px-4 rounded border border-white/5 bg-neutral-950/60 w-fit select-text">
-                  <Phone size={16} className="text-red-500" />
-                  <span className="text-neutral-300 font-semibold select-text">+91 9313198911</span>
+                {/* Card 2: Phone */}
+                <div className="group flex items-center gap-4 p-4 rounded-xl border border-red-500/20 bg-neutral-950/60 hover:border-red-500/50 hover:bg-neutral-900/40 hover:shadow-[0_0_25px_rgba(239,68,68,0.15),inset_0_0_15px_rgba(239,68,68,0.02)] transition-all duration-300 select-text">
+                  <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-500 group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-300">
+                    <Phone size={18} />
+                  </div>
+                  <div className="flex flex-col text-left select-text">
+                    <span className="text-[9px] text-neutral-500 uppercase tracking-widest font-bold font-mono">// VOICE_COMMS</span>
+                    <span className="text-xs md:text-sm text-neutral-200 font-semibold select-text mt-0.5">+91 9313198911</span>
+                  </div>
                 </div>
 
-                <div className="flex items-center gap-3 py-3 px-4 rounded border border-white/5 bg-neutral-950/60 w-fit select-text">
-                  <MapPin size={16} className="text-red-500" />
-                  <span className="text-neutral-300 font-semibold select-text">Gujarat, India</span>
+                {/* Card 3: Location */}
+                <div className="group flex items-center gap-4 p-4 rounded-xl border border-red-500/20 bg-neutral-950/60 hover:border-red-500/50 hover:bg-neutral-900/40 hover:shadow-[0_0_25px_rgba(239,68,68,0.15),inset_0_0_15px_rgba(239,68,68,0.02)] transition-all duration-300 select-text">
+                  <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-500 group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-300">
+                    <MapPin size={18} />
+                  </div>
+                  <div className="flex flex-col text-left select-text">
+                    <span className="text-[9px] text-neutral-500 uppercase tracking-widest font-bold font-mono">// GEOLOCATION</span>
+                    <span className="text-xs md:text-sm text-neutral-200 font-semibold select-text mt-0.5">Gujarat, India</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Socials & Resume */}
-            <div className="space-y-6 pt-12 lg:pt-0">
-              <div className="flex items-center gap-4">
+            <div className="space-y-6 pt-6">
+              <div className="flex flex-wrap items-center gap-4">
                 {socialLinks.map((soc, idx) => {
                   const Icon = soc.icon
                   return (
@@ -116,22 +134,22 @@ export default function Contact() {
                       href={soc.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-full border border-white/10 hover:border-red-500/40 bg-white/[0.02] hover:bg-red-600/10 text-neutral-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(239,68,68,0.2)]"
+                      className="p-3 rounded-xl border border-red-500/20 hover:border-red-500 bg-neutral-950 hover:bg-red-600/10 text-neutral-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)] flex items-center justify-center"
                     >
                       <Icon size={18} />
                     </a>
                   )
                 })}
-              </div>
 
-              <a 
-                href="/images/Aryan Resume.pdf" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="px-6 py-3 rounded-full border border-red-500/40 bg-red-950/20 hover:bg-red-600/20 text-white font-bold text-xs tracking-wider uppercase flex items-center gap-2 w-fit transition-all duration-300 hover:shadow-[0_0_20px_rgba(239,68,68,0.25)] hover:scale-105"
-              >
-                <FileText size={16} /> Open Resume.pdf
-              </a>
+                <a 
+                  href="/images/Aryan Resume.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 rounded-xl border border-red-500/30 bg-red-950/20 hover:bg-red-600/20 text-white font-bold text-xs tracking-wider uppercase flex items-center gap-2 transition-all duration-300 hover:shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:scale-105 hover:border-red-500"
+                >
+                  <FileText size={16} /> Open Resume.pdf
+                </a>
+              </div>
             </div>
           </motion.div>
 
@@ -143,9 +161,9 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-7 select-text"
           >
-            <div className="w-full rounded-lg overflow-hidden glass-panel border-white/10 flex flex-col shadow-2xl bg-neutral-950/50 select-text">
+            <div className="w-full rounded-2xl overflow-hidden glass-panel border border-red-500/30 flex flex-col shadow-2xl bg-neutral-950/60 select-text hover:border-red-500/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(239,68,68,0.15)]">
               {/* Terminal Title Bar */}
-              <div className="bg-black/90 px-4 py-3 border-b border-white/5 flex items-center justify-between">
+              <div className="bg-black/90 px-4 py-3.5 border-b border-red-500/10 flex items-center justify-between">
                 <div className="flex gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-red-600 block"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 block"></span>
@@ -156,7 +174,7 @@ export default function Contact() {
                 </div>
                 <div className="w-10"></div>
               </div>
-
+ 
               {/* Form Input Shell */}
               <form 
                 ref={formRef} 
@@ -165,7 +183,7 @@ export default function Contact() {
               >
                 {/* Compiler feedback log messages */}
                 {logMessage && (
-                  <div className={`p-3 rounded border font-mono text-[10px] select-text ${
+                  <div className={`p-3 rounded-xl border font-mono text-[10px] select-text ${
                     formState === 'compiling' 
                       ? 'bg-yellow-950/15 border-yellow-500/20 text-yellow-400 animate-pulse' 
                       : formState === 'success' 
@@ -178,12 +196,15 @@ export default function Contact() {
                     </div>
                   </div>
                 )}
-
+ 
                 {/* Name */}
-                <div className="space-y-1.5 select-text">
-                  <label className="text-[11px] text-neutral-500 select-text">$ name --input</label>
-                  <div className="flex items-center border-b border-white/5 hover:border-red-500/40 focus-within:border-red-500 transition-colors py-1.5 select-text">
-                    <span className="text-red-500 text-xs mr-2 font-bold select-none">&gt;</span>
+                <div className="space-y-2 select-text text-left">
+                  <label className="text-[11px] text-neutral-500 font-mono select-text flex items-center gap-1.5">
+                    <span className="h-1 w-1 rounded-full bg-red-500/70"></span>
+                    $ name --input
+                  </label>
+                  <div className="flex items-center rounded-xl border border-red-500/10 bg-neutral-950/80 px-4 py-3 focus-within:border-red-500/50 focus-within:shadow-[0_0_15px_rgba(239,68,68,0.1)] transition-all duration-300 select-text">
+                    <span className="text-red-500 text-xs mr-2.5 font-bold select-none">&gt;</span>
                     <input 
                       type="text" 
                       name="from_name"
@@ -193,12 +214,15 @@ export default function Contact() {
                     />
                   </div>
                 </div>
-
+ 
                 {/* Email */}
-                <div className="space-y-1.5 select-text">
-                  <label className="text-[11px] text-neutral-500 select-text">$ email --input</label>
-                  <div className="flex items-center border-b border-white/5 hover:border-red-500/40 focus-within:border-red-500 transition-colors py-1.5 select-text">
-                    <span className="text-red-500 text-xs mr-2 font-bold select-none">&gt;</span>
+                <div className="space-y-2 select-text text-left">
+                  <label className="text-[11px] text-neutral-500 font-mono select-text flex items-center gap-1.5">
+                    <span className="h-1 w-1 rounded-full bg-red-500/70"></span>
+                    $ email --input
+                  </label>
+                  <div className="flex items-center rounded-xl border border-red-500/10 bg-neutral-950/80 px-4 py-3 focus-within:border-red-500/50 focus-within:shadow-[0_0_15px_rgba(239,68,68,0.1)] transition-all duration-300 select-text">
+                    <span className="text-red-500 text-xs mr-2.5 font-bold select-none">&gt;</span>
                     <input 
                       type="email" 
                       name="from_email"
@@ -208,12 +232,15 @@ export default function Contact() {
                     />
                   </div>
                 </div>
-
+ 
                 {/* Message */}
-                <div className="space-y-1.5 select-text">
-                  <label className="text-[11px] text-neutral-500 select-text">$ message --input</label>
-                  <div className="flex items-start border-b border-white/5 hover:border-red-500/40 focus-within:border-red-500 transition-colors py-1.5 select-text">
-                    <span className="text-red-500 text-xs mr-2 font-bold mt-1 select-none">&gt;</span>
+                <div className="space-y-2 select-text text-left">
+                  <label className="text-[11px] text-neutral-500 font-mono select-text flex items-center gap-1.5">
+                    <span className="h-1 w-1 rounded-full bg-red-500/70"></span>
+                    $ message --input
+                  </label>
+                  <div className="flex items-start rounded-xl border border-red-500/10 bg-neutral-950/80 px-4 py-3 focus-within:border-red-500/50 focus-within:shadow-[0_0_15px_rgba(239,68,68,0.1)] transition-all duration-300 select-text">
+                    <span className="text-red-500 text-xs mr-2.5 font-bold mt-0.5 select-none">&gt;</span>
                     <textarea 
                       name="message"
                       rows={5}
@@ -223,12 +250,12 @@ export default function Contact() {
                     />
                   </div>
                 </div>
-
+ 
                 {/* Submit button */}
                 <button
                   type="submit"
                   disabled={formState === 'compiling'}
-                  className="px-6 py-3 rounded-full bg-red-600/10 hover:bg-red-600/20 disabled:bg-neutral-800 border border-red-500/40 hover:border-red-500 text-white font-mono text-xs tracking-wider uppercase flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(239,68,68,0.35)] ml-auto cursor-pointer"
+                  className="px-6 py-3 rounded-xl bg-red-600/10 hover:bg-red-600/20 disabled:bg-neutral-800 border border-red-500/30 hover:border-red-500 text-white font-mono text-xs tracking-wider uppercase flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(239,68,68,0.35)] ml-auto cursor-pointer"
                 >
                   <Send size={12} />
                   {formState === 'compiling' ? 'Compiling...' : 'Execute Send'}
