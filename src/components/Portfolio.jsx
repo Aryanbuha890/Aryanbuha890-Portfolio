@@ -8,6 +8,67 @@ export default function Portfolio() {
 
   const achievements = [
     {
+      id: 'ingenious',
+      title: '🏆 1st Runner Up – Ingenious 7.0',
+      org: 'Ahmedabad University',
+      desc: 'Urban Intel AI: Smart City Governance Platform with Hybrid AI & Local LLM',
+      badge: 'Generative AI',
+      img: '/images/AU Certificate.jpeg',
+      date: 'February 2025',
+      location: 'Ahmedabad University Campus',
+      project: 'Urban Intel AI',
+      summary: 'Secured a 1st Runner Up (2nd Place) finish among 180+ teams at Ahmedabad University\'s Ingenious Hackathon 7.0. Developed a next-gen Smart City Governance Platform designed to solve complex urban challenges.',
+      features: [
+        'Hybrid AI architecture combining predictive risk forecasting with local generative models',
+        '6 specialized Random Forest models for accurate risk predictions across urban sectors',
+        'Private Local LLM (TinyLlama) integrated for secure offline policy directives',
+        'Interactive real-time spatial dashboard mapping risk indices',
+        'Complete end-to-end policy recommendation reporting interface'
+      ],
+      skills: ['Generative AI', 'TinyLlama Local LLM', 'Random Forest Classifier', 'Python ML', 'React.js', 'Next.js'],
+      impact: [
+        '2nd place finish out of 180+ competitive national teams',
+        '100% secure, offline AI inference for data privacy',
+        'Strategic governance metric mapping with precise outputs'
+      ],
+      team: [
+        { name: 'Aryan Buha', role: 'Full-Stack Developer & ML Lead' },
+        { name: 'Neel Prajapati', role: 'AI Pipeline Engineer' },
+        { name: 'Sumit Patel', role: 'Backend Data Lead' },
+        { name: 'Om Khatri', role: 'Presentation Architect' }
+      ]
+    },
+    {
+      id: 'eunoia',
+      title: '🌐 Eunoia Homoeopathy',
+      org: 'Live Client Project',
+      desc: 'End-to-end full-stack website development, custom domain setup, and cloud hosting',
+      badge: 'Web Development',
+      img: '/images/Eunoia image.png',
+      date: 'December 2024',
+      location: 'Live Service Deployment',
+      project: 'Eunoia Homoeopathy Portal',
+      summary: 'Led the end-to-end design, development, and hosting workflows for a real-world clinic portal. Assembled client requirements and translated them into an elegant, responsive medical service presence.',
+      features: [
+        'Intuitive UI/UX design with custom medical scheduling details',
+        'Robust search and routing pipelines built for optimal page load speed',
+        'Custom cloud hosting, secure deployment, and hot-swapping backups',
+        'DNS domain configuration and optimization for indexing'
+      ],
+      skills: ['React.js', 'Next.js', 'UI/UX Design', 'Cloud Hosting', 'Domain Mapping', 'HTML5 & CSS3'],
+      impact: [
+        'Delivered highly performant live production platform',
+        'Established full-stack search readiness and domain security parameters',
+        '100% client satisfaction on delivery and deployment'
+      ],
+      team: [
+        { name: 'Aryan Buha', role: 'Lead Full-Stack Developer' },
+        { name: 'Neel Prajapati', role: 'UI/UX Designer' },
+        { name: 'Sumit Patel', role: 'Deployment Architect' },
+        { name: 'Om Khatri', role: 'Client Relations' }
+      ]
+    },
+    {
       id: 'lj',
       title: '🏆 Finalist – Hackovate 2025',
       org: 'LJ University',

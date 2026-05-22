@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Future Achievement - Aryan Buha</title>
+  <title>Ingenious Hackathon 7.0 - Aryan Buha</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/2f88feeff1.js" crossorigin="anonymous"></script>
   <style>
@@ -12,15 +13,14 @@
       min-height: 100vh;
       background: #080808;
       padding: 80px 0 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
-    .placeholder-container {
-      text-align: center;
-      max-width: 600px;
+
+    .certificate-container {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 0 20px;
     }
+
     .back-btn {
       display: inline-flex;
       align-items: center;
@@ -28,95 +28,246 @@
       color: #ff004f;
       text-decoration: none;
       font-weight: 600;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
       transition: all 0.3s;
     }
+
     .back-btn:hover {
       transform: translateX(-5px);
     }
-    .placeholder-icon {
-      font-size: 80px;
-      color: #ff004f;
-      margin-bottom: 30px;
+
+    .certificate-header {
+      text-align: center;
+      margin-bottom: 50px;
     }
-    .placeholder-title {
+
+    .certificate-header h1 {
       color: #fff;
       font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .certificate-header .org {
+      color: #ff004f;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .certificate-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .certificate-image-section {
+      text-align: center;
+    }
+
+    .certificate-image-section img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .certificate-image-section img:hover {
+      transform: scale(1.05);
+    }
+
+    .certificate-details {
+      color: #fff;
+    }
+
+    .certificate-details h2 {
+      color: #ff004f;
+      font-size: 28px;
       margin-bottom: 20px;
     }
-    .placeholder-text {
+
+    .detail-section {
+      margin-bottom: 30px;
+    }
+
+    .detail-section h3 {
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #ff004f;
+      padding-bottom: 5px;
+      display: inline-block;
+    }
+
+    .detail-section p {
       color: #ababab;
-      font-size: 18px;
       line-height: 1.6;
-      margin-bottom: 40px;
+      margin-bottom: 15px;
     }
-    .placeholder-actions {
+
+    .skills-list {
       display: flex;
-      gap: 20px;
-      justify-content: center;
       flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
     }
-    .placeholder-actions a {
+
+    .skill-tag {
+      background: linear-gradient(45deg, #ff004f, #ff6b6b);
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .achievement-highlight {
+      background: #262626;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid #ff004f;
+      margin-top: 20px;
+    }
+
+    .achievement-highlight h4 {
+      color: #61ff61;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .project-links a {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       background: #262626;
       color: #fff;
-      padding: 15px 25px;
+      padding: 12px 20px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s;
     }
-    .placeholder-actions a:hover {
+
+    .project-links a:hover {
       background: #ff004f;
       transform: translateY(-2px);
     }
+
     @media only screen and (max-width: 768px) {
-      .placeholder-title {
+      .certificate-main {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .certificate-header h1 {
         font-size: 28px;
       }
-      .placeholder-text {
-        font-size: 16px;
+
+      .certificate-details h2 {
+        font-size: 24px;
       }
-      .placeholder-actions {
+
+      .project-links {
         flex-direction: column;
-        align-items: center;
+      }
+
+      .certificate-image-section img {
+        max-width: 100%;
+        margin: 0 auto 20px;
+      }
+
+      .certificate-container {
+        padding: 0 15px;
       }
     }
   </style>
 </head>
+
 <body>
   <div class="certificate-page">
-    <div class="placeholder-container">
+    <div class="certificate-container">
       <a href="index.html#portfolio" class="back-btn">
         <i class="fa-solid fa-arrow-left"></i>
         Back to Portfolio
       </a>
-      
-      <div class="placeholder-icon">
-        <i class="fa-solid fa-rocket"></i>
+
+      <div class="certificate-header">
+        <h1>🏆 1st Runner Up - Ingenious Hackathon 7.0</h1>
+        <p class="org">Ahmedabad University</p>
       </div>
-      
-      <h1 class="placeholder-title">🎯 Future Achievement</h1>
-      
-      <p class="placeholder-text">
-        This space is reserved for upcoming achievements and certifications. 
-        I'm constantly working on new projects and participating in competitions 
-        to enhance my skills in technology and innovation.
-      </p>
-      
-      <div class="placeholder-actions">
-        <a href="index.html#portfolio">
-          <i class="fa-solid fa-trophy"></i>
-          View Current Achievements
-        </a>
-        <a href="index.html#contact">
-          <i class="fa-solid fa-envelope"></i>
-          Contact Me
-        </a>
+
+      <div class="certificate-main">
+        <div class="certificate-image-section">
+          <img src="images/AU Certificate.jpeg" alt="Ingenious Hackathon Certificate">
+        </div>
+
+        <div class="certificate-details">
+          <h2>Achievement Details</h2>
+
+          <div class="detail-section">
+            <h3>Event Information</h3>
+            <p><strong>Event:</strong> Ingenious Hackathon 7.0</p>
+            <p><strong>Organization:</strong> Ahmedabad University</p>
+            <p><strong>Position:</strong> 1st Runner Up (2nd Place) 🥈</p>
+            <p><strong>Scale:</strong> Chosen from 180+ teams</p>
+          </div>
+
+          <div class="detail-section">
+            <h3>Project: Urban Intel AI</h3>
+            <p>A next-gen <strong>Smart City Governance Platform</strong> designed to solve complex urban challenges.
+              The system features a <strong>Hybrid AI Architecture</strong> tackling risk management and policy making.
+            </p>
+          </div>
+
+          <div class="detail-section">
+            <h3>Key Innovation</h3>
+            <p>We combined <strong>6 Specialized Random Forest Models</strong> for accurate risk forecasting with a
+              <strong>Private Local LLM (TinyLlama)</strong>. This ensures secure, private, and actionable policy
+              directives without relying on external cloud LLMs.
+            </p>
+          </div>
+
+          <div class="detail-section">
+            <h3>Technical Stack</h3>
+            <div class="skills-list">
+              <span class="skill-tag">GenAI (TinyLlama)</span>
+              <span class="skill-tag">Machine Learning</span>
+              <span class="skill-tag">Random Forest</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">React/Next.js</span>
+            </div>
+          </div>
+
+          <div class="achievement-highlight">
+            <h4>💡 The Experience</h4>
+            <p>"It was an incredible 36-hour sprint of coding, debugging, and pitching. Standing out for originality and
+              strategic execution in a highly competitive environment."</p>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/Aryanbuha890/Urban_Intel_AI" target="_blank">
+              <i class="fa-brands fa-github"></i>
+              View Projects
+            </a>
+            <a href="index.html#contact">
+              <i class="fa-solid fa-envelope"></i>
+              Contact Me
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </body>
+
 </html>
