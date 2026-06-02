@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Header from './components/Header'
 import About from './components/About'
 import Services from './components/Services'
+import TechCarousel from './components/TechCarousel'
 import WhyChooseMe from './components/WhyChooseMe'
 import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
@@ -45,6 +46,7 @@ export default function App() {
         <Header onNavClick={scrollToSection} />
         <About />
         <Services />
+        <TechCarousel />
         <WhyChooseMe />
         <Portfolio />
         <Contact />
