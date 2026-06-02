@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Header from './components/Header'
 import About from './components/About'
 import Services from './components/Services'
+import WhyChooseMe from './components/WhyChooseMe'
 import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
 import { motion } from 'framer-motion'
@@ -44,6 +45,7 @@ export default function App() {
         <Header onNavClick={scrollToSection} />
         <About />
         <Services />
+        <WhyChooseMe />
         <Portfolio />
         <Contact />
       </main>
