@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ExternalLink, X, Terminal, Code, Sprout, Building2, Lock, Activity } from 'lucide-react'
+import { ExternalLink, X, Terminal, Code, Sprout, Building2, Lock, Activity, Globe } from 'lucide-react'
 
 // Inline custom LinkedIn Icon (matching Contact.jsx style)
 const LinkedInIcon = ({ size = 16, ...props }) => (
@@ -20,13 +20,13 @@ export default function Projects() {
       id: 'agriforge',
       title: 'AGRIFORGE AI',
       category: 'AI & ML',
-      shortDesc: 'Comprehensive agricultural empowerment platform featuring localized farmer news, dynamic market yard pricing grids, and an admin panel.',
+      shortDesc: 'Comprehensive agricultural empowerment platform with localized farmer news, dynamic market yard pricing grids, and an admin panel.',
       tag: 'Agricultural Support Platform',
       icon: Sprout,
       img: '/images/agriforge.jpg',
       linkType: 'private',
       linkUrl: '#contact',
-      stack: ['React.js', 'Node.js', 'AI / ML', 'MongoDB'],
+      stack: ['REACT.JS', 'NODE.JS', 'AI/ML', 'MONGODB'],
       themeColor: 'yellow',
       // Dynamic styles mapped strictly to HSL tailwind values for premium look
       borderHover: 'hover:border-yellow-500/60 hover:shadow-[0_0_30px_rgba(234,179,8,0.25),_inset_0_0_20px_rgba(234,179,8,0.08)]',
@@ -36,12 +36,12 @@ export default function Projects() {
       bgTag: 'bg-yellow-950/20 border-yellow-500/30',
       glowBg: 'rgba(234, 179, 8, 0.18)',
       btnTheme: 'bg-yellow-600 hover:bg-yellow-700',
-      summary: 'AgriForge AI is a high-impact agricultural support platform engineered to bring advanced technological intelligence directly to local farming communities. By integrating real-time telemetry pipelines and user-friendly command interfaces, the system bridges the gap between digital data and field-level actions.',
+      summary: 'COMPREHENSIVE AGRICULTURAL EMPOWERMENT PLATFORM WITH LOCALIZED FARMER NEWS, DYNAMIC MARKET YARD PRICING GRIDS, AND AN ADMIN PANEL. WINNER OF 🏆 RS. 2.43 LAKH SSIP GOVERNMENT FUNDING.',
       highlights: [
         'Winner of prestigious Rs. 2.43 Lakh SSIP Government Funding.',
-        'Dynamic market yard pricing grid tracks regional trade values in real-time.',
-        'Localized news distribution system tailored specifically for rural farming hubs.',
-        'Built full backend control center for authorized administrative records management.'
+        'Integrated localized farmer news and distribution network channels.',
+        'Dynamic market yard pricing grids providing real-time crop trading metrics.',
+        'Administrative dashboard control panels for secure agricultural database oversight.'
       ]
     },
     {
@@ -54,7 +54,7 @@ export default function Projects() {
       img: '/images/urban-intel.jpg',
       linkType: 'linkedin',
       linkUrl: 'https://www.linkedin.com/in/aryan-buha-874a5434b/',
-      stack: ['React.js', 'Supabase', 'REST APIs'],
+      stack: ['REACT.JS', 'SUPABASE', 'REST APIS'],
       themeColor: 'cyan',
       borderHover: 'hover:border-cyan-500/60 hover:shadow-[0_0_30px_rgba(6,182,212,0.25),_inset_0_0_20px_rgba(6,182,212,0.08)]',
       borderActive: 'border-cyan-500/40 shadow-[0_0_50px_rgba(6,182,212,0.25)]',
@@ -63,25 +63,52 @@ export default function Projects() {
       bgTag: 'bg-cyan-950/20 border-cyan-500/30',
       glowBg: 'rgba(6, 182, 212, 0.18)',
       btnTheme: 'bg-cyan-600 hover:bg-cyan-700',
-      summary: 'Urban Intel AI acts as a central civic operations center, mapping municipal resources, logging service requests, and managing incident responses dynamically across urban sectors.',
+      summary: 'INTELLIGENT CIVIC GOVERNANCE MODULE CONTAINING USER AUTHORIZATION CONTROLS, ACTIVE INCIDENT REPORTS, AND DATABASES MONITORING MUNICIPAL RESOURCE RATES.',
       highlights: [
-        'Secure user authorization roles ensuring strict administrative and operator partitions.',
-        'Active incident logging feeds enabling responsive tracking of civic utility anomalies.',
-        'Database integrations designed to trace water flow limits and municipal utility rates.',
-        'Premium modern responsive design customized for desktop monitoring setups.'
+        'Implemented secure user authorization levels and access controls.',
+        'Real-time incident dashboard reporting active civic anomalies instantly.',
+        'Aggregated analytical databases monitoring municipal resource and water rates.',
+        'Responsive layout designed specifically for centralized monitoring setups.'
       ]
     },
     {
-      id: 'urban-monitor',
-      title: 'URBAN MONITOR SYSTEM',
-      category: 'Full Stack',
-      shortDesc: 'Real-time municipal telemetry dashboard tracking city traffic flow, crowd density, ambient noise peaks, and live environment sensor indexes.',
-      tag: 'Urban Monitoring System',
-      icon: Activity,
-      img: '/images/urban-monitor.jpg',
+      id: 'terraforge',
+      title: 'TERRAFORGE PLATFORM',
+      category: 'Full Stack Platforms',
+      shortDesc: 'Innovative smart land and environmental solutions platform using React.js, Node.js, Express.js, MongoDB, and AI integrations.',
+      tag: 'Full Stack Platforms',
+      icon: Globe,
+      img: '/images/terraforge.png',
       linkType: 'linkedin',
       linkUrl: 'https://www.linkedin.com/in/aryan-buha-874a5434b/',
-      stack: ['React.js', 'Node.js', 'Socket.io', 'Leaflet', 'PostgreSQL'],
+      stack: ['REACT.JS', 'NODE.JS', 'EXPRESS.JS', 'MONGODB', 'AI INTEGRATIONS'],
+      themeColor: 'emerald',
+      borderHover: 'hover:border-emerald-500/60 hover:shadow-[0_0_30px_rgba(16,185,129,0.25),_inset_0_0_20px_rgba(16,185,129,0.08)]',
+      borderActive: 'border-emerald-500/40 shadow-[0_0_50px_rgba(16,185,129,0.25)]',
+      textTheme: 'text-emerald-400',
+      textDarkTheme: 'text-emerald-500',
+      bgTag: 'bg-emerald-950/20 border-emerald-500/30',
+      glowBg: 'rgba(16, 185, 129, 0.18)',
+      btnTheme: 'bg-emerald-600 hover:bg-emerald-700',
+      summary: 'DEVELOPED AN INNOVATIVE SMART LAND AND ENVIRONMENTAL SOLUTIONS PLATFORM USING REACT.JS, NODE.JS, EXPRESS.JS, MONGODB, AND AI INTEGRATIONS WITH SCALABLE ARCHITECTURE AND MODERN UI.',
+      highlights: [
+        'Modular Express.js backend system interfacing directly with remote sensor links.',
+        'High-velocity data aggregation pipelines predicting regional environmental metrics.',
+        'Responsive, modern user interface featuring dynamic geo-mapping and data visualizer graphs.',
+        'Built with scalable microservice nodes allowing rapid additions of sensor tracking.'
+      ]
+    },
+    {
+      id: 'cityforge',
+      title: 'CITYFORGE - MONITORING',
+      category: 'Frontend & UI UX',
+      shortDesc: 'Contributed to frontend development using React.js, Tailwind CSS, and JavaScript, designing responsive interfaces.',
+      tag: 'Frontend & UI UX',
+      icon: Activity,
+      img: '/images/cityforge.jpg',
+      linkType: 'linkedin',
+      linkUrl: 'https://www.linkedin.com/in/aryan-buha-874a5434b/',
+      stack: ['REACT.JS', 'TAILWIND CSS', 'JAVASCRIPT'],
       themeColor: 'fuchsia',
       borderHover: 'hover:border-fuchsia-500/60 hover:shadow-[0_0_30px_rgba(217,70,239,0.25),_inset_0_0_20px_rgba(217,70,239,0.08)]',
       borderActive: 'border-fuchsia-500/40 shadow-[0_0_50px_rgba(217,70,239,0.25)]',
@@ -90,39 +117,12 @@ export default function Projects() {
       bgTag: 'bg-fuchsia-950/20 border-fuchsia-500/30',
       glowBg: 'rgba(217, 70, 239, 0.18)',
       btnTheme: 'bg-fuchsia-600 hover:bg-fuchsia-700',
-      summary: 'Urban Monitor System is a high-frequency real-time city telemetry monitor designed to map transport bottlenecks, ambient audio surges, and local particulate density. Utilizing WebSockets, the interface syncs sensor reports immediately across live municipality dispatcher screens.',
+      summary: 'CONTRIBUTED TO FRONTEND DEVELOPMENT USING REACT.JS, TAILWIND CSS, AND JAVASCRIPT, DESIGNING RESPONSIVE INTERFACES AND IMPLEMENTING INTERACTIVE USER-FACING FEATURES FOR SMART URBAN ENVIRONMENT MONITORING.',
       highlights: [
-        'Live sensor telemetry plotting active temperature, humidity, and atmospheric metrics.',
-        'Integrated sound level monitors triggering automated warnings for regional noise spikes.',
-        'Interactive street mapping with crowd density indexes and transit traffic hotspots.',
-        'Zone status registry logging active incident codes (such as sensor link timeouts).'
-      ]
-    },
-    {
-      id: 'code-collective',
-      title: 'THE CODE COLLECTIVE',
-      category: 'Full Stack',
-      shortDesc: 'Interactive collaborative workspace for developers featuring real-time code sandboxes, algorithm challenges, and developer profile hubs.',
-      tag: 'Developer Collaboration Platform',
-      icon: Code,
-      img: '/images/code-collective.jpg',
-      linkType: 'linkedin',
-      linkUrl: 'https://www.linkedin.com/in/aryan-buha-874a5434b/',
-      stack: ['React.js', 'Tailwind CSS', 'Node.js', 'Socket.io', 'MongoDB'],
-      themeColor: 'rose',
-      borderHover: 'hover:border-rose-500/60 hover:shadow-[0_0_30px_rgba(244,63,94,0.25),_inset_0_0_20px_rgba(244,63,94,0.08)]',
-      borderActive: 'border-rose-500/40 shadow-[0_0_50px_rgba(244,63,94,0.25)]',
-      textTheme: 'text-rose-400',
-      textDarkTheme: 'text-rose-500',
-      bgTag: 'bg-rose-950/20 border-rose-500/30',
-      glowBg: 'rgba(244, 63, 94, 0.18)',
-      btnTheme: 'bg-rose-600 hover:bg-rose-700',
-      summary: 'The Code Collective is a unified developers platform supporting real-time collaborative code reviews, automated algorithmic testing challenges, and developer community boards. Features customizable themes, sandbox virtual consoles, and profile showcases.',
-      highlights: [
-        'Live collaborative text editor with socket synchronizations for pair programming.',
-        'Integrated algorithmic challenge suite executing test suites in real-time.',
-        'Sleek terminal consoles supporting custom command simulators and workspace file viewing.',
-        'Optimized responsive styling with high-contrast developer theme variations.'
+        'Designed high-fidelity responsive user interfaces for smart urban monitoring.',
+        'Created interactive layouts and charts mapping crowd density, noise, and AQI indices.',
+        'Optimized frontend assets and states ensuring fast, sub-1s initial page loads.',
+        'Clean component layout built strictly with Tailwind CSS styling and modular JavaScript.'
       ]
     }
   ]
