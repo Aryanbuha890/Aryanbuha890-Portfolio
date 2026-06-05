@@ -1,15 +1,12 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ExternalLink, X, Terminal, Code, Cpu, Database, Folder, Play, Layers } from 'lucide-react'
+import { ExternalLink, X, Terminal, Code, Sprout, Building2, Globe, Lock } from 'lucide-react'
 
-// Inline custom GitHub Icon (consistent with Contact.jsx)
-const GitHubIcon = ({ size = 16, ...props }) => (
-  <svg width={size} height={size} {...props} viewBox="0 0 1024 1024" fill="none">
+// Inline custom LinkedIn Icon (matching Contact.jsx style)
+const LinkedInIcon = ({ size = 16, ...props }) => (
+  <svg width={size} height={size} {...props} preserveAspectRatio="xMidYMid" viewBox="0 0 256 256">
     <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"
-      transform="scale(64)"
+      d="M218.123 218.127h-37.931v-59.403c0-14.165-.253-32.4-19.728-32.4-19.756 0-22.779 15.434-22.779 31.369v60.43h-37.93V95.967h36.413v16.694h.51a39.907 39.907 0 0 1 35.928-19.733c38.445 0 45.533 25.288 45.533 58.186l-.016 67.013ZM56.955 79.27c-12.157.002-22.014-9.852-22.016-22.009-.002-12.157 9.851-22.014 22.008-22.016 12.157-.003 22.014 9.851 22.016 22.008A22.013 22.013 0 0 1 56.955 79.27m18.966 138.858H37.95V95.967h37.97v122.16ZM237.033.018H18.89C8.58-.098.125 8.161-.001 18.471v219.053c.122 10.315 8.576 18.582 18.89 18.474h218.144c10.336.128 18.823-8.139 18.966-18.474V18.454c-.147-10.33-8.635-18.588-18.966-18.453"
       fill="currentColor"
     />
   </svg>
@@ -19,99 +16,89 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All')
   const [selectedProject, setSelectedProject] = useState(null)
 
-  const categories = ['All', 'AI & ML', 'Web Dev', 'Systems']
+  const categories = ['All', 'AI & ML', 'Full Stack']
 
   const projectsData = [
     {
-      id: 'terraforge',
-      title: 'TerraForge: Environmental OS',
+      id: 'agriforge',
+      title: 'AGRIFORGE AI',
       category: 'AI & ML',
-      shortDesc: 'Offline environmental intelligence platform powered by local AI and live weather feeds.',
-      tag: 'AI_INTEL',
-      icon: Cpu,
-      img: '/software dev img.jpg', // Using existing assets safely
-      github: 'https://github.com/Aryanbuha890',
-      live: '#home',
-      stack: ['Python', 'TinyLlama', 'FastAPI', 'Pandas', 'NumPy'],
-      summary: 'TerraForge is a local-first Environmental Intelligence OS designed to predict environmental hazards and support rural agricultural decisions. The system runs localized AI models (TinyLlama fine-tuned profiles) completely offline to ensure complete privacy, lower infrastructure dependencies, and absolute data sovereignty in remote regions.',
+      shortDesc: 'Comprehensive agricultural empowerment platform featuring localized farmer news, dynamic market yard pricing grids, and an admin panel.',
+      tag: 'Agricultural Support Platform',
+      icon: Sprout,
+      img: '/software dev img.jpg',
+      linkType: 'private',
+      linkUrl: '#contact',
+      stack: ['React.js', 'Node.js', 'AI / ML', 'MongoDB'],
+      themeColor: 'yellow',
+      // Dynamic styles mapped strictly to HSL tailwind values for premium look
+      borderHover: 'hover:border-yellow-500/60 hover:shadow-[0_0_30px_rgba(234,179,8,0.25),_inset_0_0_20px_rgba(234,179,8,0.08)]',
+      borderActive: 'border-yellow-500/40 shadow-[0_0_50px_rgba(234,179,8,0.25)]',
+      textTheme: 'text-yellow-400',
+      textDarkTheme: 'text-yellow-500',
+      bgTag: 'bg-yellow-950/20 border-yellow-500/30',
+      glowBg: 'rgba(234, 179, 8, 0.18)',
+      btnTheme: 'bg-yellow-600 hover:bg-yellow-700',
+      summary: 'AgriForge AI is a high-impact agricultural support platform engineered to bring advanced technological intelligence directly to local farming communities. By integrating real-time telemetry pipelines and user-friendly command interfaces, the system bridges the gap between digital data and field-level actions.',
       highlights: [
-        'Integrated live weather feeds and satellite telemetry forecasting scripts',
-        'Built full multilingual voice assistance using offline STT/TTS modules',
-        'Achieved 0ms external API dependency with 100% data sovereignty',
-        'Top 8 SVNIT DotSlash 9.0 Hackathon Finalist project'
+        'Winner of prestigious Rs. 2.43 Lakh SSIP Government Funding.',
+        'Dynamic market yard pricing grid tracks regional trade values in real-time.',
+        'Localized news distribution system tailored specifically for rural farming hubs.',
+        'Built full backend control center for authorized administrative records management.'
       ]
     },
     {
       id: 'urban-intel',
-      title: 'Urban Intel AI Governance',
-      category: 'AI & ML',
-      shortDesc: 'Predictive Smart City Governance Platform with specialized foresting classifiers.',
-      tag: 'CITY_INFRA',
-      icon: Layers,
+      title: 'URBAN INTEL AI',
+      category: 'Full Stack',
+      shortDesc: 'Intelligent civic governance module containing user authorization controls, active incident reports, and databases monitoring municipal resource rates.',
+      tag: 'Smart City Infrastructure',
+      icon: Building2,
       img: '/AI & ML img.jpg',
-      github: 'https://github.com/Aryanbuha890',
-      live: '#home',
-      stack: ['Scikit-learn', 'FastAPI', 'React.js', 'Tailwind CSS', 'PostgreSQL'],
-      summary: 'Urban Intel AI is a next-generation predictive governance platform that monitors and foresees municipal infrastructure crises before they impact citizens. It utilizes a hybrid AI architecture that combines private offline LLM systems and tabular prediction pipelines.',
+      linkType: 'linkedin',
+      linkUrl: 'https://www.linkedin.com/in/aryan-buha-874a5434b/',
+      stack: ['React.js', 'Supabase', 'REST APIs'],
+      themeColor: 'cyan',
+      borderHover: 'hover:border-cyan-500/60 hover:shadow-[0_0_30px_rgba(6,182,212,0.25),_inset_0_0_20px_rgba(6,182,212,0.08)]',
+      borderActive: 'border-cyan-500/40 shadow-[0_0_50px_rgba(6,182,212,0.25)]',
+      textTheme: 'text-cyan-400',
+      textDarkTheme: 'text-cyan-500',
+      bgTag: 'bg-cyan-950/20 border-cyan-500/30',
+      glowBg: 'rgba(6, 182, 212, 0.18)',
+      btnTheme: 'bg-cyan-600 hover:bg-cyan-700',
+      summary: 'Urban Intel AI acts as a central civic operations center, mapping municipal resources, logging service requests, and managing incident responses dynamically across urban sectors.',
       highlights: [
-        'Deploys 6 customized Random Forest forecasting models for city utilities',
-        'Offline LLM integration allows safe localized data query pipelines without cloud leaks',
-        'Real-time administrative dashboards indicating water, transit, and weather hazard risks',
-        '1st Runner Up finish among 180+ teams at Ahmedabad University Ingenious 7.0'
+        'Secure user authorization roles ensuring strict administrative and operator partitions.',
+        'Active incident logging feeds enabling responsive tracking of civic utility anomalies.',
+        'Database integrations designed to trace water flow limits and municipal utility rates.',
+        'Premium modern responsive design customized for desktop monitoring setups.'
       ]
     },
     {
-      id: 'coastal-threat',
-      title: 'Coastal Threat Alert System',
-      category: 'Web Dev',
-      shortDesc: 'AI + IoT coastal alert system for marine conservation and fisherfolk protection.',
-      tag: 'CLIMATE_TECH',
-      icon: Database,
+      id: 'terraforge',
+      title: 'TERRAFORGE PLATFORM',
+      category: 'Full Stack',
+      shortDesc: 'Innovative smart land and environmental solutions platform utilizing React, Node.js, Express, MongoDB, and AI integrations.',
+      tag: 'Full Stack Platforms',
+      icon: Globe,
       img: '/Full Stack dev img.jpg',
-      github: 'https://github.com/Aryanbuha890',
-      live: '#home',
-      stack: ['React.js', 'Node.js', 'Express', 'Leaflet Map API', 'IoT Sensors'],
-      summary: 'Coastal Threat Alert System provides role-based command modules to help monitor coastal erosion, toxic waste dump alert tracking, and sea-level rise anomalies. Designed to interface directly with low-latency IoT oceanic telemetry nodes.',
+      linkType: 'linkedin',
+      linkUrl: 'https://www.linkedin.com/in/aryan-buha-874a5434b/',
+      stack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'AI Integrations'],
+      themeColor: 'emerald',
+      borderHover: 'hover:border-emerald-500/60 hover:shadow-[0_0_30px_rgba(16,185,129,0.25),_inset_0_0_20px_rgba(16,185,129,0.08)]',
+      borderActive: 'border-emerald-500/40 shadow-[0_0_50px_rgba(16,185,129,0.25)]',
+      textTheme: 'text-emerald-400',
+      textDarkTheme: 'text-emerald-500',
+      bgTag: 'bg-emerald-950/20 border-emerald-500/30',
+      glowBg: 'rgba(16, 185, 129, 0.18)',
+      btnTheme: 'bg-emerald-600 hover:bg-emerald-700',
+      summary: 'TerraForge Environmental Platform delivers advanced land monitoring models and environmental threat analysis pipelines through a highly performant and unified web system.',
       highlights: [
-        'Built 5 specialized dashboards tailored to civic defense, NGOs, scientists, and local fisherfolk',
-        'Simulated dynamic tracking mapping of harmful algal blooms and coastal runoff vectors',
-        'Shortlisted for the Grand Offline Round of HackOut 2025 at DAIICT'
-      ]
-    },
-    {
-      id: 'eunoia',
-      title: 'Eunoia Homoeopathy Portal',
-      category: 'Web Dev',
-      shortDesc: 'Production clinic website with full consultation booker and secure patient routing.',
-      tag: 'PRODUCTION_LIVE',
-      icon: Folder,
-      img: '/software dev img.jpg',
-      github: 'https://github.com/Aryanbuha890',
-      live: 'https://eunoiahomoeopathy.com', // placeholder URL structure
-      stack: ['React.js', 'Tailwind CSS', 'Framer Motion', 'EmailJS', 'Vite'],
-      summary: 'Eunoia Homoeopathy is a full-production clinic portal providing automated consultant scheduling, service information, custom patient feedback portals, and SEO performance metrics.',
-      highlights: [
-        'Fully responsive UX with customized scheduling handlers',
-        'Optimized build configurations resulting in a sub-1.2s page load speed index',
-        'Currently deployed and operating for local clinical healthcare practices'
-      ]
-    },
-    {
-      id: 'cattle-health',
-      title: 'Smart Cattle Prediction API',
-      category: 'Systems',
-      shortDesc: 'Intelligent dairy metrics predictor and classification backend logic.',
-      tag: 'SYSTEMS_CORE',
-      icon: Terminal,
-      img: '/AI & ML img.jpg',
-      github: 'https://github.com/Aryanbuha890',
-      live: '#home',
-      stack: ['Python', 'Scikit-learn', 'NumPy', 'Flask API', 'PDFKit'],
-      summary: 'An advanced health classifier and predictive system that maps cattle vital indicators (body temp, rumination index) to forecast daily milk yield outputs and alert vet clinics of emerging sickness metrics.',
-      highlights: [
-        'Regression models reaching up to 90% validation accuracy metrics',
-        'Automated telemetry logging that converts daily data into encrypted health report PDFs',
-        'Integrated translation pipeline supporting Hindi, Gujarati, Marathi, and English layouts'
+        'Modular Express.js backend connecting physical remote sensors to cloud mapping arrays.',
+        'High-velocity data aggregation pipelines predicting regional environmental metrics.',
+        'Fully responsive UX featuring dynamic geo-mapping and data visualizer graphs.',
+        'Engineered scalable microservice nodes allowing rapid addition of local sensor links.'
       ]
     }
   ]
@@ -120,9 +107,27 @@ export default function Projects() {
     ? projectsData 
     : projectsData.filter(proj => proj.category === activeCategory)
 
+  // Smooth scroll helper to navigate directly to Contact Section
+  const handleContactNavigation = (e) => {
+    e.preventDefault();
+    setSelectedProject(null);
+    const element = document.querySelector('#contact');
+    if (element) {
+      const offset = 100
+      const bodyRect = document.body.getBoundingClientRect().top
+      const elementRect = element.getBoundingClientRect().top
+      const elementPosition = elementRect - bodyRect
+      const offsetPosition = elementPosition - offset
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
+
   return (
     <section id="projects" className="py-24 relative overflow-hidden bg-black select-none border-t border-white/5">
-      {/* Decorative ambient nodes */}
+      {/* Decorative ambient glow nodes */}
       <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full bg-red-950/10 blur-3xl animated-glow-bg pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-neutral-900/30 blur-3xl animated-glow-bg pointer-events-none" style={{ animationDelay: '-3s' }}></div>
 
@@ -174,7 +179,7 @@ export default function Projects() {
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4 }}
                   onClick={() => setSelectedProject(proj)}
-                  className="relative w-full max-w-[360px] h-[480px] rounded-2xl bg-neutral-950/70 border border-red-500/30 overflow-hidden flex flex-col justify-between transition-all duration-500 hover:border-red-500/60 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(239,68,68,0.25),_inset_0_0_20px_rgba(239,68,68,0.08)] group cursor-pointer"
+                  className={`relative w-full max-w-[360px] h-[480px] rounded-2xl bg-neutral-950/70 border border-red-500/20 overflow-hidden flex flex-col justify-between transition-all duration-500 ${proj.borderHover} group cursor-pointer`}
                 >
                   {/* Image Background overlay */}
                   <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden transition-all duration-700">
@@ -196,15 +201,15 @@ export default function Projects() {
                   {/* Card Content */}
                   <div className="relative z-10 p-6 flex flex-col justify-between h-full w-full">
                     <div className="flex flex-col text-left items-start">
-                      <span className="font-mono text-[9px] tracking-widest text-red-400 border border-red-500/30 rounded-full px-2.5 py-0.5 bg-red-950/20 uppercase font-semibold">
+                      <span className={`font-mono text-[9px] tracking-widest ${proj.textTheme} border rounded-full px-2.5 py-0.5 ${proj.bgTag} uppercase font-semibold`}>
                         {proj.tag}
                       </span>
                       
-                      <div className="p-3 rounded-xl bg-red-600/10 border border-red-500/20 text-red-500 mt-4 transition-all duration-300 group-hover:scale-110 group-hover:bg-red-600/20 group-hover:border-red-500/50">
+                      <div className={`p-3 rounded-xl bg-neutral-900/40 border border-white/5 ${proj.textTheme} mt-4 transition-all duration-300 group-hover:scale-110 group-hover:bg-neutral-800/60`}>
                         <Icon size={22} />
                       </div>
 
-                      <h3 className="text-xl font-bold tracking-tight text-white font-mono mt-4 group-hover:text-red-400 transition-colors duration-300">
+                      <h3 className={`text-xl font-bold tracking-tight text-white font-mono mt-4 group-hover:${proj.textTheme} transition-colors duration-300`}>
                         {proj.title}
                       </h3>
                     </div>
@@ -217,16 +222,11 @@ export default function Projects() {
                       </p>
                       
                       <div className="mt-5 flex flex-wrap gap-1.5">
-                        {proj.stack.slice(0, 3).map((st) => (
+                        {proj.stack.map((st) => (
                           <span key={st} className="px-2 py-0.5 rounded bg-white/5 border border-white/5 font-mono text-[9px] text-neutral-400">
                             {st}
                           </span>
                         ))}
-                        {proj.stack.length > 3 && (
-                          <span className="px-2 py-0.5 rounded bg-white/5 border border-white/5 font-mono text-[9px] text-red-500">
-                            +{proj.stack.length - 3} More
-                          </span>
-                        )}
                       </div>
                     </div>
                   </div>
@@ -252,11 +252,17 @@ export default function Projects() {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
               transition={{ duration: 0.4, cubicBezier: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-5xl rounded-lg overflow-hidden glass-panel border border-red-500/40 shadow-[0_0_50px_rgba(239,68,68,0.25)] relative flex flex-col max-h-[90vh] bg-neutral-950/95"
+              className={`w-full max-w-5xl rounded-lg overflow-hidden glass-panel border ${selectedProject.borderActive} relative flex flex-col max-h-[90vh] bg-neutral-950/95`}
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Soft dynamic header glow */}
+              <div 
+                className="absolute top-[-10%] left-20% w-[60%] h-[30%] pointer-events-none filter blur-[20px]" 
+                style={{ background: `radial-gradient(ellipse at center, ${selectedProject.glowBg}, transparent 70%)` }}
+              />
+
               {/* Window Header */}
-              <div className="bg-black px-4 py-3 border-b border-white/5 flex items-center justify-between">
+              <div className="bg-black px-4 py-3 border-b border-white/5 flex items-center justify-between relative z-10">
                 <div className="flex gap-2">
                   <span className="w-3 h-3 rounded-full bg-red-600 block"></span>
                   <span className="w-3 h-3 rounded-full bg-yellow-500 block"></span>
@@ -274,17 +280,17 @@ export default function Projects() {
               </div>
 
               {/* Scrollable Modal Content */}
-              <div className="flex-1 p-6 md:p-8 overflow-y-auto scrollbar text-left space-y-8 bg-black/40">
+              <div className="flex-1 p-6 md:p-8 overflow-y-auto scrollbar text-left space-y-8 bg-black/40 relative z-10">
                 
                 {/* Title Section */}
                 <div className="space-y-2 border-b border-white/5 pb-6">
-                  <span className="px-2.5 py-0.5 rounded bg-red-950/30 border border-red-500/20 font-mono text-[9px] text-red-400 uppercase tracking-widest font-semibold">
+                  <span className={`px-2.5 py-0.5 rounded border font-mono text-[9px] ${selectedProject.textTheme} ${selectedProject.bgTag} uppercase tracking-widest font-semibold`}>
                     {selectedProject.tag}
                   </span>
                   <h2 className="text-xl md:text-2xl font-bold tracking-tight text-white select-text">
                     {selectedProject.title}
                   </h2>
-                  <p className="text-xs font-mono text-red-500/80 font-bold uppercase tracking-wider">// {selectedProject.category}</p>
+                  <p className={`text-xs font-mono ${selectedProject.textDarkTheme} font-bold uppercase tracking-wider`}>// {selectedProject.category}</p>
                 </div>
 
                 {/* Main Split Grid */}
@@ -292,8 +298,8 @@ export default function Projects() {
                   
                   {/* Left Column: Image Asset & Tech Stack */}
                   <div className="lg:col-span-5 space-y-6">
-                    <div className="relative group rounded-xl overflow-hidden border border-red-500/30 bg-black/80 shadow-2xl p-3 flex items-center justify-center aspect-[4/3] max-w-full">
-                      <div className="w-full h-full border border-red-500/20 rounded-lg p-1.5 bg-black/40 flex items-center justify-center relative z-10">
+                    <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-black/80 shadow-2xl p-3 flex items-center justify-center aspect-[4/3] max-w-full">
+                      <div className="w-full h-full border border-white/5 rounded-lg p-1.5 bg-black/40 flex items-center justify-center relative z-10">
                         <img 
                           src={selectedProject.img} 
                           alt={selectedProject.title}
@@ -310,12 +316,12 @@ export default function Projects() {
 
                     {/* Tech stack box */}
                     <div className="glass-panel p-5 rounded-xl space-y-3 font-mono bg-black/60 select-text">
-                      <h4 className="text-[10px] font-bold text-red-400 uppercase tracking-wider flex items-center gap-1.5">
+                      <h4 className={`text-[10px] font-bold ${selectedProject.textTheme} uppercase tracking-wider flex items-center gap-1.5`}>
                         <Code size={12} /> Tech Stack
                       </h4>
                       <div className="flex flex-wrap gap-2 pt-2">
                         {selectedProject.stack.map((st) => (
-                          <span key={st} className="px-2.5 py-1 rounded bg-red-950/20 border border-red-500/20 font-mono text-[10px] text-neutral-300">
+                          <span key={st} className={`px-2.5 py-1 rounded border font-mono text-[10px] text-neutral-300 ${selectedProject.bgTag}`}>
                             {st}
                           </span>
                         ))}
@@ -328,7 +334,7 @@ export default function Projects() {
                     
                     {/* Project Overview */}
                     <div className="space-y-2 select-text">
-                      <h3 className="font-mono text-xs font-bold text-red-400 uppercase tracking-wider flex items-center gap-1">
+                      <h3 className={`font-mono text-xs font-bold ${selectedProject.textTheme} uppercase tracking-wider flex items-center gap-1`}>
                         <span>&gt;_</span> Project Summary
                       </h3>
                       <p className="text-xs text-neutral-300 leading-relaxed font-sans mt-2 select-text text-justify text-justify-inter-character">
@@ -339,13 +345,13 @@ export default function Projects() {
                     {/* Key Highlights */}
                     {selectedProject.highlights && selectedProject.highlights.length > 0 && (
                       <div className="space-y-3 select-text">
-                        <h3 className="font-mono text-xs font-bold text-red-400 uppercase tracking-wider flex items-center gap-1">
+                        <h3 className={`font-mono text-xs font-bold ${selectedProject.textTheme} uppercase tracking-wider flex items-center gap-1`}>
                           <span>&gt;_</span> Key Features & Highlights
                         </h3>
                         <ul className="space-y-2 select-text">
                           {selectedProject.highlights.map((feat, idx) => (
                             <li key={idx} className="text-xs text-neutral-300 flex items-start gap-2.5 leading-relaxed select-text">
-                              <span className="text-red-500 font-bold font-mono mt-0.5 flex-shrink-0">•</span>
+                              <span className={`font-bold font-mono mt-0.5 flex-shrink-0 ${selectedProject.textTheme}`}>•</span>
                               <span>{feat}</span>
                             </li>
                           ))}
@@ -360,28 +366,25 @@ export default function Projects() {
                   <div className="flex gap-3">
                     <button 
                       onClick={() => setSelectedProject(null)}
-                      className="px-6 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:shadow-[0_0_25px_rgba(239,68,68,0.4)] hover:scale-105"
+                      className="px-6 py-2.5 rounded-full bg-neutral-900 border border-white/10 hover:border-white/20 text-neutral-300 hover:text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:scale-105"
                     >
                       Close Profile
                     </button>
-                    {selectedProject.github && (
+                    {selectedProject.linkType === 'private' ? (
+                      <button 
+                        onClick={handleContactNavigation}
+                        className={`px-6 py-2.5 rounded-full text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:scale-105 flex items-center gap-2 ${selectedProject.btnTheme} shadow-[0_0_20px_rgba(234,179,8,0.2)]`}
+                      >
+                        <Lock size={13} /> Private - Contact Me
+                      </button>
+                    ) : (
                       <a 
-                        href={selectedProject.github}
+                        href={selectedProject.linkUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-6 py-2.5 rounded-full border border-white/10 hover:border-red-500/30 bg-white/[0.02] hover:bg-white/[0.06] text-neutral-300 hover:text-white text-xs font-mono tracking-wider uppercase transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                        className={`px-6 py-2.5 rounded-full text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:scale-105 flex items-center gap-2 ${selectedProject.btnTheme}`}
                       >
-                        <GitHubIcon size={14} /> Repository
-                      </a>
-                    )}
-                    {selectedProject.live && selectedProject.live !== '#home' && (
-                      <a 
-                        href={selectedProject.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-6 py-2.5 rounded-full border border-red-500/20 hover:border-red-500/40 bg-red-600/10 hover:bg-red-600/20 text-red-400 hover:text-white text-xs font-mono tracking-wider uppercase transition-all duration-300 hover:scale-105 flex items-center gap-2"
-                      >
-                        <ExternalLink size={14} /> Live Demo
+                        <LinkedInIcon size={14} /> View on LinkedIn
                       </a>
                     )}
                   </div>

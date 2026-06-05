@@ -104,7 +104,7 @@ export default function Header({ onNavClick }) {
         response = `WHY CHOOSE ARYAN:\n----------------------------------------\n⭐ High Quality Code  - Clean linter audited, robust structural engineering.\n⭐ Rapid Velocity     - GRANULAR targets delivered ahead of schedules.\n⭐ Proactive Sync     - 100% active alignment & transparent staging feeds.\n⭐ Scalable Systems   - Modular architectures built for intense growth.`
         break
       case 'projects':
-        response = `ARYAN'S PROJECTS:\n----------------------------------------\n🚀 TerraForge    - Offline environmental intelligence OS utilizing local AI models.\n💻 Urban Intel   - Predictive city governance simulator (1st Runner Up Hackathon).\n🌊 Coastal Alert - Real-time role-based climate hazard mapping dashboards.\n🏠 Eunoia Clinic - Live medical portfolio & client scheduling portal.`
+        response = `ARYAN'S PROJECTS:\n----------------------------------------\n🌾 AgriForge AI  - Agricultural support platform (SSIP Govt Funded - Rs. 2.43L).\n🏢 Urban Intel   - Civic governance module with active incident reports.\n🌍 TerraForge    - Smart land & environmental platform with AI integrations.`
         break
       case 'achievements':
         response = `HACKATHONS & AWARDS:\n----------------------------------------\n🏆 Finalist (Top 40 / 240+) - Hackovate 2025 (LJ University)\n💻 Climate Tech Award - HackOut 2025 (DAIICT)\n🚀 Global Challenger - NASA Space Apps\n🛰️ Space Tech Hack - ISRO Bharatiya Antariksh\n🎮 Creative Design - ITM Game Jam`
