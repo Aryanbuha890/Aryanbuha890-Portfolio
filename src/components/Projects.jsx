@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ExternalLink, X, Terminal, Code, Sprout, Building2, Globe, Lock } from 'lucide-react'
+import { ExternalLink, X, Terminal, Code, Sprout, Building2, Lock, Activity } from 'lucide-react'
 
 // Inline custom LinkedIn Icon (matching Contact.jsx style)
 const LinkedInIcon = ({ size = 16, ...props }) => (
@@ -13,10 +13,7 @@ const LinkedInIcon = ({ size = 16, ...props }) => (
 )
 
 export default function Projects() {
-  const [activeCategory, setActiveCategory] = useState('All')
   const [selectedProject, setSelectedProject] = useState(null)
-
-  const categories = ['All', 'AI & ML', 'Full Stack']
 
   const projectsData = [
     {
@@ -26,7 +23,7 @@ export default function Projects() {
       shortDesc: 'Comprehensive agricultural empowerment platform featuring localized farmer news, dynamic market yard pricing grids, and an admin panel.',
       tag: 'Agricultural Support Platform',
       icon: Sprout,
-      img: '/software dev img.jpg',
+      img: '/images/agriforge.jpg',
       linkType: 'private',
       linkUrl: '#contact',
       stack: ['React.js', 'Node.js', 'AI / ML', 'MongoDB'],
@@ -54,7 +51,7 @@ export default function Projects() {
       shortDesc: 'Intelligent civic governance module containing user authorization controls, active incident reports, and databases monitoring municipal resource rates.',
       tag: 'Smart City Infrastructure',
       icon: Building2,
-      img: '/AI & ML img.jpg',
+      img: '/images/urban-intel.jpg',
       linkType: 'linkedin',
       linkUrl: 'https://www.linkedin.com/in/aryan-buha-874a5434b/',
       stack: ['React.js', 'Supabase', 'REST APIs'],
@@ -75,37 +72,60 @@ export default function Projects() {
       ]
     },
     {
-      id: 'terraforge',
-      title: 'TERRAFORGE PLATFORM',
+      id: 'urban-monitor',
+      title: 'URBAN MONITOR SYSTEM',
       category: 'Full Stack',
-      shortDesc: 'Innovative smart land and environmental solutions platform utilizing React, Node.js, Express, MongoDB, and AI integrations.',
-      tag: 'Full Stack Platforms',
-      icon: Globe,
-      img: '/Full Stack dev img.jpg',
+      shortDesc: 'Real-time municipal telemetry dashboard tracking city traffic flow, crowd density, ambient noise peaks, and live environment sensor indexes.',
+      tag: 'Urban Monitoring System',
+      icon: Activity,
+      img: '/images/urban-monitor.jpg',
       linkType: 'linkedin',
       linkUrl: 'https://www.linkedin.com/in/aryan-buha-874a5434b/',
-      stack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'AI Integrations'],
-      themeColor: 'emerald',
-      borderHover: 'hover:border-emerald-500/60 hover:shadow-[0_0_30px_rgba(16,185,129,0.25),_inset_0_0_20px_rgba(16,185,129,0.08)]',
-      borderActive: 'border-emerald-500/40 shadow-[0_0_50px_rgba(16,185,129,0.25)]',
-      textTheme: 'text-emerald-400',
-      textDarkTheme: 'text-emerald-500',
-      bgTag: 'bg-emerald-950/20 border-emerald-500/30',
-      glowBg: 'rgba(16, 185, 129, 0.18)',
-      btnTheme: 'bg-emerald-600 hover:bg-emerald-700',
-      summary: 'TerraForge Environmental Platform delivers advanced land monitoring models and environmental threat analysis pipelines through a highly performant and unified web system.',
+      stack: ['React.js', 'Node.js', 'Socket.io', 'Leaflet', 'PostgreSQL'],
+      themeColor: 'fuchsia',
+      borderHover: 'hover:border-fuchsia-500/60 hover:shadow-[0_0_30px_rgba(217,70,239,0.25),_inset_0_0_20px_rgba(217,70,239,0.08)]',
+      borderActive: 'border-fuchsia-500/40 shadow-[0_0_50px_rgba(217,70,239,0.25)]',
+      textTheme: 'text-fuchsia-400',
+      textDarkTheme: 'text-fuchsia-500',
+      bgTag: 'bg-fuchsia-950/20 border-fuchsia-500/30',
+      glowBg: 'rgba(217, 70, 239, 0.18)',
+      btnTheme: 'bg-fuchsia-600 hover:bg-fuchsia-700',
+      summary: 'Urban Monitor System is a high-frequency real-time city telemetry monitor designed to map transport bottlenecks, ambient audio surges, and local particulate density. Utilizing WebSockets, the interface syncs sensor reports immediately across live municipality dispatcher screens.',
       highlights: [
-        'Modular Express.js backend connecting physical remote sensors to cloud mapping arrays.',
-        'High-velocity data aggregation pipelines predicting regional environmental metrics.',
-        'Fully responsive UX featuring dynamic geo-mapping and data visualizer graphs.',
-        'Engineered scalable microservice nodes allowing rapid addition of local sensor links.'
+        'Live sensor telemetry plotting active temperature, humidity, and atmospheric metrics.',
+        'Integrated sound level monitors triggering automated warnings for regional noise spikes.',
+        'Interactive street mapping with crowd density indexes and transit traffic hotspots.',
+        'Zone status registry logging active incident codes (such as sensor link timeouts).'
+      ]
+    },
+    {
+      id: 'code-collective',
+      title: 'THE CODE COLLECTIVE',
+      category: 'Full Stack',
+      shortDesc: 'Interactive collaborative workspace for developers featuring real-time code sandboxes, algorithm challenges, and developer profile hubs.',
+      tag: 'Developer Collaboration Platform',
+      icon: Code,
+      img: '/images/code-collective.jpg',
+      linkType: 'linkedin',
+      linkUrl: 'https://www.linkedin.com/in/aryan-buha-874a5434b/',
+      stack: ['React.js', 'Tailwind CSS', 'Node.js', 'Socket.io', 'MongoDB'],
+      themeColor: 'rose',
+      borderHover: 'hover:border-rose-500/60 hover:shadow-[0_0_30px_rgba(244,63,94,0.25),_inset_0_0_20px_rgba(244,63,94,0.08)]',
+      borderActive: 'border-rose-500/40 shadow-[0_0_50px_rgba(244,63,94,0.25)]',
+      textTheme: 'text-rose-400',
+      textDarkTheme: 'text-rose-500',
+      bgTag: 'bg-rose-950/20 border-rose-500/30',
+      glowBg: 'rgba(244, 63, 94, 0.18)',
+      btnTheme: 'bg-rose-600 hover:bg-rose-700',
+      summary: 'The Code Collective is a unified developers platform supporting real-time collaborative code reviews, automated algorithmic testing challenges, and developer community boards. Features customizable themes, sandbox virtual consoles, and profile showcases.',
+      highlights: [
+        'Live collaborative text editor with socket synchronizations for pair programming.',
+        'Integrated algorithmic challenge suite executing test suites in real-time.',
+        'Sleek terminal consoles supporting custom command simulators and workspace file viewing.',
+        'Optimized responsive styling with high-contrast developer theme variations.'
       ]
     }
   ]
-
-  const filteredProjects = activeCategory === 'All' 
-    ? projectsData 
-    : projectsData.filter(proj => proj.category === activeCategory)
 
   // Smooth scroll helper to navigate directly to Contact Section
   const handleContactNavigation = (e) => {
@@ -134,32 +154,13 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div className="text-left space-y-2">
-            <div className="text-red-500 font-mono text-sm tracking-widest uppercase flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-red-500"></span>
-              portfolio.projects()
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Technical Projects</h2>
-            <div className="h-1 w-12 bg-red-600 rounded"></div>
+        <div className="text-left mb-16 space-y-2">
+          <div className="text-red-500 font-mono text-sm tracking-widest uppercase flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-red-500"></span>
+            portfolio.projects()
           </div>
-
-          {/* Filtering Tabs */}
-          <div className="flex flex-wrap gap-2 bg-neutral-950/60 p-1 rounded-xl border border-white/5 self-start md:self-auto">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-1.5 rounded-lg font-mono text-xs tracking-wider transition-all duration-300 uppercase ${
-                  activeCategory === cat
-                    ? 'bg-red-600/15 border border-red-500/30 text-white font-bold shadow-[0_0_15px_rgba(239,68,68,0.15)]'
-                    : 'border border-transparent text-neutral-400 hover:text-white hover:bg-white/5'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Technical Projects</h2>
+          <div className="h-1 w-12 bg-red-600 rounded"></div>
         </div>
 
         {/* Projects Grid */}
@@ -168,7 +169,7 @@ export default function Projects() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((proj) => {
+            {projectsData.map((proj) => {
               const Icon = proj.icon
               return (
                 <motion.div
@@ -186,7 +187,7 @@ export default function Projects() {
                     <img 
                       src={proj.img} 
                       alt={proj.title} 
-                      className="w-full h-full object-cover opacity-35 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700 sharp-certificate"
+                      className="w-full h-full object-cover opacity-35 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/90 to-transparent"></div>
                   </div>
@@ -303,7 +304,7 @@ export default function Projects() {
                         <img 
                           src={selectedProject.img} 
                           alt={selectedProject.title}
-                          className="w-full h-full object-cover rounded-lg sharp-certificate"
+                          className="w-full h-full object-contain rounded-lg"
                         />
                       </div>
                       

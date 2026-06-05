@@ -104,7 +104,7 @@ export default function Header({ onNavClick }) {
         response = `WHY CHOOSE ARYAN:\n----------------------------------------\n⭐ High Quality Code  - Clean linter audited, robust structural engineering.\n⭐ Rapid Velocity     - GRANULAR targets delivered ahead of schedules.\n⭐ Proactive Sync     - 100% active alignment & transparent staging feeds.\n⭐ Scalable Systems   - Modular architectures built for intense growth.`
         break
       case 'projects':
-        response = `ARYAN'S PROJECTS:\n----------------------------------------\n🌾 AgriForge AI  - Agricultural support platform (SSIP Govt Funded - Rs. 2.43L).\n🏢 Urban Intel   - Civic governance module with active incident reports.\n🌍 TerraForge    - Smart land & environmental platform with AI integrations.`
+        response = `ARYAN'S PROJECTS:\n----------------------------------------\n🌾 AgriForge AI  - Agricultural support platform (SSIP Govt Funded - Rs. 2.43L).\n🏢 Urban Intel   - Civic governance module with active incident reports.\n🚨 Urban Monitor - Real-time city congestion & environment monitor.\n💻 Code Club     - The Code Collective: developer sandbox & collabs.`
         break
       case 'achievements':
         response = `HACKATHONS & AWARDS:\n----------------------------------------\n🏆 Finalist (Top 40 / 240+) - Hackovate 2025 (LJ University)\n💻 Climate Tech Award - HackOut 2025 (DAIICT)\n🚀 Global Challenger - NASA Space Apps\n🛰️ Space Tech Hack - ISRO Bharatiya Antariksh\n🎮 Creative Design - ITM Game Jam`
@@ -152,8 +152,8 @@ export default function Header({ onNavClick }) {
           transition={{ duration: 0.5 }}
           className={`pointer-events-auto w-full mx-auto rounded-full border transition-all duration-500 ${
             isScrolled 
-              ? 'max-w-4xl bg-black/75 py-2.5 px-6 backdrop-blur-md navbar-glow-scrolled' 
-              : 'max-w-5xl bg-black/40 py-4 px-8 backdrop-blur-md navbar-glow-unscrolled'
+              ? 'max-w-5xl bg-black/75 py-2.5 px-6 backdrop-blur-md navbar-glow-scrolled' 
+              : 'max-w-6xl bg-black/40 py-4 px-8 backdrop-blur-md navbar-glow-unscrolled'
           }`}
         >
           <div className="w-full flex items-center justify-between">
@@ -174,7 +174,7 @@ export default function Header({ onNavClick }) {
             </a>
 
             {/* Desktop Nav links */}
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-3 lg:gap-6">
               {navLinks.map((link) => (
                 <a 
                   key={link.name} 
@@ -183,7 +183,7 @@ export default function Header({ onNavClick }) {
                     e.preventDefault();
                     onNavClick(link.href);
                   }}
-                  className="text-xs font-mono tracking-wider text-neutral-400 hover:text-white transition-all duration-200 relative py-1.5 px-3 hover:bg-white/5 rounded-full"
+                  className="text-xs font-mono tracking-wider text-neutral-400 hover:text-white transition-all duration-200 relative py-1.5 px-2 lg:px-3 hover:bg-white/5 rounded-full whitespace-nowrap"
                 >
                   {link.name}
                 </a>
@@ -194,7 +194,7 @@ export default function Header({ onNavClick }) {
                   e.preventDefault();
                   onNavClick('#contact');
                 }}
-                className="px-4 py-1.5 rounded-full bg-white/5 hover:bg-red-600/10 border border-white/10 hover:border-red-500/40 text-neutral-200 hover:text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.2)]"
+                className="px-4 py-1.5 rounded-full bg-white/5 hover:bg-red-600/10 border border-white/10 hover:border-red-500/40 text-neutral-200 hover:text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.2)] whitespace-nowrap"
               >
                 Get In Touch
               </a>
