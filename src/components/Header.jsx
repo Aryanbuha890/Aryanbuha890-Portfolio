@@ -92,7 +92,7 @@ export default function Header({ onNavClick }) {
     let response = ''
     switch (cleanCmd) {
       case 'help':
-        response = `Available commands:\n  [skills]       - View technical skill catalog\n  [about]        - Learn about Aryan's profile & background\n  [why-me]       - Discover Aryan's values & features\n  [achievements] - List latest hackathon awards\n  [contact]      - Get connection credentials\n  [clear]        - Flush the terminal logs`
+        response = `Available commands:\n  [skills]       - View technical skill catalog\n  [about]        - Learn about Aryan's profile & background\n  [why-me]       - Discover Aryan's values & features\n  [projects]     - View key engineering projects\n  [achievements] - List latest hackathon awards\n  [contact]      - Get connection credentials\n  [clear]        - Flush the terminal logs`
         break
       case 'skills':
         response = `SKILL CATALOG:\n----------------------------------------\n• Languages:   C, C++, Java, Python, JavaScript\n• Web Dev:     HTML5, CSS3, React.js, Tailwind CSS\n• Backend:     Node.js, Express, FastAPI, Flask, SQL\n• ML & AI:     Scikit-learn, Pandas, NumPy, Model Prep\n• Core:        DSA, OOP, System Debugging, Logic`
@@ -102,6 +102,9 @@ export default function Header({ onNavClick }) {
         break
       case 'why-me':
         response = `WHY CHOOSE ARYAN:\n----------------------------------------\n⭐ High Quality Code  - Clean linter audited, robust structural engineering.\n⭐ Rapid Velocity     - GRANULAR targets delivered ahead of schedules.\n⭐ Proactive Sync     - 100% active alignment & transparent staging feeds.\n⭐ Scalable Systems   - Modular architectures built for intense growth.`
+        break
+      case 'projects':
+        response = `ARYAN'S PROJECTS:\n----------------------------------------\n🚀 TerraForge    - Offline environmental intelligence OS utilizing local AI models.\n💻 Urban Intel   - Predictive city governance simulator (1st Runner Up Hackathon).\n🌊 Coastal Alert - Real-time role-based climate hazard mapping dashboards.\n🏠 Eunoia Clinic - Live medical portfolio & client scheduling portal.`
         break
       case 'achievements':
         response = `HACKATHONS & AWARDS:\n----------------------------------------\n🏆 Finalist (Top 40 / 240+) - Hackovate 2025 (LJ University)\n💻 Climate Tech Award - HackOut 2025 (DAIICT)\n🚀 Global Challenger - NASA Space Apps\n🛰️ Space Tech Hack - ISRO Bharatiya Antariksh\n🎮 Creative Design - ITM Game Jam`
@@ -134,6 +137,7 @@ export default function Header({ onNavClick }) {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Expertise', href: '#services' },
+    { name: 'Projects', href: '#projects' },
     { name: 'Achievements', href: '#portfolio' },
     { name: 'Contact', href: '#contact' }
   ]
@@ -416,7 +420,7 @@ export default function Header({ onNavClick }) {
               {/* Command suggestions */}
               <div className="px-4 py-2 border-t border-white/5 bg-black/95 flex flex-wrap gap-1.5 items-center">
                 <span className="text-[10px] font-mono text-neutral-500 uppercase mr-1">Quick shell:</span>
-                {['skills', 'about', 'why-me', 'achievements', 'contact'].map((cmd) => (
+                {['skills', 'about', 'why-me', 'projects', 'achievements', 'contact'].map((cmd) => (
                   <button
                     key={cmd}
                     onClick={() => executeCommand(cmd)}

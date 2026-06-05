@@ -4,6 +4,7 @@ import About from './components/About'
 import Services from './components/Services'
 import TechCarousel from './components/TechCarousel'
 import WhyChooseMe from './components/WhyChooseMe'
+import Projects from './components/Projects'
 import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
 import { motion } from 'framer-motion'
@@ -48,6 +49,7 @@ export default function App() {
         <Services />
         <TechCarousel />
         <WhyChooseMe />
+        <Projects />
         <Portfolio />
         <Contact />
       </main>
