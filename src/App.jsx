@@ -7,6 +7,7 @@ import WhyChooseMe from './components/WhyChooseMe'
 import Projects from './components/Projects'
 import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 import { motion } from 'framer-motion'
 
 export default function App() {
@@ -54,17 +55,7 @@ export default function App() {
         <Contact />
       </main>
 
-      {/* Sleek Monospaced Footer */}
-      <footer className="py-8 bg-black border-t border-white/5 relative z-10 text-center font-mono text-[10px] text-neutral-500 select-text">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 select-text">
-          <p className="select-text">
-            Copyright © {new Date().getFullYear()} Aryan Buha. All rights reserved.
-          </p>
-          <p className="text-red-500/80 hover:text-red-500 transition-colors select-text">
-            $ built_with_react --tailwind-v4 --framer-motion
-          </p>
-        </div>
-      </footer>
+      <Footer />
       
     </div>
   )

@@ -137,6 +137,7 @@ body {
 
 /* Premium Animated Glowing Navbar Borders */
 .navbar-glow-scrolled {
+  border-width: 2px !important;
   border-color: rgba(239, 68, 68, 0.4) !important;
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.6),
@@ -147,6 +148,7 @@ body {
 }
 
 .navbar-glow-unscrolled {
+  border-width: 2px !important;
   border-color: rgba(239, 68, 68, 0.25) !important;
   box-shadow: 
     0 12px 40px rgba(0, 0, 0, 0.7),

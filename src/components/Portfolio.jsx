@@ -223,7 +223,7 @@ export default function Portfolio() {
     }
   ]
 
-  const visibleAchievements = showAll ? achievements : achievements.slice(0, 3)
+  const visibleAchievements = showAll ? achievements : achievements.slice(0, 6)
 
   return (
     <section id="portfolio" className="py-24 relative overflow-hidden bg-black select-none">
@@ -253,7 +253,7 @@ export default function Portfolio() {
             {visibleAchievements.map((ach, index) => (
               <motion.div
                 key={ach.id}
-                id={index === 3 ? "fourth-certificate-card" : undefined}
+                id={index === 6 ? "seventh-certificate-card" : undefined}
                 layout
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -333,11 +333,11 @@ export default function Portfolio() {
               if (!showAll) {
                 setShowAll(true)
                 setTimeout(() => {
-                  const fourthCard = document.getElementById('fourth-certificate-card')
-                  if (fourthCard) {
+                  const seventhCard = document.getElementById('seventh-certificate-card')
+                  if (seventhCard) {
                     // Calculate absolute static position relative to document top, ignoring active Framer Motion transforms
                     let top = 0
-                    let el = fourthCard
+                    let el = seventhCard
                     while (el) {
                       top += el.offsetTop
                       el = el.offsetParent
