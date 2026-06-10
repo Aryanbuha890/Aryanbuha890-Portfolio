@@ -182,7 +182,7 @@ export default function About() {
           >
             {/* Short Introduction Paragraph */}
             <p className="text-neutral-300 leading-relaxed text-base select-text">
-              I am Aryan Buha, a computer science enthusiast and the **Founder of Triotrack Solution**. I focus on building intelligent, scalable digital architectures, AI-powered automation systems, and high-performance full-stack applications. I thrive in high-stress, high-energy hackathons and client builds, transforming complex ideas into functional, premium software.
+              I am Aryan Buha, a computer science enthusiast. I focus on building intelligent, scalable digital architectures, AI-powered automation systems, and high-performance full-stack applications. I thrive in high-stress, high-energy hackathons and client builds, transforming complex ideas into functional, premium software.
             </p>
 
             {/* Glass Tab Headers */}
