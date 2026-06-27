@@ -35,7 +35,7 @@ const useTypewriter = (words, typingSpeed = 80, deletingSpeed = 40, delayBetween
   return currentText
 }
 
-export default function Header({ onNavClick }) {
+export default function Header({ onNavClick, activeSection, setActiveSection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   
@@ -64,6 +64,39 @@ export default function Header({ onNavClick }) {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Sync active section based on scroll position using Intersection Observer
+  useEffect(() => {
+    const sectionIds = ['#home', '#about', '#services', '#projects', '#portfolio', '#contact']
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: '-100px 0px -40% 0px',
+      threshold: 0.1
+    }
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(`#${entry.target.id}`)
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions)
+
+    sectionIds.forEach((id) => {
+      const el = document.querySelector(id)
+      if (el) observer.observe(el)
+    })
+
+    return () => {
+      sectionIds.forEach((id) => {
+        const el = document.querySelector(id)
+        if (el) observer.unobserve(el)
+      })
+    }
+  }, [setActiveSection])
 
   // Mouse position tracking for pointer-follow glow
   const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 })
@@ -175,26 +208,44 @@ export default function Header({ onNavClick }) {
 
             {/* Desktop Nav links */}
             <div className="hidden md:flex items-center gap-3 lg:gap-6">
-              {navLinks.map((link) => (
-                <a 
-                  key={link.name} 
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onNavClick(link.href);
-                  }}
-                  className="text-xs font-mono tracking-wider text-neutral-400 hover:text-white transition-all duration-200 relative py-1.5 px-2 lg:px-3 hover:bg-white/5 rounded-full whitespace-nowrap"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href
+                return (
+                  <a 
+                    key={link.name} 
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavClick(link.href);
+                    }}
+                    className={`text-xs font-mono tracking-wider relative py-1.5 px-2 lg:px-3 rounded-full whitespace-nowrap transition-colors duration-300 ${
+                      isActive 
+                        ? 'text-white font-semibold' 
+                        : 'text-neutral-400 hover:text-white hover:bg-white/5'
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.div 
+                        layoutId="activeNavBackground"
+                        className="absolute inset-0 bg-red-600/10 border border-red-500/20 rounded-full -z-10"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                    {link.name}
+                  </a>
+                )
+              })}
               <a 
                 href="#contact"
                 onClick={(e) => {
                   e.preventDefault();
                   onNavClick('#contact');
                 }}
-                className="px-4 py-1.5 rounded-full bg-white/5 hover:bg-red-600/10 border border-white/10 hover:border-red-500/40 text-neutral-200 hover:text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.2)] whitespace-nowrap"
+                className={`px-4 py-1.5 rounded-full border text-xs font-semibold tracking-wider uppercase transition-all duration-300 whitespace-nowrap ${
+                  activeSection === '#contact'
+                    ? 'bg-red-600/15 border-red-500/60 text-white shadow-[0_0_15px_rgba(239,68,68,0.3)]'
+                    : 'bg-white/5 hover:bg-red-600/10 border border-white/10 hover:border-red-500/40 text-neutral-200 hover:text-white hover:shadow-[0_0_15px_rgba(239,68,68,0.2)]'
+                }`}
               >
                 Get In Touch
               </a>
@@ -222,20 +273,32 @@ export default function Header({ onNavClick }) {
             className="fixed inset-x-4 top-[78px] z-40 bg-black/90 backdrop-blur-lg border border-white/10 rounded-2xl md:hidden py-6 px-6 shadow-2xl"
           >
             <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a 
-                  key={link.name} 
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setMobileMenuOpen(false)
-                    onNavClick(link.href)
-                  }}
-                  className="text-base font-mono tracking-wide text-neutral-300 hover:text-red-500 py-2.5 border-b border-white/5 transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href
+                return (
+                  <a 
+                    key={link.name} 
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setMobileMenuOpen(false)
+                      onNavClick(link.href)
+                    }}
+                    className={`text-base font-mono tracking-wide py-2.5 border-b border-white/5 transition-colors flex items-center justify-between ${
+                      isActive ? 'text-red-500 font-bold' : 'text-neutral-300 hover:text-red-500'
+                    }`}
+                  >
+                    <span>{link.name}</span>
+                    {isActive && (
+                      <motion.span 
+                        layoutId="activeMobileDot" 
+                        className="h-1.5 w-1.5 rounded-full bg-red-500"
+                        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                  </a>
+                )
+              })}
               <a 
                 href="#contact"
                 onClick={(e) => {
@@ -243,7 +306,11 @@ export default function Header({ onNavClick }) {
                   setMobileMenuOpen(false)
                   onNavClick('#contact')
                 }}
-                className="mt-2 py-2.5 rounded-full bg-white/5 hover:bg-red-600/10 border border-white/10 hover:border-red-500/40 text-white font-bold text-center tracking-wider text-xs uppercase transition-all hover:shadow-[0_0_15px_rgba(239,68,68,0.2)]"
+                className={`mt-2 py-2.5 rounded-full border font-bold text-center tracking-wider text-xs uppercase transition-all ${
+                  activeSection === '#contact'
+                    ? 'bg-red-600/15 border-red-500/60 text-white shadow-[0_0_15px_rgba(239,68,68,0.3)]'
+                    : 'bg-white/5 hover:bg-red-600/10 border border-white/10 hover:border-red-500/40 text-white hover:shadow-[0_0_15px_rgba(239,68,68,0.2)]'
+                }`}
               >
                 Get In Touch
               </a>

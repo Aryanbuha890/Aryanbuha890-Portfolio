@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from './components/Header'
 import About from './components/About'
 import Services from './components/Services'
@@ -11,6 +11,7 @@ import Footer from './components/Footer'
 import { motion } from 'framer-motion'
 
 export default function App() {
+  const [activeSection, setActiveSection] = useState('#home')
   
   // Custom navigation scrolls
   const scrollToSection = (id) => {
@@ -45,7 +46,14 @@ export default function App() {
 
       {/* Main Sections Assembly */}
       <main className="flex-1 w-full relative z-10">
-        <Header onNavClick={scrollToSection} />
+        <Header 
+          activeSection={activeSection} 
+          setActiveSection={setActiveSection} 
+          onNavClick={(id) => {
+            setActiveSection(id)
+            scrollToSection(id)
+          }} 
+        />
         <About />
         <Services />
         <TechCarousel />
@@ -55,7 +63,12 @@ export default function App() {
         <Contact />
       </main>
 
-      <Footer />
+      <Footer 
+        onNavClick={(id) => {
+          setActiveSection(id)
+          scrollToSection(id)
+        }} 
+      />
       
     </div>
   )
