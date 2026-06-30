@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ExternalLink, X, Terminal, Code, Sprout, Building2, Lock, Activity, Globe } from 'lucide-react'
+import { ExternalLink, X, Terminal, Code, Sprout, Building2, Lock, Activity, Globe, Eye } from 'lucide-react'
 
 // Inline custom LinkedIn Icon (matching Contact.jsx style)
 const LinkedInIcon = ({ size = 16, ...props }) => (
@@ -228,6 +228,17 @@ export default function Projects() {
                             {st}
                           </span>
                         ))}
+                      </div>
+
+                      {/* View Project Action Footer */}
+                      <div className="mt-5 pt-4 border-t border-neutral-900/60 flex items-center justify-between">
+                        <span className="text-[10px] font-mono text-neutral-500 group-hover:text-neutral-300 transition-colors">
+                          // CLICK TO OPEN
+                        </span>
+                        <div className="px-3 py-1.5 rounded-full border transition-all duration-300 text-[10px] font-mono tracking-wider uppercase flex items-center gap-1.5 bg-white/[0.02] border-white/5 group-hover:bg-white/[0.06] group-hover:border-white/20 text-neutral-400 group-hover:text-white group-hover:scale-105">
+                          <Eye size={12} className={`${proj.textTheme}`} /> 
+                          <span>VIEW PROJECT</span>
+                        </div>
                       </div>
                     </div>
                   </div>
