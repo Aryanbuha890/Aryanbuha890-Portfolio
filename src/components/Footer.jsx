@@ -1,4 +1,5 @@
 import React from 'react'
+import { Github, Linkedin } from 'lucide-react'
 
 export default function Footer({ onNavClick }) {
   const navLinks = [
@@ -17,8 +18,8 @@ export default function Footer({ onNavClick }) {
   ]
 
   const socialLinks = [
-    { name: 'GitHub', href: 'https://github.com/Aryanbuha890' },
-    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/aryan-buha-874a5434b/' }
+    { name: 'GitHub', href: 'https://github.com/Aryanbuha890', icon: Github },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/aryan-buha-874a5434b/', icon: Linkedin }
   ]
 
   return (
@@ -47,17 +48,21 @@ export default function Footer({ onNavClick }) {
             </p>
             {/* Social Links */}
             <div className="flex gap-4 pt-2">
-              {socialLinks.map((soc) => (
-                <a
-                  key={soc.name}
-                  href={soc.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-neutral-500 hover:text-red-500 transition-colors text-[11px]"
-                >
-                  [{soc.name}]
-                </a>
-              ))}
+              {socialLinks.map((soc) => {
+                const Icon = soc.icon
+                return (
+                  <a
+                    key={soc.name}
+                    href={soc.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-500 hover:text-red-500 transition-all duration-300 flex items-center gap-1.5 py-1 px-2 rounded border border-neutral-900 bg-neutral-950/40 hover:border-red-500/30 hover:bg-red-950/10 hover:shadow-[0_0_10px_rgba(239,68,68,0.1)] text-[11px]"
+                  >
+                    <Icon size={12} className="shrink-0" />
+                    <span>{soc.name}</span>
+                  </a>
+                )
+              })}
             </div>
           </div>
 
