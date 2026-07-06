@@ -10,19 +10,19 @@ export default function About() {
   const skillCategories = [
     {
       title: 'Programming & Web',
-      skills: ['C', 'C++', 'Java', 'Python', 'JavaScript', 'HTML5', 'CSS3']
+      skills: ['Python', 'JavaScript', 'Java', 'C++', 'C', 'HTML5', 'CSS3']
     },
     {
       title: 'Frameworks & Systems',
-      skills: ['React.js', 'Tailwind CSS', 'Node.js', 'Express.js', 'FastAPI', 'Flask']
+      skills: ['React 19', 'Next.js', 'Vite', 'Tailwind CSS v4', 'Framer Motion', 'Node.js', 'Express.js', 'FastAPI', 'Flask']
     },
     {
       title: 'Databases & Tools',
-      skills: ['Supabase', 'PostgreSQL', 'MongoDB', 'SQLite', 'Git', 'GitHub', 'REST APIs']
+      skills: ['Supabase', 'PostgreSQL', 'MongoDB', 'SQLite', 'Git', 'GitHub', 'Docker', 'Vercel', 'VS Code']
     },
     {
       title: 'AI/ML & Core Skills',
-      skills: ['Scikit-learn', 'Pandas', 'NumPy', 'Model Training', 'DSA', 'OOP', 'Problem-Solving']
+      skills: ['LangGraph (Agents)', 'YOLOv11 (Vision)', 'ChromaDB (RAG)', 'Generative AI', 'Local LLMs', 'XGBoost', 'Scikit-learn', 'TensorFlow', 'DSA', 'OOP']
     }
   ]
 
@@ -32,6 +32,18 @@ export default function About() {
       company: 'Triotrack Solution',
       date: '2025 - Present',
       desc: 'Founded and direct a technology company building modern digital solutions, custom software, AI automation architectures, SaaS systems, and high-performance web platforms. (triotracksolution.online)'
+    },
+    {
+      role: 'Team Lead',
+      company: 'Hell Boys Hackathon Team',
+      date: '2024 - Present',
+      desc: 'Leading AI and Full-Stack development across 8+ national-level hackathons. Coordinated team strategy, architecture decisions, and rapid sprint execution, securing 3 podium finishes and 7 finalist selections.'
+    },
+    {
+      role: 'Web Development Team Member',
+      company: 'Code Vimarsh',
+      date: 'Jan 2026 - Present',
+      desc: 'Collaborating to build and maintain the official Code Vimarsh website. Shipping highly responsive, production-grade frontend features and interface optimizations.'
     },
     {
       role: 'Project Lead / Architect',
@@ -50,12 +62,6 @@ export default function About() {
       company: 'Bharatiya Antariksh Hackathon (ISRO)',
       date: '2024',
       desc: 'Developed space tech data models and geospatial analysis solutions utilizing telemetry arrays.'
-    },
-    {
-      role: 'Academic & Hackathon Developer',
-      company: 'Various Innovative Engagements',
-      date: '2024 - Present',
-      desc: 'Built real-time dashboard systems, competitive programming utilities, and interactive web projects.'
     }
   ]
 
@@ -63,7 +69,7 @@ export default function About() {
     {
       degree: 'Bachelor of Engineering (B.E.) in CSE',
       institution: 'The Maharaja Sayajirao University of Baroda (MSU)',
-      period: '2025 - Present',
+      period: '2024 - 2028',
       desc: 'Pursuing core computer science courses: Data Structures, Algorithms, Discrete Math, Database Systems.'
     },
     {

@@ -25,6 +25,23 @@ export default function Portfolio() {
       ]
     },
     {
+      id: 'hackverse-mumbai',
+      title: '🏅 6th Rank & Microsoft Invite – Hackverse Mumbai',
+      org: 'Hackverse India',
+      desc: 'LogiMind AI: Maritime Command OS securing top 6 finish among 50+ teams, earning an invitation to Microsoft Hyderabad',
+      badge: 'Hackathon Winner',
+      img: '/images/Hackverse Certificate.jpg',
+      date: 'February 2026',
+      location: 'Mumbai & Microsoft Office Hyderabad',
+      summary: 'Secured the 6th Rank across India at the Hackverse Mumbai Hackathon out of 50+ competitive teams! Built LogiMind AI, a maritime command center and port safety dashboard featuring LangGraph agents, YOLOv11 tracking, and XGBoost predictive maintenance. Our team\'s performance earned us an official invitation to the Microsoft Office in Hyderabad for the next stage of the national innovation showcase.',
+      highlights: [
+        'Ranked 6th in India among 50+ selected high-performance engineering teams',
+        'Earned official invite to Microsoft Office, Hyderabad for the subsequent showcase round',
+        'Developed LogiMind AI: a multi-agent safety and maintenance operating system for maritime ports',
+        'Integrated real-time YOLOv11 worker compliance feeds and predictive maintenance telemetry'
+      ]
+    },
+    {
       id: 'dotslash-9',
       title: '🚀 Top 8 Finalists – DotSlash 9.0 Hackathon',
       org: 'SVNIT Surat, ACM & ASHINE',

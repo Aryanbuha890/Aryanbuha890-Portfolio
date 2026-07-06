@@ -49,10 +49,10 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
   const terminalLogsRef = useRef(null)
 
   const words = [
-    "Computer Science Student",
-    "Web Developer",
-    "Problem Solver",
-    "AI / Machine Learning Enthusiast"
+    "AI/ML Engineer",
+    "Full-Stack Developer",
+    "Hackathon Champion",
+    "Problem Solver"
   ]
   const typedText = useTypewriter(words)
 
@@ -128,19 +128,19 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
         response = `Available commands:\n  [skills]       - View technical skill catalog\n  [about]        - Learn about Aryan's profile & background\n  [why-me]       - Discover Aryan's values & features\n  [projects]     - View key engineering projects\n  [achievements] - List latest hackathon awards\n  [contact]      - Get connection credentials\n  [clear]        - Flush the terminal logs`
         break
       case 'skills':
-        response = `SKILL CATALOG:\n----------------------------------------\n• Languages:   C, C++, Java, Python, JavaScript\n• Web Dev:     HTML5, CSS3, React.js, Tailwind CSS\n• Backend:     Node.js, Express, FastAPI, Flask, SQL\n• ML & AI:     Scikit-learn, Pandas, NumPy, Model Prep\n• Core:        DSA, OOP, System Debugging, Logic`
+        response = `SKILL CATALOG:\n----------------------------------------\n• Languages:   Python, JavaScript, Java, C++, C\n• Web Dev:     React 19, Next.js, Vite, Tailwind CSS v4, Framer Motion\n• Backend:     Node.js, Express, FastAPI, Flask, SQL\n• ML & AI:     LangGraph (Agents), YOLOv11 (Vision), ChromaDB (RAG), XGBoost\n• Core:        DSA, OOP, System Architectures, Logic`
         break
       case 'about':
-        response = `ARYAN BUHA | FOUNDER & CS ENGINEER:\n----------------------------------------\n• Founder:   Triotrack Solution (triotracksolution.online)\n• Academy:   B.E. Computer Science & Engineering\n• Institute: Maharaja Sayajirao University of Baroda\n• Passion:   Developing smart AI systems, high-speed full-stack webs, and agriculture tech IoT systems.\n• Mission:   Solving critical problems via clean architectures.`
+        response = `ARYAN BUHA | AI/ML & FULL-STACK ENGINEER:\n----------------------------------------\n• Founder:   Triotrack Solution (triotracksolution.online)\n• Team Lead: Hell Boys Hackathon Team (3x Podium, 7x Finalist)\n• Academy:   B.E. Computer Science & Engineering\n• Institute: Maharaja Sayajirao University of Baroda\n• Passion:   LangGraph multi-agent systems, computer vision, local LLMs, and SaaS web systems.\n• Mission:   Solving critical problems via production-grade shipped products.`
         break
       case 'why-me':
         response = `WHY CHOOSE ARYAN:\n----------------------------------------\n⭐ High Quality Code  - Clean linter audited, robust structural engineering.\n⭐ Rapid Velocity     - GRANULAR targets delivered ahead of schedules.\n⭐ Proactive Sync     - 100% active alignment & transparent staging feeds.\n⭐ Scalable Systems   - Modular architectures built for intense growth.`
         break
       case 'projects':
-        response = `ARYAN'S PROJECTS:\n----------------------------------------\n🌾 AgriForge AI  - Agricultural support platform (SSIP Govt Funded - Rs. 2.43L).\n🏢 Urban Intel   - Smart city infrastructure civic governance module.\n🌍 TerraForge    - Smart land & environmental platform with AI integrations.\n📊 CityForge     - Smart environment monitoring frontend & UI/UX.`
+        response = `ARYAN'S PROJECTS:\n----------------------------------------\n🚢 LogiMind AI   - Maritime Command OS (6th Rank Hackverse Mumbai & Microsoft Invite).\n🌾 AgriForge AI  - Agricultural platform (SSIP Govt Grant - Rs. 2.43L & IBM 2nd Rank).\n🏢 Urban Intel   - Smart city governance OS (1st Runner-Up Ingenious 7.0).\n🛰️ Mumbai Pulse  - Environmental GIS dashboard (NASA Space Apps Winner 2025).\n🌍 TerraForge    - Climate-Tech OS (Top 8 Finalist DotSlash 9.0).`
         break
       case 'achievements':
-        response = `HACKATHONS & AWARDS:\n----------------------------------------\n🏆 Finalist (Top 40 / 240+) - Hackovate 2025 (LJ University)\n💻 Climate Tech Award - HackOut 2025 (DAIICT)\n🚀 Global Challenger - NASA Space Apps\n🛰️ Space Tech Hack - ISRO Bharatiya Antariksh\n🎮 Creative Design - ITM Game Jam`
+        response = `HACKATHONS & AWARDS:\n----------------------------------------\n🏆 Winner (Champions) - NASA Space Apps Challenge 2025\n🏆 2nd Rank (Statewide) - IBM AI Innovation Challenge 2026\n🏆 6th Rank (India-wide) - Hackverse Mumbai & Microsoft Invite\n🥈 1st Runner-Up - Ingenious Hackathon 7.0 (Ahmedabad Uni)\n🎖️ Top 8 Finalist - DotSlash 9.0 (SVNIT Surat)\n💰 ₹2.43L SSIP Gujarat Research Grant for AgriForge AI`
         break
       case 'contact':
         response = `CONTACT DETAILS:\n----------------------------------------\n📧 Email:    aryanbuha56@gmail.com\n📞 Phone:    +91 9313198911\n🌐 GitHub:   github.com/Aryanbuha890\n💼 LinkedIn: linkedin.com/in/aryan-buha-874a5434b/`
@@ -401,7 +401,7 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
             <div className="border-l-2 border-red-500 pl-4 bg-white/[0.01] hover:bg-white/[0.03] backdrop-blur-md py-3.5 px-5 rounded-r-lg max-w-lg select-text border border-white/5 shadow-inner transition-all duration-500 group/quote hover:border-red-500/20">
               <span className="text-[9px] font-mono text-red-500/70 uppercase tracking-widest block mb-1.5 transition-colors group-hover/quote:text-red-400">// compiler message directive</span>
               <p className="italic text-neutral-300 text-sm leading-relaxed">
-                "Turning ideas into code and learning every step of the way 💻."
+                "I don't build prototypes. I build products that ship. 🚀"
               </p>
             </div>
 

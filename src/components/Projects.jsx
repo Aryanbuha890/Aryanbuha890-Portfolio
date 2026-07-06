@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ExternalLink, X, Terminal, Code, Sprout, Building2, Lock, Activity, Globe, Eye } from 'lucide-react'
+import { ExternalLink, X, Terminal, Code, Sprout, Building2, Lock, Activity, Globe, Eye, Ship } from 'lucide-react'
 
 // Inline custom LinkedIn Icon (matching Contact.jsx style)
 const LinkedInIcon = ({ size = 16, ...props }) => (
@@ -17,18 +17,45 @@ export default function Projects() {
 
   const projectsData = [
     {
+      id: 'logimind',
+      title: 'LOGIMIND AI',
+      category: 'AI & ML Systems',
+      shortDesc: 'Real-time maritime & logistics intelligence OS featuring YOLOv11 PPE compliance tracking, XGBoost predictive maintenance, LangGraph multi-agent war room, and RAG copilot.',
+      tag: 'Maritime Intelligence',
+      icon: Ship,
+      img: '/images/logimind.jpg',
+      linkType: 'linkedin',
+      linkUrl: 'https://www.linkedin.com/in/aryan-buha-874a5434b/',
+      stack: ['REACT 19', 'FASTAPI', 'YOLOv11', 'LANGGRAPH', 'XGBOOST', 'CHROMADB'],
+      themeColor: 'purple',
+      borderHover: 'hover:border-purple-500/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.25),_inset_0_0_20px_rgba(168,85,247,0.08)]',
+      borderActive: 'border-purple-500/40 shadow-[0_0_50px_rgba(168,85,247,0.25)]',
+      textTheme: 'text-purple-400',
+      textDarkTheme: 'text-purple-500',
+      bgTag: 'bg-purple-950/20 border-purple-500/30',
+      glowBg: 'rgba(168, 85, 247, 0.18)',
+      btnTheme: 'bg-purple-600 hover:bg-purple-700',
+      summary: 'REAL-TIME MARITIME & LOGISTICS INTELLIGENCE OPERATING SYSTEM SERVING AS AN AI-POWERED COMMAND CENTER FOR PORT MANAGEMENT. SECURED 6TH RANK IN INDIA AT HACKVERSE HACKATHON MUMBAI.',
+      highlights: [
+        '6th Rank in India at Hackverse Hackathon Mumbai (50+ Teams) & invited to Microsoft Office, Hyderabad.',
+        'LangGraph Multi-Agent War Room coordinating Marine, Yard, Crane, and Gate operations.',
+        'YOLOv11 safety compliance tracking PPE (helmet/vest) & zone breaches in real-time.',
+        'XGBoost predictive crane maintenance from live vibration data & Monte Carlo what-if simulator.',
+        'ChromaDB RAG-powered AI Copilot for interactive SOLAS/MARPOL/IMDG protocol directives.'
+      ]
+    },
+    {
       id: 'agriforge',
       title: 'AGRIFORGE AI',
-      category: 'AI & ML',
-      shortDesc: 'Comprehensive agricultural empowerment platform with localized farmer news, dynamic market yard pricing grids, and an admin panel.',
-      tag: 'Agricultural Support Platform',
+      category: 'AI & ML Platforms',
+      shortDesc: 'Comprehensive smart agricultural platform integrating crop disease classification, veterinary diagnostics, and LLM advisory.',
+      tag: 'Agricultural AI Platform',
       icon: Sprout,
       img: '/images/agriforge.jpg',
       linkType: 'private',
       linkUrl: '#contact',
-      stack: ['REACT.JS', 'NODE.JS', 'AI/ML', 'MONGODB'],
+      stack: ['REACT 19', 'NODE.JS', 'FASTAPI', 'AI/ML', 'MONGODB'],
       themeColor: 'yellow',
-      // Dynamic styles mapped strictly to HSL tailwind values for premium look
       borderHover: 'hover:border-yellow-500/60 hover:shadow-[0_0_30px_rgba(234,179,8,0.25),_inset_0_0_20px_rgba(234,179,8,0.08)]',
       borderActive: 'border-yellow-500/40 shadow-[0_0_50px_rgba(234,179,8,0.25)]',
       textTheme: 'text-yellow-400',
@@ -36,25 +63,25 @@ export default function Projects() {
       bgTag: 'bg-yellow-950/20 border-yellow-500/30',
       glowBg: 'rgba(234, 179, 8, 0.18)',
       btnTheme: 'bg-yellow-600 hover:bg-yellow-700',
-      summary: 'COMPREHENSIVE AGRICULTURAL EMPOWERMENT PLATFORM WITH LOCALIZED FARMER NEWS, DYNAMIC MARKET YARD PRICING GRIDS, AND AN ADMIN PANEL. WINNER OF 🏆 RS. 2.43 LAKH SSIP GOVERNMENT FUNDING.',
+      summary: 'COMPREHENSIVE AGRICULTURAL EMPOWERMENT PLATFORM WITH LOCALIZED FARMER NEWS, DYNAMIC MARKET YARD PRICING GRIDS, AND AN ADMIN PANEL. AWARDED ₹2.43 LAKH SSIP GOVERNMENT FUNDING.',
       highlights: [
-        'Winner of prestigious Rs. 2.43 Lakh SSIP Government Funding.',
-        'Integrated localized farmer news and distribution network channels.',
-        'Dynamic market yard pricing grids providing real-time crop trading metrics.',
-        'Administrative dashboard control panels for secure agricultural database oversight.'
+        'Awarded ₹2.43 Lakh SSIP Gujarat Government Research Grant.',
+        '2nd Rank in Gujarat at IBM AI Innovation Challenge 2026.',
+        'Deep disease classification (EfficientNet) & LLM advisory in 10+ Indian languages.',
+        'Real-time agricultural market pricing metrics & crop calendar synchronization.'
       ]
     },
     {
       id: 'urban-intel',
       title: 'URBAN INTEL AI',
-      category: 'Full Stack',
-      shortDesc: 'Intelligent civic governance module containing user authorization controls, active incident reports, and databases monitoring municipal resource rates.',
+      category: 'Full Stack & ML',
+      shortDesc: 'Hybrid smart city governance platform forecasting water scarcity, traffic, & pollution via 6 custom Random Forest models.',
       tag: 'Smart City Infrastructure',
       icon: Building2,
       img: '/images/urban-intel.jpg',
       linkType: 'linkedin',
       linkUrl: 'https://www.linkedin.com/in/aryan-buha-874a5434b/',
-      stack: ['REACT.JS', 'SUPABASE', 'REST APIS'],
+      stack: ['REACT.JS', 'SUPABASE', 'FASTAPI', 'RANDOM FOREST', 'TINYLLAMA'],
       themeColor: 'cyan',
       borderHover: 'hover:border-cyan-500/60 hover:shadow-[0_0_30px_rgba(6,182,212,0.25),_inset_0_0_20px_rgba(6,182,212,0.08)]',
       borderActive: 'border-cyan-500/40 shadow-[0_0_50px_rgba(6,182,212,0.25)]',
@@ -63,20 +90,20 @@ export default function Projects() {
       bgTag: 'bg-cyan-950/20 border-cyan-500/30',
       glowBg: 'rgba(6, 182, 212, 0.18)',
       btnTheme: 'bg-cyan-600 hover:bg-cyan-700',
-      summary: 'INTELLIGENT CIVIC GOVERNANCE MODULE CONTAINING USER AUTHORIZATION CONTROLS, ACTIVE INCIDENT REPORTS, AND DATABASES MONITORING MUNICIPAL RESOURCE RATES.',
+      summary: 'INTELLIGENT CIVIC GOVERNANCE OS RUNNING OFFLINE FORECASTING WATER SCARCITY, TRAFFIC CONGESTION & POLLUTION LEVELS VIA 6 CUSTOM RANDOM FOREST MODELS AND A PRIVATE LOCAL TINYLLAMA RECOMMENDATION ENGINE.',
       highlights: [
-        'Implemented secure user authorization levels and access controls.',
-        'Real-time incident dashboard reporting active civic anomalies instantly.',
-        'Aggregated analytical databases monitoring municipal resource and water rates.',
-        'Responsive layout designed specifically for centralized monitoring setups.'
+        '1st Runner-Up at Ingenious Hackathon 7.0 (Ahmedabad University) out of 180+ teams.',
+        '6 custom-trained Random Forest models for high-precision resource & traffic risk prediction.',
+        'Private local TinyLlama recommendation engine for offline-first governance directives.',
+        '100% data sovereignty with no external cloud API dependencies.'
       ]
     },
     {
       id: 'terraforge',
       title: 'TERRAFORGE PLATFORM',
       category: 'Full Stack Platforms',
-      shortDesc: 'Innovative smart land and environmental solutions platform using React.js, Node.js, Express.js, MongoDB, and AI integrations.',
-      tag: 'Full Stack Platforms',
+      shortDesc: 'AI-powered offline-first environmental intelligence OS for agricultural and climate-risk forecasting.',
+      tag: 'Climate-Tech OS',
       icon: Globe,
       img: '/images/terraforge.png',
       linkType: 'linkedin',
@@ -90,25 +117,25 @@ export default function Projects() {
       bgTag: 'bg-emerald-950/20 border-emerald-500/30',
       glowBg: 'rgba(16, 185, 129, 0.18)',
       btnTheme: 'bg-emerald-600 hover:bg-emerald-700',
-      summary: 'DEVELOPED AN INNOVATIVE SMART LAND AND ENVIRONMENTAL SOLUTIONS PLATFORM USING REACT.JS, NODE.JS, EXPRESS.JS, MONGODB, AND AI INTEGRATIONS WITH SCALABLE ARCHITECTURE AND MODERN UI.',
+      summary: 'AI-POWERED OFFLINE-FIRST ENVIRONMENTAL INTELLIGENCE OPERATING SYSTEM FOR GOVERNMENT AND FARMER PLANNING. WINNER OF TOP 8 HACKATHON STATUS AMONG 550+ TEAMS AT SVNIT SURAT.',
       highlights: [
-        'Modular Express.js backend system interfacing directly with remote sensor links.',
-        'High-velocity data aggregation pipelines predicting regional environmental metrics.',
-        'Responsive, modern user interface featuring dynamic geo-mapping and data visualizer graphs.',
-        'Built with scalable microservice nodes allowing rapid additions of sensor tracking.'
+        'Top 8 Finalist at DotSlash 9.0 National Hackathon out of 550+ teams (SVNIT Surat).',
+        'Predicts environmental risks and regional agricultural impacts using live weather feeds.',
+        'Runs local AI models ensuring complete offline privacy and zero external costs.',
+        'Multilingual voice assistant support empowering rural users with crucial safety metrics.'
       ]
     },
     {
-      id: 'cityforge',
-      title: 'CITYFORGE - MONITORING',
-      category: 'Frontend & UI UX',
-      shortDesc: 'Contributed to frontend development using React.js, Tailwind CSS, and JavaScript, designing responsive interfaces.',
-      tag: 'Frontend & UI UX',
+      id: 'mumbai-pulse',
+      title: 'MUMBAI PULSE — CITYFORGE',
+      category: 'Geospatial & Frontend',
+      shortDesc: 'Geospatial environmental intelligence dashboard mapping urban heat islands, water resources, and air quality across Mumbai.',
+      tag: 'NASA Geospatial Dashboard',
       icon: Activity,
       img: '/images/cityforge.jpg',
       linkType: 'linkedin',
       linkUrl: 'https://www.linkedin.com/in/aryan-buha-874a5434b/',
-      stack: ['REACT.JS', 'TAILWIND CSS', 'JAVASCRIPT'],
+      stack: ['REACT.JS', 'TAILWIND CSS', 'NASA EARTH APIS', 'GIS INTERACTIVES'],
       themeColor: 'fuchsia',
       borderHover: 'hover:border-fuchsia-500/60 hover:shadow-[0_0_30px_rgba(217,70,239,0.25),_inset_0_0_20px_rgba(217,70,239,0.08)]',
       borderActive: 'border-fuchsia-500/40 shadow-[0_0_50px_rgba(217,70,239,0.25)]',
@@ -117,12 +144,39 @@ export default function Projects() {
       bgTag: 'bg-fuchsia-950/20 border-fuchsia-500/30',
       glowBg: 'rgba(217, 70, 239, 0.18)',
       btnTheme: 'bg-fuchsia-600 hover:bg-fuchsia-700',
-      summary: 'CONTRIBUTED TO FRONTEND DEVELOPMENT USING REACT.JS, TAILWIND CSS, AND JAVASCRIPT, DESIGNING RESPONSIVE INTERFACES AND IMPLEMENTING INTERACTIVE USER-FACING FEATURES FOR SMART URBAN ENVIRONMENT MONITORING.',
+      summary: 'ENVIRONMENTAL INTELLIGENCE DASHBOARD INTEGRATING NASA EARTH OBSERVATION DATASETS AND GIS OVERLAYS TO MAP HEAT, AQI, AND WATER SCARCITY RISKS IN METROPOLITAN AREAS.',
       highlights: [
-        'Designed high-fidelity responsive user interfaces for smart urban monitoring.',
-        'Created interactive layouts and charts mapping crowd density, noise, and AQI indices.',
-        'Optimized frontend assets and states ensuring fast, sub-1s initial page loads.',
-        'Clean component layout built strictly with Tailwind CSS styling and modular JavaScript.'
+        'Winner of NASA Space Apps Challenge 2025 (Vallabh Vidyanagar Local Event Champions).',
+        'Integrated NASA Earth Observation (EO) and weather datasets for environmental monitoring.',
+        'Identifies urban heat-stressed zones and models mitigation cooling scenarios.',
+        'GIS-based visual overlays mapping water bodies, rainfall trends, and real-time AQI.'
+      ]
+    },
+    {
+      id: 'agent-arena',
+      title: 'AGENT ARENA',
+      category: 'AI Agents',
+      shortDesc: 'Memory-augmented autonomous AI agent scraping and analyzing startup ecosystems using LangChain, Reddit, GitHub, and Hacker News.',
+      tag: 'Ecosystem Intelligence',
+      icon: Terminal,
+      img: '/images/agent-arena.png',
+      linkType: 'github',
+      linkUrl: 'https://github.com/Aryanbuha890',
+      stack: ['PYTHON', 'LANGCHAIN', 'SCRAPY', 'GENAI'],
+      themeColor: 'rose',
+      borderHover: 'hover:border-rose-500/60 hover:shadow-[0_0_30px_rgba(244,63,94,0.25),_inset_0_0_20px_rgba(244,63,94,0.08)]',
+      borderActive: 'border-rose-500/40 shadow-[0_0_50px_rgba(244,63,94,0.25)]',
+      textTheme: 'text-rose-400',
+      textDarkTheme: 'text-rose-500',
+      bgTag: 'bg-rose-950/20 border-rose-500/30',
+      glowBg: 'rgba(244, 63, 94, 0.18)',
+      btnTheme: 'bg-rose-600 hover:bg-rose-700',
+      summary: 'AUTONOMOUS COMPETITIVE INTELLIGENCE AGENT POWERED BY MEMORY-AUGMENTED NESTED LANGCHAIN REASONING LOOPS AND AN INGESTION PIPELINE EXTRACTING LIVE TECH TRENDS.',
+      highlights: [
+        'Autonomous multi-source ingestion scraping GitHub, Reddit, and Hacker News.',
+        'Memory-augmented reasoning loops mapping startup competitive landscape.',
+        'Predictive analytics engine for technology adoption curves and project health.',
+        'Custom dashboard visualizing automated competitive intelligence reports.'
       ]
     }
   ]
