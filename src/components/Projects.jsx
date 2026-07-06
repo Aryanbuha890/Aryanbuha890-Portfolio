@@ -23,7 +23,7 @@ export default function Projects() {
       shortDesc: 'Real-time maritime & logistics intelligence OS featuring YOLOv11 PPE compliance tracking, XGBoost predictive maintenance, LangGraph multi-agent war room, and RAG copilot.',
       tag: 'Maritime Intelligence',
       icon: Ship,
-      img: '/images/logimind.jpg',
+      img: '/images/logimind.png',
       linkType: 'linkedin',
       linkUrl: 'https://www.linkedin.com/in/aryan-buha-874a5434b/',
       stack: ['REACT 19', 'FASTAPI', 'YOLOv11', 'LANGGRAPH', 'XGBOOST', 'CHROMADB'],
