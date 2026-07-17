@@ -413,19 +413,10 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
                   e.preventDefault();
                   onNavClick('#portfolio');
                 }}
-                className="starry-btn"
+                className="px-6 py-3 rounded-full border border-red-500/40 hover:border-red-500/80 bg-red-950/25 hover:bg-red-900/40 text-red-200 hover:text-white font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(239,68,68,0.25)] backdrop-blur-md flex items-center gap-2"
               >
-                <strong className="starry-btn-strong">
-                  View Achievements
-                  <ArrowRight size={14} className="mt-0.5" />
-                </strong>
-                <div className="starry-btn-stars-container">
-                  <div className="starry-btn-stars" />
-                </div>
-                <div className="starry-btn-glow">
-                  <div className="starry-btn-circle" />
-                  <div className="starry-btn-circle" />
-                </div>
+                View Achievements
+                <ArrowRight size={14} className="mt-0.5" />
               </a>
               <a 
                 href="#contact"
