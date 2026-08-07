@@ -28,40 +28,23 @@ export default function About() {
 
   const experiences = [
     {
-      role: 'Founder & Tech Lead',
-      company: 'Triotrack Solution',
-      date: '2025 - Present',
-      desc: 'Founded and direct a technology company building modern digital solutions, custom software, AI automation architectures, SaaS systems, and high-performance web platforms. (triotracksolution.online)'
+      role: 'Open Source Contributor',
+      company: 'Elite Coders · Self-employed',
+      logo: '/elite_coders_logo.jpg',
+      date: 'Jul 2026 - Present',
+      desc: "Selected as an Open Source Contributor for Elite Coders Summer of Code 2026 (ECSoC'26), collaborating with maintainers across multiple open-source repositories to build production-ready features, fix bugs, and improve user experience."
     },
     {
-      role: 'Team Lead',
-      company: 'Hell Boys Hackathon Team',
-      date: '2024 - Present',
-      desc: 'Leading AI and Full-Stack development across 8+ national-level hackathons. Coordinated team strategy, architecture decisions, and rapid sprint execution, securing 3 podium finishes and 7 finalist selections.'
-    },
-    {
-      role: 'Web Development Team Member',
+      role: 'Core Team Member',
       company: 'Code Vimarsh',
+      logo: '/code_vimarsh_logo.jpg',
       date: 'Jan 2026 - Present',
-      desc: 'Collaborating to build and maintain the official Code Vimarsh website. Shipping highly responsive, production-grade frontend features and interface optimizations.'
-    },
-    {
-      role: 'Project Lead / Architect',
-      company: 'Hackovate 2025 (LJ University)',
-      date: 'Jan 2025',
-      desc: 'Led a team of 4 to build an AI-powered dairy platform incorporating IoT health monitoring and Scikit-learn milk yield forecasts, reaching the Top 40 finalists out of 240+ teams.'
-    },
-    {
-      role: 'Full-Stack Developer',
-      company: 'HackOut 2025 (DAIICT)',
-      date: 'Feb 2025',
-      desc: 'Built a Coastal Threat Alert System leveraging satellite data feed processing, IoT nodes, and FastAPI endpoints for a climate tech alert application.'
-    },
-    {
-      role: 'Team Collaborator',
-      company: 'Bharatiya Antariksh Hackathon (ISRO)',
-      date: '2024',
-      desc: 'Developed space tech data models and geospatial analysis solutions utilizing telemetry arrays.'
+      desc: [
+        'Contributing to the design and development of the official Code Vimarsh club website',
+        'Working with modern web technologies to build responsive and user-friendly interfaces',
+        'Collaborating with the technical team to enhance UI/UX and overall site performance',
+        'Implementing reusable components and maintaining clean frontend architecture'
+      ]
     }
   ]
 
@@ -136,46 +119,6 @@ export default function About() {
               </div>
             </div>
 
-            {/* Triotrack Solution Premium Glass Banner Card */}
-            <div className="w-full max-w-[320px] bg-neutral-950/80 backdrop-blur-xl p-5 rounded-xl border border-red-500/30 hover:border-red-500/60 shadow-[0_0_30px_rgba(239,68,68,0.15)] hover:shadow-[0_0_40px_rgba(239,68,68,0.25)] transition-all duration-500 relative group/tcard overflow-hidden hover:-translate-y-1">
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/[0.03] to-transparent -translate-x-full group-hover/tcard:animate-[shimmer_1.5s_ease-out] z-10"></div>
-              
-              {/* Pulsing indicator tag */}
-              <div className="absolute top-3 right-3 flex items-center gap-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping"></span>
-                <span className="h-1.5 w-1.5 rounded-full bg-red-500 absolute"></span>
-                <span className="text-[7px] font-mono text-red-500/90 font-bold uppercase tracking-wider ml-1">LIVE</span>
-              </div>
-
-              <div className="flex items-center gap-3.5">
-                <div className="w-14 h-14 rounded-xl bg-black border border-red-500/30 overflow-hidden flex items-center justify-center p-1.5 shrink-0 shadow-[0_0_15px_rgba(239,68,68,0.15)] group-hover/tcard:border-red-500/60 transition-colors duration-300">
-                  <img src="/logo triotrack.png" alt="Triotrack Solution Logo" className="w-full h-full object-contain" />
-                </div>
-                <div className="text-left">
-                  <span className="text-[9px] font-mono text-red-500 uppercase tracking-widest block font-bold">// Founder & Director</span>
-                  <h4 className="text-base font-bold font-mono leading-tight tracking-wide bg-gradient-to-r from-white via-neutral-200 to-red-400 bg-clip-text text-transparent group-hover/tcard:from-red-400 group-hover/tcard:to-white transition-all duration-500">
-                    Triotrack Solution
-                  </h4>
-                  <span className="text-[9px] font-mono text-neutral-400 font-semibold tracking-wider block mt-0.5">// AUTOMATE. INNOVATE. SCALE.</span>
-                </div>
-              </div>
-              
-              <p className="text-[11px] text-neutral-300 mt-3 text-left leading-relaxed font-mono">
-                Directing smart enterprise AI automation pipelines, SaaS frameworks, and premium high-performance web systems.
-              </p>
-              
-              <div className="mt-4 flex">
-                <a 
-                  href="https://triotracksolution.online/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-full py-2 px-4 rounded-full bg-gradient-to-r from-red-600 to-red-800 hover:from-red-500 hover:to-red-700 text-xs font-mono font-bold text-white text-center transition-all duration-300 flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(239,68,68,0.3)] hover:shadow-[0_0_25px_rgba(239,68,68,0.5)] hover:scale-[1.03]"
-                >
-                  Visit triotracksolution.online
-                  <span className="text-white group-hover/tcard:translate-x-1 transition-transform">→</span>
-                </a>
-              </div>
-            </div>
           </motion.div>
 
           {/* Right Side: Tabbed info */}
@@ -268,14 +211,20 @@ export default function About() {
                   >
                     {experiences.map((exp, idx) => (
                       <div key={idx} className="flex gap-4 items-start relative group">
-                        {/* Bullet connection */}
-                        <div className="flex flex-col items-center">
-                          <span className="h-2 w-2 rounded-full bg-red-600 group-hover:scale-125 transition-transform mt-2"></span>
+                        {/* Logo / Bullet connection */}
+                        <div className="flex flex-col items-center shrink-0">
+                          {exp.logo ? (
+                            <div className="w-10 h-10 rounded-lg overflow-hidden border border-white/10 bg-neutral-950/80 p-1 flex items-center justify-center relative z-10 group-hover:border-red-500/40 transition-all duration-300">
+                              <img src={exp.logo} alt={`${exp.company} Logo`} className="w-full h-full object-contain rounded" />
+                            </div>
+                          ) : (
+                            <span className="h-2 w-2 rounded-full bg-red-600 group-hover:scale-125 transition-transform mt-2 relative z-10"></span>
+                          )}
                           {idx !== experiences.length - 1 && (
-                            <span className="w-0.5 h-16 bg-neutral-900 border-l border-white/5 mt-1"></span>
+                            <span className="w-0.5 h-20 bg-neutral-900 border-l border-white/5 mt-2"></span>
                           )}
                         </div>
-                        <div className="space-y-1">
+                        <div className="space-y-1 flex-1">
                           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                             <h4 className="text-sm font-bold text-white font-mono">{exp.role}</h4>
                             <span className="text-[10px] font-mono text-neutral-500 px-2 py-0.5 rounded border border-white/5 bg-neutral-950">
@@ -283,7 +232,15 @@ export default function About() {
                             </span>
                           </div>
                           <p className="text-xs text-red-400 font-mono">{exp.company}</p>
-                          <p className="text-xs text-neutral-400 mt-1 max-w-xl">{exp.desc}</p>
+                          {Array.isArray(exp.desc) ? (
+                            <ul className="text-xs text-neutral-400 mt-1 max-w-xl list-disc list-inside space-y-1 select-text">
+                              {exp.desc.map((bullet, bIdx) => (
+                                <li key={bIdx} className="leading-relaxed">{bullet}</li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <p className="text-xs text-neutral-400 mt-1 max-w-xl leading-relaxed">{exp.desc}</p>
+                          )}
                         </div>
                       </div>
                     ))}
@@ -322,9 +279,79 @@ export default function About() {
                 )}
               </AnimatePresence>
             </div>
+            
           </motion.div>
 
         </div>
+
+        {/* Open Source Badges Showcase Section */}
+        <motion.div 
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-16 pt-12 border-t border-white/5"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-neutral-950/40 backdrop-blur-xl p-6 md:p-8 rounded-2xl border border-red-500/20 hover:border-red-500/40 shadow-[0_0_30px_rgba(239,68,68,0.05)] transition-all duration-500 relative overflow-hidden">
+            {/* Ambient subtle background glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-red-950/10 blur-3xl animated-glow-bg pointer-events-none"></div>
+
+            {/* Left Side Info */}
+            <div className="lg:col-span-5 space-y-4 text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-red-500/30 bg-red-950/30 text-red-400 font-mono text-[10px] tracking-wider uppercase font-bold">
+                <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping"></span>
+                Global Rank #3
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-black border border-white/10 overflow-hidden flex items-center justify-center p-1.5 shrink-0 shadow-lg">
+                  <img src="/elite_coders_logo.jpg" alt="Elite Coders Logo" className="w-full h-full object-contain rounded" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono text-red-500 uppercase tracking-widest block font-bold">// ECSoC'26 OPEN SOURCE</span>
+                  <h3 className="text-xl font-bold font-mono tracking-wide text-white">Elite Coders</h3>
+                  <span className="text-xs text-neutral-400 font-medium block">Summer of Code 2026</span>
+                </div>
+              </div>
+
+              <p className="text-xs text-neutral-400 leading-relaxed font-sans max-w-md">
+                Selected as an Open Source Contributor for ECSoC\'26, collaborating with maintainers across multiple repositories to build production-ready features, fix critical bugs, and improve user experiences.
+              </p>
+            </div>
+
+            {/* Right Side Badges Grid */}
+            <div className="lg:col-span-7 space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">// Earned Contributor Badges:</span>
+                <span className="text-[9px] font-mono text-red-400 uppercase tracking-wider font-semibold">ALL TIERS UNLOCKED</span>
+              </div>
+
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
+                {[
+                  { img: '/1.png', label: 'Mission Register' },
+                  { img: '/2.png', label: 'Tier: Rescuer' },
+                  { img: '/3.png', label: 'Tier: Hustler' },
+                  { img: '/4.png', label: 'Tier: Rookie' },
+                  { img: '/5.png', label: 'Tier: Elite' },
+                  { img: '/6.png', label: 'Tier: Master' }
+                ].map((badge, idx) => (
+                  <div 
+                    key={idx} 
+                    className="relative aspect-square rounded-xl bg-black border border-white/5 hover:border-red-500/40 p-2 flex flex-col items-center justify-center group/badge transition-all duration-300 hover:scale-105 hover:bg-red-950/10 shadow-[inner_0_0_15px_rgba(255,255,255,0.02)]"
+                    title={badge.label}
+                  >
+                    <img src={badge.img} alt={badge.label} className="w-full h-full object-contain" />
+                    
+                    {/* Tooltip or mini badge text on hover */}
+                    <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-neutral-950 border border-white/10 py-1 px-2 rounded text-[8px] font-mono text-neutral-300 opacity-0 group-hover/badge:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-25 shadow-xl">
+                      {badge.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

@@ -8,6 +8,23 @@ export default function Portfolio() {
 
   const achievements = [
     {
+      id: 'ecsoc-2026',
+      title: '🏆 Global Rank #3 – Elite Coders Summer of Code 2026',
+      org: 'Elite Coders',
+      desc: 'Achieved Global Rank #3 in a prestigious open-source contributor program, unlocking all 6 astronaut badges',
+      badge: 'Open Source',
+      img: '/6.png', // Show the Tier Master badge
+      date: 'July 2026',
+      location: 'Remote Global Event',
+      summary: 'Ranked 3rd globally in the Elite Coders Summer of Code 2026 (ECSoC\'26). Collaborated with maintainers across multiple open-source repositories to build production-ready features, fix critical bugs, and improve user experiences. Earned all 6 developer and contributor badges including Tier-Master and Tier-Elite, demonstrating high commitment and code contributions to the community.',
+      highlights: [
+        'Achieved Rank #3 on the global contributor leaderboard',
+        'Contributed key feature enhancements and bug fixes to major repositories',
+        'Acquired and unlocked all 6 ECSOC contributor and astronaut badges',
+        'Collaborated directly with maintainers to review code and ship production-ready features'
+      ]
+    },
+    {
       id: 'ibm-ai-challenge',
       title: '🏆 2nd Rank Across Gujarat – IBM AI Challenge 2026',
       org: 'IBM, CSRBOX & iHUB',
@@ -73,56 +90,6 @@ export default function Portfolio() {
         '6 Specialized Random Forest Models: High-precision forecasting across water, traffic, and health hazards',
         'Private Local LLM: Integrates TinyLlama locally to generate immediate governance directives',
         '100% Data Sovereignty: Entire AI stack runs offline without external API dependencies'
-      ]
-    },
-    {
-      id: 'hackovate-finals',
-      title: '🏆 Finalist – LJ Hackovate 2025',
-      org: 'LJ University',
-      desc: 'Top 40 out of 240+ teams with Smart Cattle Health & Milk Predictions System',
-      badge: 'AI/ML Project',
-      img: '/images/LJ Certificate.jpg',
-      date: 'January 2025',
-      location: 'LJ University, Ahmedabad',
-      summary: 'Secured a spot in the TOP 40 FINALISTS out of 240+ teams at LJ University’s Hackovate 2025! Developed the Smart Cattle Health & Milk Predictions System, an AI-powered platform transforming dairy farming with predictive insights & intelligent data analysis. Presenting at Hackovate challenged us to think bigger, refine better, and validate our idea’s real-world potential to revolutionize agriculture.',
-      highlights: [
-        'Milk Yield Prediction: Regression models for highly accurate forecasting',
-        'Disease Detection: Classification models identifying over 15+ complex veterinary conditions',
-        'Farm Telemetry: Real-time health monitoring dashboards with automated PDF reports',
-        'User Centric: Supports multi-language setups (EN/Hindi/Gujarati/Marathi) with mobile-first UI'
-      ]
-    },
-    {
-      id: 'hackout-2025',
-      title: '🌊 HackOut 2025 – DAIICT',
-      org: 'DAIICT, Gandhinagar',
-      desc: 'Coastal Threat Alert System built to protect marine ecosystems and local fisherfolk',
-      badge: 'Climate Tech',
-      img: '/images/DA-IICT Certificate.jpg',
-      date: 'February 2025',
-      location: 'DAIICT Gandhinagar',
-      summary: 'Shortlisted for the offline round of HackOut 2025 at DAIICT (Gandhinagar) with only 250–300 teams out of 4000+ registrations! Developed the Coastal Threat Alert System: an AI + IoT + satellite-data powered platform designed to protect coastal ecosystems and vulnerable communities.',
-      highlights: [
-        'Shortlisted offline round out of 4000+ national registrations',
-        'Role-Based Command: 5 distinct dashboards for governments, disaster teams, NGOs, fisherfolk, and civil defence',
-        'Real-time Detection: Monitors sea-level rise, cyclone tracking, harmful algal blooms, and illegal waste dumping',
-        'Blue Carbon Advocacy: Actively protects crucial mangroves, wetlands, and seagrass ecosystems'
-      ]
-    },
-    {
-      id: 'isro-hackathon',
-      title: '🌍 Bharatiya Antariksh Hackathon 2025',
-      org: 'ISRO & Hack2skill',
-      desc: 'Certificate of Acknowledgement for submitting a space technology proposal',
-      badge: 'Space Tech',
-      img: '/images/ISRO Certificate.png',
-      date: 'January 2025',
-      location: 'Virtual National Event',
-      summary: 'Proud to share that I have received a Certificate of Acknowledgement for submitting my idea to the Bharatiya Antariksh Hackathon 2025. This milestone reflects a commitment to innovation, exploration, and continuous learning in the domain of space and technology. Grateful to Hack2skill and ISRO - Indian Space Research Organization for providing this valuable platform to contribute to India’s space innovation journey.',
-      highlights: [
-        'Recognized directly by ISRO & Hack2skill with official Certificate of Acknowledgement',
-        'Developed novel concepts focused on space exploration and satellite data mapping',
-        'Demonstrates deep dedication to advanced national technology research and development'
       ]
     },
     {

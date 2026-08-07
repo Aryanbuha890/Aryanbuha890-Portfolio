@@ -13,7 +13,11 @@
 
 ---
 
-## 🏆 Top Achievements (Team Hell Boys)
+## 🏆 Top Achievements
+
+### 🌟 **Global Rank #3 - Elite Coders Summer of Code 2026**
+*ECSoC'26 Open Source Program*  
+Unlocking all 6 astronaut badges and ranking 3rd globally in contributions.
 
 ### 🚀 **Winner - NASA Space Apps Challenge 2025**
 *Vallabh Vidyanagar Local Event (Champions)*  
@@ -22,10 +26,6 @@ Built **CityForge – Mumbai Pulse**, an AI-powered environmental analytics plat
 ### 🥈 **1st Runner Up - Ingenious Hackathon 7.0**
 *Ahmedabad University*  
 Developed **Urban Intel AI**, a smart city governance platform using Hybrid AI & Local LLMs.
-
-### 🏅 **Finalist - Hackovate 2025**
-*LJ University (Top 40/240+)*  
-Created **Smart Cattle Health System**, an IoT & AI/ML powered dairy management solution.
 
 ---
 
@@ -57,11 +57,10 @@ Created **Smart Cattle Health System**, an IoT & AI/ML powered dairy management 
 
 | Project | Role | Description | Tech Stack |
 | :--- | :--- | :--- | :--- |
+| **[Elite Coders Summer of Code](https://github.com/Aryanbuha890)** | Contributor | Built features and resolved critical issues globally in ECSOC'26 (Global Rank #3). | Git, GitHub, Open Source |
 | **[CityForge – Mumbai Pulse](nasa-certificate.html)** | Lead Developer | AI-powered environmental analytics for urban planning (NASA Space Apps Winner). | Next.js, Flask, Leaflet, NASA API |
 | **[Urban Intel AI](cert5.html)** | AI Architect | Smart city governance platform with Hybrid AI & TinyLlama (Ingenious Runner Up). | React, Python, Local LLM |
-| **[Smart Cattle Health](lj-certificate.html)** | Full Stack | IoT-based disease detection & milk yield prediction system. | Next.js, FastAPI, Scikit-learn |
 | **[Eunoia Homoeopathy](eunoia-project.html)** | Web Developer | **Live Client Project**. Complete website development and deployment. | HTML, CSS, JS, Hosting |
-| **[Coastal Threat Alert](daiict-certificate.html)** | Developer | Real-time disaster management system for coastal ecosystems. | AI, IoT, Satellite Data |
 | **[Scream-to-Survive](itm-certificate.html)** | Game Dev | Voice-controlled survival game built during ITM Game Jam. | Unity, C#, Audio Processing |
 
 ---
