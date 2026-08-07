@@ -30,9 +30,34 @@ export default function App() {
     }
   }
 
-  // Set page scroll restoration
+  // Set page scroll restoration and initialize GSAP animations
   useEffect(() => {
     window.history.scrollRestoration = 'manual'
+    
+    if (window.gsap) {
+      window.gsap.registerPlugin(window.ScrollTrigger)
+
+      // Smooth reveal fade-in for section headers on scroll
+      window.gsap.utils.toArray('section').forEach((section) => {
+        const header = section.querySelector('.text-left.mb-16')
+        if (header) {
+          window.gsap.fromTo(header, 
+            { opacity: 0, y: 30 },
+            { 
+              opacity: 1, 
+              y: 0, 
+              duration: 0.8,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: section,
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+              }
+            }
+          )
+        }
+      })
+    }
   }, [])
 
   return (
