@@ -9,6 +9,10 @@ import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import { motion } from 'framer-motion'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('#home')
@@ -34,30 +38,26 @@ export default function App() {
   useEffect(() => {
     window.history.scrollRestoration = 'manual'
     
-    if (window.gsap) {
-      window.gsap.registerPlugin(window.ScrollTrigger)
-
-      // Smooth reveal fade-in for section headers on scroll
-      window.gsap.utils.toArray('section').forEach((section) => {
-        const header = section.querySelector('.text-left.mb-16')
-        if (header) {
-          window.gsap.fromTo(header, 
-            { opacity: 0, y: 30 },
-            { 
-              opacity: 1, 
-              y: 0, 
-              duration: 0.8,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: section,
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-              }
+    // Smooth reveal fade-in for section headers on scroll
+    gsap.utils.toArray('section').forEach((section) => {
+      const header = section.querySelector('.text-left.mb-16')
+      if (header) {
+        gsap.fromTo(header, 
+          { opacity: 0, y: 30 },
+          { 
+            opacity: 1, 
+            y: 0, 
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 80%',
+              toggleActions: 'play none none none'
             }
-          )
-        }
-      })
-    }
+          }
+        )
+      }
+    })
   }, [])
 
   return (

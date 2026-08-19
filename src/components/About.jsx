@@ -106,6 +106,8 @@ export default function About() {
                   <img 
                     src={profileImage} 
                     alt="Aryan Buha" 
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center transition-all duration-500 ease-out hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -215,7 +217,7 @@ export default function About() {
                         <div className="flex flex-col items-center shrink-0">
                           {exp.logo ? (
                             <div className="w-10 h-10 rounded-lg overflow-hidden border border-white/10 bg-neutral-950/80 p-1 flex items-center justify-center relative z-10 group-hover:border-red-500/40 transition-all duration-300">
-                              <img src={exp.logo} alt={`${exp.company} Logo`} className="w-full h-full object-contain rounded" />
+                              <img src={exp.logo} alt={`${exp.company} Logo`} loading="lazy" decoding="async" className="w-full h-full object-contain rounded" />
                             </div>
                           ) : (
                             <span className="h-2 w-2 rounded-full bg-red-600 group-hover:scale-125 transition-transform mt-2 relative z-10"></span>
@@ -300,12 +302,12 @@ export default function About() {
             <div className="lg:col-span-5 space-y-4 text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-red-500/30 bg-red-950/30 text-red-400 font-mono text-[10px] tracking-wider uppercase font-bold">
                 <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping"></span>
-                Global Rank #3
+                Global Rank #2
               </div>
 
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-black border border-white/10 overflow-hidden flex items-center justify-center p-1.5 shrink-0 shadow-lg">
-                  <img src="/elite_coders_logo.jpg" alt="Elite Coders Logo" className="w-full h-full object-contain rounded" />
+                  <img src="/elite_coders_logo.jpg" alt="Elite Coders Logo" loading="lazy" decoding="async" className="w-full h-full object-contain rounded" />
                 </div>
                 <div>
                   <span className="text-[10px] font-mono text-red-500 uppercase tracking-widest block font-bold">// ECSoC'26 OPEN SOURCE</span>
@@ -340,7 +342,7 @@ export default function About() {
                     className="relative aspect-square rounded-xl bg-black border border-white/5 hover:border-red-500/40 p-2 flex flex-col items-center justify-center group/badge transition-all duration-300 hover:scale-105 hover:bg-red-950/10 shadow-[inner_0_0_15px_rgba(255,255,255,0.02)]"
                     title={badge.label}
                   >
-                    <img src={badge.img} alt={badge.label} className="w-full h-full object-contain" />
+                    <img src={badge.img} alt={badge.label} loading="lazy" decoding="async" className="w-full h-full object-contain" />
                     
                     {/* Tooltip or mini badge text on hover */}
                     <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-neutral-950 border border-white/10 py-1 px-2 rounded text-[8px] font-mono text-neutral-300 opacity-0 group-hover/badge:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-25 shadow-xl">

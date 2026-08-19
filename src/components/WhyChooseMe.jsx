@@ -78,6 +78,8 @@ export default function WhyChooseMe() {
                         <img 
                           src={card.img} 
                           alt={card.title} 
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-contain filter invert-0 group-hover:scale-110 transition-transform duration-500" 
                         />
                       </div>

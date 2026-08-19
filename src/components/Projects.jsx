@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, X, Terminal, Code, Sprout, Building2, Lock, Activity, Globe, Eye, Ship } from 'lucide-react'
+import gsap from 'gsap'
 
 // Inline custom LinkedIn Icon (matching Contact.jsx style)
 const LinkedInIcon = ({ size = 16, ...props }) => (
@@ -181,6 +182,25 @@ export default function Projects() {
     }
   ]
 
+  useEffect(() => {
+    gsap.fromTo('.project-card', 
+      { opacity: 0, y: 30, scale: 0.96 },
+      { 
+        opacity: 1, 
+        y: 0, 
+        scale: 1,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#projects',
+          start: 'top 70%',
+          toggleActions: 'play none none none'
+        }
+      }
+    )
+  }, [])
+
   // Smooth scroll helper to navigate directly to Contact Section
   const handleContactNavigation = (e) => {
     e.preventDefault();
@@ -226,21 +246,18 @@ export default function Projects() {
             {projectsData.map((proj) => {
               const Icon = proj.icon
               return (
-                <motion.div
+                <div
                   key={proj.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4 }}
                   onClick={() => setSelectedProject(proj)}
-                  className={`relative w-full max-w-[360px] h-[480px] rounded-2xl bg-neutral-950/70 border border-red-500/20 overflow-hidden flex flex-col justify-between transition-all duration-500 ${proj.borderHover} group cursor-pointer`}
+                  className={`project-card opacity-0 relative w-full max-w-[360px] h-[480px] rounded-2xl bg-neutral-950/70 border border-red-500/20 overflow-hidden flex flex-col justify-between transition-all duration-500 ${proj.borderHover} group cursor-pointer`}
                 >
                   {/* Image Background overlay */}
                   <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden transition-all duration-700">
                     <img 
                       src={proj.img} 
                       alt={proj.title} 
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover opacity-35 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/90 to-transparent"></div>
@@ -296,7 +313,7 @@ export default function Projects() {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               )
             })}
           </AnimatePresence>
@@ -369,6 +386,8 @@ export default function Projects() {
                         <img 
                           src={selectedProject.img} 
                           alt={selectedProject.title}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-contain rounded-lg"
                         />
                       </div>

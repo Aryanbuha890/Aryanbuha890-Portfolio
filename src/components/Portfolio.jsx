@@ -9,16 +9,16 @@ export default function Portfolio() {
   const achievements = [
     {
       id: 'ecsoc-2026',
-      title: '🏆 Global Rank #3 – Elite Coders Summer of Code 2026',
+      title: '🏆 Global Rank #2 – Elite Coders Summer of Code 2026',
       org: 'Elite Coders',
-      desc: 'Achieved Global Rank #3 in a prestigious open-source contributor program, unlocking all 6 astronaut badges',
+      desc: 'Achieved Global Rank #2 in a prestigious open-source contributor program, unlocking all 6 astronaut badges',
       badge: 'Open Source',
       img: '/6.png', // Show the Tier Master badge
       date: 'July 2026',
       location: 'Remote Global Event',
-      summary: 'Ranked 3rd globally in the Elite Coders Summer of Code 2026 (ECSoC\'26). Collaborated with maintainers across multiple open-source repositories to build production-ready features, fix critical bugs, and improve user experiences. Earned all 6 developer and contributor badges including Tier-Master and Tier-Elite, demonstrating high commitment and code contributions to the community.',
+      summary: 'Ranked 2nd globally in the Elite Coders Summer of Code 2026 (ECSoC\'26). Collaborated with maintainers across multiple open-source repositories to build production-ready features, fix critical bugs, and improve user experiences. Earned all 6 developer and contributor badges including Tier-Master and Tier-Elite, demonstrating high commitment and code contributions to the community.',
       highlights: [
-        'Achieved Rank #3 on the global contributor leaderboard',
+        'Achieved Rank #2 on the global contributor leaderboard',
         'Contributed key feature enhancements and bug fixes to major repositories',
         'Acquired and unlocked all 6 ECSOC contributor and astronaut badges',
         'Collaborated directly with maintainers to review code and ship production-ready features'
@@ -255,6 +255,8 @@ export default function Portfolio() {
                       <img 
                         src={ach.img} 
                         alt={ach.title} 
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-contain transition duration-500 ease-out sharp-certificate"
                       />
                     </div>
@@ -413,6 +415,8 @@ export default function Portfolio() {
                         <img 
                           src={selectedAch.img} 
                           alt={selectedAch.title}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-contain block mx-auto hover:scale-[1.01] transition-transform duration-300 sharp-certificate"
                         />
                       </div>

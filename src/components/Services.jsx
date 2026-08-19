@@ -1,10 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Code, Cpu, Database, ChevronDown, Terminal, Play, Circle, X } from 'lucide-react'
+import gsap from 'gsap'
 
 export default function Services() {
   const [selectedService, setSelectedService] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
+
+  useEffect(() => {
+    gsap.fromTo('.service-card', 
+      { opacity: 0, y: 30, scale: 0.96 },
+      { 
+        opacity: 1, 
+        y: 0, 
+        scale: 1,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#services',
+          start: 'top 70%',
+          toggleActions: 'play none none none'
+        }
+      }
+    )
+  }, [])
 
   const services = [
     {
@@ -126,13 +146,15 @@ export const StatusMonitor = () => {
             return (
               <div 
                 key={svc.id} 
-                className="relative w-full max-w-[360px] h-[480px] rounded-2xl bg-neutral-950/70 border border-red-500/30 overflow-hidden flex flex-col justify-between transition-all duration-500 hover:border-red-500/60 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(239,68,68,0.25),_inset_0_0_20px_rgba(239,68,68,0.08)] group select-none"
+                className="service-card opacity-0 relative w-full max-w-[360px] h-[480px] rounded-2xl bg-neutral-950/70 border border-red-500/30 overflow-hidden flex flex-col justify-between transition-all duration-500 hover:border-red-500/60 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(239,68,68,0.25),_inset_0_0_20px_rgba(239,68,68,0.08)] group select-none"
               >
                 {/* Background image - Crisp, no blur, high fidelity */}
                 <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden transition-all duration-700">
                   <img 
                     src={svc.bgImage} 
                     alt={svc.title} 
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-55 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/85 to-transparent"></div>

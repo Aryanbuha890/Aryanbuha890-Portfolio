@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Terminal, Menu, X, ArrowRight, Code, Shield, Cpu, ExternalLink } from 'lucide-react'
+import gsap from 'gsap'
 
 // Lightweight React typewriter hook
 const useTypewriter = (words, typingSpeed = 80, deletingSpeed = 40, delayBetweenWords = 2000) => {
@@ -45,8 +46,8 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
     { type: 'output', text: 'Welcome to Aryan\'s Portfolio interactive shell!\nType or click a command below to explore.' }
   ])
   const [terminalInput, setTerminalInput] = useState('')
-  const terminalEndRef = useRef(null)
   const terminalLogsRef = useRef(null)
+  const terminalEndRef = useRef(null)
 
   const words = [
     "AI/ML Engineer",
@@ -63,6 +64,18 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // GSAP Hero entrance timeline
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+    tl.fromTo('.hero-badge', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, delay: 0.3 })
+      .fromTo('.hero-title', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.45')
+      .fromTo('.hero-subtitle', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.55')
+      .fromTo('.hero-desc', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.45')
+      .fromTo('.hero-quote', { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.7 }, '-=0.45')
+      .fromTo('.hero-btn', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.12 }, '-=0.45')
+      .fromTo('.hero-terminal', { opacity: 0, x: 40, scale: 0.97 }, { opacity: 1, x: 0, scale: 1, duration: 0.9 }, '-=0.8')
   }, [])
 
   // Sync active section based on scroll position using Intersection Observer
@@ -131,7 +144,7 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
         response = `SKILL CATALOG:\n----------------------------------------\n• Languages:   Python, JavaScript, Java, C++, C\n• Web Dev:     React 19, Next.js, Vite, Tailwind CSS v4, Framer Motion\n• Backend:     Node.js, Express, FastAPI, Flask, SQL\n• ML & AI:     LangGraph (Agents), YOLOv11 (Vision), ChromaDB (RAG), XGBoost\n• Core:        DSA, OOP, System Architectures, Logic`
         break
       case 'about':
-        response = `ARYAN BUHA | AI/ML & FULL-STACK ENGINEER:\n----------------------------------------\n• Rank:      Global Rank #3 @ ECSoC'26\n• Academy:   B.E. Computer Science & Engineering\n• Institute: Maharaja Sayajirao University of Baroda\n• Passion:   LangGraph multi-agent systems, computer vision, local LLMs, and SaaS web systems.\n• Mission:   Solving critical problems via production-grade shipped products.`
+        response = `ARYAN BUHA | AI/ML & FULL-STACK ENGINEER:\n----------------------------------------\n• Rank:      Global Rank #2 @ ECSoC'26\n• Academy:   B.E. Computer Science & Engineering\n• Institute: Maharaja Sayajirao University of Baroda\n• Passion:   LangGraph multi-agent systems, computer vision, local LLMs, and SaaS web systems.\n• Mission:   Solving critical problems via production-grade shipped products.`
         break
       case 'why-me':
         response = `WHY CHOOSE ARYAN:\n----------------------------------------\n⭐ High Quality Code  - Clean linter audited, robust structural engineering.\n⭐ Rapid Velocity     - GRANULAR targets delivered ahead of schedules.\n⭐ Proactive Sync     - 100% active alignment & transparent staging feeds.\n⭐ Scalable Systems   - Modular architectures built for intense growth.`
@@ -140,7 +153,7 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
         response = `ARYAN'S PROJECTS:\n----------------------------------------\n🚢 LogiMind AI   - Maritime Command OS (6th Rank Hackverse Mumbai & Microsoft Invite).\n🌾 AgriForge AI  - Agricultural platform (SSIP Govt Grant - Rs. 2.43L & IBM 2nd Rank).\n🏢 Urban Intel   - Smart city governance OS (1st Runner-Up Ingenious 7.0).\n🛰️ Mumbai Pulse  - Environmental GIS dashboard (NASA Space Apps Winner 2025).\n🌍 TerraForge    - Climate-Tech OS (Top 8 Finalist DotSlash 9.0).`
         break
       case 'achievements':
-        response = `HACKATHONS & AWARDS:\n----------------------------------------\n🏆 Global Rank #3 - Elite Coders Summer of Code 2026 (ECSoC'26)\n🏆 Winner (Champions) - NASA Space Apps Challenge 2025\n🏆 2nd Rank (Statewide) - IBM AI Innovation Challenge 2026\n🏆 6th Rank (India-wide) - Hackverse Mumbai & Microsoft Invite\n🥈 1st Runner-Up - Ingenious Hackathon 7.0 (Ahmedabad Uni)\n🎖️ Top 8 Finalist - DotSlash 9.0 (SVNIT Surat)\n💰 ₹2.43L SSIP Gujarat Research Grant for AgriForge AI`
+        response = `HACKATHONS & AWARDS:\n----------------------------------------\n🏆 Global Rank #2 - Elite Coders Summer of Code 2026 (ECSoC'26)\n🏆 Winner (Champions) - NASA Space Apps Challenge 2025\n🏆 2nd Rank (Statewide) - IBM AI Innovation Challenge 2026\n🏆 6th Rank (India-wide) - Hackverse Mumbai & Microsoft Invite\n🥈 1st Runner-Up - Ingenious Hackathon 7.0 (Ahmedabad Uni)\n🎖️ Top 8 Finalist - DotSlash 9.0 (SVNIT Surat)\n💰 ₹2.43L SSIP Gujarat Research Grant for AgriForge AI`
         break
       case 'contact':
         response = `CONTACT DETAILS:\n----------------------------------------\n📧 Email:    aryanbuha56@gmail.com\n📞 Phone:    +91 9313198911\n🌐 GitHub:   github.com/Aryanbuha890\n💼 LinkedIn: linkedin.com/in/aryan-buha-874a5434b/`
@@ -177,12 +190,8 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
 
   return (
     <>
-      {/* Floating Translucent Header */}
       <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 w-full pointer-events-none">
-        <motion.nav 
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
+        <nav 
           className={`pointer-events-auto w-full mx-auto rounded-full border transition-all duration-500 ${
             isScrolled 
               ? 'max-w-5xl bg-black/75 py-2.5 px-6 backdrop-blur-md navbar-glow-scrolled' 
@@ -206,7 +215,6 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
               <span className="h-1.5 w-1.5 rounded-full bg-red-600 animate-pulse ml-1.5 self-center"></span>
             </a>
 
-            {/* Desktop Nav links */}
             <div className="hidden md:flex items-center gap-3 lg:gap-6">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href
@@ -251,26 +259,25 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
               </a>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button 
-              className="md:hidden text-white focus:outline-none p-1 hover:bg-white/5 rounded-full transition-all"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
+            <div className="md:hidden flex items-center">
+              <button 
+                className="text-white focus:outline-none p-1 hover:bg-white/5 rounded-full transition-all"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
           </div>
-        </motion.nav>
+        </nav>
       </div>
 
-      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-4 top-[78px] z-40 bg-black/90 backdrop-blur-lg border border-white/10 rounded-2xl md:hidden py-6 px-6 shadow-2xl"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="fixed top-[78px] left-4 right-4 z-40 bg-black/90 backdrop-blur-lg border border-white/10 rounded-2xl md:hidden py-6 px-6 shadow-2xl"
           >
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => {
@@ -371,34 +378,29 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
         <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           
           {/* Left panel: Info */}
-          <motion.div 
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-7 space-y-6 text-left"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-500/20 bg-red-950/20 text-red-400 font-mono text-xs tracking-wider uppercase">
+          <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="hero-badge opacity-0 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-500/20 bg-red-950/20 text-red-400 font-mono text-xs tracking-wider uppercase">
               <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping"></span>
               $ npm run start:dev
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
+            <h1 className="hero-title opacity-0 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
               Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-100 to-red-600 select-text">Aryan Buha</span>
             </h1>
 
-            <h2 className="text-xl sm:text-2xl font-mono text-neutral-400 flex items-center h-8">
+            <h2 className="hero-subtitle opacity-0 text-xl sm:text-2xl font-mono text-neutral-400 flex items-center h-8">
               I am a&nbsp;
               <span className="text-red-500 border-r-2 border-red-500 pr-1 cursor-blink">
                 {typedText}
               </span>
             </h2>
 
-            <p className="text-base sm:text-lg text-neutral-300 max-w-xl leading-relaxed select-text">
+            <p className="hero-desc opacity-0 text-base sm:text-lg text-neutral-300 max-w-xl leading-relaxed select-text">
               Engineering student at MSU Baroda passionate about full-stack systems, machine learning pipelines, and smart agricultural automation. Thriving in high-stress hackathons and team-focused builds.
             </p>
 
             {/* Upgraded Quote block */}
-            <div className="border-l-2 border-red-500 pl-4 bg-white/[0.01] hover:bg-white/[0.03] backdrop-blur-md py-3.5 px-5 rounded-r-lg max-w-lg select-text border border-white/5 shadow-inner transition-all duration-500 group/quote hover:border-red-500/20">
+            <div className="hero-quote opacity-0 border-l-2 border-red-500 pl-4 bg-white/[0.01] hover:bg-white/[0.03] backdrop-blur-md py-3.5 px-5 rounded-r-lg max-w-lg select-text border border-white/5 shadow-inner transition-all duration-500 group/quote hover:border-red-500/20">
               <span className="text-[9px] font-mono text-red-500/70 uppercase tracking-widest block mb-1.5 transition-colors group-hover/quote:text-red-400">// compiler message directive</span>
               <p className="italic text-neutral-300 text-sm leading-relaxed">
                 "I don't build prototypes. I build products that ship. 🚀"
@@ -413,7 +415,7 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
                   e.preventDefault();
                   onNavClick('#portfolio');
                 }}
-                className="px-6 py-3 rounded-full border border-red-500/40 hover:border-red-500/80 bg-red-950/25 hover:bg-red-900/40 text-red-200 hover:text-white font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(239,68,68,0.25)] backdrop-blur-md flex items-center gap-2"
+                className="hero-btn opacity-0 px-6 py-3 rounded-full border border-red-500/40 hover:border-red-500/80 bg-red-950/25 hover:bg-red-900/40 text-red-200 hover:text-white font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(239,68,68,0.25)] backdrop-blur-md flex items-center gap-2"
               >
                 View Achievements
                 <ArrowRight size={14} className="mt-0.5" />
@@ -424,20 +426,15 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
                   e.preventDefault();
                   onNavClick('#contact');
                 }}
-                className="px-6 py-3 rounded-full border border-white/10 hover:border-red-500/30 bg-white/[0.02] hover:bg-white/[0.06] text-neutral-300 hover:text-white font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+                className="hero-btn opacity-0 px-6 py-3 rounded-full border border-white/10 hover:border-red-500/30 bg-white/[0.02] hover:bg-white/[0.06] text-neutral-300 hover:text-white font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
               >
                 Let's Connect👋
               </a>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right panel: Terminal Terminal Console */}
-          <motion.div 
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="lg:col-span-5 w-full"
-          >
+          <div className="hero-terminal opacity-0 lg:col-span-5 w-full">
             <div className="w-full rounded-lg overflow-hidden glass-panel red-glow-subtle flex flex-col h-[380px] shadow-2xl relative group/terminal hover:border-red-500/20 transition-all duration-500">
               {/* Sweeping Glass Reflection Overlay */}
               <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/[0.03] to-transparent -translate-x-full group-hover/terminal:animate-[shimmer_1.5s_ease-out] z-20"></div>
@@ -510,7 +507,7 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
                 />
               </form>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </>
