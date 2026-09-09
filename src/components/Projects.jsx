@@ -15,8 +15,53 @@ const LinkedInIcon = ({ size = 16, ...props }) => (
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null)
+  const [activeModalImage, setActiveModalImage] = useState(null)
+
+  useEffect(() => {
+    if (selectedProject) {
+      setActiveModalImage(selectedProject.img)
+    } else {
+      setActiveModalImage(null)
+    }
+  }, [selectedProject])
 
   const projectsData = [
+    {
+      id: 'kaashona-erp',
+      title: 'KAASHONA RESORT ERP',
+      category: 'Enterprise SaaS & ERP',
+      shortDesc: 'End-to-end luxury hospitality management OS featuring real-time room occupancy analytics, automated reservation engines, cashier GST billing, and live guest ledgers.',
+      tag: 'Hospitality Management OS',
+      icon: Building2,
+      img: '/K1.png',
+      gallery: [
+        { img: '/K1.png', title: 'Main Dashboard', tag: 'Analytics & Occupancy' },
+        { img: '/K2.png', title: 'Room Management', tag: 'Inventory & Suites' },
+        { img: '/K3.png', title: 'Reservation Booking', tag: 'Guest Booking Engine' },
+        { img: '/K4.png', title: 'Guest History', tag: 'Ledger & Audit Trail' },
+        { img: '/K5.png', title: 'Cashier Billing', tag: 'GST & Payment Records' },
+        { img: '/K6.png', title: 'Tax Invoice Generator', tag: 'PDF Billing & Tariffs' }
+      ],
+      linkType: 'private',
+      linkUrl: '#contact',
+      stack: ['REACT 19', 'NODE.JS', 'EXPRESS.JS', 'POSTGRESQL', 'TAILWIND CSS', 'PDF ENGINE'],
+      themeColor: 'emerald',
+      borderHover: 'hover:border-emerald-500/60 hover:shadow-[0_0_30px_rgba(16,185,129,0.25),_inset_0_0_20px_rgba(16,185,129,0.08)]',
+      borderActive: 'border-emerald-500/40 shadow-[0_0_50px_rgba(16,185,129,0.25)]',
+      textTheme: 'text-emerald-400',
+      textDarkTheme: 'text-emerald-500',
+      bgTag: 'bg-emerald-950/20 border-emerald-500/30',
+      glowBg: 'rgba(16, 185, 129, 0.18)',
+      btnTheme: 'bg-emerald-600 hover:bg-emerald-700 shadow-[0_0_20px_rgba(16,185,129,0.2)]',
+      summary: 'FULL-SCALE ENTERPRISE RESOURCE PLANNING (ERP) SUITE TAILORED FOR KAASHONA ECO-LUXURY RESORT. STREAMLINES COMPLETE HOSPITALITY WORKFLOWS FROM MULTI-CATEGORY SUITE RESERVATIONS AND REAL-TIME OCCUPANCY MONITORING TO CASHIER TAX BILLING AND AUTOMATED GST INVOICING.',
+      highlights: [
+        'Live Multi-Category Suite Inventory: Real-time status tracking for Star A/B/C Villas, Treehouse Suites, and Heritage Rooms.',
+        'Dynamic Reservation & Tariff Engine: Supports lump-sum packages, seasonal tariffs, date-range picker, and instant booking confirmations.',
+        'Comprehensive Guest History & Ledgers: Tracks guest profiles, vehicle plates, advance payments (UPI/Cash), and stay histories with audit trails.',
+        'Cashier Billing & Automated GST Invoices: Instant reverse-tax calculation, automated printable PDF tax invoice generation, and Excel advance exports.',
+        'Executive Analytics Dashboard: Real-time visibility into resort revenue performance, next-day arrivals, and occupancy forecasting.'
+      ]
+    },
     {
       id: 'logimind',
       title: 'LOGIMIND AI',
@@ -273,9 +318,16 @@ export default function Projects() {
                   {/* Card Content */}
                   <div className="relative z-10 p-6 flex flex-col justify-between h-full w-full">
                     <div className="flex flex-col text-left items-start">
-                      <span className={`font-mono text-[9px] tracking-widest ${proj.textTheme} border rounded-full px-2.5 py-0.5 ${proj.bgTag} uppercase font-semibold`}>
-                        {proj.tag}
-                      </span>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className={`font-mono text-[9px] tracking-widest ${proj.textTheme} border rounded-full px-2.5 py-0.5 ${proj.bgTag} uppercase font-semibold`}>
+                          {proj.tag}
+                        </span>
+                        {proj.gallery && (
+                          <span className="font-mono text-[9px] text-neutral-400 bg-white/5 border border-white/10 rounded-full px-2 py-0.5 font-medium">
+                            {proj.gallery.length} Screens
+                          </span>
+                        )}
+                      </div>
                       
                       <div className={`p-3 rounded-xl bg-neutral-900/40 border border-white/5 ${proj.textTheme} mt-4 transition-all duration-300 group-hover:scale-110 group-hover:bg-neutral-800/60`}>
                         <Icon size={22} />
@@ -352,7 +404,7 @@ export default function Projects() {
                   <span className="w-3 h-3 rounded-full bg-green-500 block"></span>
                 </div>
                 <div className="text-[10px] font-mono text-neutral-500 truncate px-4">
-                  cat projects/{selectedProject.id}_profile.md
+                  cat projects/{selectedProject.id}_spec.md
                 </div>
                 <button 
                   onClick={() => setSelectedProject(null)}
@@ -367,10 +419,17 @@ export default function Projects() {
                 
                 {/* Title Section */}
                 <div className="space-y-2 border-b border-white/5 pb-6">
-                  <span className={`px-2.5 py-0.5 rounded border font-mono text-[9px] ${selectedProject.textTheme} ${selectedProject.bgTag} uppercase tracking-widest font-semibold`}>
-                    {selectedProject.tag}
-                  </span>
-                  <h2 className="text-xl md:text-2xl font-bold tracking-tight text-white select-text">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className={`px-2.5 py-0.5 rounded font-mono text-[9px] uppercase tracking-widest ${selectedProject.bgTag} ${selectedProject.textTheme} font-bold`}>
+                      {selectedProject.tag}
+                    </span>
+                    {selectedProject.gallery && (
+                      <span className="text-[9px] font-mono text-neutral-400 bg-white/5 border border-white/10 px-2 py-0.5 rounded-full">
+                        {selectedProject.gallery.length} Interactive Modules
+                      </span>
+                    )}
+                  </div>
+                  <h2 className="text-xl md:text-3xl font-bold tracking-tight text-white font-mono select-text">
                     {selectedProject.title}
                   </h2>
                   <p className={`text-xs font-mono ${selectedProject.textDarkTheme} font-bold uppercase tracking-wider`}>// {selectedProject.category}</p>
@@ -380,15 +439,15 @@ export default function Projects() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start select-text">
                   
                   {/* Left Column: Image Asset & Tech Stack */}
-                  <div className="lg:col-span-5 space-y-6">
+                  <div className="lg:col-span-5 space-y-5">
                     <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-black/80 shadow-2xl p-3 flex items-center justify-center aspect-[4/3] max-w-full">
                       <div className="w-full h-full border border-white/5 rounded-lg p-1.5 bg-black/40 flex items-center justify-center relative z-10">
                         <img 
-                          src={selectedProject.img} 
+                          src={activeModalImage || selectedProject.img} 
                           alt={selectedProject.title}
                           loading="lazy"
                           decoding="async"
-                          className="w-full h-full object-contain rounded-lg"
+                          className="w-full h-full object-contain rounded-lg transition-all duration-300"
                         />
                       </div>
                       
@@ -398,6 +457,40 @@ export default function Projects() {
                       <div className="cyber-corner cyber-corner-bl"></div>
                       <div className="cyber-corner cyber-corner-br"></div>
                     </div>
+
+                    {/* Interactive Screenshot Gallery Strip */}
+                    {selectedProject.gallery && selectedProject.gallery.length > 0 && (
+                      <div className="space-y-2 p-3 rounded-xl bg-black/60 border border-white/5">
+                        <div className="flex items-center justify-between text-[10px] font-mono text-neutral-400">
+                          <span className="uppercase text-neutral-500 font-bold">// MODULE PREVIEWS:</span>
+                          <span className="text-emerald-400 font-semibold truncate max-w-[170px] text-right">
+                            {selectedProject.gallery.find(g => (activeModalImage || selectedProject.img) === (typeof g === 'string' ? g : g.img))?.title || 'Screenshots'}
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-6 gap-1.5">
+                          {selectedProject.gallery.map((gItem, gIdx) => {
+                            const imgSrc = typeof gItem === 'string' ? gItem : gItem.img;
+                            const title = typeof gItem === 'string' ? `Screen ${gIdx + 1}` : gItem.title;
+                            const isSelected = (activeModalImage || selectedProject.img) === imgSrc;
+                            return (
+                              <button
+                                key={gIdx}
+                                type="button"
+                                onClick={() => setActiveModalImage(imgSrc)}
+                                className={`relative aspect-square rounded-lg overflow-hidden border transition-all duration-200 p-0.5 bg-neutral-950 ${
+                                  isSelected 
+                                    ? 'border-emerald-500 scale-105 shadow-[0_0_12px_rgba(16,185,129,0.4)] ring-1 ring-emerald-500/60' 
+                                    : 'border-white/10 hover:border-white/30 opacity-60 hover:opacity-100'
+                                }`}
+                                title={title}
+                              >
+                                <img src={imgSrc} alt={title} className="w-full h-full object-cover rounded" />
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
 
                     {/* Tech stack box */}
                     <div className="glass-panel p-5 rounded-xl space-y-3 font-mono bg-black/60 select-text">

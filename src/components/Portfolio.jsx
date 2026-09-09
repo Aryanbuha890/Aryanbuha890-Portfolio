@@ -126,6 +126,24 @@ export default function Portfolio() {
       ]
     },
     {
+      id: 'kaashona-erp-live',
+      title: '🏨 Kaashona Eco-Luxury Resort ERP System',
+      org: 'Kaashona Resorts · Enterprise Client',
+      desc: 'Architected and shipped an end-to-end Resort ERP with real-time suite management, cashier GST billing, and live guest ledgers',
+      badge: 'Enterprise ERP',
+      img: '/K1.png',
+      date: 'August 2026',
+      location: 'Live Client Deployment',
+      summary: 'Architected and engineered a comprehensive, production-ready Cloud ERP suite for Kaashona Eco-Luxury Resort. The system streamlines all hospitality operations from multi-category suite reservations and live room availability tracking to cashier GST billing, reverse-tax computations, and automated printable branded PDF tax invoices. Successfully deployed with high reliability and intuitive UI/UX for management staff.',
+      highlights: [
+        'Built full-stack resort operations platform featuring real-time room availability grids',
+        'Implemented dynamic booking engine supporting lump-sum package deals and multi-night guest stays',
+        'Engineered cashier GST billing with reverse tax inclusive computation and Excel ledger exports',
+        'Created automated printable branded PDF tax invoice generator with itemized room tariff breakdowns',
+        'Integrated comprehensive guest profile audit trails tracking vehicle registration, UPI/Cash ledgers, and check-in logs'
+      ]
+    },
+    {
       id: 'eunoia-live',
       title: '🚀 Eunoia Homoeopathy Website Live',
       org: 'Live Client Deployment',
