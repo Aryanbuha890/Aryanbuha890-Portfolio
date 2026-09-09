@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Code, BookOpen, Briefcase, Award, GraduationCap, ChevronRight, Terminal } from 'lucide-react'
+import { Code, BookOpen, Briefcase, Award, GraduationCap, ChevronRight, Terminal, ChevronDown, ChevronUp } from 'lucide-react'
 
 export default function About() {
   const [activeTab, setActiveTab] = useState('skills')
+  const [expandedRoles, setExpandedRoles] = useState({ 0: true, 1: true, 2: true })
+  const toggleRole = (idx) => setExpandedRoles(prev => ({ ...prev, [idx]: !prev[idx] }))
 
   const profileImage = '/images/Aryan Resume Photo.png'
 
@@ -28,44 +30,50 @@ export default function About() {
 
   const experiences = [
     {
-      role: 'Core Team Member',
-      company: 'Code Vimarsh',
-      logo: '/code_vimarsh_logo.jpg',
-      date: 'Jan 2026 - Present',
-      location: 'Vadodara, Gujarat, India',
-      desc: [
-        'Contributing to the design and development of the official Code Vimarsh club website',
-        'Working with modern web technologies to build responsive and user-friendly interfaces',
-        'Collaborating with the technical team to enhance UI/UX and overall site performance',
-        'Implementing reusable components and maintaining clean frontend architecture'
-      ],
-      skills: ['JavaScript', 'React.js', 'Frontend Architecture', 'UI/UX']
-    },
-    {
-      role: 'Software Engineer',
-      company: 'Triotrack Solution · Freelance',
+      company: 'Triotrack Solution',
+      type: 'Freelance',
       logo: '/triotrack_solution_logo.jpg',
+      role: 'Software Engineer',
       date: 'Apr 2026 - Present',
       location: 'Surat, Gujarat, India · Remote',
+      employmentType: 'Freelance',
       desc: [
         'Software developer at Triotrack Solution, focused on building modern digital solutions for businesses through Web Development, Custom Software and AI Automation.',
         'Leading projects from idea to execution while collaborating with clients to create scalable, user-friendly, and innovative digital experiences.',
         'Passionate about technology, startups, and building impactful solutions with a strong focus on creativity and growth.'
       ],
-      skills: ['Web Development', 'Custom Software', 'AI Automation', 'Business Development']
+      skills: ['Web Development', 'Custom Software', 'AI Automation', 'Client Solutions', 'Business Development']
     },
     {
-      role: 'Open Source Contributor',
-      company: 'Elite Coders · Self-employed',
+      company: 'Code Vimarsh',
+      type: 'Technical Club',
+      logo: '/code_vimarsh_logo.jpg',
+      role: 'Core Team Member',
+      date: 'Jan 2026 - Present',
+      location: 'Vadodara, Gujarat, India',
+      employmentType: 'Club Lead',
+      desc: [
+        'Contributing to the design and development of the official Code Vimarsh club website.',
+        'Working with modern web technologies to build responsive and user-friendly interfaces.',
+        'Collaborating with the technical team to enhance UI/UX and overall site performance.',
+        'Implementing reusable components and maintaining clean frontend architecture.'
+      ],
+      skills: ['JavaScript', 'React.js', 'Frontend Architecture', 'UI/UX', 'Web Design']
+    },
+    {
+      company: 'Elite Coders',
+      type: 'Open Source',
       logo: '/elite_coders_logo.jpg',
-      date: 'Jul 2026 - Sep 2026',
       badge: 'Global Rank #2',
+      role: 'Open Source Contributor',
+      date: 'Jul 2026 - Sep 2026',
       location: 'Remote',
+      employmentType: 'ECSoC\'26',
       desc: [
         "Global Rank #2: Selected as an Open Source Contributor for Elite Coders Summer of Code 2026 (ECSoC'26).",
         "Collaborated with maintainers across multiple open-source repositories to build production-ready features, fix bugs, and improve user experience."
       ],
-      skills: ['Git', 'GitHub', 'Open Source', 'React.js']
+      skills: ['Git', 'GitHub', 'Open Source', 'React.js', 'Community']
     }
   ]
 
@@ -230,60 +238,111 @@ export default function About() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.3 }}
-                    className="space-y-6"
+                    className="space-y-8 py-2"
                   >
-                    {experiences.map((exp, idx) => (
-                      <div key={idx} className="flex gap-4 items-start relative group">
-                        {/* Logo / Bullet connection */}
-                        <div className="flex flex-col items-center shrink-0 self-stretch">
-                          {exp.logo ? (
-                            <div className="w-10 h-10 rounded-lg overflow-hidden border border-white/10 bg-neutral-950/80 p-1 flex items-center justify-center relative z-10 group-hover:border-red-500/40 transition-all duration-300 shadow-md">
-                              <img src={exp.logo} alt={`${exp.company} Logo`} loading="lazy" decoding="async" className="w-full h-full object-contain rounded" />
+                    {experiences.map((exp, idx) => {
+                      const isExpanded = expandedRoles[idx] ?? true
+                      return (
+                        <div key={idx} className="relative select-text">
+                          {/* Company Header Row */}
+                          <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-lg bg-neutral-950 border border-white/15 p-1 flex items-center justify-center overflow-hidden shrink-0 shadow-md">
+                              <img 
+                                src={exp.logo} 
+                                alt={`${exp.company} Logo`} 
+                                loading="lazy" 
+                                decoding="async" 
+                                className="w-full h-full object-contain rounded" 
+                              />
                             </div>
-                          ) : (
-                            <span className="h-2 w-2 rounded-full bg-red-600 group-hover:scale-125 transition-transform mt-2 relative z-10"></span>
-                          )}
-                          {idx !== experiences.length - 1 && (
-                            <span className="w-0.5 flex-1 min-h-[30px] bg-neutral-900 border-l border-white/5 my-2"></span>
-                          )}
-                        </div>
-                        <div className="space-y-1.5 flex-1 pb-4">
-                          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                            <h4 className="text-sm font-bold text-white font-mono">{exp.role}</h4>
-                            <span className="text-[10px] font-mono text-neutral-500 px-2 py-0.5 rounded border border-white/5 bg-neutral-950">
-                              {exp.date}
-                            </span>
-                            {exp.badge && (
-                              <span className="text-[10px] font-mono text-red-400 bg-red-950/40 border border-red-500/30 px-2 py-0.5 rounded font-bold">
-                                {exp.badge}
-                              </span>
-                            )}
-                          </div>
-                          <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
-                            <span className="text-red-400 font-semibold">{exp.company}</span>
-                            {exp.location && <span className="text-neutral-500 text-[11px]">• {exp.location}</span>}
-                          </div>
-                          {Array.isArray(exp.desc) ? (
-                            <ul className="text-xs text-neutral-400 mt-1 max-w-xl list-disc list-inside space-y-1 select-text">
-                              {exp.desc.map((bullet, bIdx) => (
-                                <li key={bIdx} className="leading-relaxed">{bullet}</li>
-                              ))}
-                            </ul>
-                          ) : (
-                            <p className="text-xs text-neutral-400 mt-1 max-w-xl leading-relaxed">{exp.desc}</p>
-                          )}
-                          {exp.skills && (
-                            <div className="flex flex-wrap gap-1.5 pt-1.5">
-                              {exp.skills.map((skill, sIdx) => (
-                                <span key={sIdx} className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/5 text-neutral-400">
-                                  {skill}
+                            <div className="flex items-center gap-2">
+                              <span className="font-bold text-white text-sm sm:text-base tracking-wide">{exp.company}</span>
+                              <span className="w-1.5 h-1.5 rounded-full bg-neutral-500"></span>
+                              {exp.type && (
+                                <span className="text-xs text-neutral-400 font-normal">{exp.type}</span>
+                              )}
+                              {exp.badge && (
+                                <span className="text-[10px] font-mono text-red-400 bg-red-950/40 border border-red-500/30 px-2 py-0.5 rounded-full font-bold ml-1">
+                                  {exp.badge}
                                 </span>
-                              ))}
+                              )}
                             </div>
-                          )}
+                          </div>
+
+                          {/* Tree Branch and Role Content */}
+                          <div className="relative ml-4 pl-6 pt-2">
+                            {/* Curved Branch Line */}
+                            <div className="absolute left-0 top-0 w-5 h-6 border-l-2 border-b-2 border-neutral-700/80 rounded-bl-xl pointer-events-none"></div>
+
+                            {/* Role Title Bar */}
+                            <div 
+                              onClick={() => toggleRole(idx)}
+                              className="flex items-center justify-between cursor-pointer group/role select-none py-1"
+                            >
+                              <h4 className="text-sm sm:text-base font-bold text-white group-hover/role:text-red-400 transition-colors">
+                                {exp.role}
+                              </h4>
+                              <button 
+                                type="button" 
+                                className="text-neutral-400 hover:text-white transition-colors p-1"
+                                aria-label="Toggle role details"
+                              >
+                                {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                              </button>
+                            </div>
+
+                            {/* Subtitle Line */}
+                            <div className="text-xs text-neutral-400 font-sans tracking-normal -mt-0.5">
+                              {exp.date} {exp.location && `· ${exp.location}`} {exp.employmentType && `· ${exp.employmentType}`}
+                            </div>
+
+                            {/* Expandable Body */}
+                            <AnimatePresence initial={false}>
+                              {isExpanded && (
+                                <motion.div
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: 'auto', opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  transition={{ duration: 0.25, ease: 'easeInOut' }}
+                                  className="overflow-hidden"
+                                >
+                                  {/* Bullet Points */}
+                                  <ul className="space-y-2 mt-3.5 text-xs text-neutral-300 select-text leading-relaxed">
+                                    {Array.isArray(exp.desc) ? (
+                                      exp.desc.map((bullet, bIdx) => (
+                                        <li key={bIdx} className="flex items-start gap-2.5">
+                                          <span className="text-neutral-500 shrink-0 text-sm leading-none mt-1">•</span>
+                                          <span>{bullet}</span>
+                                        </li>
+                                      ))
+                                    ) : (
+                                      <li className="flex items-start gap-2.5">
+                                        <span className="text-neutral-500 shrink-0 text-sm leading-none mt-1">•</span>
+                                        <span>{exp.desc}</span>
+                                      </li>
+                                    )}
+                                  </ul>
+
+                                  {/* Skill / Technology Pills */}
+                                  {exp.skills && (
+                                    <div className="flex flex-wrap gap-2 mt-4 pt-1">
+                                      {exp.skills.map((skill, sIdx) => (
+                                        <span
+                                          key={sIdx}
+                                          className="px-3 py-1 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-300 font-sans hover:border-neutral-700 transition-colors"
+                                        >
+                                          {skill}
+                                        </span>
+                                      ))}
+                                    </div>
+                                  )}
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      )
+                    })}
                   </motion.div>
                 )}
 
@@ -369,7 +428,7 @@ export default function About() {
               <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
                 {[
                   { img: '/1.png', label: 'Mission Register' },
-                  { img: '/2.png', label: 'Tier: Rescuer' },
+                  { img: '/2.png', label: 'Tier: Beginner' },
                   { img: '/3.png', label: 'Tier: Hustler' },
                   { img: '/4.png', label: 'Tier: Rookie' },
                   { img: '/5.png', label: 'Tier: Elite' },
@@ -377,15 +436,22 @@ export default function About() {
                 ].map((badge, idx) => (
                   <div 
                     key={idx} 
-                    className="relative aspect-square rounded-xl bg-black border border-white/5 hover:border-red-500/40 p-2 flex flex-col items-center justify-center group/badge transition-all duration-300 hover:scale-105 hover:bg-red-950/10 shadow-[inner_0_0_15px_rgba(255,255,255,0.02)]"
-                    title={badge.label}
+                    className="flex flex-col items-center gap-2 group/badge"
                   >
-                    <img src={badge.img} alt={badge.label} loading="lazy" decoding="async" className="w-full h-full object-contain" />
-                    
-                    {/* Tooltip or mini badge text on hover */}
-                    <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-neutral-950 border border-white/10 py-1 px-2 rounded text-[8px] font-mono text-neutral-300 opacity-0 group-hover/badge:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-25 shadow-xl">
-                      {badge.label}
+                    <div className="relative aspect-square w-full rounded-xl bg-black border border-white/10 group-hover/badge:border-red-500/50 p-2 flex items-center justify-center transition-all duration-300 group-hover/badge:scale-105 group-hover/badge:bg-red-950/10 shadow-[inner_0_0_15px_rgba(255,255,255,0.02)]">
+                      <img 
+                        src={badge.img} 
+                        alt={badge.label} 
+                        loading="lazy" 
+                        decoding="async" 
+                        className="w-full h-full object-contain" 
+                      />
                     </div>
+                    
+                    {/* Badge Label (Visible by default, no hover required) */}
+                    <span className="text-[10px] sm:text-[11px] font-mono text-neutral-400 group-hover/badge:text-white transition-colors text-center leading-tight tracking-tight px-1">
+                      {badge.label}
+                    </span>
                   </div>
                 ))}
               </div>
