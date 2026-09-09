@@ -14,6 +14,7 @@ export const TrialButton = React.forwardRef(
       children,
       trailColor = "#ef4444",
       blurColor = "#ff4d6d",
+      surfaceColor,
       className = "",
       style = {},
       type = "button",
@@ -58,7 +59,7 @@ export const TrialButton = React.forwardRef(
             --duration: 3s;
             --trail-color: var(--user-trail-color, #ef4444);
             --blur-color: var(--user-blur-color, #ff4d6d);
-            --btn-surface: rgba(10, 10, 10, 0.75);
+            --btn-surface: var(--user-btn-surface, rgba(10, 10, 10, 0.75));
             --inset-border: rgba(255, 255, 255, 0.12);
 
             backdrop-filter: blur(20px) saturate(180%);
@@ -87,7 +88,7 @@ export const TrialButton = React.forwardRef(
           }
 
           :is(.dark .shiny-custom-styles, [data-theme="dark"] .shiny-custom-styles) {
-            --btn-surface: rgba(8, 8, 8, 0.8);
+            --btn-surface: var(--user-btn-surface, rgba(8, 8, 8, 0.8));
             --inset-border: rgba(255, 255, 255, 0.12);
           }
 
@@ -116,6 +117,7 @@ export const TrialButton = React.forwardRef(
           style={{
             "--user-trail-color": trailColor,
             "--user-blur-color": blurColor,
+            ...(surfaceColor ? { "--user-btn-surface": surfaceColor } : {}),
             ...style,
           }}
           {...componentProps}

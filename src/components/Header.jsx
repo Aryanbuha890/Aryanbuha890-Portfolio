@@ -423,17 +423,20 @@ export default function Header({ onNavClick, activeSection, setActiveSection, is
 
             {/* Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-4">
-              <a 
+              <TrialButton 
                 href="/achievements"
                 onClick={(e) => {
                   e.preventDefault();
                   onNavClick('/achievements');
                 }}
-                className="hero-btn opacity-0 px-6 py-3 rounded-full border border-red-500/40 hover:border-red-500/80 bg-red-950/25 hover:bg-red-900/40 text-red-200 hover:text-white font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(239,68,68,0.25)] backdrop-blur-md flex items-center gap-2"
+                trailColor="#ef4444"
+                blurColor="#ff4d6d"
+                surfaceColor="rgba(25, 5, 5, 0.75)"
+                className="hero-btn opacity-0 group"
               >
                 View Achievements
-                <ArrowRight size={14} className="mt-0.5" />
-              </a>
+                <ArrowRight size={14} className="mt-0.5 group-hover:translate-x-1 transition-transform duration-300" />
+              </TrialButton>
               <TrialButton 
                 href="/contact"
                 onClick={(e) => {
