@@ -4,7 +4,7 @@ import { Code, BookOpen, Briefcase, Award, GraduationCap, ChevronRight, Terminal
 
 export default function About() {
   const [activeTab, setActiveTab] = useState('skills')
-  const [expandedRoles, setExpandedRoles] = useState({ 0: true, 1: true, 2: true })
+  const [expandedRoles, setExpandedRoles] = useState({ 0: true, 1: true, 2: true, 3: true })
   const toggleRole = (idx) => setExpandedRoles(prev => ({ ...prev, [idx]: !prev[idx] }))
 
   const profileImage = '/images/Aryan Resume Photo.png'
@@ -29,6 +29,25 @@ export default function About() {
   ]
 
   const experiences = [
+    {
+      company: 'Jupiter Wealth',
+      type: 'Internship',
+      logo: '/Jupiter Logo.png',
+      badge: 'WealthTech CRM',
+      role: 'Software Engineer Intern',
+      date: 'Jun 2026 - Sep 2026 · 4 mos',
+      location: 'Vadodara, Gujarat, India · Remote',
+      employmentType: 'Internship',
+      desc: [
+        'Developed a proprietary wealth-management CRM designed to streamline relationship management, lead conversions, and compliance onboarding for financial advisors.',
+        'Designed and deployed a multi-tenant-ready architecture with Next.js App Router, Prisma ORM, and PostgreSQL.',
+        'Architected dynamic RBAC and server-side data isolation across 4 user roles (Admin, Cluster Head, Branch Head, RM).',
+        'Created an intelligent Bulk Lead Import Engine featuring multi-phone deduplication (PostgreSQL GIN arrays) and custom CSV/XLSX mapping.',
+        'Built an end-to-end KYC & Client Onboarding portal with secure, authenticated document streaming.',
+        'Enforced enterprise-grade reliability with transaction-level audit trails and 100% server-side validation using Zod.'
+      ],
+      skills: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma ORM', 'React 19', 'REST APIs', 'Tailwind CSS', 'Zod', 'RBAC']
+    },
     {
       company: 'Triotrack Solution',
       type: 'Freelance',
