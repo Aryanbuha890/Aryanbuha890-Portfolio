@@ -28,23 +28,44 @@ export default function About() {
 
   const experiences = [
     {
-      role: 'Open Source Contributor',
-      company: 'Elite Coders · Self-employed',
-      logo: '/elite_coders_logo.jpg',
-      date: 'Jul 2026 - Present',
-      desc: "Selected as an Open Source Contributor for Elite Coders Summer of Code 2026 (ECSoC'26), collaborating with maintainers across multiple open-source repositories to build production-ready features, fix bugs, and improve user experience."
-    },
-    {
       role: 'Core Team Member',
       company: 'Code Vimarsh',
       logo: '/code_vimarsh_logo.jpg',
       date: 'Jan 2026 - Present',
+      location: 'Vadodara, Gujarat, India',
       desc: [
         'Contributing to the design and development of the official Code Vimarsh club website',
         'Working with modern web technologies to build responsive and user-friendly interfaces',
         'Collaborating with the technical team to enhance UI/UX and overall site performance',
         'Implementing reusable components and maintaining clean frontend architecture'
-      ]
+      ],
+      skills: ['JavaScript', 'React.js', 'Frontend Architecture', 'UI/UX']
+    },
+    {
+      role: 'Software Engineer',
+      company: 'Triotrack Solution · Freelance',
+      logo: '/triotrack_solution_logo.jpg',
+      date: 'Apr 2026 - Present',
+      location: 'Surat, Gujarat, India · Remote',
+      desc: [
+        'Software developer at Triotrack Solution, focused on building modern digital solutions for businesses through Web Development, Custom Software and AI Automation.',
+        'Leading projects from idea to execution while collaborating with clients to create scalable, user-friendly, and innovative digital experiences.',
+        'Passionate about technology, startups, and building impactful solutions with a strong focus on creativity and growth.'
+      ],
+      skills: ['Web Development', 'Custom Software', 'AI Automation', 'Business Development']
+    },
+    {
+      role: 'Open Source Contributor',
+      company: 'Elite Coders · Self-employed',
+      logo: '/elite_coders_logo.jpg',
+      date: 'Jul 2026 - Sep 2026',
+      badge: 'Global Rank #2',
+      location: 'Remote',
+      desc: [
+        "Global Rank #2: Selected as an Open Source Contributor for Elite Coders Summer of Code 2026 (ECSoC'26).",
+        "Collaborated with maintainers across multiple open-source repositories to build production-ready features, fix bugs, and improve user experience."
+      ],
+      skills: ['Git', 'GitHub', 'Open Source', 'React.js']
     }
   ]
 
@@ -214,26 +235,34 @@ export default function About() {
                     {experiences.map((exp, idx) => (
                       <div key={idx} className="flex gap-4 items-start relative group">
                         {/* Logo / Bullet connection */}
-                        <div className="flex flex-col items-center shrink-0">
+                        <div className="flex flex-col items-center shrink-0 self-stretch">
                           {exp.logo ? (
-                            <div className="w-10 h-10 rounded-lg overflow-hidden border border-white/10 bg-neutral-950/80 p-1 flex items-center justify-center relative z-10 group-hover:border-red-500/40 transition-all duration-300">
+                            <div className="w-10 h-10 rounded-lg overflow-hidden border border-white/10 bg-neutral-950/80 p-1 flex items-center justify-center relative z-10 group-hover:border-red-500/40 transition-all duration-300 shadow-md">
                               <img src={exp.logo} alt={`${exp.company} Logo`} loading="lazy" decoding="async" className="w-full h-full object-contain rounded" />
                             </div>
                           ) : (
                             <span className="h-2 w-2 rounded-full bg-red-600 group-hover:scale-125 transition-transform mt-2 relative z-10"></span>
                           )}
                           {idx !== experiences.length - 1 && (
-                            <span className="w-0.5 h-20 bg-neutral-900 border-l border-white/5 mt-2"></span>
+                            <span className="w-0.5 flex-1 min-h-[30px] bg-neutral-900 border-l border-white/5 my-2"></span>
                           )}
                         </div>
-                        <div className="space-y-1 flex-1">
+                        <div className="space-y-1.5 flex-1 pb-4">
                           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                             <h4 className="text-sm font-bold text-white font-mono">{exp.role}</h4>
                             <span className="text-[10px] font-mono text-neutral-500 px-2 py-0.5 rounded border border-white/5 bg-neutral-950">
                               {exp.date}
                             </span>
+                            {exp.badge && (
+                              <span className="text-[10px] font-mono text-red-400 bg-red-950/40 border border-red-500/30 px-2 py-0.5 rounded font-bold">
+                                {exp.badge}
+                              </span>
+                            )}
                           </div>
-                          <p className="text-xs text-red-400 font-mono">{exp.company}</p>
+                          <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
+                            <span className="text-red-400 font-semibold">{exp.company}</span>
+                            {exp.location && <span className="text-neutral-500 text-[11px]">• {exp.location}</span>}
+                          </div>
                           {Array.isArray(exp.desc) ? (
                             <ul className="text-xs text-neutral-400 mt-1 max-w-xl list-disc list-inside space-y-1 select-text">
                               {exp.desc.map((bullet, bIdx) => (
@@ -242,6 +271,15 @@ export default function About() {
                             </ul>
                           ) : (
                             <p className="text-xs text-neutral-400 mt-1 max-w-xl leading-relaxed">{exp.desc}</p>
+                          )}
+                          {exp.skills && (
+                            <div className="flex flex-wrap gap-1.5 pt-1.5">
+                              {exp.skills.map((skill, sIdx) => (
+                                <span key={sIdx} className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/5 text-neutral-400">
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
                           )}
                         </div>
                       </div>
@@ -317,7 +355,7 @@ export default function About() {
               </div>
 
               <p className="text-xs text-neutral-400 leading-relaxed font-sans max-w-md">
-                Selected as an Open Source Contributor for ECSoC\'26, collaborating with maintainers across multiple repositories to build production-ready features, fix critical bugs, and improve user experiences.
+                Selected as an Open Source Contributor for ECSoC&apos;26, collaborating with maintainers across multiple repositories to build production-ready features, fix critical bugs, and improve user experiences.
               </p>
             </div>
 
