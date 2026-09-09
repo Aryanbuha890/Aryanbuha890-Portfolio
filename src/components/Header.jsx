@@ -413,12 +413,23 @@ export default function Header({ onNavClick, activeSection, setActiveSection, is
               Engineering student at MSU Baroda passionate about full-stack systems, machine learning pipelines, and smart agricultural automation. Thriving in high-stress hackathons and team-focused builds.
             </p>
 
-            {/* Upgraded Quote block */}
-            <div className="hero-quote opacity-0 border-l-2 border-red-500 pl-4 bg-white/[0.01] hover:bg-white/[0.03] backdrop-blur-md py-3.5 px-5 rounded-r-lg max-w-lg select-text border border-white/5 shadow-inner transition-all duration-500 group/quote hover:border-red-500/20">
-              <span className="text-[9px] font-mono text-red-500/70 uppercase tracking-widest block mb-1.5 transition-colors group-hover/quote:text-red-400">// compiler message directive</span>
-              <p className="italic text-neutral-300 text-sm leading-relaxed">
-                "I don't build prototypes. I build products that ship. 🚀"
-              </p>
+            {/* Upgraded OG Glass Quote Card */}
+            <div className="hero-quote opacity-0 relative overflow-hidden rounded-2xl p-4 sm:p-5 max-w-lg select-text border border-white/15 bg-gradient-to-br from-white/[0.08] via-white/[0.03] to-white/[0.01] backdrop-blur-2xl shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.25),_inset_0_0_20px_0_rgba(255,255,255,0.02),_0_12px_32px_0_rgba(0,0,0,0.5)] border-l-[3.5px] border-l-red-500 transition-all duration-500 group/quote hover:border-white/25 hover:border-l-red-500 hover:shadow-[-4px_0_25px_rgba(239,68,68,0.35),_inset_0_1px_1px_0_rgba(255,255,255,0.35),_0_16px_40px_rgba(0,0,0,0.6)]">
+              {/* Glass specular sheen light refraction */}
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.015] rounded-2xl" />
+              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-red-500 via-white/30 to-transparent pointer-events-none" />
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  <span className="text-[10px] font-mono text-red-400 font-semibold uppercase tracking-widest transition-colors group-hover/quote:text-red-300">
+                    // COMPILER MESSAGE DIRECTIVE
+                  </span>
+                </div>
+                <p className="not-italic font-sans font-medium text-neutral-100 text-sm sm:text-[15px] leading-relaxed tracking-normal select-text">
+                  "I don't build prototypes. I build products that ship. 🚀"
+                </p>
+              </div>
             </div>
 
             {/* Buttons */}
