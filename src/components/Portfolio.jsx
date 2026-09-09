@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, X, ChevronDown, ChevronUp, Calendar, MapPin, Award } from 'lucide-react'
 
-export default function Portfolio() {
+export default function Portfolio({ onNavClick }) {
   const [showAll, setShowAll] = useState(false)
   const [selectedAch, setSelectedAch] = useState(null)
 
@@ -498,8 +498,18 @@ export default function Portfolio() {
                       Close Record
                     </button>
                     <a 
-                      href="#contact" 
-                      onClick={() => setSelectedAch(null)}
+                      href="/contact" 
+                      onClick={(e) => {
+                        e.preventDefault()
+                        setSelectedAch(null)
+                        if (onNavClick) {
+                          onNavClick('/contact')
+                        } else {
+                          window.history.pushState(null, '', '/contact')
+                          const el = document.getElementById('contact')
+                          if (el) el.scrollIntoView({ behavior: 'smooth' })
+                        }
+                      }}
                       className="px-6 py-2.5 rounded-full border border-white/10 hover:border-red-500/30 bg-white/[0.02] hover:bg-white/[0.06] text-neutral-300 hover:text-white text-xs font-mono tracking-wider uppercase transition-all duration-300 hover:scale-105"
                     >
                       Connect

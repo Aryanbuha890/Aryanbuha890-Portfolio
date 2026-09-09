@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Terminal, Menu, X, ArrowRight, Code, Shield, Cpu, ExternalLink } from 'lucide-react'
 import gsap from 'gsap'
+import { NAV_ITEMS, getPathFromSectionId } from '../utils/navigation'
 
 // Lightweight React typewriter hook
 const useTypewriter = (words, typingSpeed = 80, deletingSpeed = 40, delayBetweenWords = 2000) => {
@@ -36,7 +37,7 @@ const useTypewriter = (words, typingSpeed = 80, deletingSpeed = 40, delayBetween
   return currentText
 }
 
-export default function Header({ onNavClick, activeSection, setActiveSection }) {
+export default function Header({ onNavClick, activeSection, setActiveSection, isNavigatingRef }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   
@@ -78,20 +79,28 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
       .fromTo('.hero-terminal', { opacity: 0, x: 40, scale: 0.97 }, { opacity: 1, x: 0, scale: 1, duration: 0.9 }, '-=0.8')
   }, [])
 
-  // Sync active section based on scroll position using Intersection Observer
+  // Sync active section and URL route based on scroll position using Intersection Observer
   useEffect(() => {
-    const sectionIds = ['#home', '#about', '#services', '#projects', '#portfolio', '#contact']
+    const sectionIds = ['home', 'about', 'services', 'projects', 'portfolio', 'contact']
     
     const observerOptions = {
       root: null,
       rootMargin: '-100px 0px -40% 0px',
-      threshold: 0.1
+      threshold: 0.15
     }
 
     const observerCallback = (entries) => {
+      // Avoid replacing URL while programmatically smooth-scrolling from a click
+      if (isNavigatingRef && isNavigatingRef.current) return
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setActiveSection(`#${entry.target.id}`)
+          const sectionId = entry.target.id
+          setActiveSection(sectionId)
+          const targetPath = getPathFromSectionId(sectionId)
+          if (window.location.pathname !== targetPath) {
+            window.history.replaceState(null, '', targetPath)
+          }
         }
       })
     }
@@ -99,17 +108,28 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
     const observer = new IntersectionObserver(observerCallback, observerOptions)
 
     sectionIds.forEach((id) => {
-      const el = document.querySelector(id)
+      const el = document.getElementById(id)
       if (el) observer.observe(el)
     })
 
+    // Fallback: If scrolled to top (header hero), guarantee root path '/'
+    const handleTopScroll = () => {
+      if (isNavigatingRef && isNavigatingRef.current) return
+      if (window.scrollY < 80 && window.location.pathname !== '/') {
+        setActiveSection('home')
+        window.history.replaceState(null, '', '/')
+      }
+    }
+    window.addEventListener('scroll', handleTopScroll, { passive: true })
+
     return () => {
       sectionIds.forEach((id) => {
-        const el = document.querySelector(id)
+        const el = document.getElementById(id)
         if (el) observer.unobserve(el)
       })
+      window.removeEventListener('scroll', handleTopScroll)
     }
-  }, [setActiveSection])
+  }, [setActiveSection, isNavigatingRef])
 
   // Mouse position tracking for pointer-follow glow
   const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 })
@@ -179,14 +199,7 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
     executeCommand(terminalInput)
   }
 
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Expertise', href: '#services' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Achievements', href: '#portfolio' },
-    { name: 'Contact', href: '#contact' }
-  ]
+  const navLinks = NAV_ITEMS
 
   return (
     <>
@@ -200,10 +213,10 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
         >
           <div className="w-full flex items-center justify-between">
             <a 
-              href="#home" 
+              href="/" 
               onClick={(e) => {
                 e.preventDefault();
-                onNavClick('#home');
+                onNavClick('/');
               }}
               className="text-lg md:text-xl font-mono flex items-center gap-1 group relative select-none"
             >
@@ -217,14 +230,14 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
 
             <div className="hidden md:flex items-center gap-3 lg:gap-6">
               {navLinks.map((link) => {
-                const isActive = activeSection === link.href
+                const isActive = activeSection === link.id || activeSection === link.path
                 return (
                   <a 
                     key={link.name} 
-                    href={link.href}
+                    href={link.path}
                     onClick={(e) => {
                       e.preventDefault();
-                      onNavClick(link.href);
+                      onNavClick(link.path);
                     }}
                     className={`text-xs font-mono tracking-wider relative py-1.5 px-2 lg:px-3 rounded-full whitespace-nowrap transition-colors duration-300 ${
                       isActive 
@@ -244,13 +257,13 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
                 )
               })}
               <a 
-                href="#contact"
+                href="/contact"
                 onClick={(e) => {
                   e.preventDefault();
-                  onNavClick('#contact');
+                  onNavClick('/contact');
                 }}
                 className={`px-4 py-1.5 rounded-full border text-xs font-semibold tracking-wider uppercase transition-all duration-300 whitespace-nowrap ${
-                  activeSection === '#contact'
+                  activeSection === 'contact' || activeSection === '/contact'
                     ? 'bg-red-600/15 border-red-500/60 text-white shadow-[0_0_15px_rgba(239,68,68,0.3)]'
                     : 'bg-white/5 hover:bg-red-600/10 border border-white/10 hover:border-red-500/40 text-neutral-200 hover:text-white hover:shadow-[0_0_15px_rgba(239,68,68,0.2)]'
                 }`}
@@ -281,15 +294,15 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
           >
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => {
-                const isActive = activeSection === link.href
+                const isActive = activeSection === link.id || activeSection === link.path
                 return (
                   <a 
                     key={link.name} 
-                    href={link.href}
+                    href={link.path}
                     onClick={(e) => {
                       e.preventDefault()
                       setMobileMenuOpen(false)
-                      onNavClick(link.href)
+                      onNavClick(link.path)
                     }}
                     className={`text-base font-mono tracking-wide py-2.5 border-b border-white/5 transition-colors flex items-center justify-between ${
                       isActive ? 'text-red-500 font-bold' : 'text-neutral-300 hover:text-red-500'
@@ -307,14 +320,14 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
                 )
               })}
               <a 
-                href="#contact"
+                href="/contact"
                 onClick={(e) => {
                   e.preventDefault()
                   setMobileMenuOpen(false)
-                  onNavClick('#contact')
+                  onNavClick('/contact')
                 }}
                 className={`mt-2 py-2.5 rounded-full border font-bold text-center tracking-wider text-xs uppercase transition-all ${
-                  activeSection === '#contact'
+                  activeSection === 'contact' || activeSection === '/contact'
                     ? 'bg-red-600/15 border-red-500/60 text-white shadow-[0_0_15px_rgba(239,68,68,0.3)]'
                     : 'bg-white/5 hover:bg-red-600/10 border border-white/10 hover:border-red-500/40 text-white hover:shadow-[0_0_15px_rgba(239,68,68,0.2)]'
                 }`}
@@ -410,10 +423,10 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
             {/* Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-4">
               <a 
-                href="#portfolio"
+                href="/achievements"
                 onClick={(e) => {
                   e.preventDefault();
-                  onNavClick('#portfolio');
+                  onNavClick('/achievements');
                 }}
                 className="hero-btn opacity-0 px-6 py-3 rounded-full border border-red-500/40 hover:border-red-500/80 bg-red-950/25 hover:bg-red-900/40 text-red-200 hover:text-white font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(239,68,68,0.25)] backdrop-blur-md flex items-center gap-2"
               >
@@ -421,10 +434,10 @@ export default function Header({ onNavClick, activeSection, setActiveSection }) 
                 <ArrowRight size={14} className="mt-0.5" />
               </a>
               <a 
-                href="#contact"
+                href="/contact"
                 onClick={(e) => {
                   e.preventDefault();
-                  onNavClick('#contact');
+                  onNavClick('/contact');
                 }}
                 className="hero-btn opacity-0 px-6 py-3 rounded-full border border-white/10 hover:border-red-500/30 bg-white/[0.02] hover:bg-white/[0.06] text-neutral-300 hover:text-white font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
               >

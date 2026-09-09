@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Header from './components/Header'
 import About from './components/About'
 import Services from './components/Services'
@@ -11,33 +11,86 @@ import Footer from './components/Footer'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { 
+  getSectionIdFromPath, 
+  getPathFromSectionId, 
+  scrollToSection 
+} from './utils/navigation'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState('#home')
-  
-  // Custom navigation scrolls
-  const scrollToSection = (id) => {
-    const element = document.querySelector(id)
-    if (element) {
-      const offset = 100 // Height of the floating navbar + safe padding
-      const bodyRect = document.body.getBoundingClientRect().top
-      const elementRect = element.getBoundingClientRect().top
-      const elementPosition = elementRect - bodyRect
-      const offsetPosition = elementPosition - offset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
+  const [activeSection, setActiveSection] = useState(() => {
+    if (typeof window !== 'undefined') {
+      if (window.location.hash) {
+        return getSectionIdFromPath(window.location.hash)
+      }
+      return getSectionIdFromPath(window.location.pathname)
     }
+    return 'home'
+  })
+
+  // Flag to avoid observer triggering replaceState while smooth scrolling from a click
+  const isNavigatingRef = useRef(false)
+
+  // Central navigation handler
+  const handleNavClick = (target) => {
+    const cleanPath = target.startsWith('/') ? target : getPathFromSectionId(target)
+    const sectionId = getSectionIdFromPath(cleanPath)
+
+    setActiveSection(sectionId)
+
+    // Update URL path cleanly without '#'
+    if (window.location.pathname !== cleanPath) {
+      window.history.pushState(null, '', cleanPath)
+    }
+
+    // Suppress scroll observer during smooth programmatic transition
+    isNavigatingRef.current = true
+    scrollToSection(sectionId)
+
+    setTimeout(() => {
+      isNavigatingRef.current = false
+    }, 850)
   }
 
-  // Set page scroll restoration and initialize GSAP animations
+  // Handle initial page load, deep-linking, and browser back/forward buttons
   useEffect(() => {
     window.history.scrollRestoration = 'manual'
-    
+
+    // Clean legacy hash if present in URL (e.g. localhost:5173/#about -> localhost:5173/about)
+    if (window.location.hash) {
+      const cleanPath = getPathFromSectionId(window.location.hash)
+      window.history.replaceState(null, '', cleanPath)
+    }
+
+    // Direct deep-link handling on initial load or refresh
+    const initialSectionId = getSectionIdFromPath(window.location.pathname)
+    if (initialSectionId && initialSectionId !== 'home') {
+      setActiveSection(initialSectionId)
+      const timer = setTimeout(() => {
+        scrollToSection(initialSectionId)
+      }, 200)
+      return () => clearTimeout(timer)
+    }
+
+    // Browser back/forward navigation
+    const handlePopState = () => {
+      const popSectionId = getSectionIdFromPath(window.location.pathname)
+      setActiveSection(popSectionId)
+      isNavigatingRef.current = true
+      scrollToSection(popSectionId)
+      setTimeout(() => {
+        isNavigatingRef.current = false
+      }, 850)
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
+
+  // Initialize GSAP header animations
+  useEffect(() => {
     // Smooth reveal fade-in for section headers on scroll
     gsap.utils.toArray('section').forEach((section) => {
       const header = section.querySelector('.text-left.mb-16')
@@ -74,26 +127,19 @@ export default function App() {
         <Header 
           activeSection={activeSection} 
           setActiveSection={setActiveSection} 
-          onNavClick={(id) => {
-            setActiveSection(id)
-            scrollToSection(id)
-          }} 
+          onNavClick={handleNavClick}
+          isNavigatingRef={isNavigatingRef}
         />
         <About />
         <Services />
         <TechCarousel />
         <WhyChooseMe />
-        <Projects />
-        <Portfolio />
+        <Projects onNavClick={handleNavClick} />
+        <Portfolio onNavClick={handleNavClick} />
         <Contact />
       </main>
 
-      <Footer 
-        onNavClick={(id) => {
-          setActiveSection(id)
-          scrollToSection(id)
-        }} 
-      />
+      <Footer onNavClick={handleNavClick} />
       
     </div>
   )

@@ -13,7 +13,7 @@ const LinkedInIcon = ({ size = 16, ...props }) => (
   </svg>
 )
 
-export default function Projects() {
+export default function Projects({ onNavClick }) {
   const [selectedProject, setSelectedProject] = useState(null)
   const [activeModalImage, setActiveModalImage] = useState(null)
 
@@ -43,7 +43,7 @@ export default function Projects() {
         { img: '/K6.png', title: 'Tax Invoice Generator', tag: 'PDF Billing & Tariffs' }
       ],
       linkType: 'private',
-      linkUrl: '#contact',
+      linkUrl: '/contact',
       stack: ['REACT 19', 'NODE.JS', 'EXPRESS.JS', 'POSTGRESQL', 'TAILWIND CSS', 'PDF ENGINE'],
       themeColor: 'emerald',
       borderHover: 'hover:border-emerald-500/60 hover:shadow-[0_0_30px_rgba(16,185,129,0.25),_inset_0_0_20px_rgba(16,185,129,0.08)]',
@@ -99,7 +99,7 @@ export default function Projects() {
       icon: Sprout,
       img: '/images/agriforge.jpg',
       linkType: 'private',
-      linkUrl: '#contact',
+      linkUrl: '/contact',
       stack: ['REACT 19', 'NODE.JS', 'FASTAPI', 'AI/ML', 'MONGODB'],
       themeColor: 'yellow',
       borderHover: 'hover:border-yellow-500/60 hover:shadow-[0_0_30px_rgba(234,179,8,0.25),_inset_0_0_20px_rgba(234,179,8,0.08)]',
@@ -248,19 +248,23 @@ export default function Projects() {
 
   // Smooth scroll helper to navigate directly to Contact Section
   const handleContactNavigation = (e) => {
-    e.preventDefault();
+    if (e && e.preventDefault) e.preventDefault();
     setSelectedProject(null);
-    const element = document.querySelector('#contact');
-    if (element) {
-      const offset = 100
-      const bodyRect = document.body.getBoundingClientRect().top
-      const elementRect = element.getBoundingClientRect().top
-      const elementPosition = elementRect - bodyRect
-      const offsetPosition = elementPosition - offset
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+    if (onNavClick) {
+      onNavClick('/contact');
+    } else {
+      window.history.pushState(null, '', '/contact');
+      const element = document.getElementById('contact');
+      if (element) {
+        const offset = 95;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const offsetPosition = Math.max(0, elementRect - bodyRect - offset);
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
     }
   }
 

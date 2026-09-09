@@ -1,15 +1,9 @@
 import React from 'react'
 import { Github, Linkedin } from 'lucide-react'
+import { NAV_ITEMS } from '../utils/navigation'
 
 export default function Footer({ onNavClick }) {
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Expertise', href: '#services' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Achievements', href: '#portfolio' },
-    { name: 'Contact', href: '#contact' }
-  ]
+  const navLinks = NAV_ITEMS
 
   const contactInfo = [
     { label: 'Email', value: 'aryanbuha56@gmail.com', href: 'mailto:aryanbuha56@gmail.com' },
@@ -35,14 +29,21 @@ export default function Footer({ onNavClick }) {
           
           {/* Column 1: Brand & Bio */}
           <div className="md:col-span-5 space-y-4">
-            <div className="text-base font-mono flex items-center gap-1 group relative select-none">
+            <a 
+              href="/"
+              onClick={(e) => {
+                e.preventDefault()
+                if (onNavClick) onNavClick('/')
+              }}
+              className="text-base font-mono inline-flex items-center gap-1 group relative select-none cursor-pointer"
+            >
               <span className="text-red-500 font-bold group-hover:-translate-x-1 group-hover:text-white transition-all duration-300">&lt;</span>
               <span className="font-extrabold tracking-widest bg-gradient-to-r from-white via-neutral-200 to-red-500 bg-clip-text text-transparent group-hover:from-red-500 group-hover:to-white transition-all duration-500">
                 ARYAN BUHA
               </span>
               <span className="text-red-500 font-bold group-hover:translate-x-1 group-hover:text-white transition-all duration-300">/&gt;</span>
               <span className="h-1.5 w-1.5 rounded-full bg-red-600 animate-pulse ml-1.5 self-center"></span>
-            </div>
+            </a>
             <p className="text-neutral-400 text-[11px] leading-relaxed max-w-sm">
               Computer Science student at MSU Baroda passionate about engineering clean-code architectures, ML pipelines, and smart agricultural automation systems.
             </p>
@@ -73,11 +74,11 @@ export default function Footer({ onNavClick }) {
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <a
-                    href={link.href}
+                    href={link.path}
                     onClick={(e) => {
                       e.preventDefault()
                       if (onNavClick) {
-                        onNavClick(link.href)
+                        onNavClick(link.path)
                       }
                     }}
                     className="text-neutral-400 hover:text-white transition-colors duration-200 block py-0.5"
