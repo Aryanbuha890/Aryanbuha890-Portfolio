@@ -30,23 +30,20 @@ export default function About() {
 
   const experiences = [
     {
-      company: 'Jupiter Wealth',
-      type: 'Internship',
-      logo: '/Jupiter Logo.png',
-      badge: 'WealthTech CRM',
-      role: 'Software Engineer Intern',
-      date: 'Jun 2026 - Sep 2026 · 4 mos',
-      location: 'Vadodara, Gujarat, India · Remote',
-      employmentType: 'Internship',
+      company: 'Code Vimarsh',
+      type: 'Technical Club',
+      logo: '/code_vimarsh_logo.jpg',
+      role: 'Core Team Member',
+      date: 'Jan 2026 - Present',
+      location: 'Vadodara, Gujarat, India',
+      employmentType: 'Club Lead',
       desc: [
-        'Developed a proprietary wealth-management CRM designed to streamline relationship management, lead conversions, and compliance onboarding for financial advisors.',
-        'Designed and deployed a multi-tenant-ready architecture with Next.js App Router, Prisma ORM, and PostgreSQL.',
-        'Architected dynamic RBAC and server-side data isolation across 4 user roles (Admin, Cluster Head, Branch Head, RM).',
-        'Created an intelligent Bulk Lead Import Engine featuring multi-phone deduplication (PostgreSQL GIN arrays) and custom CSV/XLSX mapping.',
-        'Built an end-to-end KYC & Client Onboarding portal with secure, authenticated document streaming.',
-        'Enforced enterprise-grade reliability with transaction-level audit trails and 100% server-side validation using Zod.'
+        'Contributing to the design and development of the official Code Vimarsh club website.',
+        'Working with modern web technologies to build responsive and user-friendly interfaces.',
+        'Collaborating with the technical team to enhance UI/UX and overall site performance.',
+        'Implementing reusable components and maintaining clean frontend architecture.'
       ],
-      skills: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma ORM', 'React 19', 'REST APIs', 'Tailwind CSS', 'Zod', 'RBAC']
+      skills: ['JavaScript', 'React.js', 'Frontend Architecture', 'UI/UX', 'Web Design']
     },
     {
       company: 'Triotrack Solution',
@@ -64,22 +61,6 @@ export default function About() {
       skills: ['Web Development', 'Custom Software', 'AI Automation', 'Client Solutions', 'Business Development']
     },
     {
-      company: 'Code Vimarsh',
-      type: 'Technical Club',
-      logo: '/code_vimarsh_logo.jpg',
-      role: 'Core Team Member',
-      date: 'Jan 2026 - Present',
-      location: 'Vadodara, Gujarat, India',
-      employmentType: 'Club Lead',
-      desc: [
-        'Contributing to the design and development of the official Code Vimarsh club website.',
-        'Working with modern web technologies to build responsive and user-friendly interfaces.',
-        'Collaborating with the technical team to enhance UI/UX and overall site performance.',
-        'Implementing reusable components and maintaining clean frontend architecture.'
-      ],
-      skills: ['JavaScript', 'React.js', 'Frontend Architecture', 'UI/UX', 'Web Design']
-    },
-    {
       company: 'Elite Coders',
       type: 'Open Source',
       logo: '/elite_coders_logo.jpg',
@@ -93,6 +74,25 @@ export default function About() {
         "Collaborated with maintainers across multiple open-source repositories to build production-ready features, fix bugs, and improve user experience."
       ],
       skills: ['Git', 'GitHub', 'Open Source', 'React.js', 'Community']
+    },
+    {
+      company: 'Jupiter Wealth',
+      type: 'Internship',
+      logo: '/Jupiter Logo.png',
+      badge: 'WealthTech CRM',
+      role: 'Software Engineer Intern',
+      date: 'Jun 2026 - Sep 2026 · 4 mos',
+      location: 'Vadodara, Gujarat, India · Remote',
+      employmentType: 'Internship',
+      desc: [
+        'Developed a proprietary wealth-management CRM designed to streamline relationship management, lead conversions, and compliance onboarding for financial advisors.',
+        'Designed and deployed a multi-tenant-ready architecture with Next.js App Router, Prisma ORM, and PostgreSQL.',
+        'Architected dynamic RBAC and server-side data isolation across 4 user roles (Admin, Cluster Head, Branch Head, RM).',
+        'Created an intelligent Bulk Lead Import Engine featuring multi-phone deduplication (PostgreSQL GIN arrays) and custom CSV/XLSX mapping.',
+        'Built an end-to-end KYC & Client Onboarding portal with secure, authenticated document streaming.',
+        'Enforced enterprise-grade reliability with transaction-level audit trails and 100% server-side validation using Zod.'
+      ],
+      skills: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma ORM', 'React 19', 'REST APIs', 'Tailwind CSS', 'Zod', 'RBAC']
     }
   ]
 
