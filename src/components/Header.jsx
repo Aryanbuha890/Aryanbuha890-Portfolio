@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Terminal, Menu, X, ArrowRight, Code, Shield, Cpu, ExternalLink } from 'lucide-react'
 import gsap from 'gsap'
 import { NAV_ITEMS, getPathFromSectionId } from '../utils/navigation'
+import { TrialButton } from '@/components/lightswind/trial-button'
 
 // Lightweight React typewriter hook
 const useTypewriter = (words, typingSpeed = 80, deletingSpeed = 40, delayBetweenWords = 2000) => {
@@ -433,16 +434,18 @@ export default function Header({ onNavClick, activeSection, setActiveSection, is
                 View Achievements
                 <ArrowRight size={14} className="mt-0.5" />
               </a>
-              <a 
+              <TrialButton 
                 href="/contact"
                 onClick={(e) => {
                   e.preventDefault();
                   onNavClick('/contact');
                 }}
-                className="hero-btn opacity-0 px-6 py-3 rounded-full border border-white/10 hover:border-red-500/30 bg-white/[0.02] hover:bg-white/[0.06] text-neutral-300 hover:text-white font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+                trailColor="#ef4444"
+                blurColor="#ff4d6d"
+                className="hero-btn opacity-0"
               >
-                Let's Connect👋
-              </a>
+                Let's Connect 👋
+              </TrialButton>
             </div>
           </div>
 
