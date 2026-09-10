@@ -269,7 +269,7 @@ export default function Projects({ onNavClick }) {
   }
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden bg-black select-none border-t border-white/5">
+    <section id="projects" className="py-24 relative overflow-hidden bg-transparent select-none border-t border-white/5">
       {/* Decorative ambient glow nodes */}
       <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] rounded-full bg-red-950/10 blur-3xl animated-glow-bg pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-neutral-900/30 blur-3xl animated-glow-bg pointer-events-none" style={{ animationDelay: '-3s' }}></div>

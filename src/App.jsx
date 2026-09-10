@@ -114,7 +114,7 @@ export default function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-black text-white relative flex flex-col w-full selection:bg-red-600 selection:text-white">
+    <div className="min-h-screen bg-black text-white relative flex flex-col w-full selection:bg-red-600 selection:text-white code-grid-bg">
       
       {/* Background Decorative Neon Node Lights */}
       <div className="absolute top-[10%] left-[-10%] w-[35vw] h-[35vw] rounded-full bg-red-950/15 blur-[120px] pointer-events-none z-0"></div>

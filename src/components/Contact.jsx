@@ -82,7 +82,7 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-black/90 select-none">
+    <section id="contact" className="py-24 relative overflow-hidden bg-transparent select-none">
       {/* Background blurs */}
       <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-red-950/10 blur-3xl animated-glow-bg pointer-events-none"></div>
 

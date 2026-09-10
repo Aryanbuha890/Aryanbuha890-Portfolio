@@ -26,7 +26,7 @@ export default function WhyChooseMe() {
   ]
 
   return (
-    <section id="why-me" className="py-24 relative overflow-hidden bg-black select-none">
+    <section id="why-me" className="py-24 relative overflow-hidden bg-transparent select-none">
       {/* Background elegant blurs */}
       <div className="absolute top-[30%] left-[-10%] w-[35vw] h-[35vw] rounded-full bg-red-950/10 blur-[130px] pointer-events-none z-0 animate-[pulseGlow_12s_infinite_ease-in-out]"></div>
       <div className="absolute bottom-[20%] right-[-10%] w-[35vw] h-[35vw] rounded-full bg-neutral-900/45 blur-[120px] pointer-events-none z-0"></div>

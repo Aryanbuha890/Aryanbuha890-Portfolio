@@ -228,7 +228,7 @@ export default function Portfolio({ onNavClick }) {
   const visibleAchievements = showAll ? achievements : achievements.slice(0, 6)
 
   return (
-    <section id="portfolio" className="py-24 relative overflow-hidden bg-black select-none">
+    <section id="portfolio" className="py-24 relative overflow-hidden bg-transparent select-none">
 
       {/* Glow Nodes */}
       <div className="absolute top-1/3 right-0 w-80 h-80 rounded-full bg-red-950/10 blur-3xl animated-glow-bg pointer-events-none"></div>

@@ -118,7 +118,7 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-black">
+    <section id="about" className="py-24 relative overflow-hidden bg-transparent">
       {/* Background glow node */}
       <div className="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-red-950/10 blur-3xl animated-glow-bg pointer-events-none"></div>
 

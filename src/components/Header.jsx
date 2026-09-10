@@ -343,13 +343,13 @@ export default function Header({ onNavClick, activeSection, setActiveSection, is
       {/* Hero / Header Section */}
       <section 
         id="home" 
-        className="relative min-h-screen pt-32 pb-24 md:py-40 flex items-center overflow-hidden code-grid-bg"
+        className="relative min-h-screen pt-32 pb-24 md:py-40 flex items-center overflow-hidden bg-transparent"
       >
         {/* Interactive mouse follow glow */}
         <div 
           className="absolute inset-0 pointer-events-none z-0 transition-opacity duration-300 opacity-60 md:opacity-100"
           style={{
-            background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(239, 68, 68, 0.07), transparent 60%)`
+            background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(239, 68, 68, 0.10), transparent 60%)`
           }}
         />
 

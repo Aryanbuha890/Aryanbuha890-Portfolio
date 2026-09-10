@@ -17,7 +17,7 @@ export default function Footer({ onNavClick }) {
   ]
 
   return (
-    <footer className="relative bg-black pt-16 pb-0 overflow-hidden z-10 font-mono text-xs select-text border-t border-neutral-900/60">
+    <footer className="relative bg-black/50 backdrop-blur-sm pt-16 pb-0 overflow-hidden z-10 font-mono text-xs select-text border-t border-neutral-900/60">
       
       {/* Purple & Red Ambient Glow at bottom */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-[35vw] rounded-full bg-gradient-to-t from-red-950/20 via-purple-950/15 to-transparent blur-[130px] pointer-events-none z-0"></div>

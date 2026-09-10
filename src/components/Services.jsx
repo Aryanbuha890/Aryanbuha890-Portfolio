@@ -121,7 +121,7 @@ export const StatusMonitor = () => {
   ]
 
   return (
-    <section id="services" className="py-24 relative overflow-hidden bg-black/95">
+    <section id="services" className="py-24 relative overflow-hidden bg-transparent">
       {/* Background glow balls */}
       <div className="absolute bottom-1/4 right-0 w-96 h-96 rounded-full bg-red-950/10 blur-3xl animated-glow-bg pointer-events-none"></div>
       <div className="absolute top-1/4 left-0 w-96 h-96 rounded-full bg-red-950/5 blur-3xl animated-glow-bg pointer-events-none" style={{ animationDelay: '-4s' }}></div>

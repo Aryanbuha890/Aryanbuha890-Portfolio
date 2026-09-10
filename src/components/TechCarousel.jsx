@@ -415,7 +415,7 @@ export default function TechCarousel() {
   const duplicatedTech = [...technologies, ...technologies, ...technologies]
 
   return (
-    <section className="py-16 relative overflow-hidden bg-black select-none border-y border-white/5">
+    <section className="py-16 relative overflow-hidden bg-black/40 backdrop-blur-sm select-none border-y border-white/5">
       {/* Dynamic continuous marquee style */}
       <style>{`
         @keyframes marquee {
