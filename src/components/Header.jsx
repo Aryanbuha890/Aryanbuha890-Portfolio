@@ -413,21 +413,26 @@ export default function Header({ onNavClick, activeSection, setActiveSection, is
               Engineering student at MSU Baroda passionate about full-stack systems, machine learning pipelines, and smart agricultural automation. Thriving in high-stress hackathons and team-focused builds.
             </p>
 
-            {/* Upgraded OG Glass Quote Card */}
-            <div className="hero-quote opacity-0 relative overflow-hidden rounded-2xl p-4 sm:p-5 max-w-lg select-text border border-white/15 bg-gradient-to-br from-white/[0.08] via-white/[0.03] to-white/[0.01] backdrop-blur-2xl shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.25),_inset_0_0_20px_0_rgba(255,255,255,0.02),_0_12px_32px_0_rgba(0,0,0,0.5)] border-l-[3.5px] border-l-red-500 transition-all duration-500 group/quote hover:border-white/25 hover:border-l-red-500 hover:shadow-[-4px_0_25px_rgba(239,68,68,0.35),_inset_0_1px_1px_0_rgba(255,255,255,0.35),_0_16px_40px_rgba(0,0,0,0.6)]">
-              {/* Glass specular sheen light refraction */}
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/[0.03] to-white/[0.015] rounded-2xl" />
-              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-red-500 via-white/30 to-transparent pointer-events-none" />
+            {/* True Frosted Glass Quote Card */}
+            <div className="hero-quote opacity-0 relative overflow-hidden rounded-2xl p-4 sm:p-5 max-w-lg select-text border border-white/[0.12] bg-white/[0.03] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.45),inset_0_1px_0_0_rgba(255,255,255,0.18)] transition-all duration-300 group/quote hover:border-red-500/35 hover:bg-white/[0.05] hover:shadow-[0_12px_36px_rgba(0,0,0,0.55),0_0_25px_rgba(239,68,68,0.12),inset_0_1px_0_0_rgba(255,255,255,0.25)] hover:-translate-y-0.5">
+              {/* Subtle top rim light catch */}
+              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
+              {/* Ambient micro-glow in corner */}
+              <div className="absolute -top-10 -right-10 w-28 h-28 bg-red-500/10 rounded-full blur-2xl pointer-events-none group-hover/quote:bg-red-500/20 transition-all duration-500" />
 
               <div className="relative z-10">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse"></span>
-                  <span className="text-[10px] font-mono text-red-400 font-semibold uppercase tracking-widest transition-colors group-hover/quote:text-red-300">
-                    // COMPILER MESSAGE DIRECTIVE
+                <div className="flex items-center gap-2 mb-2.5">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                  </span>
+                  <span className="text-[10px] font-mono tracking-widest uppercase text-red-400/90 font-medium">
+                    // COMPILER DIRECTIVE
                   </span>
                 </div>
-                <p className="not-italic font-sans font-medium text-neutral-100 text-sm sm:text-[15px] leading-relaxed tracking-normal select-text">
-                  "I don't build prototypes. I build products that ship. 🚀"
+                <p className="not-italic font-sans font-medium text-neutral-100 text-sm sm:text-[15px] leading-relaxed select-text flex items-center gap-2">
+                  <span>"I don't build prototypes. I build products that ship."</span>
+                  <span className="text-base select-none">🚀</span>
                 </p>
               </div>
             </div>
