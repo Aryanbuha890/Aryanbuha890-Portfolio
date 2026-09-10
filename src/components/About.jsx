@@ -4,7 +4,7 @@ import { Code, BookOpen, Briefcase, Award, GraduationCap, ChevronRight, Terminal
 
 export default function About() {
   const [activeTab, setActiveTab] = useState('skills')
-  const [expandedRoles, setExpandedRoles] = useState({ 0: true, 1: true, 2: true, 3: true })
+  const [expandedRoles, setExpandedRoles] = useState({})
   const toggleRole = (idx) => setExpandedRoles(prev => ({ ...prev, [idx]: !prev[idx] }))
 
   const profileImage = '/images/Aryan Resume Photo.png'
@@ -260,7 +260,7 @@ export default function About() {
                     className="space-y-8 py-2"
                   >
                     {experiences.map((exp, idx) => {
-                      const isExpanded = expandedRoles[idx] ?? true
+                      const isExpanded = Boolean(expandedRoles[idx])
                       return (
                         <div key={idx} className="relative select-text">
                           {/* Company Header Row */}
