@@ -239,7 +239,7 @@ export default function About() {
                           {cat.skills.map((skill, sIdx) => (
                             <span 
                               key={sIdx} 
-                              className="px-3 py-1 rounded bg-white/2 hover:bg-red-600/10 border border-white/5 hover:border-red-500/20 text-xs text-neutral-300 hover:text-white transition-all font-mono"
+                              className="px-2.5 sm:px-3 py-1 rounded bg-white/2 hover:bg-red-600/10 border border-white/5 hover:border-red-500/20 text-xs text-neutral-300 hover:text-white transition-all font-mono whitespace-nowrap"
                             >
                               {skill}
                             </span>
@@ -264,8 +264,8 @@ export default function About() {
                       return (
                         <div key={idx} className="relative select-text">
                           {/* Company Header Row */}
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-lg bg-neutral-950 border border-white/15 p-1 flex items-center justify-center overflow-hidden shrink-0 shadow-md">
+                          <div className="flex items-start sm:items-center gap-3">
+                            <div className="w-8 h-8 rounded-lg bg-neutral-950 border border-white/15 p-1 flex items-center justify-center overflow-hidden shrink-0 shadow-md self-start sm:self-center mt-0.5 sm:mt-0">
                               <img 
                                 src={exp.logo} 
                                 alt={`${exp.company} Logo`} 
@@ -274,14 +274,16 @@ export default function About() {
                                 className="w-full h-full object-contain rounded" 
                               />
                             </div>
-                            <div className="flex items-center gap-2">
-                              <span className="font-bold text-white text-sm sm:text-base tracking-wide">{exp.company}</span>
-                              <span className="w-1.5 h-1.5 rounded-full bg-neutral-500"></span>
+                            <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 min-w-0 flex-1">
+                              <span className="font-bold text-white text-sm sm:text-base tracking-wide whitespace-nowrap">{exp.company}</span>
                               {exp.type && (
-                                <span className="text-xs text-neutral-400 font-normal">{exp.type}</span>
+                                <span className="text-xs text-neutral-400 font-normal whitespace-nowrap flex items-center gap-1.5">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-500 shrink-0"></span>
+                                  {exp.type}
+                                </span>
                               )}
                               {exp.badge && (
-                                <span className="text-[10px] font-mono text-red-400 bg-red-950/40 border border-red-500/30 px-2 py-0.5 rounded-full font-bold ml-1">
+                                <span className="text-[10px] sm:text-[11px] font-mono text-red-400 bg-red-950/40 border border-red-500/30 px-2.5 py-0.5 rounded-full font-bold whitespace-nowrap shrink-0 inline-flex items-center">
                                   {exp.badge}
                                 </span>
                               )}
@@ -345,14 +347,14 @@ export default function About() {
                                   {/* Skill / Technology Pills */}
                                   {exp.skills && (
                                     <div className="flex flex-wrap gap-2 mt-4 pt-1">
-                                      {exp.skills.map((skill, sIdx) => (
-                                        <span
-                                          key={sIdx}
-                                          className="px-3 py-1 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-300 font-sans hover:border-neutral-700 transition-colors"
-                                        >
-                                          {skill}
-                                        </span>
-                                      ))}
+                                        {exp.skills.map((skill, sIdx) => (
+                                          <span
+                                            key={sIdx}
+                                            className="px-2.5 sm:px-3 py-1 rounded-lg bg-neutral-900 border border-neutral-800 text-[11px] sm:text-xs text-neutral-300 font-sans font-medium hover:border-neutral-700 transition-colors whitespace-nowrap"
+                                          >
+                                            {skill}
+                                          </span>
+                                        ))}
                                     </div>
                                   )}
                                 </motion.div>

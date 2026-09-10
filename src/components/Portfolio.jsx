@@ -293,7 +293,7 @@ export default function Portfolio({ onNavClick }) {
                       </div>
                     </div>
                     {/* Badge */}
-                    <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/85 backdrop-blur-md border border-white/10 font-mono text-[9px] text-red-400 uppercase tracking-widest font-semibold z-10">
+                    <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/85 backdrop-blur-md border border-white/10 font-mono text-[9px] text-red-400 uppercase tracking-widest font-semibold z-10 whitespace-nowrap shrink-0">
                       {ach.badge}
                     </span>
                   </div>

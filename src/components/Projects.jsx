@@ -323,11 +323,11 @@ export default function Projects({ onNavClick }) {
                   <div className="relative z-10 p-6 flex flex-col justify-between h-full w-full">
                     <div className="flex flex-col text-left items-start">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className={`font-mono text-[9px] tracking-widest ${proj.textTheme} border rounded-full px-2.5 py-0.5 ${proj.bgTag} uppercase font-semibold`}>
+                        <span className={`font-mono text-[9px] tracking-widest ${proj.textTheme} border rounded-full px-2.5 py-0.5 ${proj.bgTag} uppercase font-semibold whitespace-nowrap shrink-0`}>
                           {proj.tag}
                         </span>
                         {proj.gallery && (
-                          <span className="font-mono text-[9px] text-neutral-400 bg-white/5 border border-white/10 rounded-full px-2 py-0.5 font-medium">
+                          <span className="font-mono text-[9px] text-neutral-400 bg-white/5 border border-white/10 rounded-full px-2 py-0.5 font-medium whitespace-nowrap shrink-0">
                             {proj.gallery.length} Screens
                           </span>
                         )}
@@ -424,11 +424,11 @@ export default function Projects({ onNavClick }) {
                 {/* Title Section */}
                 <div className="space-y-2 border-b border-white/5 pb-6">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className={`px-2.5 py-0.5 rounded font-mono text-[9px] uppercase tracking-widest ${selectedProject.bgTag} ${selectedProject.textTheme} font-bold`}>
+                    <span className={`px-2.5 py-0.5 rounded font-mono text-[9px] uppercase tracking-widest ${selectedProject.bgTag} ${selectedProject.textTheme} font-bold whitespace-nowrap shrink-0`}>
                       {selectedProject.tag}
                     </span>
                     {selectedProject.gallery && (
-                      <span className="text-[9px] font-mono text-neutral-400 bg-white/5 border border-white/10 px-2 py-0.5 rounded-full">
+                      <span className="text-[9px] font-mono text-neutral-400 bg-white/5 border border-white/10 px-2 py-0.5 rounded-full whitespace-nowrap shrink-0">
                         {selectedProject.gallery.length} Interactive Modules
                       </span>
                     )}
