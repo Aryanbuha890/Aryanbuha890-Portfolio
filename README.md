@@ -15,7 +15,7 @@
 
 ## 🏆 Top Achievements
 
-### 🌟 **Global Rank #3 - Elite Coders Summer of Code 2026**
+### 🌟 **Global Rank #2 - Elite Coders Summer of Code 2026**
 *ECSoC'26 Open Source Program*  
 Unlocking all 6 astronaut badges and ranking 3rd globally in contributions.
 
