@@ -69,7 +69,7 @@ Developed **Urban Intel AI**, a smart city governance platform using Hybrid AI &
 
 Feel free to reach out for collaborations or just a friendly hello!
 
-*   **Email**: [aryanbuha15@gmail.com](mailto:aryanbuha15@gmail.com)
+*   **Email**: [aryanbuha56@gmail.com](mailto:aryanbuha56@gmail.com)
 *   **LinkedIn**: [Aryan Buha](https://www.linkedin.com/in/aryan-buha-874a5434b)
 *   **Location**: Gujarat, India
 
