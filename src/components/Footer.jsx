@@ -1,5 +1,4 @@
 import React from 'react'
-import { Github, Linkedin } from 'lucide-react'
 import { NAV_ITEMS } from '../utils/navigation'
 
 export default function Footer({ onNavClick }) {
@@ -9,11 +8,6 @@ export default function Footer({ onNavClick }) {
     { label: 'Email', value: 'aryanbuha56@gmail.com', href: 'mailto:aryanbuha56@gmail.com' },
     { label: 'Phone', value: '+91 9313198911', href: 'tel:+919313198911' },
     { label: 'Location', value: 'Gujarat, India', href: null }
-  ]
-
-  const socialLinks = [
-    { name: 'GitHub', href: 'https://github.com/Aryanbuha890', icon: Github },
-    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/aryan-buha-874a5434b/', icon: Linkedin }
   ]
 
   return (
@@ -47,24 +41,6 @@ export default function Footer({ onNavClick }) {
             <p className="text-neutral-400 text-[11px] leading-relaxed max-w-sm">
               Computer Science student at MSU Baroda passionate about engineering clean-code architectures, ML pipelines, and smart agricultural automation systems.
             </p>
-            {/* Social Links */}
-            <div className="flex gap-4 pt-2">
-              {socialLinks.map((soc) => {
-                const Icon = soc.icon
-                return (
-                  <a
-                    key={soc.name}
-                    href={soc.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-500 hover:text-red-500 transition-all duration-300 flex items-center gap-1.5 py-1 px-2 rounded border border-neutral-900 bg-neutral-950/40 hover:border-red-500/30 hover:bg-red-950/10 hover:shadow-[0_0_10px_rgba(239,68,68,0.1)] text-[11px]"
-                  >
-                    <Icon size={12} className="shrink-0" />
-                    <span>{soc.name}</span>
-                  </a>
-                )
-              })}
-            </div>
           </div>
 
           {/* Column 2: Quick Links */}
