@@ -15,7 +15,7 @@
 
 ## 🏆 Top Achievements
 
-### 🌟 **Global Rank #3 - Elite Coders Summer of Code 2026**
+### 🌟 **Global Rank #2 - Elite Coders Summer of Code 2026**
 *ECSoC'26 Open Source Program*  
 Unlocking all 6 astronaut badges and ranking 3rd globally in contributions.
 
@@ -69,7 +69,7 @@ Developed **Urban Intel AI**, a smart city governance platform using Hybrid AI &
 
 Feel free to reach out for collaborations or just a friendly hello!
 
-*   **Email**: [aryanbuha15@gmail.com](mailto:aryanbuha15@gmail.com)
+*   **Email**: [aryanbuha56@gmail.com](mailto:aryanbuha56@gmail.com)
 *   **LinkedIn**: [Aryan Buha](https://www.linkedin.com/in/aryan-buha-874a5434b)
 *   **Location**: Gujarat, India
 
