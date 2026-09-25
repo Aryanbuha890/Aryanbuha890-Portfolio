@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ExternalLink, X, Terminal, Code, Sprout, Building2, Lock, Activity, Globe, Eye, Ship } from 'lucide-react'
+import { ExternalLink, X, Terminal, Code, Sprout, Building2, Lock, Activity, Globe, Eye, Ship, Briefcase } from 'lucide-react'
 import gsap from 'gsap'
 
 // Inline custom LinkedIn Icon (matching Contact.jsx style)
@@ -26,6 +26,45 @@ export default function Projects({ onNavClick }) {
   }, [selectedProject])
 
   const projectsData = [
+    {
+      id: 'jupiter-wealth-crm',
+      title: 'JUPITER WEALTH CRM',
+      category: 'Enterprise WealthTech & CRM',
+      shortDesc: 'Proprietary wealth-management CRM platform featuring lead pipelines, 6-step digital KYC onboarding, hierarchy-based MIS analytics, and server-side RBAC.',
+      tag: 'Flagship WealthTech CRM',
+      icon: Briefcase,
+      img: '/13.png',
+      gallery: [
+        { img: '/17.png', title: 'Day 1 Appointment Letter', tag: 'Official Appointment' },
+        { img: '/13.png', title: 'Smart CRM Executive Dashboard', tag: 'Executive Overview' },
+        { img: '/14.png', title: 'Lead Pipeline & Activity', tag: 'Sales Pipeline & Import' },
+        { img: '/15.png', title: 'Frictionless Digital Onboarding', tag: '6-Step KYC & Compliance' },
+        { img: '/16.png', title: 'Retention & Business MIS', tag: 'Hierarchy MIS & Reviews' },
+        { img: '/18.png', title: 'Internship Completion Letter', tag: 'Official Completion' },
+        { img: '/19.png', title: 'Letter of Recommendation (LOR)', tag: 'Commendation & LOR' }
+      ],
+      linkType: 'linkedin',
+      linkUrl: 'https://www.linkedin.com/in/aryan-buha-874a5434b/',
+      stack: ['NEXT.JS 16', 'REACT 19', 'TYPESCRIPT', 'POSTGRESQL', 'PRISMA ORM', 'TAILWIND CSS 4', 'SHADCN/UI', 'RECHARTS', 'RBAC', 'ZOD'],
+      themeColor: 'amber',
+      borderHover: 'hover:border-amber-500/60 hover:shadow-[0_0_30px_rgba(245,158,11,0.25),_inset_0_0_20px_rgba(245,158,11,0.08)]',
+      borderActive: 'border-amber-500/40 shadow-[0_0_50px_rgba(245,158,11,0.25)]',
+      textTheme: 'text-amber-400',
+      textDarkTheme: 'text-amber-500',
+      bgTag: 'bg-amber-950/20 border-amber-500/30',
+      glowBg: 'rgba(245, 158, 11, 0.18)',
+      btnTheme: 'bg-amber-600 hover:bg-amber-700 shadow-[0_0_20px_rgba(245,158,11,0.2)]',
+      summary: 'FULL-SCALE ENTERPRISE WEALTH-MANAGEMENT CRM DEVELOPED DURING A 3-MONTH SOFTWARE ENGINEERING INTERNSHIP WITH KRUSHIT PRAJAPATI, NEEL PRAJAPATI, AND SUMIT PATEL. COVERS THE COMPLETE CLIENT LIFECYCLE: LEAD GENERATION → FOLLOW-UPS → MEETINGS → CONVERSION → DIGITAL CLIENT ONBOARDING → OPERATIONS → PORTFOLIO REVIEWS → RETENTION → MIS & ANALYTICS.',
+      highlights: [
+        '🎯 Lead Management & Sales Pipeline: Complete lifecycle tracking, meeting management, overdue follow-up queues, and bulk CSV import engine with multi-phone deduplication (PostgreSQL GIN arrays).',
+        '🧾 6-Step Digital Client Onboarding & KYC: Individual and entity onboarding workflows, bank and nominee information capture, compliance data, authenticated document streaming, and RM → Operations handoff.',
+        '📊 Portfolio Reviews & Client Retention: Periodic review cycles, tracking fresh AUM and top-up investments, client referral tracking, and retention-focused workflows beyond initial conversion.',
+        '📈 MIS, Analytics & Hierarchy Scoping: Real-time management dashboards with Cluster Head → Branch Head → RM organizational hierarchy visibility, operational reporting, and opportunities pipeline.',
+        '🔐 Enterprise Architecture & Security: Server-side dynamic 4-role RBAC, custom session JWT auth, database mutation audit logging, soft-delete architecture (deletedAt), IST-aware times, and 100% Zod validation.',
+        '🧪 13 Automated Test Suites: Comprehensive test coverage spanning unit testing, API endpoints, lead pipelines, entity onboarding, metrics, RBAC permissions, sessions, bulk uploads, and success flows.',
+        '🤝 Built Together with Krushit Prajapati, Neel Prajapati, and Sumit Patel — from Day 1 Appointment Letter to Internship Completion and Letter of Recommendation (LOR).'
+      ]
+    },
     {
       id: 'kaashona-erp',
       title: 'KAASHONA RESORT ERP',
@@ -467,11 +506,11 @@ export default function Projects({ onNavClick }) {
                       <div className="space-y-2 p-3 rounded-xl bg-black/60 border border-white/5">
                         <div className="flex items-center justify-between text-[10px] font-mono text-neutral-400">
                           <span className="uppercase text-neutral-500 font-bold">// MODULE PREVIEWS:</span>
-                          <span className="text-emerald-400 font-semibold truncate max-w-[170px] text-right">
+                          <span className={`${selectedProject.textTheme || 'text-emerald-400'} font-semibold truncate max-w-[210px] text-right`}>
                             {selectedProject.gallery.find(g => (activeModalImage || selectedProject.img) === (typeof g === 'string' ? g : g.img))?.title || 'Screenshots'}
                           </span>
                         </div>
-                        <div className="grid grid-cols-6 gap-1.5">
+                        <div className="flex flex-wrap gap-1.5 items-center">
                           {selectedProject.gallery.map((gItem, gIdx) => {
                             const imgSrc = typeof gItem === 'string' ? gItem : gItem.img;
                             const title = typeof gItem === 'string' ? `Screen ${gIdx + 1}` : gItem.title;
@@ -481,9 +520,9 @@ export default function Projects({ onNavClick }) {
                                 key={gIdx}
                                 type="button"
                                 onClick={() => setActiveModalImage(imgSrc)}
-                                className={`relative aspect-square rounded-lg overflow-hidden border transition-all duration-200 p-0.5 bg-neutral-950 ${
+                                className={`relative w-11 h-11 sm:w-12 sm:h-12 rounded-lg overflow-hidden border transition-all duration-200 p-0.5 bg-neutral-950 flex-shrink-0 ${
                                   isSelected 
-                                    ? 'border-emerald-500 scale-105 shadow-[0_0_12px_rgba(16,185,129,0.4)] ring-1 ring-emerald-500/60' 
+                                    ? `border-white ring-2 ring-white/50 scale-105 shadow-[0_0_12px_rgba(255,255,255,0.3)]` 
                                     : 'border-white/10 hover:border-white/30 opacity-60 hover:opacity-100'
                                 }`}
                                 title={title}

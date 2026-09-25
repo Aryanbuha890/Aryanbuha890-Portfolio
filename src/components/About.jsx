@@ -81,18 +81,20 @@ export default function About() {
       logo: '/Jupiter Logo.png',
       badge: 'WealthTech CRM',
       role: 'Software Engineer Intern',
-      date: 'Jun 2026 - Sep 2026 · 4 mos',
+      date: 'Jun 2026 - Sep 2026 · 3 mos',
       location: 'Vadodara, Gujarat, India · Remote',
-      employmentType: 'Internship',
+      employmentType: 'Full-Stack Internship',
       desc: [
-        'Developed a proprietary wealth-management CRM designed to streamline relationship management, lead conversions, and compliance onboarding for financial advisors.',
-        'Designed and deployed a multi-tenant-ready architecture with Next.js App Router, Prisma ORM, and PostgreSQL.',
-        'Architected dynamic RBAC and server-side data isolation across 4 user roles (Admin, Cluster Head, Branch Head, RM).',
-        'Created an intelligent Bulk Lead Import Engine featuring multi-phone deduplication (PostgreSQL GIN arrays) and custom CSV/XLSX mapping.',
-        'Built an end-to-end KYC & Client Onboarding portal with secure, authenticated document streaming.',
-        'Enforced enterprise-grade reliability with transaction-level audit trails and 100% server-side validation using Zod.'
+        'Completed 3-Month Software Engineering Internship: Designed and built Jupiter Wealth CRM — an internal Customer Relationship Management platform alongside teammates Krushit Prajapati, Neel Prajapati, and Sumit Patel.',
+        'Covered the entire client lifecycle: Lead Generation → Follow-ups → Meetings → Conversion → Client Onboarding → Operations → Portfolio Reviews → Retention → MIS & Analytics.',
+        'Architected dynamic server-side RBAC across 4 hierarchical roles (Admin, Cluster Head, Branch Head, RM) with query scoping, mutation audit logging, and soft-delete architecture (deletedAt).',
+        'Engineered structured 6-step digital onboarding and KYC workflow for individual and entity profiles, bank details, nominee information, and authenticated document storage.',
+        'Developed an intelligent bulk CSV lead import engine with multi-phone deduplication (PostgreSQL GIN arrays) and customizable field mapping.',
+        'Built real-time MIS analytics and executive dashboards with Cluster → Branch → RM organizational hierarchy visibility, fresh AUM tracking, and periodic review workflows.',
+        'Implemented 13 automated test suites covering unit testing, API endpoints, pipelines, KYC flows, RBAC permissions, bulk uploads, and session management.',
+        'Milestones: Day 1 Appointment Letter → 3-Month Internship Completion Certificate & Letter of Recommendation (LOR).'
       ],
-      skills: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma ORM', 'React 19', 'REST APIs', 'Tailwind CSS', 'Zod', 'RBAC']
+      skills: ['Next.js 16', 'TypeScript', 'PostgreSQL', 'Prisma ORM', 'React 19', 'Tailwind CSS 4', 'shadcn/ui', 'Zod', 'RBAC', '13 Test Suites']
     }
   ]
 

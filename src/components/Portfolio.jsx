@@ -1,12 +1,49 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, X, ChevronDown, ChevronUp, Calendar, MapPin, Award } from 'lucide-react'
 
 export default function Portfolio({ onNavClick }) {
   const [showAll, setShowAll] = useState(false)
   const [selectedAch, setSelectedAch] = useState(null)
+  const [activeModalImage, setActiveModalImage] = useState(null)
+
+  useEffect(() => {
+    if (selectedAch) {
+      setActiveModalImage(selectedAch.img)
+    } else {
+      setActiveModalImage(null)
+    }
+  }, [selectedAch])
 
   const achievements = [
+    {
+      id: 'jupiter-wealth-internship',
+      title: '🚀 3-Month SWE Internship & LOR — Jupiter Wealth CRM',
+      org: 'Jupiter Wealth · Vadodara, Gujarat',
+      desc: 'Completed 3-month Software Engineering Internship building Jupiter Wealth CRM; awarded official Appointment Letter, Completion Certificate & Letter of Recommendation',
+      badge: 'Internship & LOR',
+      img: '/18.png',
+      date: 'Jun 2026 - Sep 2026',
+      location: 'Vadodara, Gujarat · Remote',
+      gallery: [
+        { img: '/17.png', title: 'Day 1 Appointment Letter (21 Jun 2026)', tag: 'Appointment' },
+        { img: '/13.png', title: 'Smart CRM Executive Dashboard', tag: 'Dashboard' },
+        { img: '/14.png', title: 'Lead Pipeline & Activity View', tag: 'Lead Management' },
+        { img: '/15.png', title: 'Frictionless 6-Step Digital Onboarding & KYC', tag: 'KYC & Onboarding' },
+        { img: '/16.png', title: 'Retention & Business MIS Analytics', tag: 'MIS & Analytics' },
+        { img: '/18.png', title: 'Internship Completion Letter (20 Sep 2026)', tag: 'Completion' },
+        { img: '/19.png', title: 'Letter of Recommendation & Appreciation', tag: 'LOR & Commendation' }
+      ],
+      summary: 'From receiving the Appointment Letter on Day 1 (June 21, 2026) to completing the 3-month Software Engineering Internship and earning the official Letter of Recommendation (LOR) and Letter of Appreciation on September 20, 2026. Collaborated with Krushit Prajapati, Neel Prajapati, and Sumit Patel to design and build Jupiter Wealth CRM — a production-grade full-stack platform covering Lead Generation, Follow-ups, Meetings, Conversions, 6-Step KYC Onboarding, Portfolio Reviews, Retention, and Multi-tier Hierarchy MIS Analytics.',
+      highlights: [
+        'Official Appointment Letter received on Day 1 (21st June 2026) at Jupiter Wealth',
+        'Built full-stack enterprise CRM with Next.js 16, React 19, TypeScript, PostgreSQL, Prisma ORM & Tailwind CSS 4',
+        'Architected 4-role hierarchical RBAC (Admin, Cluster Head, Branch Head, RM) and multi-phone GIN deduplication',
+        'Built 6-step digital KYC onboarding pipeline with authenticated document streaming and operations handoff',
+        'Implemented 13 automated test suites covering APIs, RBAC permissions, bulk imports, sessions and onboarding',
+        'Awarded official 3-Month Internship Completion Letter and Letter of Recommendation (LOR) on 20th September 2026'
+      ]
+    },
     {
       id: 'ecsoc-2026',
       title: '🏆 Global Rank #2 – Elite Coders Summer of Code 2026',
@@ -431,7 +468,7 @@ export default function Portfolio({ onNavClick }) {
                     <div className="relative group rounded-xl overflow-hidden border border-red-500/30 bg-black/80 shadow-2xl p-3 flex items-center justify-center aspect-[4/3] max-w-full">
                       <div className="w-full h-full border border-red-500/20 rounded-lg p-1.5 bg-black/40 flex items-center justify-center relative z-10">
                         <img 
-                          src={selectedAch.img} 
+                          src={activeModalImage || selectedAch.img} 
                           alt={selectedAch.title}
                           loading="lazy"
                           decoding="async"
@@ -445,6 +482,40 @@ export default function Portfolio({ onNavClick }) {
                       <div className="cyber-corner cyber-corner-bl"></div>
                       <div className="cyber-corner cyber-corner-br"></div>
                     </div>
+
+                    {/* Interactive Document / Screenshot Gallery Strip */}
+                    {selectedAch.gallery && selectedAch.gallery.length > 0 && (
+                      <div className="space-y-2 p-3 rounded-xl bg-black/60 border border-white/5">
+                        <div className="flex items-center justify-between text-[10px] font-mono text-neutral-400">
+                          <span className="uppercase text-neutral-500 font-bold">// VERIFIED DOCUMENTS & SCREENS:</span>
+                          <span className="text-red-400 font-semibold truncate max-w-[210px] text-right">
+                            {selectedAch.gallery.find(g => (activeModalImage || selectedAch.img) === (typeof g === 'string' ? g : g.img))?.title || 'Documents'}
+                          </span>
+                        </div>
+                        <div className="flex flex-wrap gap-1.5 items-center">
+                          {selectedAch.gallery.map((gItem, gIdx) => {
+                            const imgSrc = typeof gItem === 'string' ? gItem : gItem.img;
+                            const title = typeof gItem === 'string' ? `Document ${gIdx + 1}` : gItem.title;
+                            const isSelected = (activeModalImage || selectedAch.img) === imgSrc;
+                            return (
+                              <button
+                                key={gIdx}
+                                type="button"
+                                onClick={() => setActiveModalImage(imgSrc)}
+                                className={`relative w-11 h-11 sm:w-12 sm:h-12 rounded-lg overflow-hidden border transition-all duration-200 p-0.5 bg-neutral-950 flex-shrink-0 ${
+                                  isSelected 
+                                    ? 'border-red-500 ring-2 ring-red-500/60 scale-105 shadow-[0_0_12px_rgba(239,68,68,0.5)]' 
+                                    : 'border-white/10 hover:border-white/30 opacity-60 hover:opacity-100'
+                                }`}
+                                title={title}
+                              >
+                                <img src={imgSrc} alt={title} className="w-full h-full object-cover rounded" />
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
 
                     {/* Metadata boxes */}
                     <div className="glass-panel p-4 rounded-lg space-y-3 font-mono text-xs text-neutral-400 bg-black/60 select-text">
