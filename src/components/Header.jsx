@@ -204,7 +204,7 @@ export default function Header({ onNavClick, activeSection, setActiveSection, is
 
   return (
     <>
-      <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 w-full pointer-events-none">
+      <div className="fixed-navbar-wrapper fixed top-4 left-0 right-0 z-[9999] flex justify-center px-4 w-full pointer-events-none">
         <nav 
           className={`pointer-events-auto w-full mx-auto rounded-full border transition-all duration-500 ${
             isScrolled 
@@ -291,7 +291,7 @@ export default function Header({ onNavClick, activeSection, setActiveSection, is
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="fixed top-[78px] left-4 right-4 z-40 bg-black/90 backdrop-blur-lg border border-white/10 rounded-2xl md:hidden py-6 px-6 shadow-2xl"
+            className="fixed top-[78px] left-4 right-4 z-[9998] bg-black/90 backdrop-blur-lg border border-white/10 rounded-2xl md:hidden py-6 px-6 shadow-2xl"
           >
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => {

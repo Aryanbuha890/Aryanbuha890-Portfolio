@@ -17,51 +17,6 @@ export default function Portfolio({ onNavClick }) {
 
   const achievements = [
     {
-      id: 'jupiter-wealth-internship',
-      title: '🚀 3-Month SWE Internship & LOR — Jupiter Wealth CRM',
-      org: 'Jupiter Wealth · Vadodara, Gujarat',
-      desc: 'Completed 3-month Software Engineering Internship building Jupiter Wealth CRM; awarded official Appointment Letter, Completion Certificate & Letter of Recommendation',
-      badge: 'Internship & LOR',
-      img: '/18.png',
-      date: 'Jun 2026 - Sep 2026',
-      location: 'Vadodara, Gujarat · Remote',
-      gallery: [
-        { img: '/17.png', title: 'Day 1 Appointment Letter (21 Jun 2026)', tag: 'Appointment' },
-        { img: '/13.png', title: 'Smart CRM Executive Dashboard', tag: 'Dashboard' },
-        { img: '/14.png', title: 'Lead Pipeline & Activity View', tag: 'Lead Management' },
-        { img: '/15.png', title: 'Frictionless 6-Step Digital Onboarding & KYC', tag: 'KYC & Onboarding' },
-        { img: '/16.png', title: 'Retention & Business MIS Analytics', tag: 'MIS & Analytics' },
-        { img: '/18.png', title: 'Internship Completion Letter (20 Sep 2026)', tag: 'Completion' },
-        { img: '/19.png', title: 'Letter of Recommendation & Appreciation', tag: 'LOR & Commendation' }
-      ],
-      summary: 'From receiving the Appointment Letter on Day 1 (June 21, 2026) to completing the 3-month Software Engineering Internship and earning the official Letter of Recommendation (LOR) and Letter of Appreciation on September 20, 2026. Collaborated with Krushit Prajapati, Neel Prajapati, and Sumit Patel to design and build Jupiter Wealth CRM — a production-grade full-stack platform covering Lead Generation, Follow-ups, Meetings, Conversions, 6-Step KYC Onboarding, Portfolio Reviews, Retention, and Multi-tier Hierarchy MIS Analytics.',
-      highlights: [
-        'Official Appointment Letter received on Day 1 (21st June 2026) at Jupiter Wealth',
-        'Built full-stack enterprise CRM with Next.js 16, React 19, TypeScript, PostgreSQL, Prisma ORM & Tailwind CSS 4',
-        'Architected 4-role hierarchical RBAC (Admin, Cluster Head, Branch Head, RM) and multi-phone GIN deduplication',
-        'Built 6-step digital KYC onboarding pipeline with authenticated document streaming and operations handoff',
-        'Implemented 13 automated test suites covering APIs, RBAC permissions, bulk imports, sessions and onboarding',
-        'Awarded official 3-Month Internship Completion Letter and Letter of Recommendation (LOR) on 20th September 2026'
-      ]
-    },
-    {
-      id: 'ecsoc-2026',
-      title: '🏆 Global Rank #2 – Elite Coders Summer of Code 2026',
-      org: 'Elite Coders',
-      desc: 'Achieved Global Rank #2 in a prestigious open-source contributor program, unlocking all 6 astronaut badges',
-      badge: 'Open Source',
-      img: '/6.png', // Show the Tier Master badge
-      date: 'July 2026',
-      location: 'Remote Global Event',
-      summary: 'Ranked 2nd globally in the Elite Coders Summer of Code 2026 (ECSoC\'26). Collaborated with maintainers across multiple open-source repositories to build production-ready features, fix critical bugs, and improve user experiences. Earned all 6 developer and contributor badges including Tier-Master and Tier-Elite, demonstrating high commitment and code contributions to the community.',
-      highlights: [
-        'Achieved Rank #2 on the global contributor leaderboard',
-        'Contributed key feature enhancements and bug fixes to major repositories',
-        'Acquired and unlocked all 6 ECSOC contributor and astronaut badges',
-        'Collaborated directly with maintainers to review code and ship production-ready features'
-      ]
-    },
-    {
       id: 'ibm-ai-challenge',
       title: '🏆 2nd Rank Across Gujarat – IBM AI Challenge 2026',
       org: 'IBM, CSRBOX & iHUB',
