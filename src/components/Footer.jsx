@@ -101,11 +101,15 @@ export default function Footer({ onNavClick }) {
         </div>
       </div>
 
-      {/* Giant Background Text Watermark in 2 lines */}
+      {/* Giant Background Text Watermark in 2 lines with individual bottom gradients */}
       <div className="relative w-full pointer-events-none select-none z-0 overflow-hidden flex flex-col items-center justify-center pt-8 pb-4">
-        <h1 className="font-black leading-[0.78] tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-red-500/40 via-red-600/15 to-transparent select-none uppercase font-sans text-center flex flex-col items-center text-[26vw] sm:text-[22vw] md:text-[19vw] lg:text-[17vw] drop-shadow-[0_0_50px_rgba(239,68,68,0.15)]">
-          <span className="block">ARYAN</span>
-          <span className="block">BUHA</span>
+        <h1 className="font-black leading-[0.78] tracking-tighter select-none uppercase font-sans text-center flex flex-col items-center text-[26vw] sm:text-[22vw] md:text-[19vw] lg:text-[17vw] drop-shadow-[0_0_35px_rgba(239,68,68,0.2)]">
+          <span className="block text-transparent bg-clip-text bg-gradient-to-b from-red-500 via-red-600 to-black/85">
+            ARYAN
+          </span>
+          <span className="block text-transparent bg-clip-text bg-gradient-to-b from-red-500 via-red-600 to-black/80">
+            BUHA
+          </span>
         </h1>
       </div>
 

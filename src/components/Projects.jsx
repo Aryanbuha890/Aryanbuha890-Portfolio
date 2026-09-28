@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, X, Terminal, Code, Sprout, Building2, Lock, Activity, Globe, Eye, Ship, Briefcase } from 'lucide-react'
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 // Inline custom LinkedIn Icon (matching Contact.jsx style)
 const LinkedInIcon = ({ size = 16, ...props }) => (

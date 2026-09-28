@@ -10,7 +10,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import { 
   getSectionIdFromPath, 
   getPathFromSectionId, 

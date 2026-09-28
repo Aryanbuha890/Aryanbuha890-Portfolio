@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
 
 // --- SVG Technology Logos (User-provided & Premium) ---
 
@@ -430,11 +429,17 @@ export default function TechCarousel() {
 
   // Initial positioning in the middle so the user can immediately scroll left or right infinitely
   useEffect(() => {
-    const el = containerRef.current
-    if (el) {
-      const singleSetWidth = el.scrollWidth / 4
-      el.scrollLeft = singleSetWidth * 1.5
+    const initScroll = () => {
+      const el = containerRef.current
+      if (el && el.scrollWidth > 0) {
+        const singleSetWidth = el.scrollWidth / 4
+        if (singleSetWidth > 0) {
+          el.scrollLeft = singleSetWidth * 1.5
+        }
+      }
     }
+    const timer = setTimeout(initScroll, 50)
+    return () => clearTimeout(timer)
   }, [])
 
   // Auto-scroll loop using requestAnimationFrame
@@ -446,7 +451,7 @@ export default function TechCarousel() {
     let lastTime = performance.now()
 
     const step = (time) => {
-      const delta = (time - lastTime) / 1000
+      const delta = Math.min((time - lastTime) / 1000, 0.1)
       lastTime = time
 
       // Continuous auto-drift when user is not manually interacting
@@ -461,11 +466,36 @@ export default function TechCarousel() {
     return () => cancelAnimationFrame(animId)
   }, [])
 
+  // Window drag listeners for reliable release anywhere
+  useEffect(() => {
+    const onWindowMouseMove = (e) => {
+      if (!isMouseDown.current || !containerRef.current) return
+      const x = e.pageX - containerRef.current.offsetLeft
+      const walk = (x - startX.current) * 1.5
+      containerRef.current.scrollLeft = scrollStart.current - walk
+    }
+
+    const onWindowMouseUp = () => {
+      if (isMouseDown.current) {
+        isMouseDown.current = false
+        scheduleResume()
+      }
+    }
+
+    window.addEventListener('mousemove', onWindowMouseMove)
+    window.addEventListener('mouseup', onWindowMouseUp)
+    return () => {
+      window.removeEventListener('mousemove', onWindowMouseMove)
+      window.removeEventListener('mouseup', onWindowMouseUp)
+    }
+  }, [])
+
   // Infinite wrapping whenever scroll position shifts (works for auto and manual scroll)
   const handleScroll = () => {
     const el = containerRef.current
-    if (!el) return
+    if (!el || !el.scrollWidth) return
     const singleSetWidth = el.scrollWidth / 4
+    if (singleSetWidth < 50) return
     if (el.scrollLeft >= singleSetWidth * 2.5) {
       el.scrollLeft -= singleSetWidth
     } else if (el.scrollLeft <= singleSetWidth * 0.5) {
@@ -475,23 +505,11 @@ export default function TechCarousel() {
 
   // Mouse drag handlers
   const handleMouseDown = (e) => {
+    if (e.button !== 0 || !containerRef.current) return
     isMouseDown.current = true
     isInteractingRef.current = true
     startX.current = e.pageX - containerRef.current.offsetLeft
     scrollStart.current = containerRef.current.scrollLeft
-  }
-
-  const handleMouseMove = (e) => {
-    if (!isMouseDown.current || !containerRef.current) return
-    e.preventDefault()
-    const x = e.pageX - containerRef.current.offsetLeft
-    const walk = (x - startX.current) * 1.5
-    containerRef.current.scrollLeft = scrollStart.current - walk
-  }
-
-  const handleMouseUp = () => {
-    isMouseDown.current = false
-    scheduleResume()
   }
 
   const handleMouseEnter = () => {
@@ -499,7 +517,6 @@ export default function TechCarousel() {
   }
 
   const handleMouseLeave = () => {
-    isMouseDown.current = false
     scheduleResume()
   }
 
@@ -544,10 +561,8 @@ export default function TechCarousel() {
           ref={containerRef}
           onScroll={handleScroll}
           onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseLeave}
           onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
           onWheel={handleWheel}
