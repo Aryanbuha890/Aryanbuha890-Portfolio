@@ -17,6 +17,28 @@ export default function Portfolio({ onNavClick }) {
 
   const achievements = [
     {
+      id: 'ecsoc-26',
+      title: '🌟 Global Rank #2 (13,000+ Participants) – ECSoC\'26',
+      org: 'Elite Coders Summer of Code',
+      desc: 'Achieved Global Rank #2 among 13,000+ participants worldwide in ECSoC\'26 open source program',
+      badge: 'Global Rank #2',
+      img: '/ecsoc-excellence-certificate-buha_aryan_nareshbhai.png',
+      gallery: [
+        { img: '/ecsoc-excellence-certificate-buha_aryan_nareshbhai.png', title: 'Certificate of Excellence (Global Rank #2)', tag: 'Rank #2 / 13,000+' },
+        { img: '/ecsoc-appreciation-certificate-buha_aryan_nareshbhai.png', title: 'Certificate of Appreciation', tag: 'Special Recognition' },
+        { img: '/ecsoc-certificate-buha_aryan_nareshbhai.png', title: 'Official Certificate of Completion', tag: 'Program Completion' }
+      ],
+      date: 'September 2026',
+      location: 'Global Open Source',
+      summary: 'Secured Global Rank #2 among 13,000+ registered participants across the world in the Elite Coders Summer of Code 2026 (ECSoC\'26)! Collaborated with maintainers and international open-source communities to resolve critical issues, engineer performant frontend components, and optimize application architectures. Successfully unlocked all 6 Astronaut Contributor Badges (Beginner, Hustler, Rookie, Elite, and Master Tiers), earning the Certificate of Excellence, Certificate of Appreciation, and Official Completion Certificate.',
+      highlights: [
+        'Global Rank #2 out of 13,000+ registered participants worldwide',
+        'Awarded 3 Official Credentials: Certificate of Excellence, Certificate of Appreciation & Certificate of Completion',
+        'Unlocked all 6 Astronaut Contributor Badges (Beginner, Hustler, Rookie, Elite, Master)',
+        'Built production-ready features, fixed critical bugs, and collaborated with international maintainers'
+      ]
+    },
+    {
       id: 'ibm-ai-challenge',
       title: '🏆 2nd Rank Across Gujarat – IBM AI Challenge 2026',
       org: 'IBM, CSRBOX & iHUB',
@@ -267,9 +289,17 @@ export default function Portfolio({ onNavClick }) {
                       </div>
                     </div>
                     {/* Badge */}
-                    <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/85 backdrop-blur-md border border-white/10 font-mono text-[9px] text-red-400 uppercase tracking-widest font-semibold z-10 whitespace-nowrap shrink-0">
-                      {ach.badge}
-                    </span>
+                    <div className="absolute top-3 left-3 flex items-center gap-1.5 z-10 flex-wrap max-w-[85%]">
+                      <span className="px-2 py-0.5 rounded bg-black/85 backdrop-blur-md border border-white/10 font-mono text-[9px] text-red-400 uppercase tracking-widest font-semibold whitespace-nowrap shrink-0">
+                        {ach.badge}
+                      </span>
+                      {ach.gallery && ach.gallery.length > 1 && (
+                        <span className="px-2 py-0.5 rounded bg-black/85 backdrop-blur-md border border-red-500/30 text-white font-mono text-[9px] font-semibold whitespace-nowrap shrink-0 flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                          {ach.gallery.length} Certificates
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   {/* Content Details */}

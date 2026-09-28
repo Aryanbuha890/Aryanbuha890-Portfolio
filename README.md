@@ -59,7 +59,7 @@ I am a Full Stack Software Engineer and AI/ML enthusiast pursuing a **B.E. in Co
 - 🏢 **Enterprise SaaS & Systems:** Successfully delivered **Jupiter Wealth CRM** during an intensive 3-month Software Engineering Internship—architecting dynamic server-side 4-tier RBAC, 6-step digital KYC onboarding, and 13 automated test suites. Built **Kaashona Resort ERP**, automating real-time hospitality reservations, inventory, and GST invoicing.
 - 🤖 **Applied AI & Autonomous Agents:** Engineered **LogiMind AI** (Hackverse Mumbai 6th Rank, Microsoft Hyderabad invite) using LangGraph multi-agent war rooms and YOLOv11 computer vision; built **AgriForge AI** (₹2.43 Lakh SSIP Gujarat Govt grant, IBM AI Challenge 2nd Rank).
 - 🏆 **High-Pressure Execution:** Multiple national hackathon podium finishes including **NASA Space Apps Champions**, **DotSlash 9.0 Top 8 Finalist**, and **Ingenious 7.0 1st Runner Up**.
-- 🌐 **Open Source:** Achieved **Global Rank #2** in **Elite Coders Summer of Code (ECSoC'26)**, unlocking all 6 contributor achievement badges.
+- 🌐 **Open Source:** Achieved **Global Rank #2 out of 13,000+ participants** in **Elite Coders Summer of Code (ECSoC'26)**, awarded 3 official credentials (Excellence, Appreciation & Completion) and unlocking all 6 contributor achievement badges.
 
 ---
 
@@ -67,12 +67,12 @@ I am a Full Stack Software Engineer and AI/ML enthusiast pursuing a **B.E. in Co
 
 | Honor / Standing | Event & Program | Organizing Body | Innovation / System Built |
 | :--- | :--- | :--- | :--- |
+| **🌟 Global Rank #2 (out of 13,000+ Participants)** | **Elite Coders Summer of Code 2026** | Elite Coders (ECSoC'26) | Ranked #2 worldwide; awarded Certificate of Excellence, Certificate of Appreciation & Completion, and all 6 contributor astronaut badges. |
 | **🥈 2nd Rank Across Gujarat** | **IBM AI Innovation Challenge 2026** | IBM, CSRBOX® & iHUB Ahmedabad | **AgriForge AI**: AI-driven agricultural platform with localized crop diagnostics and market intelligence. |
 | **🏅 6th Rank in India & Microsoft Office Invite** | **Hackverse Hackathon Mumbai** | Hackverse India & Microsoft | **LogiMind AI**: Maritime Port Safety & Command OS with LangGraph agents, YOLOv11 PPE vision & XGBoost predictive maintenance. |
 | **🚀 Top 8 Finalist (out of 550+ Teams)** | **DotSlash 9.0 National Hackathon** | SVNIT Surat, ACM & ASHINE | **TerraForge Platform**: Offline-first environmental intelligence OS for climate risk and crop prediction. |
 | **🥈 1st Runner Up (out of 180+ Teams)** | **Ingenious Hackathon 7.0** | Ahmedabad University | **Urban Intel AI**: Civic governance OS with 6 custom Random Forest models and private offline TinyLlama LLM. |
 | **🏆 Champions (1st Place)** | **NASA Space Apps Challenge 2025** | NASA Space Apps (Vallabh Vidyanagar) | **CityForge – Mumbai Pulse**: Geospatial environmental analytics dashboard tracking heat islands and AQI. |
-| **🌟 Global Rank #2** | **Elite Coders Summer of Code 2026** | Elite Coders (ECSoC'26) | Unlocked all 6 astronaut badges (Beginner to Master tier) contributing to production open-source codebases. |
 | **💰 ₹2.43 Lakh Govt Grant** | **SSIP Research & Innovation Grant** | Government of Gujarat | Awarded research and innovation grant for smart agricultural empowerment and diagnostic technology. |
 
 ---
@@ -112,11 +112,12 @@ I am a Full Stack Software Engineer and AI/ML enthusiast pursuing a **B.E. in Co
 
 ### 4. **Elite Coders — Open Source Contributor (ECSoC'26)**
 *Jul 2026 – Sep 2026 · Remote*  
-**Badges:** `Global Rank #2` · `All 6 Tiers Unlocked` · `Open Source` · `Git`
+**Badges:** `Global Rank #2 / 13,000+` · `3 Verified Credentials` · `All 6 Tiers Unlocked` · `Open Source`
 
 - Selected as an open-source contributor for **Elite Coders Summer of Code 2026**.
-- Achieved **Global Rank #2** across hundreds of contributors, resolving critical issues, optimizing build performance, and authoring reusable React components.
-- Unlocked all 6 Astronaut badges: `Mission Register`, `Tier: Beginner`, `Tier: Hustler`, `Tier: Rookie`, `Tier: Elite`, and `Tier: Master`.
+- Achieved **Global Rank #2** out of **13,000+ participants worldwide**, resolving critical bugs, optimizing frontend performance, and authoring production-grade React components.
+- Awarded **Certificate of Excellence**, **Certificate of Appreciation**, and **Official Completion Certificate**.
+- Unlocked all 6 Astronaut Contributor badges: `Mission Register`, `Tier: Beginner`, `Tier: Hustler`, `Tier: Rookie`, `Tier: Elite`, and `Tier: Master`.
 
 ---
 

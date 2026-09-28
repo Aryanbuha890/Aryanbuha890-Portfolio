@@ -64,14 +64,15 @@ export default function About() {
       company: 'Elite Coders',
       type: 'Open Source',
       logo: '/elite_coders_logo.jpg',
-      badge: 'Global Rank #2',
+      badge: 'Global Rank #2 / 13,000+',
       role: 'Open Source Contributor',
       date: 'Jul 2026 - Sep 2026',
       location: 'Remote',
       employmentType: 'ECSoC\'26',
       desc: [
-        "Global Rank #2: Selected as an Open Source Contributor for Elite Coders Summer of Code 2026 (ECSoC'26).",
-        "Collaborated with maintainers across multiple open-source repositories to build production-ready features, fix bugs, and improve user experience."
+        "Global Rank #2: Selected as an Open Source Contributor for Elite Coders Summer of Code 2026 (ECSoC'26), securing 2nd rank globally out of 13,000+ participants.",
+        "Collaborated with maintainers across multiple open-source repositories to build production-ready features, fix critical bugs, and improve user experience.",
+        "Awarded Certificate of Excellence, Certificate of Appreciation, and Official Completion Certificate while unlocking all 6 Astronaut Contributor Badges."
       ],
       skills: ['Git', 'GitHub', 'Open Source', 'React.js', 'Community']
     },
@@ -422,7 +423,7 @@ export default function About() {
             <div className="lg:col-span-5 space-y-4 text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-red-500/30 bg-red-950/30 text-red-400 font-mono text-[10px] tracking-wider uppercase font-bold">
                 <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping"></span>
-                Global Rank #2
+                Global Rank #2 / 13,000+ Participants
               </div>
 
               <div className="flex items-center gap-4">
@@ -437,7 +438,7 @@ export default function About() {
               </div>
 
               <p className="text-xs text-neutral-400 leading-relaxed font-sans max-w-md">
-                Selected as an Open Source Contributor for ECSoC&apos;26, collaborating with maintainers across multiple repositories to build production-ready features, fix critical bugs, and improve user experiences.
+                Selected as an Open Source Contributor for ECSoC&apos;26, securing <span className="text-white font-semibold">Global Rank #2 among 13,000+ participants</span> worldwide. Collaborated with maintainers across multiple repositories to build production-ready features, resolve critical issues, and earn 3 official credentials with all 6 contributor badges.
               </p>
             </div>
 
