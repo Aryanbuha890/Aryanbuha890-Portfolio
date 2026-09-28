@@ -9,15 +9,12 @@ import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import { motion } from 'framer-motion'
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
+import { gsap, ScrollTrigger } from './utils/gsap'
 import { 
   getSectionIdFromPath, 
   getPathFromSectionId, 
   scrollToSection 
 } from './utils/navigation'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export default function App() {
   const [activeSection, setActiveSection] = useState(() => {

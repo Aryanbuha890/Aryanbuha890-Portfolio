@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Code, Cpu, Database, ChevronDown, Terminal, Play, Circle, X } from 'lucide-react'
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { gsap, ScrollTrigger } from '../utils/gsap'
 
 export default function Services() {
   const [selectedService, setSelectedService] = useState(null)

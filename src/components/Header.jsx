@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Terminal, Menu, X, ArrowRight, Code, Shield, Cpu, ExternalLink } from 'lucide-react'
-import gsap from 'gsap'
+import { gsap } from '../utils/gsap'
 import { NAV_ITEMS, getPathFromSectionId } from '../utils/navigation'
 import { TrialButton } from '@/components/lightswind/trial-button'
 
@@ -52,12 +52,13 @@ export default function Header({ onNavClick, activeSection, setActiveSection, is
   const terminalEndRef = useRef(null)
 
   const words = [
-    "AI/ML Engineer",
     "Full-Stack Developer",
+    "AI/ML Engineer",
     "Hackathon Champion",
     "Problem Solver"
   ]
   const typedText = useTypewriter(words)
+  const currentPrefix = typedText.startsWith('AI') ? 'I am an' : 'I am a'
 
   // Monitor scroll for nav styling
   useEffect(() => {
@@ -402,9 +403,9 @@ export default function Header({ onNavClick, activeSection, setActiveSection, is
               Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-100 to-red-600 select-text">Aryan Buha</span>
             </h1>
 
-            <h2 className="hero-subtitle opacity-0 text-xl sm:text-2xl font-mono text-neutral-400 flex items-center h-8">
-              I am a&nbsp;
-              <span className="text-red-500 border-r-2 border-red-500 pr-1 cursor-blink">
+            <h2 className="hero-subtitle opacity-0 text-[clamp(1.05rem,4.2vw,1.5rem)] font-mono text-neutral-400 flex items-center whitespace-nowrap h-8 sm:h-9 select-text">
+              <span className="whitespace-nowrap shrink-0">{currentPrefix}&nbsp;</span>
+              <span className="text-red-500 border-r-2 border-red-500 pr-1 cursor-blink whitespace-nowrap shrink-0 min-h-[1.2em] inline-flex items-center">
                 {typedText}
               </span>
             </h2>
