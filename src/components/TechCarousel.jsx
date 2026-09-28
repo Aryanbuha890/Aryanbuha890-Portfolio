@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 // --- SVG Technology Logos (User-provided & Premium) ---
@@ -411,32 +411,118 @@ const technologies = [
 ]
 
 export default function TechCarousel() {
-  // Duplicate the array to make the infinite sliding track seamless
-  const duplicatedTech = [...technologies, ...technologies, ...technologies]
+  // 4 sets of the technologies array ensures endless seamless scroll in both directions
+  const duplicatedTech = [...technologies, ...technologies, ...technologies, ...technologies]
+
+  const containerRef = useRef(null)
+  const isMouseDown = useRef(false)
+  const startX = useRef(0)
+  const scrollStart = useRef(0)
+  const isInteractingRef = useRef(false)
+  const pauseTimeoutRef = useRef(null)
+
+  const scheduleResume = () => {
+    if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current)
+    pauseTimeoutRef.current = setTimeout(() => {
+      isInteractingRef.current = false
+    }, 1500)
+  }
+
+  // Initial positioning in the middle so the user can immediately scroll left or right infinitely
+  useEffect(() => {
+    const el = containerRef.current
+    if (el) {
+      const singleSetWidth = el.scrollWidth / 4
+      el.scrollLeft = singleSetWidth * 1.5
+    }
+  }, [])
+
+  // Auto-scroll loop using requestAnimationFrame
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+
+    let animId
+    let lastTime = performance.now()
+
+    const step = (time) => {
+      const delta = (time - lastTime) / 1000
+      lastTime = time
+
+      // Continuous auto-drift when user is not manually interacting
+      if (!isInteractingRef.current && !isMouseDown.current && el) {
+        el.scrollLeft += 35 * delta
+      }
+
+      animId = requestAnimationFrame(step)
+    }
+
+    animId = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(animId)
+  }, [])
+
+  // Infinite wrapping whenever scroll position shifts (works for auto and manual scroll)
+  const handleScroll = () => {
+    const el = containerRef.current
+    if (!el) return
+    const singleSetWidth = el.scrollWidth / 4
+    if (el.scrollLeft >= singleSetWidth * 2.5) {
+      el.scrollLeft -= singleSetWidth
+    } else if (el.scrollLeft <= singleSetWidth * 0.5) {
+      el.scrollLeft += singleSetWidth
+    }
+  }
+
+  // Mouse drag handlers
+  const handleMouseDown = (e) => {
+    isMouseDown.current = true
+    isInteractingRef.current = true
+    startX.current = e.pageX - containerRef.current.offsetLeft
+    scrollStart.current = containerRef.current.scrollLeft
+  }
+
+  const handleMouseMove = (e) => {
+    if (!isMouseDown.current || !containerRef.current) return
+    e.preventDefault()
+    const x = e.pageX - containerRef.current.offsetLeft
+    const walk = (x - startX.current) * 1.5
+    containerRef.current.scrollLeft = scrollStart.current - walk
+  }
+
+  const handleMouseUp = () => {
+    isMouseDown.current = false
+    scheduleResume()
+  }
+
+  const handleMouseEnter = () => {
+    isInteractingRef.current = true
+  }
+
+  const handleMouseLeave = () => {
+    isMouseDown.current = false
+    scheduleResume()
+  }
+
+  const handleTouchStart = () => {
+    isInteractingRef.current = true
+  }
+
+  const handleTouchEnd = () => {
+    scheduleResume()
+  }
+
+  const handleWheel = () => {
+    isInteractingRef.current = true
+    scheduleResume()
+  }
 
   return (
     <section className="py-16 relative overflow-hidden bg-black/40 backdrop-blur-sm select-none border-y border-white/5">
-      {/* Dynamic continuous marquee style */}
-      <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-33.33%); }
-        }
-        .marquee-track {
-          display: flex;
-          width: 300%;
-          animation: marquee 38s infinite linear;
-        }
-        .marquee-track:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-
       {/* Decorative Neon Accents */}
       <div className="absolute top-1/2 left-[-15%] -translate-y-1/2 w-[35vw] h-[35vw] rounded-full bg-red-950/10 blur-[120px] pointer-events-none z-0"></div>
       <div className="absolute top-1/2 right-[-15%] -translate-y-1/2 w-[35vw] h-[35vw] rounded-full bg-neutral-900/40 blur-[120px] pointer-events-none z-0"></div>
 
-      <div className="max-w-7xl mx-auto px-6 mb-12 relative z-10 text-left">
+      <div className="max-w-7xl mx-auto px-6 mb-10 relative z-10 text-left">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-red-500/10 to-amber-500/10 border border-red-500/20 rounded-full text-[10px] font-mono tracking-widest text-red-500 uppercase">
           <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping"></span>
           🛠️ TECHNICAL TOOLSTACK
@@ -447,13 +533,27 @@ export default function TechCarousel() {
         <div className="h-[2px] w-12 bg-gradient-to-r from-red-600 to-amber-500 rounded mt-3"></div>
       </div>
 
-      {/* Looping Marquee container */}
+      {/* Infinite Draggable & Scrollable Container */}
       <div className="relative w-full overflow-hidden flex items-center z-10 py-6">
-        {/* Soft edge gradients to fade out the marquee on left & right sides */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none"></div>
+        {/* Soft edge gradients to fade out the carousel on left & right sides */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-28 bg-gradient-to-r from-black via-black/80 to-transparent z-20 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-28 bg-gradient-to-l from-black via-black/80 to-transparent z-20 pointer-events-none"></div>
 
-        <div className="marquee-track flex gap-8 md:gap-12">
+        {/* Scroll Track */}
+        <div 
+          ref={containerRef}
+          onScroll={handleScroll}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          onMouseEnter={handleMouseEnter}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onWheel={handleWheel}
+          className="w-full overflow-x-auto overflow-y-hidden scrollbar-none flex gap-8 md:gap-12 cursor-grab active:cursor-grabbing select-none px-8 md:px-12 py-2"
+          style={{ scrollBehavior: 'auto', WebkitOverflowScrolling: 'touch' }}
+        >
           {duplicatedTech.map((tech, idx) => {
             const Logo = tech.logo
             return (

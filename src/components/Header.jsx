@@ -438,7 +438,7 @@ export default function Header({ onNavClick, activeSection, setActiveSection, is
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-4">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 pt-4 w-full">
               <TrialButton 
                 href="/achievements"
                 onClick={(e) => {
