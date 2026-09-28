@@ -10,8 +10,18 @@ export default function Portfolio({ onNavClick }) {
   useEffect(() => {
     if (selectedAch) {
       setActiveModalImage(selectedAch.img)
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') setSelectedAch(null)
+      }
+      window.addEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = 'hidden'
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown)
+        document.body.style.overflow = ''
+      }
     } else {
       setActiveModalImage(null)
+      document.body.style.overflow = ''
     }
   }, [selectedAch])
 
@@ -384,7 +394,7 @@ export default function Portfolio({ onNavClick }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 overflow-y-auto bg-black/90 backdrop-blur-md flex items-center justify-center p-4 md:p-6 select-text"
+            className="fixed inset-0 z-[100000] overflow-y-auto bg-black/90 backdrop-blur-md flex items-center justify-center p-4 md:p-6 select-text"
             onClick={() => setSelectedAch(null)}
           >
             <motion.div
@@ -407,9 +417,10 @@ export default function Portfolio({ onNavClick }) {
                 </div>
                 <button 
                   onClick={() => setSelectedAch(null)}
-                  className="text-neutral-500 hover:text-white p-1 hover:bg-white/5 rounded transition-all"
+                  className="text-neutral-400 hover:text-white p-1.5 hover:bg-white/10 rounded-lg transition-all cursor-pointer"
+                  aria-label="Close modal"
                 >
-                  <X size={16} />
+                  <X size={18} />
                 </button>
               </div>
 
