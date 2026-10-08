@@ -79,7 +79,20 @@ I am a Full Stack Software Engineer and AI/ML enthusiast pursuing a **B.E. in Co
 
 ## 💼 Professional Experience
 
-### 1. **Jupiter Wealth — Software Engineer Intern (WealthTech CRM)**
+### 1. **SVNIT Surat — Research Intern (AI & Computer Vision)**
+*Oct 2026 – Present · 1 mo | Surat, Gujarat, India · Hybrid*  
+**Badges:** `AI/ML Research` · `Computer Vision` · `Model Training` · `Data Annotation` · `NIT Surat`
+
+- Selected as a **Research Intern** at **Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat**, contributing to technology-driven research and development in Artificial Intelligence, Machine Learning, and Computer Vision.
+- Working on AI/ML model development, training, testing, and evaluation.
+- Contributing to dataset preparation, image/video annotation, data processing, and analysis.
+- Developing research-oriented software solutions and implementing AI-driven approaches.
+- Exploring practical applications of AI and Computer Vision through research and experimentation.
+- Collaborating in a high-caliber research laboratory environment to develop and evaluate technology-driven solutions.
+
+---
+
+### 2. **Jupiter Wealth — Software Engineer Intern (WealthTech CRM)**
 *Jun 2026 – Sep 2026 · 3 mos | Vadodara, Gujarat, India (Remote)*  
 **Badges:** `WealthTech CRM` · `4-Tier RBAC` · `13 Test Suites` · `Next.js 16` · `Prisma ORM`
 
@@ -92,7 +105,7 @@ I am a Full Stack Software Engineer and AI/ML enthusiast pursuing a **B.E. in Co
 
 ---
 
-### 2. **Triotrack Solution — Software Engineer (Freelance)**
+### 3. **Triotrack Solution — Software Engineer (Freelance)**
 *Apr 2026 – Present | Surat, Gujarat, India · Remote*  
 **Badges:** `Client Engineering` · `Custom Software` · `AI Automation` · `Full Stack`
 
@@ -101,7 +114,7 @@ I am a Full Stack Software Engineer and AI/ML enthusiast pursuing a **B.E. in Co
 
 ---
 
-### 3. **Code Vimarsh — Core Team Member (Club Lead)**
+### 4. **Code Vimarsh — Core Team Member (Club Lead)**
 *Jan 2026 – Present | Vadodara, Gujarat, India*  
 **Badges:** `Frontend Architecture` · `Community Lead` · `React.js` · `UI/UX`
 
@@ -110,7 +123,7 @@ I am a Full Stack Software Engineer and AI/ML enthusiast pursuing a **B.E. in Co
 
 ---
 
-### 4. **Elite Coders — Open Source Contributor (ECSoC'26)**
+### 5. **Elite Coders — Open Source Contributor (ECSoC'26)**
 *Jul 2026 – Sep 2026 · Remote*  
 **Badges:** `Global Rank #2 / 13,000+` · `3 Verified Credentials` · `All 6 Tiers Unlocked` · `Open Source`
 

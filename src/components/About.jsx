@@ -30,6 +30,26 @@ export default function About() {
 
   const experiences = [
     {
+      company: 'Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat',
+      type: 'Internship',
+      logo: '/SVNIT LOGO.png',
+      logoBg: 'bg-white p-0.5',
+      badge: 'AI & Computer Vision',
+      role: 'Research Intern',
+      date: 'Oct 2026 - Present · 1 mo',
+      location: 'Surat, Gujarat, India · Hybrid',
+      employmentType: 'Research & Development',
+      desc: [
+        'Selected as a Research Intern at SVNIT Surat, contributing to technology-driven research and development in Artificial Intelligence, Machine Learning, and Computer Vision.',
+        'Working on AI/ML model development, training, testing, and evaluation.',
+        'Contributing to dataset preparation, image/video annotation, data processing, and analysis.',
+        'Developing research-oriented software solutions and implementing AI-driven approaches.',
+        'Exploring practical applications of AI and Computer Vision through research and experimentation.',
+        'Collaborating in a research environment to develop and evaluate technology-driven solutions.'
+      ],
+      skills: ['Artificial Intelligence (AI)', 'Machine Learning (ML)', 'Computer Vision', 'Data Processing', 'Model Training & Evaluation', 'Dataset Annotation', 'Research & Development']
+    },
+    {
       company: 'Code Vimarsh',
       type: 'Technical Club',
       logo: '/code_vimarsh_logo.jpg',
@@ -274,11 +294,11 @@ export default function About() {
                                 alt={`${exp.company} Logo`} 
                                 loading="lazy" 
                                 decoding="async" 
-                                className="w-full h-full object-contain rounded" 
+                                className={`w-full h-full object-contain rounded ${exp.logoBg || ''}`} 
                               />
                             </div>
                             <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 min-w-0 flex-1">
-                              <span className="font-bold text-white text-sm sm:text-base tracking-wide whitespace-nowrap">{exp.company}</span>
+                              <span className="font-bold text-white text-sm sm:text-base tracking-wide">{exp.company}</span>
                               {exp.type && (
                                 <span className="text-xs text-neutral-400 font-normal whitespace-nowrap flex items-center gap-1.5">
                                   <span className="w-1.5 h-1.5 rounded-full bg-neutral-500 shrink-0"></span>
