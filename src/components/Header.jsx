@@ -60,14 +60,10 @@ export default function Header({ onNavClick, activeSection, setActiveSection, is
   const typedText = useTypewriter(words)
   const currentPrefix = typedText.startsWith('AI') ? 'I am an' : 'I am a'
 
-  // Monitor scroll for nav styling
+  const activeSectionRef = useRef(activeSection)
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    activeSectionRef.current = activeSection
+  }, [activeSection])
 
   // GSAP Hero entrance timeline
   useEffect(() => {
@@ -81,55 +77,71 @@ export default function Header({ onNavClick, activeSection, setActiveSection, is
       .fromTo('.hero-terminal', { opacity: 0, x: 40, scale: 0.97 }, { opacity: 1, x: 0, scale: 1, duration: 0.9 }, '-=0.8')
   }, [])
 
-  // Sync active section and URL route based on scroll position using Intersection Observer
+  // Unified high-performance scroll listener: handles navbar styling & active section sync without skipping
   useEffect(() => {
     const sectionIds = ['home', 'about', 'services', 'projects', 'portfolio', 'contact']
-    
-    const observerOptions = {
-      root: null,
-      rootMargin: '-100px 0px -40% 0px',
-      threshold: 0.15
-    }
+    let ticking = false
 
-    const observerCallback = (entries) => {
-      // Avoid replacing URL while programmatically smooth-scrolling from a click
+    const syncScrollState = () => {
+      ticking = false
+      const scrollY = window.scrollY
+
+      // 1. Update navbar styling (compact vs expanded)
+      setIsScrolled(scrollY > 20)
+
+      // Suppress active section override while programmatic smooth-scroll is in progress
       if (isNavigatingRef && isNavigatingRef.current) return
 
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const sectionId = entry.target.id
-          setActiveSection(sectionId)
-          const targetPath = getPathFromSectionId(sectionId)
-          if (window.location.pathname !== targetPath) {
-            window.history.replaceState(null, '', targetPath)
+      // 2. Determine active section based on scroll position
+      let detectedSection = 'home'
+
+      const docHeight = document.documentElement.scrollHeight
+      const winHeight = window.innerHeight
+
+      // If at or near bottom of document, activate the last section ('contact')
+      if (winHeight + scrollY >= docHeight - 60) {
+        detectedSection = 'contact'
+      } else if (scrollY < 120) {
+        detectedSection = 'home'
+      } else {
+        // Focal line: where user gaze is concentrated (~160px from top, below navbar)
+        const focalLine = 160
+
+        for (const id of sectionIds) {
+          const el = document.getElementById(id)
+          if (el) {
+            const rect = el.getBoundingClientRect()
+            if (rect.top <= focalLine) {
+              detectedSection = id
+            }
           }
         }
-      })
-    }
+      }
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions)
+      // 3. Update state & clean URL only when section actually changes
+      if (detectedSection !== activeSectionRef.current) {
+        activeSectionRef.current = detectedSection
+        setActiveSection(detectedSection)
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id)
-      if (el) observer.observe(el)
-    })
-
-    // Fallback: If scrolled to top (header hero), guarantee root path '/'
-    const handleTopScroll = () => {
-      if (isNavigatingRef && isNavigatingRef.current) return
-      if (window.scrollY < 80 && window.location.pathname !== '/') {
-        setActiveSection('home')
-        window.history.replaceState(null, '', '/')
+        const targetPath = getPathFromSectionId(detectedSection)
+        if (window.location.pathname !== targetPath) {
+          window.history.replaceState(null, '', targetPath)
+        }
       }
     }
-    window.addEventListener('scroll', handleTopScroll, { passive: true })
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true
+        requestAnimationFrame(syncScrollState)
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    syncScrollState()
 
     return () => {
-      sectionIds.forEach((id) => {
-        const el = document.getElementById(id)
-        if (el) observer.unobserve(el)
-      })
-      window.removeEventListener('scroll', handleTopScroll)
+      window.removeEventListener('scroll', onScroll)
     }
   }, [setActiveSection, isNavigatingRef])
 
