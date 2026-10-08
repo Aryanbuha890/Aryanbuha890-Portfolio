@@ -34,7 +34,6 @@ export default function About() {
       type: 'Internship',
       logo: '/SVNIT LOGO.png',
       logoBg: 'bg-white p-0.5',
-      badge: 'AI & Computer Vision',
       role: 'Research Intern',
       date: 'Oct 2026 - Present · 1 mo',
       location: 'Surat, Gujarat, India · Hybrid',
