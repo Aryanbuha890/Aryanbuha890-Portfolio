@@ -21,7 +21,7 @@
 <br/>
 
 > **Computer Science & Engineering Student @ The Maharaja Sayajirao University of Baroda (MSU)**  
-> *Architecting resilient enterprise software, high-throughput full-stack platforms, autonomous multi-agent AI, and computer vision systems.*
+> *Architecting resilient enterprise software, high-throughput full-stack platform, autonomous multi-agent AI, and computer vision systems.*
 
 </div>
 
