@@ -36,7 +36,7 @@
 - [Major Achievements & Hackathon Honors](#-major-achievements--hackathon-honors)
 - [Professional Experience](#-professional-experience)
 - [Featured Flagship Projects](#-featured-flagship-projects)
-  - [1. Jupiter Wealth CRM](#1-jupiter-wealth-crm)
+  - [1. Jupiter Wealth CRM](#1-jupiter-wealth-CRM)
   - [2. Kaashona Resort ERP](#2-kaashona-resort-erp)
   - [3. LogiMind AI (Maritime Command OS)](#3-logimind-ai-maritime-command-os)
   - [4. AgriForge AI](#4-agriforge-ai)
