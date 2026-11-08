@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ExternalLink, X, Terminal, Code, Sprout, Building2, Lock, Activity, Globe, Eye, Ship, Briefcase } from 'lucide-react'
+import { ExternalLink, X, Terminal, Code, Sprout, Building2, Lock, Activity, Globe, Eye, Ship, Briefcase, Wrench } from 'lucide-react'
 import { gsap, ScrollTrigger } from '../utils/gsap'
 
 // Inline custom LinkedIn Icon (matching Contact.jsx style)
@@ -73,6 +73,47 @@ export default function Projects({ onNavClick }) {
         '🔐 Enterprise Architecture & Security: Server-side dynamic 4-role RBAC, custom session JWT auth, database mutation audit logging, soft-delete architecture (deletedAt), IST-aware times, and 100% Zod validation.',
         '🧪 13 Automated Test Suites: Comprehensive test coverage spanning unit testing, API endpoints, lead pipelines, entity onboarding, metrics, RBAC permissions, sessions, bulk uploads, and success flows.',
         '🤝 Built Together with Krushit Prajapati, Neel Prajapati, and Sumit Patel — from Day 1 Appointment Letter to Internship Completion and Letter of Recommendation (LOR).'
+      ]
+    },
+    {
+      id: 'printer-os',
+      title: 'PRINTER_OS',
+      category: 'Enterprise SaaS & Field Operations',
+      shortDesc: 'Complete Field Service Management System engineered for Nilkanth Enterprises by Triotrack Solution, integrating real-time live GPS technician tracking, worker dispatch, inventory, and digital customer signature sign-offs.',
+      tag: 'Field Service Management OS',
+      icon: Wrench,
+      img: '/P1.png',
+      gallery: [
+        { img: '/P1.png', title: 'Smarter Service. Better Operations', tag: 'Overview & Ecosystem' },
+        { img: '/P2.png', title: 'Central Operations Admin Dashboard', tag: 'Central Admin Portal' },
+        { img: '/P3.png', title: 'Technician Mobile Workflow App', tag: 'Worker Mobile App' },
+        { img: '/P4.png', title: 'Create & Assign Service Jobs', tag: 'Work Order Dispatch' },
+        { img: '/P5.png', title: 'Know Where Your Team Is', tag: 'Live GPS Fleet Tracking' },
+        { img: '/P6.png', title: 'Never Lose Track of Parts', tag: 'Parts & Inventory' },
+        { img: '/P7.png', title: 'From Service to Verified Completion', tag: 'Digital Verification' }
+      ],
+      linkType: 'linkedin',
+      linkUrl: 'https://www.linkedin.com/feed/update/urn:li:activity:7512047060926369793/',
+      stack: ['REACT.JS', 'TYPESCRIPT', 'FLUTTER & DART', 'NODE.JS', 'EXPRESS.JS', 'POSTGRESQL', 'SUPABASE', 'SSE (REAL-TIME)', 'LEAFLET & OSM', 'CLOUDFLARE R2', 'FIREBASE FCM', 'TAILWIND CSS'],
+      themeColor: 'blue',
+      borderHover: 'hover:border-blue-500/60 hover:shadow-[0_0_30px_rgba(59,130,246,0.25),_inset_0_0_20px_rgba(59,130,246,0.08)]',
+      borderActive: 'border-blue-500/40 shadow-[0_0_50px_rgba(59,130,246,0.25)]',
+      textTheme: 'text-blue-400',
+      textDarkTheme: 'text-blue-500',
+      bgTag: 'bg-blue-950/20 border-blue-500/30',
+      glowBg: 'rgba(59, 130, 246, 0.18)',
+      btnTheme: 'bg-blue-600 hover:bg-blue-700 shadow-[0_0_20px_rgba(59,130,246,0.2)]',
+      summary: 'FULL-SCALE FIELD SERVICE MANAGEMENT SYSTEM DEVELOPED BY TRIOTRACK SOLUTION FOR NILKANTH ENTERPRISES. CONVERTS COMPLEX PAPER-AND-MANUAL FIELD SERVICE WORKFLOWS INTO A UNIFIED CONNECTED DIGITAL PLATFORM — BRIDGING DESKTOP ADMIN OPERATIONS WITH ON-GROUND TECHNICIANS IN REAL TIME.',
+      highlights: [
+        '🖥️ Admin Management Dashboard: Centralized dispatch command center built with React.js, TypeScript, Vite, and Tailwind CSS for managing 2,550+ spare parts, active service work orders, client accounts, and technician allocations.',
+        '📱 Worker Mobile Application: Cross-platform mobile app built with Flutter & Dart guiding field engineers through a 4-step workflow: Accept → Service → Update → Complete with instant status synchronization.',
+        '🛠️ Service Job & Technician Dispatch: Multi-step guided job creation wizard specifying customer details, equipment serials (Canon, HP, Konica Minolta, Epson), reported fault diagnostics, priority levels, and scheduled appointment windows.',
+        '📍 Live GPS Fleet & Route Tracking: Real-time worker geolocation telemetry streamed via Server-Sent Events (SSE) and visualized with Leaflet, MapLibre, and OpenStreetMap featuring live route navigation, speed, and ETA calculation.',
+        '📦 Parts & Inventory Management: Comprehensive database of 2,550+ service spare parts, tracking part installation, inventory stock levels, and Excel export reporting alongside individual job work orders.',
+        '📸 Before & After Service Documentation: Photographic proof-of-work capturing faulty components before repair and test prints after calibration, stored securely on Cloudflare R2 object storage.',
+        '✍️ Digital Customer Signature Verification: Paperless on-glass touch sign-off with customer verification and tamper-evident cryptographic sign-off confirmation recorded upon job completion.',
+        '🔔 Real-Time Notifications & Push Alerts: Instant push dispatch alerts and status changes triggered via Firebase Cloud Messaging (FCM) and PostgreSQL + Supabase backend.',
+        '🤝 Shipped by Triotrack Solution: Engineered collaboratively by Aryan Buha, Taksh Kathiriya, and Prit Jasani — turning field service problems into practical digital products.'
       ]
     },
     {

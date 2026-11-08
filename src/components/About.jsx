@@ -7,7 +7,7 @@ export default function About() {
   const [expandedRoles, setExpandedRoles] = useState({})
   const toggleRole = (idx) => setExpandedRoles(prev => ({ ...prev, [idx]: !prev[idx] }))
 
-  const profileImage = '/images/Aryan Resume Photo.png'
+  const profileImage = '/images/Aryan Resume Photo.jpeg'
 
   const skillCategories = [
     {
@@ -74,10 +74,10 @@ export default function About() {
       employmentType: 'Freelance',
       desc: [
         'Software developer at Triotrack Solution, focused on building modern digital solutions for businesses through Web Development, Custom Software and AI Automation.',
-        'Leading projects from idea to execution while collaborating with clients to create scalable, user-friendly, and innovative digital experiences.',
-        'Passionate about technology, startups, and building impactful solutions with a strong focus on creativity and growth.'
+        'Architected and delivered Printer_OS: a comprehensive Field Service Management System for Nilkanth Enterprises featuring an Admin Management Dashboard (React, TypeScript), Technician Mobile App (Flutter), live GPS fleet tracking (SSE), Cloudflare R2 documentation, and digital customer verification.',
+        'Collaborated with Taksh Kathiriya and Prit Jasani to convert manual field-service operations into scalable, connected digital products with push alerts and real-time synchronization.'
       ],
-      skills: ['Web Development', 'Custom Software', 'AI Automation', 'Client Solutions', 'Business Development']
+      skills: ['React.js', 'TypeScript', 'Flutter & Dart', 'Node.js', 'PostgreSQL', 'Supabase', 'Live GPS Tracking', 'Cloudflare R2', 'Firebase FCM']
     },
     {
       company: 'Elite Coders',
@@ -145,7 +145,7 @@ export default function About() {
       <div className="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-red-950/10 blur-3xl animated-glow-bg pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-left mb-16 space-y-2">
           <div className="text-red-500 font-mono text-sm tracking-widest uppercase flex items-center gap-2">
@@ -157,9 +157,9 @@ export default function About() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* Left Side: Photo Frame */}
-          <motion.div 
+          <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
@@ -169,20 +169,20 @@ export default function About() {
             <div className="relative group max-w-[320px] w-full">
               {/* Outer coder frame box */}
               <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-red-600 to-black opacity-30 group-hover:opacity-100 blur-lg transition duration-500"></div>
-              
+
               {/* Image box */}
               <div className="relative rounded-xl overflow-hidden bg-black border border-white/10 p-2 flex flex-col items-center">
                 <div className="relative w-full aspect-square rounded-lg overflow-hidden border border-white/5">
-                  <img 
-                    src={profileImage} 
-                    alt="Aryan Buha" 
+                  <img
+                    src={profileImage}
+                    alt="Aryan Buha"
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover object-center transition-all duration-500 ease-out hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                 </div>
-                
+
                 {/* Visual signature / footer card */}
                 <div className="mt-4 w-full px-2 py-2 flex items-center justify-between border-t border-white/5 font-mono text-[10px] text-neutral-500">
                   <span>Aryan_Buha.bin</span>
@@ -194,7 +194,7 @@ export default function About() {
           </motion.div>
 
           {/* Right Side: Tabbed info */}
-          <motion.div 
+          <motion.div
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
@@ -219,14 +219,13 @@ export default function About() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex-1 py-2.5 rounded text-xs font-mono tracking-wider uppercase flex items-center justify-center gap-2 transition-all relative ${
-                      isActive 
-                        ? 'text-white' 
+                    className={`flex-1 py-2.5 rounded text-xs font-mono tracking-wider uppercase flex items-center justify-center gap-2 transition-all relative ${isActive
+                        ? 'text-white'
                         : 'text-neutral-500 hover:text-neutral-300'
-                    }`}
+                      }`}
                   >
                     {isActive && (
-                      <motion.div 
+                      <motion.div
                         layoutId="activeTabGlow"
                         className="absolute inset-0 bg-red-600/10 border border-red-500/20 rounded"
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
@@ -259,8 +258,8 @@ export default function About() {
                         </h4>
                         <div className="flex flex-wrap gap-2">
                           {cat.skills.map((skill, sIdx) => (
-                            <span 
-                              key={sIdx} 
+                            <span
+                              key={sIdx}
                               className="px-2.5 sm:px-3 py-1 rounded bg-white/2 hover:bg-red-600/10 border border-white/5 hover:border-red-500/20 text-xs text-neutral-300 hover:text-white transition-all font-mono whitespace-nowrap"
                             >
                               {skill}
@@ -288,12 +287,12 @@ export default function About() {
                           {/* Company Header Row */}
                           <div className="flex items-start sm:items-center gap-3">
                             <div className="w-8 h-8 rounded-lg bg-neutral-950 border border-white/15 p-1 flex items-center justify-center overflow-hidden shrink-0 shadow-md self-start sm:self-center mt-0.5 sm:mt-0">
-                              <img 
-                                src={exp.logo} 
-                                alt={`${exp.company} Logo`} 
-                                loading="lazy" 
-                                decoding="async" 
-                                className={`w-full h-full object-contain rounded ${exp.logoBg || ''}`} 
+                              <img
+                                src={exp.logo}
+                                alt={`${exp.company} Logo`}
+                                loading="lazy"
+                                decoding="async"
+                                className={`w-full h-full object-contain rounded ${exp.logoBg || ''}`}
                               />
                             </div>
                             <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 min-w-0 flex-1">
@@ -318,15 +317,15 @@ export default function About() {
                             <div className="absolute left-0 top-0 w-5 h-6 border-l-2 border-b-2 border-neutral-700/80 rounded-bl-xl pointer-events-none"></div>
 
                             {/* Role Title Bar */}
-                            <div 
+                            <div
                               onClick={() => toggleRole(idx)}
                               className="flex items-center justify-between cursor-pointer group/role select-none py-1"
                             >
                               <h4 className="text-sm sm:text-base font-bold text-white group-hover/role:text-red-400 transition-colors">
                                 {exp.role}
                               </h4>
-                              <button 
-                                type="button" 
+                              <button
+                                type="button"
                                 className="text-neutral-400 hover:text-white transition-colors p-1"
                                 aria-label="Toggle role details"
                               >
@@ -369,14 +368,14 @@ export default function About() {
                                   {/* Skill / Technology Pills */}
                                   {exp.skills && (
                                     <div className="flex flex-wrap gap-2 mt-4 pt-1">
-                                        {exp.skills.map((skill, sIdx) => (
-                                          <span
-                                            key={sIdx}
-                                            className="px-2.5 sm:px-3 py-1 rounded-lg bg-neutral-900 border border-neutral-800 text-[11px] sm:text-xs text-neutral-300 font-sans font-medium hover:border-neutral-700 transition-colors whitespace-nowrap"
-                                          >
-                                            {skill}
-                                          </span>
-                                        ))}
+                                      {exp.skills.map((skill, sIdx) => (
+                                        <span
+                                          key={sIdx}
+                                          className="px-2.5 sm:px-3 py-1 rounded-lg bg-neutral-900 border border-neutral-800 text-[11px] sm:text-xs text-neutral-300 font-sans font-medium hover:border-neutral-700 transition-colors whitespace-nowrap"
+                                        >
+                                          {skill}
+                                        </span>
+                                      ))}
                                     </div>
                                   )}
                                 </motion.div>
@@ -421,13 +420,13 @@ export default function About() {
                 )}
               </AnimatePresence>
             </div>
-            
+
           </motion.div>
 
         </div>
 
         {/* Open Source Badges Showcase Section */}
-        <motion.div 
+        <motion.div
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
@@ -477,20 +476,20 @@ export default function About() {
                   { img: '/5.png', label: 'Tier: Elite' },
                   { img: '/6.png', label: 'Tier: Master' }
                 ].map((badge, idx) => (
-                  <div 
-                    key={idx} 
+                  <div
+                    key={idx}
                     className="flex flex-col items-center gap-2 group/badge"
                   >
                     <div className="relative aspect-square w-full rounded-xl bg-black border border-white/10 group-hover/badge:border-red-500/50 p-2 flex items-center justify-center transition-all duration-300 group-hover/badge:scale-105 group-hover/badge:bg-red-950/10 shadow-[inner_0_0_15px_rgba(255,255,255,0.02)]">
-                      <img 
-                        src={badge.img} 
-                        alt={badge.label} 
-                        loading="lazy" 
-                        decoding="async" 
-                        className="w-full h-full object-contain" 
+                      <img
+                        src={badge.img}
+                        alt={badge.label}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-contain"
                       />
                     </div>
-                    
+
                     {/* Badge Label (Visible by default, no hover required) */}
                     <span className="text-[10px] sm:text-[11px] font-mono text-neutral-400 group-hover/badge:text-white transition-colors text-center leading-tight tracking-tight px-1">
                       {badge.label}
