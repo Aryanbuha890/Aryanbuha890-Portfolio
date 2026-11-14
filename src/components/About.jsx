@@ -35,7 +35,7 @@ export default function About() {
       logo: '/SVNIT LOGO.png',
       logoBg: 'bg-white p-0.5',
       role: 'Research Intern',
-      date: 'Oct 2026 - Present · 1 mo',
+      date: 'Oct 2026 - Present · 2 mos',
       location: 'Surat, Gujarat, India · Hybrid',
       employmentType: 'Research & Development',
       desc: [
@@ -49,11 +49,29 @@ export default function About() {
       skills: ['Artificial Intelligence (AI)', 'Machine Learning (ML)', 'Computer Vision', 'Data Processing', 'Model Training & Evaluation', 'Dataset Annotation', 'Research & Development']
     },
     {
+      company: 'Dev Infinity',
+      type: 'Technical Club',
+      badge: 'Club President',
+      logo: '/Dev Infinity Logo.jpg',
+      role: 'President',
+      date: 'Jan 2026 - Present · 11 mos',
+      location: 'Vadodara, Gujarat, India',
+      employmentType: 'President',
+      desc: [
+        'Driving initiatives focused on modern web technologies, frontend, backend engineering, and full-stack development.',
+        'Organizing technical workshops, bootcamps, coding challenges, and hackathons to promote practical learning.',
+        'Guiding students in building real-world projects using modern frameworks, APIs, databases, and deployment tools.',
+        'Managing technical teams and coordinating collaborative development activities.',
+        'Promoting AI-assisted development, open-source contributions, and industry-oriented learning.'
+      ],
+      skills: ['Leadership', 'Full-Stack Development', 'React.js', 'Next.js', 'Workshops & Hackathons', 'Team Management', 'AI-Assisted Development', 'Open Source']
+    },
+    {
       company: 'Code Vimarsh',
       type: 'Technical Club',
       logo: '/code_vimarsh_logo.jpg',
       role: 'Core Team Member',
-      date: 'Jan 2026 - Present',
+      date: 'Jan 2026 - Nov 2026 · 11 mos',
       location: 'Vadodara, Gujarat, India',
       employmentType: 'Club Lead',
       desc: [
@@ -69,7 +87,7 @@ export default function About() {
       type: 'Freelance',
       logo: '/triotrack_solution_logo.jpg',
       role: 'Software Engineer',
-      date: 'Apr 2026 - Present',
+      date: 'Apr 2026 - Oct 2026 · 7 mos',
       location: 'Surat, Gujarat, India · Remote',
       employmentType: 'Freelance',
       desc: [
